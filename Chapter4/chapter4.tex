@@ -248,7 +248,7 @@ E = \frac{L +0.1000}{10340}
 \end{equation}
 
 \section{Counting Statistics} \label{sec:geant4Simulation_countingStats}
-When a particle passes through the scintillating plastic it produces photons as it interacts. These photons then travel through the bar until they meet the wavelength shifting fibres (wls). The photons then travel down the wls until they encounter the MPPC  this signal is them amplified by the MPPC producing a signal of 4.2\,mV which is equivalent for one photon see figure \ref{fig:pureDarkNoise} which is called a photo-electron equivalent (PE). So for n number of photo-electron equivalents there will be a Poisson distribution associated with it due to counting statistics. The Poisson values can be approximated to Gaussian as n becomes larger 
+When a particle passes through the scintillating plastic it produces photons as it interacts. These photons then travel through the bar until they meet the wavelength shifting fibres (wls). The photons then travel down the wls until they encounter the MPPC  this signal is them amplified by the MPPC producing a signal of 4.2\,mV which is equivalent for one photon see figure \ref{fig:pureDarkNoise} which is called a photo-electron equivalent (PE). So for n number of photo-electron equivalents there will be a Poisson distribution (equation \ref{equ:possionProb}) associated with it due to counting statistics. This only holds true if there is a small probability of a given outcome which is true for this case. For this distribution $pn = \overline{x}$ where $\overline{x}$ is the expectation value, substituting this into equation \ref{equ:possionProb} we get equation \ref{equ:possionExpectation} \cite{knoll_2010}.
 \begin{equation}
 P(x) = \frac{(pn)^x e^{-pn}}{x!}  
 \label{equ:possionProb}
@@ -258,6 +258,8 @@ P(x) = \frac{(pn)^x e^{-pn}}{x!}
 P(x) = \frac{(\overline{x})^x e^{-\overline{x}}}{x!}  
 \label{equ:possionExpectation}
 \end{equation}
+
+Further the variance of this model can thus be explained using equation  \ref{equ:possionVar} which also gives $\sigma^2 = \overline{x}$ and thus gives a standard deviation of $\sigma = \sqrt{\overline{x}}$ \cite{knoll_2010}. This definition is also of the standard deviation is also true for the Gaussian distribution. The Gaussian distribution which uses this standard deviation can be seen in equation \ref{equ:guassianExpectation}. When n is high enough the Poisson distribution will approximate to a Gaussian distribution this is useful when simulating light counting statistics because a Gaussian distribution is much less computationally intensive as there is no factorial. The point where Gaussian is used instead of Poisson in the simulation is at a value of 10 photons seen in figure \ref{fig:CoutingStats10}, this is when 99.9\,\% of the distribution having 2 photons which is the limit for hits to be considered. 
 
 \begin{equation}
 \sigma ^2 \equiv \sum_{x=0}^{n} (x-\overline{x})^2 P(x) = pn = \overline{x} 
