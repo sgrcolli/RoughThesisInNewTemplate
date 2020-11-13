@@ -27,9 +27,51 @@ The original prototype detector was deployed at the Wylfa Nuclear power station 
  \label{fig:wylfaAir}
 \end{figure}
 
+\section{Simulation Of Cosmic $\mu$s }\label{sec:SimulationOfCosmics}
 
-\section{Reactor Shadow} \label{sec:ReactorShadow}
-When measuring $\theta$ and $\phi$ the reactor and turbine hall should block some of the cosmic rays which should then be measurable 
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/phiComarison.png}
+ \captionof{figure}{\hl{remove the original fitter from this plot}} %~can be used as a kind of place holder in latex
+ \label{fig:phiGenVsRecoHem}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/thetaComarison.png}
+ \captionof{figure}{\hl{remove the orginal fitter from this plot} } %~can be used as a kind of place holder in latex
+ \label{fig:thetaGenVsRecoHem}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/dedxComarison.png}
+ \captionof{figure}{\hl{need to add in generated de dx for this ploy} } %~can be used as a kind of place holder in latex
+ \label{fig:dedxGenVsRecoHem}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/phi_vs_theta_hem_simNoDead.png}
+ \captionof{figure}{Simulated cosmic hemisphere which has a flat distribution in $\theta$ from 0$^\circ$ to 90$^\circ$ and a flat distribution in $\phi$ from 0$^\circ$ to 360$^\circ$ which is then reconstructed using the online trackfitter} %~can be used as a kind of place holder in latex
+ \label{fig:simulatedHemisphereDist}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/simulatedNormalDistirbution.png}
+ \captionof{figure}{Simulated distribution with an ideally generated cosmic distribution.} %~can be used as a kind of place holder in latex
+ \label{fig:simulatedNormalDist}
+\end{figure}
+
+\section{Reactor Shadow: Methodology} \label{sec:ReactorShadowMethodology}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/3000ExampleEvent.png}
+ \captionof{figure}{.} 
+ \label{fig:3000ExampleEvent}
+\end{figure}
 
 \begin{figure}[H]
  \centering
@@ -41,7 +83,7 @@ When measuring $\theta$ and $\phi$ the reactor and turbine hall should block som
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/p_realWorldAbove32.5.png}
- \captionof{figure}{Measured $\phi$ above 32.5$^{\circ}$. The reactor shadow is clearly visible between 87.5$^{\circ}$ - 142.5$^{\circ}$ The turbine hall shadow is approximated to be between 237.5$^{\circ}$ - 292.5$^{\circ}$ but it is much less clear}
+ \captionof{figure}{Measured $\phi$ above 32.5$^{\circ}$. The reactor shadow is clearly visible between 87.5$^{\circ}$ - 142.5$^{\circ}$ The turbine hall shadow is approximated to be between 237.5$^{\circ}$ - 292.5$^{\circ}$ but it is much less clear.}
  \label{fig:pRealWorldAbove52.5}
 \end{figure}
 
@@ -55,22 +97,15 @@ When measuring $\theta$ and $\phi$ the reactor and turbine hall should block som
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/p_realWorldAbove52.5.png}
- \captionof{figure}{Measured $\phi$ above 52.5$^{\circ}$. The reactor shadow is clearly visible between 162.5$^{\circ}$-47.5$^{\circ}$ and the turbine hall is approximated to be between $\sim$ 197.5$^{\circ}$ - 312.5$^{\circ}$ } 
+ \captionof{figure}{Measured $\phi$ above 52.5$^{\circ}$. The reactor shadow is clearly visible between 162.5$^{\circ}$-47.5$^{\circ}$ and the turbine hall is approximated to be between $\sim$ 197.5$^{\circ}$ - 312.5$^{\circ}$ but again is much less clear} 
  \label{fig:pRealWorldAbove52.5}
 \end{figure}
 
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/wylfaTrace_above52.5.png}
- \captionof{figure}{The circular distribution of the $\phi$ above a $\theta$ of 52.5$^\circ$ the reactor shadow is now dominated by the main reactor building } %~can be used as a kind of place holder in latex
+ \captionof{figure}{The circular distribution of the $\phi$ above a $\theta$ of 52.5$^\circ$ the reactor shadow is now dominated by the main reactor building.} %~can be used as a kind of place holder in latex
  \label{fig:wylfaTraceAbove52.5}
-\end{figure}
-
-\begin{figure}[H]
- \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/simulatedNormalDistirbution.png}
- \captionof{figure}{Simulated distribution with an ideally generated cosmic distribution.} %~can be used as a kind of place holder in latex
- \label{fig:simulatedNormalDist}
 \end{figure}
 
 \begin{figure}[H]
@@ -85,6 +120,26 @@ When measuring $\theta$ and $\phi$ the reactor and turbine hall should block som
  \includegraphics[width=1.0\linewidth]{Chapter5/Figs/Raster/wyflaHieghts.png}
  \captionof{figure}{The estimated heights of the reactor buildings, above 32.5$^{\circ}$ the green tower closest to the detector dominates, above 52.5$^{\circ}$ the main reactor building dominates the shadow.} %~can be used as a kind of place holder in latex
  \label{fig:wylfaHieghts}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.685\linewidth]{Chapter5/Figs/Raster/reactorBuildingsTopDown.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Top down perspective of simulated reactor buildings in Geant4.}
+  \label{subFig:simulatedReactorBuildingsTopDown}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/reactorBulidingsDepth.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Side on Perspective of simulated reactor buildings in Geant4.}
+  \label{subFig:simulatedReactorBuildingsDepth}
+\end{subfigure}
+\caption{The reactor buildings simulated in Geant 4 next to the detector which is at the origin.}
+\label{fig:simulatedReactorBuildings}
 \end{figure}
 
 
