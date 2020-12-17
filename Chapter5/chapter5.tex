@@ -18,8 +18,8 @@ The original prototype detector was deployed at the Wylfa Nuclear power station 
  
 \begin{figure}[H]
  \centering
- \includegraphics[width=0.7\linewidth]{Chapter5/Figs/Raster/wylfaTrace.png}
- \captionof{figure}{The position of the detector (dark blue) shown to scale compared with the main reactor building (black) with the secondary reactor buildings shown (cyan and green) which are of differing heights. The turbine hall (grey) is behind the detector. \hl{position of detector may be slightly off check with George}} %~can be used as a kind of place holder in latex
+ \includegraphics[width=0.7\linewidth]{Chapter5/Figs/Raster/wylfaTraceNew.png}
+ \captionof{figure}{The position of the detector (dark blue) shown to scale compared with the main reactor building (black) with the secondary reactor buildings shown (cyan and green) which are of differing heights. The turbine hall (orange) is behind the detector.} %~can be used as a kind of place holder in latex
  \label{fig:wylfaTrace}
 \end{figure}
 
@@ -31,39 +31,49 @@ The original prototype detector was deployed at the Wylfa Nuclear power station 
 \end{figure}
 
 \section{Simulation Of Cosmic $\mu$s }\label{sec:SimulationOfCosmics}
+Other experiments that have done cosmic muon tomography include diaphane \cite{Marteau_2017}.
+\\ blah 
 
 \begin{figure}[H]
  \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/phiComarison.png}
- \captionof{figure}{\hl{remove the original fitter from this plot} Generated $\phi$ vs reconstructed $\phi$ with the online track fitter for a cosmic hemisphere distribution} %~can be used as a kind of place holder in latex
+ \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/hemispherePhiCompare.png}
+ \captionof{figure}{Generated $\phi$ vs reconstructed $\phi$ with the online track fitter for a cosmic hemisphere distribution} %~can be used as a kind of place holder in latex
  \label{fig:phiGenVsRecoHem}
 \end{figure}
 
 \begin{figure}[H]
  \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/thetaComarison.png}
- \captionof{figure}{\hl{remove the original fitter from this plot} generated $\theta$ vs reconstructed $\theta$ for a cosmic hemisphere distribution} %~can be used as a kind of place holder in latex
+ \includegraphics[width=0.6\linewidth]{Chapter5/Figs/Raster/cosmicSimpleHemNoDead_Ciruclarphi.png}
+ \captionof{figure}{Circular plot of the reconstructed $\phi$ for a simulated cosmic hemisphere.} %~can be used as a kind of place holder in latex
+ \label{fig:thetaGenVsRecoHem}
+\end{figure}
+
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/hemisphereThetaCompare.png}
+ \captionof{figure}{Generated $\theta$ vs reconstructed $\theta$ for a cosmic hemisphere distribution} %~can be used as a kind of place holder in latex
  \label{fig:thetaGenVsRecoHem}
 \end{figure}
 
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/dedxComarison.png}
- \captionof{figure}{\hl{need to add in generated de dx for this ploy} } %~can be used as a kind of place holder in latex
+ \captionof{figure}{\hl{need to add in generated de dx for this ploy} This is also more a show of the $\chi^2$/DOF effects the dE/dx and therefore how that may or may not be useful for online use.} %~can be used as a kind of place holder in latex
  \label{fig:dedxGenVsRecoHem}
 \end{figure}
 
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/phi_vs_theta_hem_simNoDead.png}
- \captionof{figure}{Simulated cosmic hemisphere which has a flat distribution in $\theta$ from 0$^\circ$ to 90$^\circ$ and a flat distribution in $\phi$ from 0$^\circ$ to 360$^\circ$ which is then reconstructed using the online track fitter} %~can be used as a kind of place holder in latex
+ \captionof{figure}{\hl{theta has been reversed now!!!} Simulated cosmic hemisphere which has a flat distribution in $\theta$ from 0$^\circ$ to 90$^\circ$ and a flat distribution in $\phi$ from 0$^\circ$ to 360$^\circ$ which is then reconstructed using the online track fitter} %~can be used as a kind of place holder in latex
  \label{fig:simulatedHemisphereDist}
 \end{figure}
 
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/simulatedNormalDistirbution.png}
- \captionof{figure}{Simulated distribution with an ideally generated cosmic distribution.} %~can be used as a kind of place holder in latex
+ \captionof{figure}{\hl{theta has been reversed now!!!} Simulated distribution with an ideally generated cosmic distribution.} %~can be used as a kind of place holder in latex
  \label{fig:simulatedNormalDist}
 \end{figure}
 
@@ -72,55 +82,108 @@ The original prototype detector was deployed at the Wylfa Nuclear power station 
 \begin{figure}[H]
  \centering
  \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/3000ExampleEvent.png}
- \captionof{figure}{.} 
+ \captionof{figure}{An example event from the Wylfa deployment the cosmic enters through the top of the detector and exits through side A. Bars that are in signal are shown in orange bars that are noise are shown in grey, with un-instrumented channels shown in yellow on side A.} 
  \label{fig:3000ExampleEvent}
 \end{figure}
 
 \begin{figure}[H]
  \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/simpleTrackTheta3000-9999IncBelow10.png}
+ \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/pVsTWylfaReversed.png}
  \captionof{figure}{Measured $\theta$ and $\phi$ from the cosmic muons from the Wylfa deployment, the reactor is at $\sim$ 90$^{\circ}$. The turbine hall is at $\sim$ 270$^{\circ}$.} 
- \label{fig:reactorShadowSimpleTracker}
+ \label{fig:pVsTWylfaReversed}
 \end{figure}
 
 \begin{figure}[H]
  \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/p_realWorldAbove32.5.png}
- \captionof{figure}{Measured $\phi$ above 32.5$^{\circ}$. The reactor shadow is clearly visible between 87.5$^{\circ}$ - 142.5$^{\circ}$ The turbine hall shadow is approximated to be between 237.5$^{\circ}$ - 292.5$^{\circ}$ but it is much less clear.}
- \label{fig:pRealWorldAbove52.5}
+ \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/pVsTLiverpoolReversed.png}
+ \captionof{figure}{Measured $\theta$ and $\phi$ from the cosmic muons from the Liverpool deployment.} 
+ \label{fig:pVsTLiverpoolReversed}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/linReversedWylfaSlice0-57.5.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Linear histogram showing the dips in the shadows from the shadows of the reactor buildings and turbine halls.}
+  \label{subFig:linReversedWylfaSlice0-57.5}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.765\linewidth]{Chapter5/Figs/Raster/cirReversedWylfaSlice0-57.5.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Circular histogram showing the dips in the shadows from the shadows of the reactor buildings and turbine halls.}
+  \label{subFig:linReversedWylfaSlice0-57.5}
+\end{subfigure}
+\caption{Histograms showing how the shadows of the reactor buildings and the turbine hall are cast on to the detector from $\theta$ of 0$^\circ$ to 57.5$^\circ$. The Reactor buildings are shown in-between the black lines the turbine hall is shown in-between the orange lines.}
+\label{fig:WylfaSlice0-57.5}
 \end{figure}
 
 \begin{figure}[H]
  \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/wylfaTrace_above32.5.png}
- \captionof{figure}{The circular distribution of the $\phi$ above a $\theta$ of 32.5$^\circ$ the tower closest to the detector is dominating the distribution of the shadow.} %~can be used as a kind of place holder in latex
+ \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/cirOverlayReversedWylfaSlice0-57.5.png}
+ \captionof{figure}{The circular distribution of the $\phi$ from a $\theta$ of 0$^\circ$ - 57.5$^\circ$ the tower closest to the detector is dominating the distribution of the shadow.} %~can be used as a kind of place holder in latex
  \label{fig:wylfaTraceAbove32.5}
 \end{figure}
 
 \begin{figure}[H]
- \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/p_realWorldAbove52.5.png}
- \captionof{figure}{Measured $\phi$ above 52.5$^{\circ}$. The reactor shadow is clearly visible between 162.5$^{\circ}$-47.5$^{\circ}$ and the turbine hall is approximated to be between $\sim$ 197.5$^{\circ}$ - 312.5$^{\circ}$ but again is much less clear} 
- \label{fig:pRealWorldAbove52.5}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/linReversedWylfaSlice0-37.5.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Linear histogram showing the dips in the shadows from the shadows of the reactor buildings and turbine halls.}
+  \label{subFig:linReversedWylfaSlice0-37.5}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.765\linewidth]{Chapter5/Figs/Raster/cirReversedWylfaSlice0-37.5.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Circular histogram showing the dips in the shadows from the shadows of the reactor buildings and turbine halls.}
+  \label{subFig:cirReversedWylfaSlice0-37.5}
+\end{subfigure}
+ \caption{Histograms showing how the shadows of the reactor buildings and the turbine hall are cast on to the detector from $\theta$ of 0$^\circ$ to 37.5$^\circ$. The Reactor buildings are shown in-between the black lines the turbine hall is shown in-between the orange lines.}
+\label{fig:WylfaSlice0-37.5}
 \end{figure}
 
 \begin{figure}[H]
  \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/wylfaTrace_above52.5.png}
- \captionof{figure}{The circular distribution of the $\phi$ above a $\theta$ of 52.5$^\circ$ the reactor shadow is now dominated by the main reactor building.} %~can be used as a kind of place holder in latex
+ \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/cirOverlayReversedWylfaSlice0-37.5.png}
+ \captionof{figure}{The circular distribution of the $\phi$ from a $\theta$ of 0$^\circ$ 37.5$^\circ$ the reactor shadow is now dominated by the main reactor building.} %~can be used as a kind of place holder in latex
  \label{fig:wylfaTraceAbove52.5}
 \end{figure}
 
 \begin{figure}[H]
  \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/measured_div_Simulated.png}
- \captionof{figure}{The ratio of the measured $\theta$ and $\phi$ divided by the simulated $\theta$ and $\phi$ which had the same number of events generated. The maximum allowed ratio was then limited to 2 in order to highlight the reactor shadow.} %~can be used as a kind of place holder in latex
- \label{fig:measuredDivSimulated}
+ \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/wylfaToLiverpoolRatioDynamic17.5-87.5.png}
+ \captionof{figure}{The ratio of the Wylfa $\theta$ and $\phi$ cosmic muon distribution divided by the Liverpool $\theta$ and $\phi$ cosmic muon distribution. The Liverpool data is normalised to the Wylfa data. The ratio minimum $\sim$ 0.5 represents a deficit (attenuation) of $\sim$ 50\,$\%$. The maximum ratio $\sim$ 1.5 represents an excess of $\sim$ 50\,$\%$.} %~can be used as a kind of place holder in latex
+ \label{fig:wylfaDivLiverpool}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/WylfaToLiverpoolRatio_starkMap.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{``Stark'' colour map .}
+  \label{subFig:wylfaToLiverpoolRatioStarkMap}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/WylfaToLiverpoolRatio_sanRbMap.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{``Sanitised'' rainbow colour map.}
+  \label{subFig:wylfaToLiverpoolRatioSanRbMap}
+\end{subfigure}
+\caption{Alternative colour maps for figure \ref{fig:wylfaDivLiverpool}. }
+\label{fig:wylfaToLiverpoolRatioCustomMaps}
 \end{figure}
 
 \begin{figure}[H]
  \centering
- \includegraphics[width=1.0\linewidth]{Chapter5/Figs/Raster/wyflaHieghts.png}
+ \includegraphics[width=1.0\linewidth]{Chapter5/Figs/Raster/wyflaHieghtsNew.png}
  \captionof{figure}{The estimated heights of the reactor buildings, above 32.5$^{\circ}$ the green tower closest to the detector dominates, above 52.5$^{\circ}$ the main reactor building dominates the shadow.} %~can be used as a kind of place holder in latex
  \label{fig:wylfaHieghts}
 \end{figure}
@@ -148,8 +211,8 @@ The original prototype detector was deployed at the Wylfa Nuclear power station 
 
 \begin{figure}[H]
  \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/simulatedShadowDistribution.png}
- \captionof{figure}{The simulated reactor shadow assuming the heights calculated from figures \ref{fig:measuredDivSimulated} and \ref{fig:wylfaHieghts}} %~can be used as a kind of place holder in latex
+ \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/pVsTReactorAllReversed.png}
+ \captionof{figure}{The simulated reactor shadow assuming the heights calculated from figures \ref{fig:wylfaDivLiverpool} and \ref{fig:wylfaHieghts}} %~can be used as a kind of place holder in latex
  \label{fig:simulatedShadowDist}
 \end{figure}
 
