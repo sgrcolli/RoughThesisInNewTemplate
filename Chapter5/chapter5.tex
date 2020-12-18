@@ -10,12 +10,33 @@
     \graphicspath{{Chapter5/Figs/Vector/}{Chapter5/Figs/}}
 \fi
 
-\section{Overview of Cosmic $\mu$s}
-
+\section{Overview}
+Cosmic $\mu$ tomography is split into two distinct types two sided and one sided. Two sided cosmic $\mu$ is preferred if it is feasible this is because both attenuation and scattering can be measured when using this technique. The effect of the cosmic $\mu$ scattering can be seen in figure \ref{fig:twoSidedCosmicMuonTomographySchults} the cosmic $\mu$ which travel through the dense object will scatter more than the cosmic $\mu$ that don't. By making coincident measurements of the cosmic $\mu$ it is possible to find vertices using this method. This method is extremely powerful but can only be used for smaller objects in most cases. 
+\\\\ For larger objects one sided cosmic $\mu$ tomography has to be used. An example of what one sided cosmic muon tomography looks like can be seen in figure \ref{fig:oneSidedCosmicMuonExample} when there is an object that can attenuate cosmic $\mu$ then the number of cosmic $\mu$ will decrease in the direction of the object being imaged. This method cannot measure scattering or vertices however that is still sufficient in many cases such as the imaging done by the DIAPHANE collaboration seen in figure  \ref{fig:diaphaneStructualImaging}. Which uses 4 different locations to image the La Soufriere of Guadeloupe dome and measure the density for volcanic observations \cite{Marteau_2017}.
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/twoSidedCosmicMuon_schults2007.png}
+ \captionof{figure}{An side on view of two sided cosmic $\mu$ tomography the detectors are of similar size or larger than the object that is being measured in order to make coincided measurements using cosmic $\mu$ seen in the scattered (black) cosmic $\mu$ from \cite{schultz_2007}. }
+ \label{fig:twoSidedCosmicMuonTomographySchults}
+\end{figure}
+ 
+ \begin{figure}[H]
+ \centering
+ \includegraphics[width=0.6\linewidth]{Chapter5/Figs/Raster/oneSidedCosmicMuonExample.png}
+ \captionof{figure}{An example of what one sided cosmic $\mu$ tomography looks like from a top down view. When there is an object that attenuates $\mu$ significantly the percentage of $\mu$ detected decreases in the direction of the object.}
+ \label{fig:oneSidedCosmicMuonExample}
+\end{figure}
+ 
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=1.0\linewidth]{Chapter5/Figs/Raster/diaphane_structuralImaging.png}
+ \captionof{figure}{DIAPHANE structural imaging of the La Soufriere of Guadeloupe dome from 4 different acquisition sites around the dome. The blue areas are the less dense zones of the volcano. The red areas have the highest density. Average density extracted from all those images ranges from 1.6 to 1.8 g.cm$^{-3}$ from \cite{Marteau_2017}} %~can be used as a kind of place holder in latex
+ \label{fig:diaphaneStructualImaging}
+\end{figure}
 
 \section{Deployment At Wylfa}\label{sec:deploymentAtWylfa}
 The original prototype detector was deployed at the Wylfa Nuclear power station from 07-07-2014 to 25-02-2016 with data being taken continuously over that time period both with the reactor on and off with ibd measurements seen in figure \ref{fig:prototypeMeasumentFlux}. The placement of the detector in relation to the Wylfa reactor buildings can be seen in figure \ref{fig:wylfaTrace} the reactors were placed either end of the main reactor building in the centre of the cylindrical shaped ends. The overall shape of each of these buildings seen in figure \ref{fig:wylfaAir} causes the shape of the shadow to be quite different from what might be expected. The overall shadow in both $\theta$ and $\phi$ will therefore be an overlapping series of boxes rather than just one.   
- 
+
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter5/Figs/Raster/wylfaTraceNew.png}
@@ -31,9 +52,8 @@ The original prototype detector was deployed at the Wylfa Nuclear power station 
 \end{figure}
 
 \section{Simulation Of Cosmic $\mu$s }\label{sec:SimulationOfCosmics}
-Other experiments that have done cosmic muon tomography include diaphane \cite{Marteau_2017}.
-\\ blah 
-
+Before the data could be analysed a simulation of cosmic $\mu$ using a cosmic hemisphere was used in order to quantify segmentation effects and any other detector effects. These can be quite significant as seen in figures \ref{fig:phiGenVsRecoHem} and \ref{fig:cirPhiGenVsRecoHem} the reconstruction of our detector can be quite adversely effected by vertical events. If an event is vertical in one side of the detector then the other side will dominate as such it results in spikes at 0$^\circ$, 90$^\circ$, 180$^\circ$, 270$^\circ$. This bin migration is expected due to its evenness it should not have a significant effect on the shadows. 
+\\\\ However this is only true with $\phi$, in $\theta$ this is significantly less pronounced as seen in figure \ref{fig:thetaGenVsRecoHem} the reconstruction of $\theta$ is mostly quite accurate with only a few of the 
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/hemispherePhiCompare.png}
@@ -45,7 +65,7 @@ Other experiments that have done cosmic muon tomography include diaphane \cite{M
  \centering
  \includegraphics[width=0.6\linewidth]{Chapter5/Figs/Raster/cosmicSimpleHemNoDead_Ciruclarphi.png}
  \captionof{figure}{Circular plot of the reconstructed $\phi$ for a simulated cosmic hemisphere.} %~can be used as a kind of place holder in latex
- \label{fig:thetaGenVsRecoHem}
+ \label{fig:cirPhiGenVsRecoHem}
 \end{figure}
 
 
@@ -156,7 +176,7 @@ Other experiments that have done cosmic muon tomography include diaphane \cite{M
 
 \begin{figure}[H]
  \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/wylfaToLiverpoolRatioDynamic17.5-87.5.png}
+ \includegraphics[width=1.0\linewidth]{Chapter5/Figs/Raster/wylfaToLiverpoolRatioDynamic17.5-87.5.png}
  \captionof{figure}{The ratio of the Wylfa $\theta$ and $\phi$ cosmic muon distribution divided by the Liverpool $\theta$ and $\phi$ cosmic muon distribution. The Liverpool data is normalised to the Wylfa data. The ratio minimum $\sim$ 0.5 represents a deficit (attenuation) of $\sim$ 50\,$\%$. The maximum ratio $\sim$ 1.5 represents an excess of $\sim$ 50\,$\%$.} %~can be used as a kind of place holder in latex
  \label{fig:wylfaDivLiverpool}
 \end{figure}
@@ -212,9 +232,8 @@ Other experiments that have done cosmic muon tomography include diaphane \cite{M
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/pVsTReactorAllReversed.png}
- \captionof{figure}{The simulated reactor shadow assuming the heights calculated from figures \ref{fig:wylfaDivLiverpool} and \ref{fig:wylfaHieghts}} %~can be used as a kind of place holder in latex
+ \captionof{figure}{The simulated reactor shadow assuming the heights calculated from figures \ref{fig:wylfaDivLiverpool} and \ref{fig:wylfaHieghts} and assuming that each building is made from 100\,\% concrete.} 
  \label{fig:simulatedShadowDist}
 \end{figure}
-
 
 % end
