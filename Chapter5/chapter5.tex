@@ -51,9 +51,9 @@ The original prototype detector was deployed at the Wylfa Nuclear power station 
  \label{fig:wylfaAir}
 \end{figure}
 
-\section{Simulation Of Cosmic $\mu$s }\label{sec:SimulationOfCosmics}
-Before the data could be analysed a simulation of cosmic $\mu$ using a cosmic hemisphere was used in order to quantify segmentation effects and any other detector effects. These can be quite significant as seen in figures \ref{fig:phiGenVsRecoHem} and \ref{fig:cirPhiGenVsRecoHem} the reconstruction of our detector can be quite adversely effected by vertical events. If an event is vertical in one side of the detector then the other side will dominate as such it results in spikes at 0$^\circ$, 90$^\circ$, 180$^\circ$, 270$^\circ$. This bin migration is expected due to its evenness it should not have a significant effect on the shadows. 
-\\\\ However this is only true with $\phi$, in $\theta$ this is significantly less pronounced as seen in figure \ref{fig:thetaGenVsRecoHem} the reconstruction of $\theta$ is mostly quite accurate with only a few of the 
+\section{Simulation Of Cosmic Muons}\label{sec:SimulationOfCosmics}
+Before the data could be analysed a simulation of cosmic $\mu$ using a cosmic hemisphere was used in order to quantify segmentation effects and any other detector effects. These can be quite significant as seen in figures \ref{fig:phiGenVsRecoHem} and \ref{fig:cirPhiGenVsRecoHem} the reconstruction of our detector can be quite adversely effected by vertical events. If an event is vertical in one side of the detector then the other side will dominate as such it results in spikes at 0$^\circ$, 90$^\circ$, 180$^\circ$, 270$^\circ$. This bin migration is expected and due to its evenness should not have a significant effect on the shadows. 
+\\\\ However this is only true with $\phi$, bin migration is significantly less pronounced in $\theta$ as seen in figure \ref{fig:thetaGenVsRecoHem}. Significant bin migration is is only seen in bins 0$^\circ$, 5$^\circ$, 80$^\circ$, 85$^\circ$, 90$^\circ$ but bins 10$^\circ$ -- 75$^\circ$ are accurately reconstructed. The large discrepancy in bin migration between $\theta$ and $\phi$ is due to the size of the segments in the VIDARR detector as they are 4\,cm wide by 1\,cm tall they are able to more accurately reconstruct information vertically than in any other direction. Which is useful for reconstructing vertical information such as the height of buildings. 
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/hemispherePhiCompare.png}
@@ -76,12 +76,8 @@ Before the data could be analysed a simulation of cosmic $\mu$ using a cosmic he
  \label{fig:thetaGenVsRecoHem}
 \end{figure}
 
-\begin{figure}[H]
- \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/dedxComarison.png}
- \captionof{figure}{\hl{need to add in generated de dx for this ploy} This is also more a show of the $\chi^2$/DOF effects the dE/dx and therefore how that may or may not be useful for online use.} %~can be used as a kind of place holder in latex
- \label{fig:dedxGenVsRecoHem}
-\end{figure}
+In order to quantify the effect of cosmic $\mu$ coming for every possible angle a cosmic hemisphere is simulated. The reconstruction of the cosmic hemisphere done by the tracker can be seen in figure \ref{fig:simulatedHemisphereDist}. The reconstruction artefacts shown in figures \ref{fig:phiGenVsRecoHem} and \ref{fig:thetaGenVsRecoHem} can also be seen to have a dependence on one another in figure \ref{fig:simulatedHemisphereDist}. Apart from the uncertainties introduced from segmentation there are no other uncertainties that are significant that are visible in \ref{fig:simulatedHemisphereDist}. However, this does not mean that that other uncertainties are not present just that the most noticeable uncertainty is due to the segmentation. 
+\\\\ When trying to accurately reconstruct all the available cosmic $\mu$ there is no $\chi^2$ selection criteria. This is because many cosmic $\mu$ may shower when inside the detector and as a result may have a high $\chi^2$ but are still an accurate representation of cosmic $\mu$ direction. But a $\chi^2$ cut is effective when trying to accurately measure the $dE/dx$ as seen in figure \ref{fig:dedxGenVsRecoHem} showers produce many secondaries in the detector which when divided by the same length causes an increase in $dE/dx$ which is not justifiable. Therefore for positional reconstruction showers are kept but for online use where calibration is most important showers are discarded.
 
 \begin{figure}[H]
  \centering
@@ -92,12 +88,21 @@ Before the data could be analysed a simulation of cosmic $\mu$ using a cosmic he
 
 \begin{figure}[H]
  \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/simulatedNormalDistirbution.png}
- \captionof{figure}{\hl{theta has been reversed now!!!} Simulated distribution with an ideally generated cosmic distribution.} %~can be used as a kind of place holder in latex
- \label{fig:simulatedNormalDist}
+ \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/dedxComarison.png}
+ \captionof{figure}{\hl{need to add in generated de dx for this ploy} This is also more a show of the $\chi^2$/DOF effects the dE/dx and therefore how that may or may not be useful for online use.} %~can be used as a kind of place holder in latex
+ \label{fig:dedxGenVsRecoHem}
 \end{figure}
 
+
+% \begin{figure}[H]
+%  \centering
+%  \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/simulatedNormalDistirbution.png}
+%  \captionof{figure}{\hl{theta has been reversed now!!!} Simulated distribution with an ideally generated cosmic distribution.} %~can be used as a kind of place holder in latex
+%  \label{fig:simulatedNormalDist}
+% \end{figure}
+
 \section{Reactor Shadow: Methodology} \label{sec:ReactorShadowMethodology}
+The cosmic $\mu$ tracker has several steps. First if fewer than 8 bars are hit above 0.7\,MeV the event is discarded. Then if either side has less than 4 hits > 0.7\,MeV the event is discarded. Then the top and bottom hit is found for each 
 
 \begin{figure}[H]
  \centering
@@ -231,8 +236,8 @@ Before the data could be analysed a simulation of cosmic $\mu$ using a cosmic he
 
 \begin{figure}[H]
  \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/pVsTReactorAllReversed.png}
- \captionof{figure}{The simulated reactor shadow assuming the heights calculated from figures \ref{fig:wylfaDivLiverpool} and \ref{fig:wylfaHieghts} and assuming that each building is made from 100\,\% concrete.} 
+ \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/reactor100PercentRatio.png}
+ \captionof{figure}{The simulated reactor shadow assuming the heights calculated from figures \ref{fig:wylfaDivLiverpool} and \ref{fig:wylfaHieghts} and assuming that each building is made from 100\,\% concrete. And then the ratio is taken between the simulated data both with and without the reactor shadow present} 
  \label{fig:simulatedShadowDist}
 \end{figure}
 
