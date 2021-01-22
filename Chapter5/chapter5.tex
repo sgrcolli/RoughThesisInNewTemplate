@@ -102,12 +102,41 @@ In order to quantify the effect of cosmic $\mu$ coming for every possible angle 
 % \end{figure}
 
 \section{Reactor Shadow: Methodology} \label{sec:ReactorShadowMethodology}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/wylfaTraceStep0.png}
+ \captionof{figure}{.} 
+ \label{fig:wylfaTraceStep0}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/wylfaTraceStep1.png}
+ \captionof{figure}{.} 
+ \label{fig:wylfaTraceStep1}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/wylfaTraceStep2.png}
+ \captionof{figure}{.} 
+ \label{fig:wylfaTraceStep2}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/wylfaTraceStep4.png}
+ \captionof{figure}{.} 
+ \label{fig:wylfaTraceStep4}
+\end{figure}
+
 The cosmic $\mu$ tracker has several steps. First if fewer than 8 bars are hit above 0.7\,MeV the event is discarded. Then if either side has less than 4 hits > 0.7\,MeV the event is discarded. Then the top and bottom hit is found for each side of the detector from this a basic approximation of the gradient is found. This provides a starting point for the fitter on each side, this leads to the initial fit where all of the events above the 0.7\,MeV threshold are fitted, this is preferred over clustering as it includes low angled $\theta$ cosmic $\mu$ that clustering often removes. Then any hits that are 2 bars away from the track are discarded, and any lone hits that are 8 bars away from any other hits are also removed then the second fit is applied. Then any hits within one bar of the fitted track are then re-accepted as part of the track. Any lone hits to within a radius of 4 bars from the track are once again removed. This then leads to the third and final fit, which is very fast as the approximation by the second fit is usually quite close to third fit. Then any track which has less than 4 hits per side is then rejected. Finally if 50\,\% of the track energy is missing in either side the event is also removed, this is because under such circumstances it is likely that a second cosmic event is inside the detector or a shower has produced multiple tracks. In figure \ref{fig:3000ExampleEvent} it can be seen that even with a large number of noise hits ($\sim$ 10 noise hits per side) the fitter has still accurately reconstructed the event. 
  
 \begin{figure}[H]
  \centering
- \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/3000ExampleEvent.png}
- \captionof{figure}{An example event from the Wylfa deployment the cosmic enters through the top of the detector and exits through side A. Bars that are in signal are shown in orange bars that are noise are shown in grey, with un-instrumented channels shown in yellow on side A.} 
+ \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/testEventNewScheme.png}
+ \captionof{figure}{An example event from the Wylfa deployment the cosmic enters through the top of the detector and exits through the bottom. The signal that the tracker has identified is shown in orange. The hits the tracker discards are shown in yellow. The un-instrumented block on side A is shown in grey. The dead channels are shown in dark purple. The channels removed for fiducial purposes are shown in light blue.} 
  \label{fig:3000ExampleEvent}
 \end{figure}
 
@@ -191,7 +220,8 @@ The shadows in the Wylfa data are much clearer, seen in figures \ref{fig:WylfaSl
 
 As can be seen in the data for the Wylfa deployment (figure \ref{fig:pVsTWylfaReversed}) and the Liverpool deployment (figure \ref{fig:pVsTLiverpoolReversed}) the segmentation of the detector dominates the colour map. In figure \ref{fig:pVsTWylfaReversed} for example the distribution pointing towards the sky, towards 90$^\circ \theta$, there is angular bin migration pulling towards the vertical bins at $\phi$s 0$^\circ$, 90$^\circ$, 180$^\circ$, 270$^\circ$. This 2d bin migration in both $\theta$ and $\phi$ is due to the segmentation of the detector. It masks the shadows in the data. In theory it would be possible to use simulated data as a control for both the Liverpool and the Wylfa data sets unfortunately this would also require an understanding of all possible conditions that could cause potential variance. This includes the weather, the noise produced by the reactor at Wylfa, the effect of the height of Brunlow hill at Liverpool and how often double cosmics occur inside the detector. Whilst in theory it would be possible to account for all of those different systematic uncertainties there are still many random factors that could still cause significant differences between the simulation and measured data.
 \\\\ As a result it is more effective to use the Liverpool data as control data for the Wylfa data, providing the Liverpool data is only used as a control above 17.5$^\circ \theta$ to avoid the shadows in the Liverpool data. This technique will still be affected by the difference in data collection techniques between Wylfa and Liverpool namely that Liverpool was switched to a cosmic $\mu$ mode and Liverpool is on Brunlow Hill which will also impact the distribution. However, all other variations will be dived by each other in a ratio plot, figure \ref{fig:wylfaDivLiverpool} shows that the shadows are much more visible once a ratio between the two data sets is taken. The excess and the deficit are roughly analogous to density measurements where an excess ($>$ 1) in figure \ref{fig:wylfaDivLiverpool} can be considered areas of low density and areas in deficit ($<$ 1) can be considered areas of high density. 
-  
+\\\\ Alternative colour maps for figure \ref{fig:wylfaDivLiverpool} can be seen in figure \ref{fig:wylfaToLiverpoolRatioCustomMaps} these custom maps have different pros and cons and ultimately were dropped in favour of the scheme used in figure \ref{fig:wylfaDivLiverpool}. The ``stark'' colour map see in figure  \ref{subFig:wylfaToLiverpoolRatioStarkMap} shows the deficit (attenuation of cosmic $\mu$) caused by the building shadows at wylfa very clearly, however this colour map makes the edges of the shadows seem sharper than is justifiable. The ``sanitised'' rainbow map seen in figure \ref{subFig:wylfaToLiverpoolRatioSanRbMap} shows the edges of the shadows more clearly than \ref{fig:wylfaDivLiverpool} and shows the difference in density between the turbine hall centred at 270$^{\circ}$ and the reactor buildings centred at 90$^{\circ}$ very clearly however it is unclear to colour blind viewers and so was discarded. Both of the alternate colour maps shown in figure \ref{fig:wylfaToLiverpoolRatioCustomMaps} are also unclear in grey scale when compared to \ref{fig:wylfaDivLiverpool}.
+   
 \begin{figure}[H]
  \centering
  \includegraphics[width=1.0\linewidth]{Chapter5/Figs/Raster/wylfaToLiverpoolRatioDynamic17.5-87.5.png}
@@ -218,6 +248,9 @@ As can be seen in the data for the Wylfa deployment (figure \ref{fig:pVsTWylfaRe
 \caption{Alternative colour maps for figure \ref{fig:wylfaDivLiverpool}. }
 \label{fig:wylfaToLiverpoolRatioCustomMaps}
 \end{figure}
+
+From figure \ref{fig:wylfaDivLiverpool} rough height estimates for the main reactor building and the reactor service buildings seen in figure \ref{fig:wylfaHieghts} can be made. These rough approximations can then be put into the GEANT4 simulation of the detector, this combined with the traces from google maps \hl{show the traces from google maps before this point!!!} allows for the approximations seen in figure \ref{fig:simulatedReactorBuildings}. This is then combined with a realistic redistributed $\theta$ distribution \hl{need to add the redistributed theta stuff} taken from the Wylfa distribution which was taken at sea level. 
+\\\\ The ratio between the simulation with and without the reactor buildings can be seen in figure \ref{fig:simulatedShadowDist} the shadow distribution matches the overall shape of the distribution seen in figure \ref{fig:wylfaDivLiverpool} for the main reactor buildings. However the building heights actually appear to be slightly taller than expected when compared to the measured results, the heights in figure \ref{fig:wylfaDivLiverpool} extend to a maximum of 60$^\circ$ in $\theta$ whereas the heights of the buildings in figure \ref{fig:simulatedShadowDist} extend to 65$^\circ$ in $\theta$. This shows that the simulation \hl{need to add in plots with revamped heights in simulation}
 
 \begin{figure}[H]
  \centering
@@ -253,5 +286,7 @@ As can be seen in the data for the Wylfa deployment (figure \ref{fig:pVsTWylfaRe
  \captionof{figure}{The simulated reactor shadow assuming the heights calculated from figures \ref{fig:wylfaDivLiverpool} and \ref{fig:wylfaHieghts} and assuming that each building is made from 100\,\% concrete. And then the ratio is taken between the simulated data both with and without the reactor shadow present. The building placement is show in figure \ref{fig:simulatedReactorBuildings}.} 
  \label{fig:simulatedShadowDist}
 \end{figure}
+
+\section{Cosmic Tracker Uncertainties} \label{sec:CosmicTrackerUncertainties}
 
 % end
