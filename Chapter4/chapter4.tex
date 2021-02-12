@@ -304,76 +304,48 @@ Finally the effects caused by the electronics and the counting statistics (figur
 \end{figure}
 
 \section{Modelling Gadolinium}\label{sec:geant4Simulation_modellingGadolinium}
-b
+Gadolinium is useful for measuring inverse $\beta$ decay as when the neutron is given off and subsequently absorbed by the layer of gadolinium in between the layers of scintillating plastic in the VIDARR detector a delayed 8\,MeV $\gamma$ cascade is released. This is the trigger signal for the VIDARR detector. After the cascade has been triggered on the detector looks backwards in time to determine the positron cluster. 
+\\\\Gadolinium has two models in Geant 4 the photon evaporation model seen in \ref{subFig:differentGeant4Models_photonEvaporationGd} and the final state model seen in  \ref{subFig:differentGeant4Models_finalStateGd}. These two models have different strengths and weaknesses the photon evaporation model conserves energy by ``boiling off'' the known decay energies of Gadolinium until there is no more energy left to disperse. This approach attempts to match the multiplicity of the gadolinium cascade but in so doing the high energy $\gamma$ rays that are the most indicative of the gadolinium cascade are not present. The other model in Geant 4 is the final state model which tries to match the spectrum of measured energy rays. However, by using this approach the conservation of energy is violated. Of the two models the final state would be preferred in the case of inverse $\beta$ decay because the high energy $\gamma$ rays are used to distinguish the gadolinium cascade from background.
 
 \begin{figure}[H]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/TotalGeneratedEnergyOfCascadeFinalStateDicebox.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
- \label{fig:TotalGeneratedEnergyOfCascadeFinalStateDicebox}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/gadolinium/photonEvaporationGd.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Energies of single $\gamma$ rays from the photon evaporation model in Geant 4 this conserves energy but does not have high energy $\gamma$ rays that are typically associated with natural gadolinium.\hl{source req!} }
+  \label{subFig:differentGeant4Models_photonEvaporationGd}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/gadolinium/FinalStateGd.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Energies of the $\gamma$ rays from the final state model in Geant 4 this shows the high energy gamma rays from both $^{157}$Gd and $^{155}$Gd however this does break the conservation of energy. from \hl{source req!}}
+  \label{subFig:differentGeant4Models_finalStateGd}
+\end{subfigure}
+\caption{The energies of $\gamma$ rays of both the photon evaporation model and the final state model.}
+\label{fig:differentGeant4Models}
 \end{figure}
 
-\begin{figure}[H]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/summedEnergyPastTriggerGdDicebox.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
- \label{fig:photonEvaporationGd}
-\end{figure}
+% \begin{figure}[H]
+%  \centering
+%  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/photonEvaporationGd.png}
+%  \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+%  \label{fig:photonEvaporationGd}
+% \end{figure}
 
-\begin{figure}[H]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/photonEvaporationGd.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
- \label{fig:photonEvaporationGd}
-\end{figure}
-
-\begin{figure}[H]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/pe_vs_fs_models_summed.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
- \label{fig:pe_vs_fs_models_summed}
-\end{figure}
-
-\begin{figure}[H]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/numberOfBarsHitCascadeFinalStateDicebox.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
- \label{fig:numberOfBarsHitCascadeFinalStateDicebox}
-\end{figure}
-
-\begin{figure}[H]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/noiseEventsSVM.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
- \label{fig:noiseEventsSVM}
-\end{figure}
+% \begin{figure}[H]
+%  \centering
+%  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/FinalStateGd.png}
+%  \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+%  \label{fig:FinalStateGd}
+% \end{figure}
 
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/naturalGd.png}
  \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
  \label{fig:naturalGd.png}
-\end{figure}
-
-\begin{figure}[H]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/multiplicityOfCascadeGd.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
- \label{fig:multiplicityOfCascadeGd}
-\end{figure}
-
-\begin{figure}[H]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/GeneratedEnergyPastTriggerGdDicebox.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
- \label{fig:GeneratedEnergyPastTriggerGdDicebox}
-\end{figure}
-
-\begin{figure}[H]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/gdCascadeVsAllGammas.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
- \label{fig:gdCascadeVsAllGammas}
 \end{figure}
 
 \begin{figure}[H]
@@ -390,11 +362,18 @@ b
  \label{fig:gadoliniumEnergiesCascade}
 \end{figure}
 
+% \begin{figure}[H]
+%  \centering
+%  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/pe_vs_fs_models_summed.png}
+%  \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+%  \label{fig:pe_vs_fs_models_summed}
+% \end{figure}
+
 \begin{figure}[H]
  \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/FinalStateGd.png}
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/TotalGeneratedEnergyOfCascadeFinalStateDicebox.png}
  \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
- \label{fig:FinalStateGd}
+ \label{fig:TotalGeneratedEnergyOfCascadeFinalStateDicebox}
 \end{figure}
 
 \begin{figure}[H]
@@ -406,16 +385,9 @@ b
 
 \begin{figure}[H]
  \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/diceBoxNeutronsSVM.png}
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/gdCascadeVsAllGammas.png}
  \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
- \label{fig:diceBoxNeutronsSVM}
-\end{figure}
-
-\begin{figure}[H]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/depositedEnergyOfCascadeFinalStateDicebox.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
- \label{fig:depositedEnergyOfCascadeFinalStateDicebox}
+ \label{fig:gdCascadeVsAllGammas}
 \end{figure}
 
 \begin{figure}[H]
@@ -438,6 +410,56 @@ b
  \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
  \label{fig:comparisonAndDiceBoxGd}
 \end{figure}
+ 
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/numberOfBarsHitCascadeFinalStateDicebox.png}
+ \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+ \label{fig:numberOfBarsHitCascadeFinalStateDicebox}
+\end{figure}
+
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/diceBoxNeutronsSVM.png}
+ \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+ \label{fig:diceBoxNeutronsSVM}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/noiseEventsSVM.png}
+ \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+ \label{fig:noiseEventsSVM}
+\end{figure}
+
+% \begin{figure}[H]
+%  \centering
+%  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/multiplicityOfCascadeGd.png}
+%  \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+%  \label{fig:multiplicityOfCascadeGd}
+% \end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/summedEnergyPastTriggerGdDicebox.png}
+ \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+ \label{fig:summedEnergyPastTriggerGdDicebox}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/GeneratedEnergyPastTriggerGdDicebox.png}
+ \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+ \label{fig:GeneratedEnergyPastTriggerGdDicebox}
+\end{figure}
+
+% \begin{figure}[H]
+%  \centering
+%  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/depositedEnergyOfCascadeFinalStateDicebox.png}
+%  \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+%  \label{fig:depositedEnergyOfCascadeFinalStateDicebox}
+% \end{figure}
 
 %*******************************************************************************
 %***************************************  End  *********************************
