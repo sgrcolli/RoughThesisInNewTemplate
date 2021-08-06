@@ -313,14 +313,14 @@ Gadolinium is useful for measuring inverse $\beta$ decay as when the neutron is 
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/gadolinium/photonEvaporationGd.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Energies of single $\gamma$ rays from the photon evaporation model in Geant 4 this conserves energy but does not have high energy $\gamma$ rays that are typically associated with natural gadolinium.\hl{source req!} }
+  \caption{Energies of single $\gamma$ rays from the photon evaporation model in Geant 4 this conserves energy but does not have high energy $\gamma$ rays that are typically associated with natural gadolinium. From \cite{YuChen_2015}. }
   \label{subFig:differentGeant4Models_photonEvaporationGd}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/gadolinium/FinalStateGd.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Energies of the $\gamma$ rays from the final state model in Geant 4 this shows the high energy gamma rays from both $^{157}$Gd and $^{155}$Gd however this does break the conservation of energy. from \hl{source req!}}
+  \caption{Energies of the $\gamma$ rays from the final state model in Geant 4 this shows the high energy gamma rays from both $^{157}$Gd and $^{155}$Gd however this does break the conservation of energy. From \cite{YuChen_2015}. }
   \label{subFig:differentGeant4Models_finalStateGd}
 \end{subfigure}
 \caption{The energies of $\gamma$ rays of both the photon evaporation model and the final state model.}
@@ -344,21 +344,21 @@ Gadolinium is useful for measuring inverse $\beta$ decay as when the neutron is 
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/naturalGd.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+ \captionof{figure}{Natural Gadolinium gamma spectra from \cite{molnar_2004}} %~can be used as a kind of place holder in latex
  \label{fig:naturalGd.png}
 \end{figure}
 
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/gadoliniumMultipliciesBreakdownCascade.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+ \captionof{figure}{Multiplicities from the DANCE dicebox based on the DANCE experimental data for $^{157}$Gd \cite{Chyzh_2011}. } %~can be used as a kind of place holder in latex
  \label{fig:gadoliniumMultipliciesBreakdownCascade}
 \end{figure}
 
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/gadoliniumEnergiesCascade.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+ \captionof{figure}{Energies from the DANCE dicebox based on the DANCE experimental data for $^{157}$Gd \cite{Chyzh_2011}. } %~can be used as a kind of place holder in latex
  \label{fig:gadoliniumEnergiesCascade}
 \end{figure}
 
@@ -372,14 +372,14 @@ Gadolinium is useful for measuring inverse $\beta$ decay as when the neutron is 
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/TotalGeneratedEnergyOfCascadeFinalStateDicebox.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+ \captionof{figure}{Total generated energy of the cascade the dicebox based on the DANCE detector data \cite{Chyzh_2011}.} %~can be used as a kind of place holder in latex
  \label{fig:TotalGeneratedEnergyOfCascadeFinalStateDicebox}
 \end{figure}
 
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/energyOfCascadeOfCascadeGd.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+ \captionof{figure}{Energy of all particles from the dicebox based on the DANCE experiment \cite{Chyzh_2011} which is then worked into GEANT4 using an implementation created by the WATCHMAN collaboration which was then copied by the VIDARR collaboration. } %~can be used as a kind of place holder in latex
  \label{fig:energyOfCascadeOfCascadeGd}
 \end{figure}
 
@@ -400,14 +400,14 @@ Gadolinium is useful for measuring inverse $\beta$ decay as when the neutron is 
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/comparisonGd.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+ \captionof{figure}{blah. * \cite{kandlakunta_2012} ** \cite{bollinger_1970} from \cite{YuChen_2015}} %~can be used as a kind of place holder in latex
  \label{fig:comparisonGd}
 \end{figure}
 
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/comparisonAndDiceBoxGd.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+ \captionof{figure}{blah. \ref{fig:energyOfCascadeOfCascadeGd} * \cite{kandlakunta_2012} ** \cite{bollinger_1970} from \cite{YuChen_2015}} %~can be used as a kind of place holder in latex
  \label{fig:comparisonAndDiceBoxGd}
 \end{figure}
  
@@ -419,19 +419,235 @@ Gadolinium is useful for measuring inverse $\beta$ decay as when the neutron is 
 \end{figure}
 
 
+\section{Machine Learning Neutron Trigger}\label{sec:MachineLearningTrigger}
+Using simulated data is is possible to test weather a machine learning trigger would be advantageous to the analysis. The machine learning technique used was a Support Vector Machine (SVM) \cite{Boser92atraining} \cite{cortes1995support}. SVMs were considered after comparing several other simple techniques that are typically used such as a decision tree and k nearest neighbours the results of this can be seen in figure \ref{fig:sklearnReleventExamples}. As seen in figure \ref{fig:sklearnReleventExamples} the SVM can be used in its pure linear classification form or with a kernel the radial basis function (RBF) kernel is one of the most common. In figure \ref{fig:sklearnReleventExamples} the generalised boundaries, high accuracy, and well defined confidence space seen in the RBF SVM makes it the clear standout. The SVM has used the kernel trick since at least 1992 \cite{Boser92atraining} in figure \ref{fig:svmBoser92LinearSVM} how the support vectors influence the best separating hyper-plane can be seen. SVMs can have different kernels used with them as figure \ref{fig:svmBoser92KernelSVM} shows the results are similar weather a polynomial or RBF kernel is used. Providing the kernel can effectively transform data so that it becomes linearly separable the SVM will be able to separate the data as shown by figure \ref{fig:kernelRBF_fromWeB}. A further test of the RBF SVM's capabilities was done in figure \ref{fig:svmExp_GausseExamples} which tested exponential noise in the x-y plane and two signal Gaussian peaks. As a result it is possible to see that the RBF SVM can draw complicated boundaries around complex signal and noise. \\\\A support vector machine is also convexly optimised which means the solutions are easier to solve for as there is only one global minimum \cite{cortes1995support}. The draw backs of SVMs are the long training times relative to other machine learning techniques  due to the maths behind the solution for the SVM being a squared problem to solve\cite{cortes1995support}. This means that for data with many dimensions and many statistics training times and memory usage can be very high to the point of being unusable \cite{cortes1995support}. Data must also be completely labelled and optimisation for training whilst possible through sequential minimal optimisation is somewhat limited \cite{platt1998sequential}. These drawbacks are not a significant issue for the trigger data but they should be bared in mind for more complex cases such as image recognition.
+ 
 \begin{figure}[H]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/diceBoxNeutronsSVM.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
- \label{fig:diceBoxNeutronsSVM}
+\centering
+\includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/sklearnReleventExamples.png}
+\captionof{figure}{Some example classifiers taken from scikit-learn that show how different techniques draw boundaries and how confident they are in those boundaries. Decision trees and k nearest neighbours are common simplistic classifiers used in physics but the boundaries they produce are often susceptible to over-training. The linear SVM is generalised but is quite limited in its utility. The SVM with the RBF kernel consistently draws the most accurate boundaries and they are well generalised. The accuracy of each technique is shown in the bottom left of each plot from \cite{scikit-learn}.} 
+\label{fig:sklearnReleventExamples}
 \end{figure}
 
 \begin{figure}[H]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/noiseEventsSVM.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
- \label{fig:noiseEventsSVM}
+\centering
+\includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/svmBoser92LinearSVM.png}
+\captionof{figure}{An example of a how a support vector machine (SVM) separates two different distributions that are linearly separable. The maths behind the classifier finds the best separating line/hyper-plane between two distributions from \cite{Boser92atraining}.} 
+\label{fig:svmBoser92LinearSVM}
 \end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/svmBoser92KernelSVM.png}
+\captionof{figure}{How a support vector machine (SVM) operates with a kernel being applied using a squared polynomial kernel on the left and a radial basis function (RBF) on the right . By using the ``kernel trick'' it is now possible to separate non-linear data from \cite{Boser92atraining}.} 
+\label{fig:svmBoser92KernelSVM}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/kernelRBF_fromWeB.png}
+\captionof{figure}{An online example that shows how the kernel trick is used to make non-linear data linearly separable by transforming it through a kernel. From \url{https://medium.com/@zxr.nju/what-is-the-kernel-trick-why-is-it-important-98a98db0961d}.} 
+\label{fig:kernelRBF_fromWeB}
+\end{figure}
+
+% \begin{figure}[H]
+% \centering
+% \begin{subfigure}{.5\textwidth}
+%   \centering
+%   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/svmLinSepExample.png}
+%   \captionsetup{width=.9\linewidth}
+%   \caption{An SVM with no kernel separating two data sets that have no overlap.}
+%   \label{subFig:svmLinSepExample}
+% \end{subfigure}%
+% \begin{subfigure}{.5\textwidth}
+%   \centering
+%   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/svmLinNoSepExample.png}
+%   \captionsetup{width=.9\linewidth}
+%   \caption{An SVM with no kernel separating two data sets that have a small overlap.}
+%   \label{subFig:svmLinNoSepExample}
+% \end{subfigure}
+% \caption{SVM examples showing how to separate two data sets using linear boundaries.}
+% \label{fig:svmLinExamples}
+% \end{figure}
+
+% \begin{figure}[H]
+% \centering
+% \begin{subfigure}{.5\textwidth}
+%   \centering
+%   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/svmCircleSepExample.png}
+%   \captionsetup{width=.9\linewidth}
+%   \caption{An SVM with an RBF kernel separating two data steps with no overlap.}
+%   \label{subFig:svmCircleSepExample}
+% \end{subfigure}%
+% \begin{subfigure}{.5\textwidth}
+%   \centering
+%   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/svmCircleNoSepExample.png}
+%   \captionsetup{width=.9\linewidth}
+%   \caption{An SVM with an RBF kernel separating two data steps with a small overlap.}
+%   \label{subFig:svmCircleNoSepExample}
+% \end{subfigure}
+% \caption{SVM examples showing how to separate two data sets using circular boundaries.}
+% \label{fig:svmCircleExamples}
+% \end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/svmExp_2GaussExample.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{How LIBSVM draws boundaries around complex signal and noise data sets with an RBF kernel. Support vectors highlighted in orange.}
+  \label{subFig:svmExp_2GausseExample}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/exp_2NysGaussExample.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{How LIBLINEAR draws boundaries around complex signal and noise sets with a Nystrom approximation of the RBF kernel with a sampling of 100.}
+  \label{subFig:exp_2NysGaussExample}
+\end{subfigure}
+\caption{SVM examples showing how to separate data sets with two Gaussian signals (blue) from exponential noise (red). For both an RBF kernel was used with c = 10000 and $\gamma$ = 1.}
+\label{fig:svmExp_GausseExamples}
+\end{figure}
+
+Figures \ref{fig:sklearnReleventExamples} \ref{fig:svmBoser92LinearSVM} \ref{fig:svmBoser92KernelSVM} \ref{fig:kernelRBF_fromWeB} \ref{fig:svmExp_GausseExamples} are sufficient reason to believe that an SVM with an RBF kernel should be a suitable classifier for separating trigger data which only has four dimensions. The four dimensions that need to be optimised are: the summed energy above a threshold of 1.5\,PE (0.06\,MeV), summed energy above a threshold of 12.5\,PE (0.5\,MeV), Numbers of bars hit above a threshold of 1.5\,PE (0.06\,MeV), Numbers of bars hit above threshold 12.5\,PE (0.5\,MeV). The libraries used were LIBSVM and LINEAR both of which are highly provident and are often cited as reason for the SVMs gain in popularity \cite{chang2011libsvm} \cite{fan2008liblinear} \cite{murty2016support}. The wrapper in sci-kit learn was preferred due to its ease of use and its easy implantation of 
+  
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/accNeutronRbfSVMg0.01.png}
+\captionof{figure}{Accuracy of an SVM with a radial basis function (RBF) kernel as more dimensions are added for a $\gamma$ value of 0.01. The results do not converge when all the dimensions are considered suggesting the global minimum of the SVM has not been found.} %~can be used as a kind of place holder in latex
+\label{fig:accNeutronRbfSVMg0.01}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/noiseNeutronRbfSVMg0.01.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{The noise data for training an RBF SVM with a $\gamma$ value of 0.01 the data is mainly concentrated at a small number of bar hits. The boundaries are quite complex.}
+  \label{subFig:noiseNeutronRbfSVMg0.01}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/signalNeutronRbfSVMg0.01.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{The signal data for training an RBF SVM with a $\gamma$ value of 0.01 the data hits many bars above both thresholds. The boundaries are quite complex.}
+  \label{subFig:signalNeutronRbfSVMg0.01}
+\end{subfigure}
+\caption{The signal and noise for training the RBF SVM with a $\gamma$ value of 0.01. Boundaries drawn by the SVM are complex.}
+\label{fig:signalAndNoiseNeutronRbfSVMg0.01}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/accNeutronRbfSVMg0.001.png}
+\captionof{figure}{Accuracy of an SVM with a radial basis function (RBF) kernel as more dimensions are added for a $\gamma$ value of 0.001. The SVM has almost converged but the final result still has a slight drop suggesting that improvements need to be made.} %~can be used as a kind of place holder in latex
+\label{fig:accNeutronRbfSVMg0.001}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/noiseNeutronRbfSVMg0.001.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{The noise data for training an RBF SVM with a $\gamma$ value of 0.001 the data is mainly concentrated at a small number of bar hits. The boundaries represent an arch.}
+  \label{subFig:noiseNeutronRbfSVMg0.001}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/signalNeutronRbfSVMg0.001.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{The signal data for training an RBF SVM with a $\gamma$ value of 0.001 the data hits many bars above both thresholds. The boundaries represent an arch.}
+  \label{subFig:signalNeutronRbfSVMg0.001}
+\end{subfigure}
+\caption{The signal and noise for training the RBF SVM with a $\gamma$ value of 0.001. Boundaries drawn by the SVM reprsent an arch.}
+\label{fig:signalAndNoiseNeutronRbfSVMg0.001}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/accNeutronRbfSVMg0.00001.png}
+\captionof{figure}{Accuracy of an SVM with a radial basis function (RBF) kernel as more dimensions are added for a $\gamma$ value of 0.00001. The SVM has converged the accuracy levels off after 2 dimensions and there is no drop afterwards this clearly shows that the data is 2d separable and that there is no further improvement to be made to the SVM.} %~can be used as a kind of place holder in latex
+\label{fig:accNeutronRbfSVMg0.00001}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/noiseNeutronRbfSVMg0.00001.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{The noise data for training an RBF SVM with a $\gamma$ value of 0.00001 the data is mainly concentrated at a small number of bar hits. The boundaries are linear.}
+  \label{subFig:noiseNeutronRbfSVMg0.000001}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/signalNeutronRbfSVMg0.00001.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{The signal data for training an RBF SVM with a $\gamma$ value of 0.00001 the data hits many bars above both thresholds. The boundaries are linear.}
+  \label{subFig:signalNeutronRbfSVMg0.00001}
+\end{subfigure}
+\caption{The signal and noise for training the RBF SVM with a $\gamma$ value of 0.00001. Boundaries drawn by the SVM are linear.}
+\label{fig:signalAndNoiseNeutronRbfSVMg0.00001}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/accNeutronLinSVM.png}
+\captionof{figure}{Accuracy for an SVM with no kernel the SVM has converged after 2 dimensions and resembles figure \ref{fig:accNeutronRbfSVMg0.00001} which shows that the results are 2d linearly separable.} %~can be used as a kind of place holder in latex
+\label{fig:accNeutronLinSVM}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/noiseNeutronLinSVM.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{The noise data for training an SVM with no kernel the data is mainly concentrated at a small number of bar hits. The boundaries are the same as \ref{fig:signalAndNoiseNeutronRbfSVMg0.00001}}
+  \label{subFig:noiseNeutronLinSVM}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/signalNeutronLinSVM.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{The signal data for training an SVM with no kernel the data hits many bars above both thresholds. The boundaries are the same as \ref{fig:signalAndNoiseNeutronRbfSVMg0.00001}.}
+  \label{subFig:signalNeutronLinSVM}
+\end{subfigure}
+\caption{The signal and noise for training an SVM with no kernel. The linear boundaries have converged to the same boundary as figure \ref{fig:signalAndNoiseNeutronRbfSVMg0.00001}.}
+\label{fig:signalAndNoiseNeutronLinSVM}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/effNeutronLinSVM.png}
+\captionof{figure}{Efficiency of the neutron signal (the 8\,MeV $\gamma$ cascade) for an SVM with no kernel for different combinations of 4 dimensions. The efficiency peaks after two dimensions.} %~can be used as a kind of place holder in latex
+\label{fig:effNeutronLinSVM}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/purNeutronLinSVM.png}
+\captionof{figure}{Purity of the neutron signal (the 8\,MeV $\gamma$ cascade) for an SVM with no kernel for different combinations of 4 dimensions. The purity peaks after two dimensions} %~can be used as a kind of place holder in latex
+\label{fig:purNeutronLinSVM}
+\end{figure}
+
+
+% \begin{figure}[H]
+%  \centering
+%  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/diceBoxNeutronsSVM.png}
+%  \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+%  \label{fig:diceBoxNeutronsSVM}
+% \end{figure}
+
+% \begin{figure}[H]
+%  \centering
+%  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/noiseEventsSVM.png}
+%  \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+%  \label{fig:noiseEventsSVM}
+% \end{figure}
 
 % \begin{figure}[H]
 %  \centering
@@ -443,14 +659,14 @@ Gadolinium is useful for measuring inverse $\beta$ decay as when the neutron is 
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/summedEnergyPastTriggerGdDicebox.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+ \captionof{figure}{The summed energy past the simulated neutron trigger shown in figure \ref{fig:signalAndNoiseNeutronLinSVM}. 25\,PE = 1\,MeV overall giving an Efficiency = 76\,\% and purity = 92\,\%. Purity is determined from noise of 4 million noise evetns and 1 million signal events.} %~can be used as a kind of place holder in latex
  \label{fig:summedEnergyPastTriggerGdDicebox}
 \end{figure}
 
 \begin{figure}[H]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/GeneratedEnergyPastTriggerGdDicebox.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+ \captionof{figure}{The generated kinetic energy for particles which make it past the simulated neutron trigger. The only particles of concern are electrons that produce high enough energy to hit many bars and produce showers. Background electrons with energies > 5\,MeV are unlikely to be prevalent during deployment.} %~can be used as a kind of place holder in latex
  \label{fig:GeneratedEnergyPastTriggerGdDicebox}
 \end{figure}
 
