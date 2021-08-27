@@ -20,7 +20,7 @@ In order to characterise the physical effects of the detector at test stand was 
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=1.0\linewidth]{result_from_attnPlotter.png} 
- \captionof{figure}{The attenuation plot for test stand produced by George Holt. The attenuation length is 580 $\pm$ 60 \hl{units!}} %~can be used as a kind of place holder in latex
+ \captionof{figure}{The attenuation plot for test stand produced by George Holt. The attenuation length is 580 $\pm$ 60 \hl{units!}} 
  \label{fig:attenuationPlot}
 \end{figure}
 
@@ -29,7 +29,7 @@ Another data driven physical effect modelled in the simulation is the dark noise
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.8\linewidth]{pureDarkNoise_output.png}
- \captionof{figure}{Dark Noise from the MPPC taken over a period of $\sim$ 12\,hrs. The PE peaks for 1\,PE 2\,PE and 3\,PE can be seen at 4.1\,mv, 8.2\,mv and 12.3\,mv respectively. } %~can be used as a kind of place holder in latex
+ \captionof{figure}{Dark Noise from the MPPC taken over a period of $\sim$ 12\,hrs. The PE peaks for 1\,PE 2\,PE and 3\,PE can be seen at 4.1\,mv, 8.2\,mv and 12.3\,mv respectively. } 
  \label{fig:pureDarkNoise}
 \end{figure}
 
@@ -58,7 +58,7 @@ The results from \ref{fig:fitting_of_non_peak_dark_noise} can then be used to co
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.8\linewidth]{cumulative_prob_dark_noise.png}
- \captionof{figure}{cumulative probability of the dark noise, which is converted to a table and then searched using the golden section search} %~can be used as a kind of place holder in latex
+ \captionof{figure}{cumulative probability of the dark noise, which is converted to a table and then searched using the golden section search} 
  \label{fig:cumulative_prob_dark}
 \end{figure}
 \hl{would be really nice if I could produce a histo of the simulated dark noise and quantify what that looks like and how much we're expecting when we deploy}
@@ -274,7 +274,7 @@ P(x) = \frac{1}{\sigma \sqrt[]{2 \pi}} \exp \left(-\frac{1}{2}\left(\frac{x-\ove
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.8\linewidth]{countingStats10.png}
- \captionof{figure}{Counting statistics for poission and normal distribution for an expectation value of 10 photons the normal distribution is used past when the expectation value is 10 photons or higher to save on computational load.} %~can be used as a kind of place holder in latex
+ \captionof{figure}{Counting statistics for poission and normal distribution for an expectation value of 10 photons the normal distribution is used past when the expectation value is 10 photons or higher to save on computational load.} 
  \label{fig:CoutingStats10}
 \end{figure}
 
@@ -284,13 +284,13 @@ The impact of physical and electronic effects on simulated data is quite signifi
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.7\linewidth]{truth_vs_summed_alpha.png}
- \captionof{figure}{The energy deposited in a simulated detector by $\alpha$ particles without physical and electronic effects taken into account, this is the maximum possible energy that can be deposited.} %~can be used as a kind of place holder in latex
+ \captionof{figure}{The energy deposited in a simulated detector by $\alpha$ particles without physical and electronic effects taken into account, this is the maximum possible energy that can be deposited.} 
  \label{fig:alpha_summed_vs_truth}
 \end{figure}
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/truth_vs_visSummed_alpha_zoom.png}
- \captionof{figure}{The energy deposited in a simulated detector by $\alpha$ particles with only the physical effects of quenching and attenuation taken into account. The detector effects of dark noise and counting statistics are not taken into account} %~can be used as a kind of place holder in latex
+ \captionof{figure}{The energy deposited in a simulated detector by $\alpha$ particles with only the physical effects of quenching and attenuation taken into account. The detector effects of dark noise and counting statistics are not taken into account} 
  \label{fig:alphaVisVsTruthZoom}
 \end{figure}
 
@@ -299,12 +299,12 @@ Finally the effects caused by the electronics and the counting statistics (figur
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/truth_vs_recoSummed_alpha_zoom.png}
- \captionof{figure}{The energy deposited in a simulated detector by $\alpha$ particles with physical effects of quenching and attenuation taken into account as well as the detector effects of dark noise and counting statistics.} %~can be used as a kind of place holder in latex
+ \captionof{figure}{The energy deposited in a simulated detector by $\alpha$ particles with physical effects of quenching and attenuation taken into account as well as the detector effects of dark noise and counting statistics.} 
  \label{fig:alphaRecoVsTruthZoom}
 \end{figure}
 
 \section{Modelling Gadolinium}\label{sec:geant4Simulation_modellingGadolinium}
-Gadolinium is useful for measuring inverse $\beta$ decay as when the neutron is given off and subsequently absorbed by the layer of gadolinium in between the layers of scintillating plastic in the VIDARR detector a delayed 8\,MeV $\gamma$ cascade is released. This is the trigger signal for the VIDARR detector. After the cascade has been triggered on the detector looks backwards in time to determine the positron cluster. 
+Gadolinium is useful for measuring inverse $\beta$ decay as when the neutron is given off and subsequently absorbed by the layer of gadolinium in between the layers of scintillating plastic in the VIDARR detector a delayed 8\,MeV $\gamma$ cascade is released. This is the trigger signal for the VIDARR detector. After the cascade has been triggered the detector looks backwards in time to determine the positron cluster. 
 \\\\Gadolinium has two models in Geant 4 the photon evaporation model seen in \ref{subFig:differentGeant4Models_photonEvaporationGd} and the final state model seen in  \ref{subFig:differentGeant4Models_finalStateGd}. These two models have different strengths and weaknesses the photon evaporation model conserves energy by ``boiling off'' the known decay energies of Gadolinium until there is no more energy left to disperse. This approach attempts to match the multiplicity of the gadolinium cascade but in so doing the high energy $\gamma$ rays that are the most indicative of the gadolinium cascade are not present. The other model in Geant 4 is the final state model which tries to match the spectrum of measured energy rays. However, by using this approach the conservation of energy is violated. Of the two models the final state would be preferred in the case of inverse $\beta$ decay because the high energy $\gamma$ rays are used to distinguish the gadolinium cascade from background.
 
 \begin{figure}[htbp]
@@ -313,112 +313,113 @@ Gadolinium is useful for measuring inverse $\beta$ decay as when the neutron is 
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/gadolinium/photonEvaporationGd.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Energies of single $\gamma$ rays from the photon evaporation model in Geant 4 this conserves energy but does not have high energy $\gamma$ rays that are typically associated with natural gadolinium. From \cite{YuChen_2015}. }
+  \caption{GEANT4 photon evaporation model.}
   \label{subFig:differentGeant4Models_photonEvaporationGd}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/gadolinium/FinalStateGd.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Energies of the $\gamma$ rays from the final state model in Geant 4 this shows the high energy gamma rays from both $^{157}$Gd and $^{155}$Gd however this does break the conservation of energy. From \cite{YuChen_2015}. }
+  \caption{GEANT4 final state model.}
   \label{subFig:differentGeant4Models_finalStateGd}
 \end{subfigure}
-\caption{The energies of $\gamma$ rays of both the photon evaporation model and the final state model.}
+\caption{Individual $\gamma$ rays for two different models for gadolinium cascade in GEANT4. The photon evaporation model which conserves energy but does not produce high energy $\gamma$ rays (figure \ref{subFig:differentGeant4Models_photonEvaporationGd}). The final state model produces high energy $\gamma$ rays but breaks the conservation of energy to do so (figure \ref{subFig:differentGeant4Models_finalStateGd}). Both plots from \cite{YuChen_2015}.}
 \label{fig:differentGeant4Models}
 \end{figure}
 
+%I'm not sure how useful this plot is... Natural Gadolinium is mentioned later with more context
 % \begin{figure}[htbp]
 %  \centering
-%  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/photonEvaporationGd.png}
-%  \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
-%  \label{fig:photonEvaporationGd}
+%  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/naturalGd.png}
+%  \captionof{figure}{Natural Gadolinium gamma spectra from \cite{molnar_2004}} 
+%  \label{fig:naturalGd.png}
 % \end{figure}
 
-% \begin{figure}[htbp]
-%  \centering
-%  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/FinalStateGd.png}
-%  \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
-%  \label{fig:FinalStateGd}
-% \end{figure}
-
-\begin{figure}[htbp]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/naturalGd.png}
- \captionof{figure}{Natural Gadolinium gamma spectra from \cite{molnar_2004}} %~can be used as a kind of place holder in latex
- \label{fig:naturalGd.png}
-\end{figure}
+However, whilst the final state model is preferable to the photon evaporation model there is another alternative from the DANCE collaboration which produced a dicebox model of $^{157}$Gd \cite{Chyzh_2011}. DANCE is a $\gamma$ calorimeter consisting of 160 BaF$_2$ scintillation detectors. The multiplicities of the cascade from the dicebox are counted as the number of clusters that are observed rather than the number of crystals that fire in order to give a more accurate form of multiplicity due to the high noise rate observed in the detectors below 3\,MeV \cite{Chyzh_2011}. The shape of the spectrum at low sum energies (below about 3 MeV) is strongly influenced by the background from natural $\beta$ activity in the BaF2 crystals, especially for low multiplicities \cite{Chyzh_2011}. The breakdown for the multiplicity cascade can be seen in figure \ref{fig:gadoliniumMultipliciesBreakdownCascade} where both the $\gamma$ and e$^-$ multiplicities are shown. Most of the multiplicities are driven by the $\gamma$ rays but the some e$^-$s are produced unlike the models in GEANT4. 
 
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/gadoliniumMultipliciesBreakdownCascade.png}
- \captionof{figure}{Multiplicities from the DANCE dicebox based on the DANCE experimental data for $^{157}$Gd \cite{Chyzh_2011}. } %~can be used as a kind of place holder in latex
+ \captionof{figure}{Multiplicities from the DANCE dicebox based on the DANCE experimental data for $^{157}$Gd \cite{Chyzh_2011}. } 
  \label{fig:gadoliniumMultipliciesBreakdownCascade}
 \end{figure}
+
+The breakdown for all the energies for the DANCE dicebox is shown in figure \ref{fig:gadoliniumEnergiesCascade} where most of the energies produced are also $\gamma$ rays. The dominance of the $\gamma$ rays is not surprising when comparing the dicebox to the photon evaporation and final state models in GEANT4 seen in figure \ref{fig:differentGeant4Models}. The generated energies for all of the particles can be seen in figure \ref{fig:energyOfCascadeOfCascadeGd} these energies are what is put into the GEANT4 simulation as well as the type of particle. This was originally done by the WATCHMAN collaboration as the cancelling of the 8\,MeV $\gamma$ cascade and re-generation of the cascade in GEANT4 is complex, the implementation was copied by the VIDARR collaboration. In figure \ref{fig:energyOfCascadeOfCascadeGd} high energy $\gamma$ rays are visible unlike in the photon evaporation model (figure \ref{subFig:differentGeant4Models_photonEvaporationGd}). However, the DANCE dicebox model also conserves energy as the total amount of energy is set which can be seen in figure  \ref{fig:conservationOfCascadeGd} the total generated energy matches the summed energy of the particles produced. 
 
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/gadoliniumEnergiesCascade.png}
- \captionof{figure}{Energies from the DANCE dicebox based on the DANCE experimental data for $^{157}$Gd \cite{Chyzh_2011}. } %~can be used as a kind of place holder in latex
+ \captionof{figure}{Energies from the DANCE dicebox based on the DANCE experimental data for $^{157}$Gd \cite{Chyzh_2011}. } 
  \label{fig:gadoliniumEnergiesCascade}
 \end{figure}
 
 % \begin{figure}[htbp]
 %  \centering
 %  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/pe_vs_fs_models_summed.png}
-%  \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+%  \captionof{figure}{blah.} 
 %  \label{fig:pe_vs_fs_models_summed}
 % \end{figure}
 
 \begin{figure}[htbp]
  \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/TotalGeneratedEnergyOfCascadeFinalStateDicebox.png}
- \captionof{figure}{Total generated energy of the cascade the dicebox based on the DANCE detector data \cite{Chyzh_2011}.} %~can be used as a kind of place holder in latex
- \label{fig:TotalGeneratedEnergyOfCascadeFinalStateDicebox}
-\end{figure}
-
-\begin{figure}[htbp]
- \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/energyOfCascadeOfCascadeGd.png}
- \captionof{figure}{Energy of all particles from the dicebox based on the DANCE experiment \cite{Chyzh_2011} which is then worked into GEANT4 using an implementation created by the WATCHMAN collaboration which was then copied by the VIDARR collaboration. } %~can be used as a kind of place holder in latex
+ \captionof{figure}{Energy of all particles from the $^{157}$Gd dicebox based on the DANCE experiment \cite{Chyzh_2011} which is then worked into GEANT4 using an implementation created by the WATCHMAN collaboration which was then copied by the VIDARR collaboration.} 
  \label{fig:energyOfCascadeOfCascadeGd}
 \end{figure}
 
 \begin{figure}[htbp]
  \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/gdCascadeVsAllGammas.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
- \label{fig:gdCascadeVsAllGammas}
-\end{figure}
-
-\begin{figure}[htbp]
- \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/conservationOfCascadeGd.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
+ \captionof{figure}{The summed energy for the Dicebox gadolinium $\gamma$ cascade. There is no violation of the conservation of energy 8\,MeV energy is generated and 8\,MeV is observed by the simulation.} 
  \label{fig:conservationOfCascadeGd}
 \end{figure}
+
+The photon evaporation model and final state model were overlapped with he measured spectrum from natural gadolinium as well as $^{155}$Gd,$^{157}$Gd in figure \ref{fig:comparisonGd}. The high energy $\gamma$ rays observed in the natural and specific isotopes of Gd are present in the final state model which reads from a data base ENDF and tries to replicate the final state of the neutron \cite{koiTatsumi_2006}. With the final state model events in the low energy tail break Q-value (conservation of energy) \cite{YuChen_2015}. When the dicebox from DANCE is overlaid on top of the photon evaporation model and the final state model as shown in figure  \ref{fig:comparisonAndDiceBoxGd} the dicebox seems very similar to the photon evaporation model but extends further producing more higher energy $\gamma$ rays. The dicebox shown in figure \ref{fig:comparisonAndDiceBoxGd} only represents $^{157}$Gd. The DANCE dicebox was based on data measured from a sample that was  99.7\,\% $^{157}$Gd \cite{Chyzh_2011}. 
 
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/comparisonGd.png}
- \captionof{figure}{blah. * \cite{kandlakunta_2012} ** \cite{bollinger_1970} from \cite{YuChen_2015}} %~can be used as a kind of place holder in latex
+ \captionof{figure}{How the photon evaporation and final state models in GEANT 4 compare to the measured spectra for natural gadolinium and Gd 155,157. High energy gammas are only present in the final state model.  * \cite{kandlakunta_2012} ** \cite{bollinger_1970} from \cite{YuChen_2015}.} 
  \label{fig:comparisonGd}
 \end{figure}
 
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/comparisonAndDiceBoxGd.png}
- \captionof{figure}{blah. \ref{fig:energyOfCascadeOfCascadeGd} * \cite{kandlakunta_2012} ** \cite{bollinger_1970} from \cite{YuChen_2015}} %~can be used as a kind of place holder in latex
+ \captionof{figure}{Figure \ref{fig:comparisonGd} \cite{YuChen_2015} but with the Dicebox individual $\gamma$ rays overlaid on top. The Dicebox has similar low energy $\gamma$ rays to the photon evaporation model but has more high energy $\gamma$ rays as would be expected of the Gd cascade. \ref{fig:energyOfCascadeOfCascadeGd} * \cite{kandlakunta_2012} ** \cite{bollinger_1970}.}
  \label{fig:comparisonAndDiceBoxGd}
 \end{figure}
- 
+
+The $\gamma$ rays produced by the simulation are shown in figure \ref{fig:gdCascadeVsAllGammas} where the energies produced by the simulation can be seen. The Gd Cascade is from a simulation of natural Gadolinium which uses the DANCE/WATCHMAN dicebox when $^{157}$Gd captures a neutron and uses the final state model when other isotopes of Gd capture a neutron. In figure \ref{fig:gdCascadeVsAllGammas} the vast majority of the gamma rays produced are from the $^{157}$Gd dicebox final state model hybrid. However, there is also a significant peak caused by hydrogen neutron capture. The effect of adding the the dicebox to the final state model can be seen in figure \ref{fig:TotalGeneratedEnergyOfCascadeFinalStateDicebox}. Compared to the final state model the peaks in the dicebox final state hybrid are much more pronounced with more energy being produced overall. The focus on the high energy $\gamma$ rays also means that more energy is deposited in the scintillator as well which figure \ref{fig:finalStateAndDiceBoxBarsDepositedEnergy} shows. This is very useful for the VIDARR simulation, not only is the dicebox-final state hybrid more realistic than the pure final state model it also shows that the trigger signal for the VIDARR detector is even more unique than expected. Not only deposits more energy in the scintillator than would be expected from pure final state model (figure \ref{fig:finalStateAndDiceBoxBarsDepositedEnergy}) but also hits more bars as seen in figure \ref{fig:numberOfBarsHitCascadeFinalStateDicebox}. This is especially useful for separating out the trigger signal from the noise as will be shown in section \ref{sec:MachineLearningTrigger}.
+
 \begin{figure}[htbp]
  \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/numberOfBarsHitCascadeFinalStateDicebox.png}
- \captionof{figure}{blah.} %~can be used as a kind of place holder in latex
- \label{fig:numberOfBarsHitCascadeFinalStateDicebox}
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/gdCascadeVsAllGammas.png}
+ \captionof{figure}{The individual $\gamma$ rays seen in the simulated VIDARR detector from generated neutrons with 0.025\,eV kinetic energy. The majority of the distribution is dominated by gadolinium cascade but a small peak is caused by the hydrogen absorption of the neutron.} 
+ \label{fig:gdCascadeVsAllGammas}
 \end{figure}
 
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/finalStateAndDiceBoxBarsGeneratedEnergy.png}
+ \captionof{figure}{Total generated energy of the cascade the dicebox based on the DANCE detector data \cite{Chyzh_2011}.}
+ \label{fig:TotalGeneratedEnergyOfCascadeFinalStateDicebox}
+\end{figure}
 
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/finalStateAndDiceBoxBarsDepositedEnergy.png}
+ \captionof{figure}{The total energy deposited in the simulated VIDARR detector. Slightly more energy is deposited by the final state + Dicebox model. (0th bin for Final state No $^{157}$Gd goes up to 80000)} 
+ \label{fig:finalStateAndDiceBoxBarsDepositedEnergy}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/finalStateAndDiceBoxBarsHit.png}
+ \captionof{figure}{The number of bars hit in the simulated VIDARR detector for different models. The final state model with the dicebox Gd157 was chosen and hits slightly more bars.} 
+ \label{fig:numberOfBarsHitCascadeFinalStateDicebox}
+\end{figure} 
+ 
 \section{Machine Learning Neutron Trigger}\label{sec:MachineLearningTrigger}
 Using simulated data is is possible to test weather a machine learning trigger would be advantageous to the analysis. The machine learning technique used was a Support Vector Machine (SVM) \cite{Boser92atraining} \cite{cortes1995support}. SVMs were considered after comparing several other simple techniques that are typically used such as a decision tree and k nearest neighbours the results of this can be seen in figure \ref{fig:sklearnReleventExamples}. As seen in figure \ref{fig:sklearnReleventExamples} the SVM can be used in its pure linear classification form or with a kernel the radial basis function (RBF) kernel is one of the most common. In figure \ref{fig:sklearnReleventExamples} the generalised boundaries, high accuracy, and well defined confidence space seen in the RBF SVM makes it the clear standout. The SVM has used the kernel trick since at least 1992 \cite{Boser92atraining} in figure \ref{fig:svmBoser92LinearSVM} how the support vectors influence the best separating hyper-plane can be seen. SVMs can have different kernels used with them as figure \ref{fig:svmBoser92KernelSVM} shows the results are similar weather a polynomial or RBF kernel is used. Providing the kernel can effectively transform data so that it becomes linearly separable the SVM will be able to separate the data as shown by figure \ref{fig:kernelRBF_fromWeB}. A further test of the RBF SVM's capabilities was done in figure \ref{fig:svmExp_GausseExamples} which tested exponential noise in the x-y plane and two signal Gaussian peaks. As a result it is possible to see that the RBF SVM can draw complicated boundaries around complex signal and noise. 
 \\\\A support vector machine is also convexly optimised which means the solutions are easier to solve for as there is only one global minimum \cite{cortes1995support}. The draw backs of SVMs are the long training times relative to other machine learning techniques  due to the maths behind the solution for the SVM being a squared problem to solve\cite{cortes1995support}. This means that for data with many dimensions and many statistics training times and memory usage can be very high to the point of being unusable \cite{cortes1995support}. Data must also be completely labelled and optimisation for training whilst possible through sequential minimal optimisation is somewhat limited \cite{platt1998sequential}. These drawbacks are not a significant issue for the trigger data but they should be bared in mind for more complex cases such as image recognition.
@@ -482,14 +483,14 @@ K(\mathbf{x,x'}) = \exp{(\gamma \mathbf{x \cdot x'})} - 1
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.9\linewidth]{Chapter4/Figs/Raster/GammaCGridSearchExp2Gauss.png}
-\captionof{figure}{SVMs being trained on varying values of C and $\gamma$ for figure \ref{subFig:exp_2NysGaussExample}. Higher values of $\gamma$ represent non-linear data separation which the SVMs settle on. Higher values of C represent more overlap in the data. This is less clear but ultimately a higher value of C was settled due to a high preference for isolating boundaries as much as possible. A $\gamma$ = 1e0 and C of 1e4 was chosen.} %~can be used as a kind of place holder in latex
+\captionof{figure}{SVMs being trained on varying values of C and $\gamma$ for figure \ref{subFig:exp_2NysGaussExample}. Higher values of $\gamma$ represent non-linear data separation which the SVMs settle on. Higher values of C represent more overlap in the data. This is less clear but ultimately a higher value of C was settled due to a high preference for isolating boundaries as much as possible. A $\gamma$ = 1e0 and C of 1e4 was chosen.} 
 \label{fig:GammaCGridSearchExp2Gauss}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.9\linewidth]{Chapter4/Figs/Raster/GammaCGridSearchNeutron.png}
-\captionof{figure}{SVMs being trained on varying values of C and $\gamma$ for figure generated noise and neutron data. Lower values of $\gamma$ represent a linear data separation which the SVMs settle on. Higher values of C represent more overlap in the data. This data set is linearly separable with minimal overlap. A $\gamma$ = 1e-6 and C of 1e6 was chosen.} %~can be used as a kind of place holder in latex
+\captionof{figure}{SVMs being trained on varying values of C and $\gamma$ for figure generated noise and neutron data. Lower values of $\gamma$ represent a linear data separation which the SVMs settle on. Higher values of C represent more overlap in the data. This data set is linearly separable with minimal overlap. A $\gamma$ = 1e-6 and C of 1e6 was chosen.} 
 \label{fig:GammaCGridSearchNeutron}
 \end{figure}
 
@@ -498,21 +499,21 @@ In addition it is then possible to perform a basic form of dimensional reduction
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/accNeutronSVMC1e6_g1e-6.png}
-\captionof{figure}{The accuracy for Nystroem SVM classifiers with approximate RBF kernel with sample of 100 for generated neutron and noise data. With C = 1e6 and $\gamma$ = 1e-6. Separation don't improve above 2 dimensions.} %~can be used as a kind of place holder in latex
+\captionof{figure}{The accuracy for Nystroem SVM classifiers with approximate RBF kernel with sample of 100 for generated neutron and noise data. With C = 1e6 and $\gamma$ = 1e-6. Separation don't improve above 2 dimensions.} 
 \label{fig:accNeutronSVMC1e6_g1e-6}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/effNeutronSVMC1e6_g1e-6.png}
-\captionof{figure}{The efficiency for Nystroem SVM classifiers with approximate RBF kernel with sample of 100 for generated neutron and noise data. With C = 1e6 and $\gamma$ = 1e-6. Separation don't improve above 2 dimensions.} %~can be used as a kind of place holder in latex
+\captionof{figure}{The efficiency for Nystroem SVM classifiers with approximate RBF kernel with sample of 100 for generated neutron and noise data. With C = 1e6 and $\gamma$ = 1e-6. Separation don't improve above 2 dimensions.} 
 \label{fig:effNeutronSVMC1e6_g1e-6}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/purNeutronSVMC1e6_g1e-6.png}
-\captionof{figure}{The purity for Nystroem SVM classifiers with approximate RBF kernel with sample of 100 for generated neutron and noise data. With C = 1e6 and $\gamma$ = 1e-6. Separation don't improve above 2 dimensions.} %~can be used as a kind of place holder in latex
+\captionof{figure}{The purity for Nystroem SVM classifiers with approximate RBF kernel with sample of 100 for generated neutron and noise data. With C = 1e6 and $\gamma$ = 1e-6. Separation don't improve above 2 dimensions.} 
 \label{fig:purNeutronSVMC1e6_g1e-6}
 \end{figure}
 
@@ -541,14 +542,14 @@ In figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6} anything to the left of 
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/summedEnergyPastTriggerGdDicebox.png}
- \captionof{figure}{The summed energy past the simulated neutron trigger shown in figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6}. 25\,PE = 1\,MeV overall giving an Efficiency = 75.6\,\% and purity = 93.5\,\%. Purity is determined from noise of 4 million noise evetns and 1 million signal events.} %~can be used as a kind of place holder in latex
+ \captionof{figure}{The summed energy past the simulated neutron trigger shown in figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6}. 25\,PE = 1\,MeV overall giving an Efficiency = 75.6\,\% and purity = 93.5\,\%. Purity is determined from noise of 4 million noise evetns and 1 million signal events.} 
  \label{fig:summedEnergyPastTriggerGdDicebox}
 \end{figure}
 
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/GeneratedEnergyPastTriggerGdDicebox.png}
- \captionof{figure}{The generated kinetic energy for particles which make it past the simulated neutron trigger. The only particles of concern are electrons that produce high enough energy to hit many bars and produce showers. Background electrons with energies > 5\,MeV are unlikely to be prevalent during deployment.} %~can be used as a kind of place holder in latex
+ \captionof{figure}{The generated kinetic energy for particles which make it past the simulated neutron trigger. The only particles of concern are electrons that produce high enough energy to hit many bars and produce showers. Background electrons with energies > 5\,MeV are unlikely to be prevalent during deployment.} 
  \label{fig:GeneratedEnergyPastTriggerGdDicebox}
 \end{figure}
 
