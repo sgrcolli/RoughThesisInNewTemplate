@@ -52,7 +52,7 @@ Cosmic muon tomography can be split into two distinct types two sided cosmic $\m
 
 For figure \ref{fig:thetaVsPhiExpectedCube} there is a slight distortion caused at the top of the building due to the projection of a hemispherical distribution onto a cuboid detector. The amount of distortion will also vary depending on the distance from the detector and the size and shape of the building in question. For example a longer shorter building would have significantly more distortion than a tall narrow building. Also the slope of the distortion will vary depending on the position relative to the detector. Further in figure \ref{fig:thetaVsPhiExpectedCube} the drop in intensity is would not be expected to be instantaneous, there would be a gradual decrease in intensity resulting in blurred edges around the occlusion pattern or ``shadow.'' These effects will vary depending on the setup. The VIDARR prototype and upgraded VIDARR detectors for example are cuboid detectors that analyse the whole hemisphere at once, and as such can be considered as 360$^\circ$ cosmic camera rather than as a cosmic $\mu$ telescope in the strictest sense. 
 \\\\This is an important consideration as the other cosmic $\mu$ experiments have a very different experimental setup. For example the DIAPHANE experimental setup seen in figure \ref{fig:DIAPHANE_deployment} shows a cosmic $\mu$ telescope with several different planes clearly analysing a very narrow filed of view this helps significantly in preventing distortions and helps prevent bin migration. This is also the case for the MU-RAY collaboration as seen in figure \ref{fig:muRayDetectors} with a tear down of the interorir of a pannel vsiible in figure \ref{fig:muRaySetup}. Both of these are traditional cosmic $\mu$ telescopes as opposed to VIDARR which is an $\Bar{\nu_e}$ detector first and a cosmic $\mu$ camera second. Despite this DIAPHANE MU-RAY and VIDARR all use similar technology using plastic scintillating bars and WLS fibres \cite{Carroll_2018} \cite{Marteau_2017} \cite{ANASTASIO2013423}. With DIAPHANE using ``multianode PMT’s''  \cite{Marteau_2017} and VIDARR and MU-RAY using SiPms \cite{Carroll_2018} \cite{ANASTASIO2013423} to read out the information from the WLS fibres. 
-\\\\Both DIAPHANE and MU-RAY have taken tomographic data to image their surroundings. With DIAPHANE imaging LA Soufriere of Guadeloupe using cosmic $\mu$ radiography as seen in figure \ref{fig:diaphaneStructualImaging} which shows different density areas of rock which is relevant for volcanology \cite{Marteau_2017}. MU-RAY has also produced results in figure \ref{fig:mtVesuviusMuRayImaging} the thickness of rock expressed in m can be seen \cite{Ambrosino_2014}. Of more interest is figure \ref{fig:mtVesuviusMuRayTransmission} which shows the ``Transmission'' method.
+\\\\Both DIAPHANE and MU-RAY have taken tomographic data to image their surroundings. With DIAPHANE imaging LA Soufriere of Guadeloupe using cosmic $\mu$ radiography as seen in figure \ref{fig:diaphaneStructualImaging} which shows different density areas of rock which is relevant for volcanology \cite{Marteau_2017}. MU-RAY has also produced results in figure \ref{fig:mtVesuviusMuRayImaging} the thickness of rock expressed in m can be seen \cite{Ambrosino_2014}. Of more interest is figure \ref{fig:mtVesuviusMuRayTransmission} which shows the ``Transmission'' method. The transmission method used in figure \ref{fig:mtVesuviusMuRayTransmission} is obtained by pointing the MU-RAY detector at the sky for a calibration period of one week then pointing the MU-RAY detector at Mt Vesuvius for one week and then taking the ratio of the two data sets \cite{Ambrosino_2014}. This approach of measuring the free sky and the blocked sky and taking the ratio of the two creates an extremely clear image because it takes the background into account. This creates a clear difference in intensity where a transmission 1 represents free sky and a transmission of 0 represents completely blocked sky. This approach is the one that will be used when analysing the Wylfa reactor site due to the effective reduction of background noise effects and the sharpness of the image it provides. 
 
 \begin{figure}[htbp]
  \centering
@@ -97,26 +97,34 @@ For figure \ref{fig:thetaVsPhiExpectedCube} there is a slight distortion caused 
 \end{figure}
 
 \section{Deployment At Wylfa}\label{sec:deploymentAtWylfa}
-The original prototype detector was deployed at the Wylfa Nuclear power station from 07-07-2014 to 25-02-2016 with data being taken continuously over that time period both with the reactor on and off with ibd measurements seen in figure \ref{fig:prototypeMeasumentFlux}. The placement of the detector in relation to the Wylfa reactor buildings can be seen in figure \ref{fig:wylfaTrace} the reactors were placed either end of the main reactor building in the centre of the cylindrical shaped ends. The overall shape of each of these buildings seen in figure \ref{fig:wylfaAir} causes the shape of the shadow to be quite different from what might be expected. The overall shadow in both $\theta$ and $\phi$ will therefore be an overlapping series of boxes rather than just one.   
+The original prototype detector was deployed at the Wylfa Nuclear power station from 07-07-2014 to 25-02-2016 with data being taken continuously over that time period both with the reactor on and off with inverse $\beta$ decay measurements seen in figure \ref{fig:prototypeMeasumentFlux}. The placement of the detector in relation to the Wylfa reactor buildings can be seen in figure \ref{fig:DetectorPositionTopDown} the reactors were placed either end of the main reactor building in the centre of the cylindrical shaped ends at either end of the ``dog bone.'' Whilst there is no good height data for the buildings at the Wylfa reactor site there is a drone picture available seen in figure \ref{fig:wylfaAir}. In figure \ref{fig:wylfaAir} the tallest buildings are clearly visible, of particular importance is the main reactor building and the turbine hall. The service buildings in between the turbine hall and the  main reactor building are also very important as they are much closer to the detector's position as seen in figure \ref{fig:DetectorPositionTopDown} and so will appear taller than the main reactor building. Also in figures \ref{fig:DetectorPositionTopDown} \ref{fig:wylfaAir} the steam bridges that connect the main reactor building and the turbine hall are also visible. The steam bridges are not large buildings and are approximated to be 5\,m thick and 10\,m off of the ground in simulation. But one of the steam bridges is very close to the detector as can be seen in figure \ref{fig:DetectorPositionTopDown} and so will occlude a significant portion of the $\phi$ $\theta$ space the detector observes. 
 
 \begin{figure}[htbp]
  \centering
- \includegraphics[width=0.7\linewidth]{Chapter5/Figs/wylfaRasterNew/DetectorPositionTopDown.png}
- \captionof{figure}{The position of the detector as shown by Google Earth.} 
+ \includegraphics[width=0.75\linewidth]{Chapter5/Figs/wylfaRasterNew/DetectorPositionTopDown.png}
+ \captionof{figure}{Google Maps aerial photography image, displaying the power plant site as well as the approximate detector position. The detector is in the middle of many site buildings occluding the incident cosmic rays. Key buildings shown are the reactor building, the turbine hall and the steam pipe connections between the two \cite{GoogleMapsWylfaLink}.} 
  \label{fig:DetectorPositionTopDown}
 \end{figure}
 
 \begin{figure}[htbp]
  \centering
- \includegraphics[width=0.7\linewidth]{Chapter5/Figs/Raster/wylfaArielView.png}
- \captionof{figure}{An aerial view of the Wylfa power station the main reactor building is the the shape of a "dog bone" the detector was placed in-between the turbine hall and reactor building.} 
+ \includegraphics[width=0.6\linewidth]{Chapter5/Figs/Raster/wylfaArielView.png}
+ \captionof{figure}{An aerial view of the Wylfa power station the main reactor building is the the shape of a "dog bone" the detector was placed in-between the turbine hall and reactor building. Edited from \cite{wylfaDronePictureLink}.} 
  \label{fig:wylfaAir}
 \end{figure}
 
-\section{Simulation Of Cosmic Muons}\label{sec:SimulationOfCosmics}
+In addition the structure of the buildings needs to be considered as well. An example of the reactor building structure is seen in figure \ref{fig:wylfaReactorRoughStructure} with the top half of the structure being air wrapped in a concrete skin and the bottom half being thick concrete shielding. As a result any cosmic $\mu$ events that traverse through the top of the section will have a much greater chance to get through than those traversing at lower angles of $\theta$. This will have two important impacts on the data set firstly it will mean that the tops of the buildings will be ``blurred'' to some extent as the amount of material will be initially low. Secondly the it will mean that the transmission value will decrease with the $\theta$ value where the reactor buildings are observed but especially where the reactor core and reactor core shielding will be located. 
 
-Before the data could be analysed a simulation of cosmic $\mu$ using a cosmic hemisphere was used in order to quantify segmentation effects and any other detector effects. These can be quite significant as seen in figures \ref{fig:phiGenVsRecoHem} and \ref{fig:cirPhiGenVsRecoHem} the reconstruction of our detector can be quite adversely effected by vertical events. If an event is vertical in one side of the detector then the other side will dominate as such it results in spikes at 0$^\circ$, 90$^\circ$, 180$^\circ$, 270$^\circ$. This bin migration is expected and due to its evenness should not have a significant effect on the shadows. 
-\\\\ However this is only true with $\phi$, bin migration is significantly less pronounced in $\theta$ as seen in figure \ref{fig:thetaGenVsRecoHem}. Significant bin migration is is only seen in bins 0$^\circ$, 5$^\circ$, 80$^\circ$, 85$^\circ$, 90$^\circ$ but bins 10$^\circ$ -- 75$^\circ$ are accurately reconstructed. The large discrepancy in bin migration between $\theta$ and $\phi$ is due to the size of the segments in the VIDARR detector as they are 4\,cm wide by 1\,cm tall they are able to more accurately reconstruct information vertically than in any other direction. Which is useful for reconstructing vertical information such as the height of buildings. 
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.6\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaReactorRoughStructure.png}
+ \captionof{figure}{A cut away diagram from \cite{neiMag_1965}. Shows the internal structure of the Wylfa from the back of the reactor buildings the bottom half of the reactor buildings have thick concrete walls whilst the upper section is mostly storage. As this is an qualitative illustration of the building for public communication, the exact details, locations of features and proportions may not match the exact physical structure.} 
+ \label{fig:wylfaReactorRoughStructure}
+\end{figure}
+
+\section{Simulation Of Cosmic Muons}\label{sec:SimulationOfCosmics}
+Before the data could be analysed a simulation of cosmic $\mu$ using a cosmic hemisphere was used in order to quantify segmentation effects and any other detector effects. These can be quite significant as seen in figures \ref{fig:phiGenVsRecoHem} and \ref{fig:cirPhiGenVsRecoHem} the reconstruction of our detector can be quite adversely effected by vertical events. If an event is vertical in one side of the detector then the other side will dominate as such it results in spikes at 0$^\circ$, 90$^\circ$, 180$^\circ$, 270$^\circ$. This bin migration is caused by the detector being a segmented cuboid, any segmented cuboid detector as the projection of a smooth hemispherical distribution will not map cleanly onto cuboid. 
+\\\\ However this is only true with $\phi$, bin migration is significantly less pronounced in $\theta$ as seen in figure \ref{fig:thetaGenVsRecoHem}. Significant bin migration is is only seen in bins 0$^\circ$, 5$^\circ$, 80$^\circ$, 85$^\circ$, 90$^\circ$ but bins 10$^\circ$ -- 75$^\circ$ are accurately reconstructed. The large discrepancy in bin migration between $\theta$ and $\phi$ is due to the size of the segments in the VIDARR detector as they are 4\,cm wide by 1\,cm tall they are able to more accurately reconstruct information vertically than in any other direction. Which is useful for reconstructing vertical information such as the height of buildings.
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/hemispherePhiCompare.png}
@@ -140,7 +148,19 @@ Before the data could be analysed a simulation of cosmic $\mu$ using a cosmic he
 \end{figure}
 
 In order to quantify the effect of cosmic $\mu$ coming for every possible angle a cosmic hemisphere is simulated. The reconstruction of the cosmic hemisphere done by the tracker can be seen in figure \ref{fig:simulatedHemisphereDist}. The reconstruction artefacts shown in figures \ref{fig:phiGenVsRecoHem} and \ref{fig:thetaGenVsRecoHem} can also be seen to have a dependence on one another in figure \ref{fig:simulatedHemisphereDist}. Apart from the uncertainties introduced from segmentation there are no other uncertainties that are significant that are visible in \ref{fig:simulatedHemisphereDist}. However, this does not mean that that other uncertainties are not present just that the most noticeable uncertainty is due to the segmentation. 
-\\\\ When trying to accurately reconstruct all the available cosmic $\mu$ there is no $\chi^2$ selection criteria. This is because many cosmic $\mu$ may shower when inside the detector and as a result may have a high $\chi^2$ but are still an accurate representation of cosmic $\mu$ direction. But a $\chi^2$ cut is effective when trying to accurately measure the $dE/dx$ as seen in figure \ref{fig:dedxGenVsRecoHem} showers produce many secondaries in the detector which when divided by the same length causes an increase in $dE/dx$ which is not justifiable. Therefore for positional reconstruction showers are kept but for online use where calibration is the goal showers are discarded.
+\\\\ When trying to accurately reconstruct all the available cosmic $\mu$ there is no $\chi^2$ selection criteria. This is because many cosmic $\mu$ may shower when inside the detector and as a result may have a high $\chi^2$ but are still an accurate representation of cosmic $\mu$ direction. But a $\chi^2$ cut is effective when trying to accurately measure the $dE/dx$ as seen in figure \ref{fig:dedxGenVsRecoHem} showers produce many secondaries in the detector which when divided by the same length causes an increase in $dE/dx$ which is not justifiable. Therefore for positional reconstruction showers are kept but for online use where calibration is the goal showers are discarded. In this analysis, the reconstruction is optimised for the angle-of-incidence extraction as key analysis variable. The reconstruction steps for fitting each individual track is as follows: 
+\begin{enumerate}
+  \item \textbf{Energy Threshold:} Exclude all hits below 0.345\,MeV
+  \item \textbf{Track Width:} Exclude hits that are 4 bars away from any other hit 
+  \item \textbf{Hit Threshold:} Exclude events that have $<$ 4 bars per side that are above a 0.69\,MeV threshold
+  \item \textbf{Basic Fit:} Find a basic gradient and intercept using top and bottom hit of the event
+  \item \textbf{First Fit:} First fit of the track 
+  \item \textbf{Track Width 2:} Exclude hits that are 4.5 bars away from the track
+  \item \textbf{Second Fit:} second fit of the track
+  \item \textbf{Track Width 3:} Exclude any hits that are 0.5 bars away from the track
+  \item \textbf{Third Fit:} Third and final fit of the track
+\end{enumerate}
+For the following analysis showering events were considered as well to maximise the available data set when taking cosmic $\mu$ in accidental coincidence. For calibration a $\chi^2$ cut would also be implemented. The fitter uses the GNU scientific library simplex minimiser \cite{galassi2002gnu} in order to solve for $y$ = $mx$ + $c$.  
 
 \begin{figure}[htbp]
  \centering
@@ -164,6 +184,7 @@ In order to quantify the effect of cosmic $\mu$ coming for every possible angle 
 % \end{figure}
 
 \section{Reactor Shadow: Methodology} \label{sec:ReactorShadowMethodology}
+When analysing cosmic $\mu$ events it is necessary to have a good understanding of where the buildings that will block cosmic $\mu$ events will be. In figure \ref{fig:DetectorPositionTopDown} the detector position is already known relative to the main reactor buildings that are likely to cast shadows thanks to Google Earth. In figure \ref{fig:wylfaTraceStep1} the buildings have had simple shapes overlaid on top of them with a corresponding key to highlight the buildings of interest. In figure \ref{fig:wylfaTraceStep2} these shapes are then offset to account for the building heights relative to the detector. The most obvious anchor point in figure \ref{fig:wylfaTraceStep2} being the top left of the main reactor building which determines the position of most of the buildings. The turbine hall offset is slightly different. This allows for the angle of the aerial photo and the heights of the buildings to be taken into account. And finally the connecting lines and background aerial photo from figure \ref{fig:wylfaTraceStep2} are removed to produce figure \ref{fig:wylfaTraceStep4} thus producing the final clean trace. In figures \ref{fig:wylfaTraceStep1}  -- \ref{fig:wylfaTraceStep4} the size of the reactor core area is roughly inferred from private communications to be a cylinder with a diameter of $\sim$ 25\,m including both the reactor core and corresponding shielding. This inference is later corroborated with measurements of the Wylfa data. 
 
 \begin{figure}[htbp]
  \centering
@@ -193,17 +214,41 @@ In order to quantify the effect of cosmic $\mu$ coming for every possible angle 
  \label{fig:wylfaTraceStep4}
 \end{figure}
 
+Now that figure \ref{fig:wylfaTraceStep4} has been produced and the features of interest have been identified the cosmic $\mu$ data needs to be analysed. The logic for the track fitter is outlined in section \ref{sec:SimulationOfCosmics} using that tracker the Wylfa data can be fitted an example of which can be seen in figure \ref{fig:3000ExampleEventWithKey}. In figure \ref{fig:3000ExampleEventWithKey} there are many noise events that can potentially cause the fitter to struggle. The tracker however has been custom built around the data set to help prevent any minimisation issues. There are also 3 columns of un-instrumented channels on side A which figure \ref{fig:3000ExampleEventWithKey} shows in grey. These un-instrumented channels inform the fidicual boundaries as well, which figure \ref{fig:3000ExampleEventWithKey} shows too. The number of columns on side A and Side B must be the same otherwise any shadow that the detector will analyse will become distorted in one direction more than the other. Also in figure \ref{fig:3000ExampleEventWithKey} there are a number of dead channels that also have to be carefully considered when assessing tracker performance. By looking at the tracker reconstructed hits on aggregate in figure \ref{fig:wylfaSideABHits} there does not appear to be any bias. In figure \ref{fig:wylfaSideABHits} there are dead channels and channels that fire rarely but there are no areas of low statistics around the dead channels suggesting the tracker is successfully representing the distribution. The only issue is a noisy channel in \ref{subFig:wylfaSideBHits} but as the areas around the channel have statistics comparable to their neighbours its reasonable to assume this is an issue with the channel rather than the fitter. 
+
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/3000ExampleEventWithKey.png}
- \captionof{figure}{A example event from the Wylfa data set with a corresponding key showing how the colour coding relates to the channels.} 
- \label{fig:testEventNewScheme}
+ \captionof{figure}{A example event from the Wylfa data set with a corresponding key showing how the colour coding relates to the channels. The dashed line represents the fitted line.} 
+ \label{fig:3000ExampleEventWithKey}
 \end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaSideAHits.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Bars hit for side A cosmic $\mu$ reconstructed tracks for the Wylfa data set.}
+  \label{subFig:wylfaSideAHits}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+\includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaSideBHits.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Bars hit for side B cosmic $\mu$ reconstructed tracks for the Wylfa data set.}
+  \label{subFig:wylfaSideBHits}
+\end{subfigure}
+\caption{Bars hit for sides A and B cosmic $\mu$ reconstructed tracks for the Wylfa data set. The results are mostly even except for a few dead or almost dead channels and one noisy channel on side B. Suggesting the tracker has minimal biasing.}
+\label{fig:wylfaSideABHits}
+\end{figure}
+
+Once the fitters potential bias has been addressed the $\phi$ and $\theta$ values can be analysed. Due to the high energy and penetrating nature of cosmic $\mu$ \hl{a citation} the reactor buildings may not be dense enough to stop all incoming cosmic $\mu$. As a result the shadows can only be seen with high statistics. However, the detector took cosmic $\mu$ data in accidental coincidence at the Wylfa site and this greatly limited the amount of data that could be gathered to $\sim$ 3 $\times$ 10$^6$ cosmic $\mu$ events. 
 
  \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter5/Figs/Raster/pVsTWylfaReversed.png}
- \captionof{figure}{The cosmic $\mu$ distribution from VIDARR prototype deployment at Wylfa the shadows extend from $\theta$ = 0$^\circ$ - $\theta$ = 60$^\circ$. Bin migration causes signifficant warping.} 
+ \captionof{figure}{The cosmic $\mu$ distribution from VIDARR prototype deployment at Wylfa the shadows extend from $\theta$ = 0$^\circ$ -- $\theta$ = 60$^\circ$. Bin migration causes signifficant warping.} 
  \label{fig:pVsTWylfaReversed}
 \end{figure}
 
@@ -330,26 +375,6 @@ In order to quantify the effect of cosmic $\mu$ coming for every possible angle 
  \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaCircular0-37.5Deg_Overlay_Updated.png}
  \captionof{figure}{An updated version of figure \ref{fig:wylfaCircular0-37.5Deg_Overlay} using the boundaries from the Wylfa trace (figure \ref{fig:wylfaTraceStep4}) and figure \ref{fig:measuredTrackerRecon}. To highlight the key features of the turbine hall main reactor building and reactor core.}  
  \label{fig:wylfaCircular0-37.5Deg_Overlay_Updated}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaSideAHits.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{Bars hit for side A cosmic $\mu$ reconstructed tracks for the Wylfa data set.}
-  \label{subFig:wylfaSideAHits}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-\includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaSideBHits.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{Bars hit for side B cosmic $\mu$ reconstructed tracks for the Wylfa data set.}
-  \label{subFig:wylfaSideBHits}
-\end{subfigure}
-\caption{Bars hit for sides A and B cosmic $\mu$ reconstructed tracks for the Wylfa data set. The results are mostly even except for a few dead or almost dead channels and one noisy channel on side B. Suggesting the tracker has minimal biasing.}
-\label{fig:wylfaSideABHits}
 \end{figure}
 
 \begin{figure}[htbp]
