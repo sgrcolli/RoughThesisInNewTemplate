@@ -13,14 +13,83 @@
 \section{GEANT4 Overview}\label{sec:geant4Simulation_g4Overview}
 The VIDARR detector is also represented in a GEANT4 simulation which is a provident physics simulation package. According to the GEANT4 collaboration GEANT4 ``covers a comprehensive range including electromagnetic, hadronic and optical processes and a large set of long-lived particles materials and elements over a wide energy range starting in some cases from 250\,eV and extending in others to the TeV range'' \cite{Agostinelli:2002hh}. Considering that the energy range for inverse $\beta$ decay is 2\,MeV-8\,MeV \cite{Mueller_2011} this simulation package appears to meet the needs of the VIDARR collaboration. However whilst the simulation of the resulting positrons is reasonably simplistic the simulation of the neutrons is more challenging due to the difficulty in simulating the Gadolinium cascade. 
 
-\section{Modelling The VIDARR Upgrade}
+\section{Modelling The Mass Increase}
+The number of layers in the prototype detector was 49 out of a possible 70 the upgrade will therefore add $\sim$ 43\,\% additional mass into the detector compared to the prototype. In reality out of a possible 1862 channels only 1793 were instrumented due to limitations in securing enough parts for the prototype. Never the less the simulation will focus on the theoretical maximum number of bars in both cases for the sake of simplicity. As can be seen from figure \ref{fig:prototypeMeasumentFlux} there is an expectation of $\sim$ 200 $\Bar{\nu_e}$ a day and so from the upgraded detector it is reasonable to assume a rate of $\sim$ 300 $\Bar{\nu_e}$ a day with the additional mass. But in addition the quality of each event will also improve as more of the energy of the 8\,MeV $\gamma$ cascade is kept within the detector. The amount of energy kept inside the detector would be considered the ``containment'' of the cascade where a containment of 100\,\% would mean 100\,\% of the energy is kept inside the detector. In figure \ref{fig:containment_comparison} it can be seen that the quality of the containment increases when the additional mass has been added. 
 
 \begin{figure}[htbp]
  \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/containment_Energy.png}
- \captionof{figure}{Quality of the containment of event energy in the 1862 bars detector and the 2660 bars detector where the containment is defined as the percentage of $\gamma$ cascade reconstructed energy compared to the $\gamma$ cascade generated energy.} %~can be used as a kind of place holder in latex
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/year1Plots/containment_Energy.png}
+ \captionof{figure}{Quality of the containment of event energy in the 1862 bars detector and the 2660 bars detector where the containment is defined as the percentage of $\gamma$ cascade reconstructed energy compared to the $\gamma$ cascade generated energy.\hl{this plot needs to be remade with the dicebox}} %~can be used as a kind of place holder in latex
  \label{fig:containment_comparison}
 \end{figure} 
+
+When simulating e$^-$s and e$^+$s from 0\,MeV -- 10\,MeV kinetic energy the amount of energy that contained inside is almost always 100\,\% but slowly decreases as the energy increases. The amount of energy generated (E$_\textrm{{gen}}$) verses the energy deposited  (E$_\textrm{{Dep}}$) for these two particles is shown in figure \ref{fig:recon_gen_ele_pos} which shows the detector effectively keeps hold of all the energy that has been generated for particles that are not neutrons. 
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/year1Plots/Recon_vs_gen_e-_e+.png}
+ \captionof{figure}{Energy response of the simulated detector for both electrons and positrons in the full detector in comparison to E$_\textrm{{dep}}$ = E$_\textrm{{gen}}$. The positron's annihilation $\gamma$s causes E$_\textrm{{dep}}$ $>$ E$_\textrm{{dep}}$ at low generated energies. Deposited error O $\sim$ $10^{-3}$\,MeV  and generated error O $\sim$ $10^{-8}$\,MeV, neither shown as they are both too small to be visible \hl{produce this both 1862 bars and 2660 bars and update axis}}%~can be used as a kind of place holder in latex
+ \label{fig:recon_gen_ele_pos}
+\end{figure} 
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/year1Plots/2000_1-10MeV_sec_p_spread_run.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Positrons hit efficiencies in 1862 barred detector $\sim$ 99\,\% of positrons are detected.}
+  \label{subFig:2000_p_sec}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/year1Plots/3000_1-10MeV_sec_p_spread_run.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Positrons hit efficiencies in 2660 barred detector $\sim$ 99\,\% of positrons are detected.}
+  \label{subFig:3000_p_sec}
+\end{subfigure}
+\caption{Positron hit efficiencies for the original 1862 barred detector and the upgraded 2660 barred detector both have $\sim$ 99\,\% efficiencies are similar in both errors are too small to be shown Generated energy O $\sim$ $10^{-8}$ efficiency error O $\sim$ $10^{-3}$.}
+\label{fig:2000_3000_p_secs}
+\end{figure}
+
+\section{Modelling Muons}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/year1Plots/muons_per_mev_cm.png}
+ \captionof{figure}{dE/dx of muons through single plastic bar assuming a density of plastic of 1\,g\,cm$^{-3}$. Mearuemnts for plastic are similar to carbon. For carbon $\sim$ 2\,MeV\,cm$^{-1}$ is expected for dE/dx {\cite{Olive_2014}. Mean dE/dx for 250\,MeV, 500\,MeV, 750\,MeV, 1000\,MeV are respectively 1.9907 $\pm$  0.0005\,MeV\,cm$^{-1}$, 1.9387 $\pm$  0.0005\,MeV\,cm$^{-1}$, 1.9374 $\pm$  0.0005 MeV\,cm$^{-1}$, 1.9407 $\pm$  0.0005 MeV\,cm$^{-1}$.\\}}
+ \label{fig:mev_per_cm_muons}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/year1Plots/Muon_TiO2_med_eng.png}
+ \captionof{figure}{Muon mean energy deposition in active component of the single bar, the sharp decrease in the energy deposited and varying deposition below 20\,MeV was due to the TiO$_2$ coating absorbing muons at lower energies.} 
+ \label{fig:muon_0_250}
+\end{figure}
+
+\section{Modelling TiO$_2$ Coating}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/year1Plots/positron_TiO2__.png}
+ \captionof{figure}{.} 
+ \label{fig:positron_TiO2}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/year1Plots/muon_TiO2__.png}
+ \captionof{figure}{.} 
+ \label{fig:muon_TiO2}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.6\linewidth]{Chapter4/Figs/Raster/year1Plots/proton_TiO2__.png}
+ \captionof{figure}{.} 
+ \label{fig:proton_TiO2}
+\end{figure}
 
 \section{Gadolinium Cascade}\label{sec:geant4Simulation_gdCascade}
 The Gadolinium cascade is difficult to measure and accurately simulate for for two main reasons. The first is that the gadolinium nuclei that have good neutron capture are isotopes $^{155}$Gd and $^{157}$Gd which have 155 and 157 nucleons respectively. Both of these nuclei are large and as such it is difficult to accurately model the individual interactions between each of the nucleons. So, there is no agreed upon model at present for the absorption and emission of the 8\,MeV $\gamma$ cascade. The second issue is that the high energy $\gamma$ rays emitted by the cascade are very difficult to contain. Therefore, getting accurate measurements and energy efficiencies for the cascade is also very difficult. These two problems compound one another it is difficult to measure the cascade so it is difficult to model which, in turn, makes it difficult to know the energies expected to be emitted by the nuclei. Further issues are caused by highly penetrative making efficiency estimates even less accurate. \hl{(No references... whilst this is all reasonably straight forward some more concrete numbers and figures would be nice...)}. Gadolinium is used because of its high efficiency (10$\%$ - 40$\%$) compared to other neutron capturing materials such as $^6$Li which only has about $1\%$ \cite{Abdushukurov_2010}. 

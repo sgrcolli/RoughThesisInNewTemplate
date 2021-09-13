@@ -2,7 +2,7 @@
 %****************************** Fifth Chapter *********************************
 %*******************************************************************************
 
-\chapter{Cosmic Muon Tomography}
+\chapter{Cosmic Muon Tomography}\label{chp:cosmicMuonTomography}
 
 \ifpdf
     \graphicspath{{Chapter5/Figs/Raster/}{Chapter5/Figs/PDF/}{Chapter5/Figs/}}
@@ -94,6 +94,62 @@ For figure \ref{fig:thetaVsPhiExpectedCube} there is a slight distortion caused 
  \includegraphics[width=1.0\linewidth]{Chapter5/Figs/Raster/mtVesuviusMuRayTransmission.png}
  \captionof{figure}{MU-RAY data from Vesuvius. Top: the transmission histogram of Mt Vesuvius after one week of data taking. Bottom: a picture of Mt Vesuvius taken by the telescope observation point. From  \cite{Ambrosino_2014}.} 
  \label{fig:mtVesuviusMuRayTransmission}
+\end{figure}
+
+\section{Muon Analysis Chain}\label{sec:muonAnalysisChain}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=1.0\linewidth]{Chapter5/Figs/Raster/analysisChain.jpg}
+ \captionof{figure}{.} 
+ \label{fig:analysisChain}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/Cosmic8BarSignalCutSVM.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{.}
+  \label{subFig:cosmic8BarSignalCutSVM}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+\includegraphics[width=\linewidth]{Chapter5/Figs/Raster/Cosmic8BarNoiseCutSVM.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{.}
+  \label{subFig:cosmic8BarNoiseCutSVM}
+\end{subfigure}
+\caption{.}
+\label{fig:cosmic8BarSignalNoiseCutSVM}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/Cosmic8BarSignalZoomCutSVM.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{.}
+  \label{subFig:cosmic8BarSignalZoomCutSVM}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+\includegraphics[width=\linewidth]{Chapter5/Figs/Raster/Cosmic8BarNoiseZoomCutSVM.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{.}
+  \label{subFig:Cosmic8BarNoiseZoomCutSVM}
+\end{subfigure}
+\caption{.}
+\label{fig:Cosmic8BarSignalNoiseZoomCutSVM}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter5/Figs/Raster/badCycles.png}
+ \captionof{figure}{.} 
+ \label{fig:badCycles}
 \end{figure}
 
 \section{Deployment At Wylfa}\label{sec:deploymentAtWylfa}
