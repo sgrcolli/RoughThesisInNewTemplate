@@ -23,7 +23,7 @@ The number of layers in the prototype detector was 49 out of a possible 70 the u
  \label{fig:containment_comparison}
 \end{figure} 
 
-When simulating e$^-$s and e$^+$s from 0\,MeV -- 10\,MeV kinetic energy the amount of energy that contained inside is almost always 100\,\% but slowly decreases as the energy increases. The amount of energy generated (E$_\textrm{{gen}}$) verses the energy deposited  (E$_\textrm{{Dep}}$) for these two particles is shown in figure \ref{fig:recon_gen_ele_pos} which shows the detector effectively keeps hold of all the energy that has been generated for particles that are not neutrons. 
+When simulating e$^-$s and e$^+$s from 0\,MeV -- 10\,MeV kinetic energy the amount of energy that contained inside is almost always 100\,\% but slowly decreases as the energy increases. The amount of energy generated (E$_\textrm{{gen}}$) verses the energy deposited  (E$_\textrm{{Dep}}$) for these two particles is shown in figure \ref{fig:recon_gen_ele_pos} which shows the detector effectively keeps hold of all the energy that has been generated for particles that are not neutrons. Then e$^+$ particles are simulated from 1\,MeV -- 10\,MeV in order to determine efficiencies in figure \ref{fig:2000_3000_p_secs} for both 1862 bars (figure \ref{subFig:2000_p_sec}) and 2660 bars (figure \ref{subFig:3000_p_sec}) above a 0.1\,MeV threshold. In both cases the efficiency doesn't fall below 99\,\% for positrons this is due to the fact that positrons typically don't escape the detector without depositing $>$ 0.1\,MeV in at least a single bar. As such e$^+$ efficiencies don't significantly improve with the mass increase but a extremely high regardless as expected.  
 
 \begin{figure}[htbp]
  \centering
@@ -48,11 +48,37 @@ When simulating e$^-$s and e$^+$s from 0\,MeV -- 10\,MeV kinetic energy the amou
   \caption{Positrons hit efficiencies in 2660 barred detector $\sim$ 99\,\% of positrons are detected.}
   \label{subFig:3000_p_sec}
 \end{subfigure}
-\caption{Positron hit efficiencies for the original 1862 barred detector and the upgraded 2660 barred detector both have $\sim$ 99\,\% efficiencies are similar in both errors are too small to be shown Generated energy O $\sim$ $10^{-8}$ efficiency error O $\sim$ $10^{-3}$.}
+\caption{Positron hit efficiencies for the original 1862 barred detector and the upgraded 2660 barred detector above a 0.1\,MeV threshold both have $\sim$ 99\,\% efficiencies are similar in both errors are too small to be shown Generated energy O $\sim$ $10^{-8}$ efficiency error O $\sim$ $10^{-3}$}
 \label{fig:2000_3000_p_secs}
 \end{figure}
 
 \section{Modelling Muons}
+$\mu$ are high energy particles with high penetration. As a result atmospheric $\mu$ act as minimally ionising particles (MIPs) this means that the the amount of energy deposited per cm ($dE/dx$) is largely independent of the generated energy in-between 100[MeV/$c$] -- 100[GeV/$c$] (see figure \ref{fig:pdg_MuonMomentumStopping}). Whilst figure \ref{fig:pdg_MuonMomentumStopping} shows many different effects and when they take effect for $\mu$ this figure only shows it for Cu. The detector is not comprised of Cu it is comprised of hydrocarbons specifically polythene. By mass polythene is more C than H and so by looking at the momentum ranges 0.1\,GeV/$c$ 100\,GeV/$c$ in figure \ref{fig:pdg_dedx_gcm2}. As a result the expected value for $dE/dx$ is $\sim$ 2 g$^{-1}$ cm$^2$ for $\mu$ on C. 
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=1.0\linewidth]{Chapter4/Figs/Raster/pdg_MuonMomentumStopping.png}
+ \captionof{figure}{Mass stopping power for positive muons in copper as a function of $\beta$ $\gamma$ = $\rho/Mc$ over nine orders of magnitude in momentum (12 orders of magnitude in kinetic energy). From \cite{Olive_2014}.} 
+ \label{fig:pdg_MuonMomentumStopping}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/pdg_dedx_gcm2.png}
+ \captionof{figure}{Mean energy loss rate in liquid (bubble chamber) hydrogen, gaseous
+helium, carbon, aluminum, iron, tin, and lead. Radiative effects, relevant for
+muons and pions, are not included.} 
+ \label{fig:pdg_dedx_gcm2}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/year1Plots/Muon_TiO2_med_eng.png}
+ \captionof{figure}{Muon mean energy deposition in active component of the single bar, the sharp decrease in the energy deposited and varying deposition below 20\,MeV was due to the TiO$_2$ coating absorbing muons at lower energies.} 
+ \label{fig:muon_0_250}
+\end{figure}
+
+By simulating a single scintillating bar of dimensions 4\,cm $\times$ 152\,cm $\times$ 1\,cm (X,Y,Z) and firing a $\mu$ directly down in the Z plane it is possible to measure the $dE/dx$. In this scenario the energy deposition approximates $dE/dx$ in units of MeV/cm$^{-1}$. So by simulating the generated kinetic $\mu$ energy from 0.1\,MeV -- 250\,MeV  
 
 \begin{figure}[htbp]
  \centering
@@ -63,9 +89,103 @@ When simulating e$^-$s and e$^+$s from 0\,MeV -- 10\,MeV kinetic energy the amou
 
 \begin{figure}[htbp]
  \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/year1Plots/Muon_TiO2_med_eng.png}
- \captionof{figure}{Muon mean energy deposition in active component of the single bar, the sharp decrease in the energy deposited and varying deposition below 20\,MeV was due to the TiO$_2$ coating absorbing muons at lower energies.} 
- \label{fig:muon_0_250}
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/CryPlots/Cry_GeneratedFit.png}
+ \captionof{figure}{The generated angles for cosine direction W (z axis) from the CRY library \cite{hagmann2007cosmic} for 1 million particles. Binning in CRY is 0.05 so an 8 dimensional polynomial was fitted to smooth the distribution.}
+ \label{fig:Cry_GeneratedFit}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/CrySmoothingCosine.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Smoothed distribution for the cosine direction in W compared to the originally generated CRY distribution.}
+  \label{subFig:CrySmoothingCosine}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/CrySmoothingTheta.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Smoothed distribution of $\theta$ compared to the originally generated CRY distribution.}
+  \label{subFig:CrySmoothingTheta}
+\end{subfigure}
+\caption{How the smoothing effects the CRY distribution in Cos W and $\theta$. The nonphysical peaks seen in the non-smoothed $\theta$ distribution are a direct result of CRY's coarse binning in $\theta$. }
+\label{fig:CrySmoothingCosTheta}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/CrossedZAxisShort.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Where the CRY distribution crosses the Z axis with only 1\,cm back projection.}
+  \label{subFig:CrossedZAxisShort}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/Crossed_atZ_XY.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Where the CRY distribution crosses the Z axis after back projected 100\,m.}
+  \label{subFig:Crossed_atZ_XY}
+\end{subfigure}
+\caption{How the generated CRY distribution crosses the Z axis with only 1\,cm of back projection vs 100\,m of back projection.}
+\label{fig:Crossed_atZ_XY_AndShort}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/CryPlots/BackProjectionXY.png}
+ \captionof{figure}{Back projection of 100\,m in the X and Y plane for the CRY library this represents the starting position for each particle generated in X and Y.} 
+ \label{fig:BackProjectionXY}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/BackProjectionXZ.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Starting positions for generated CRY distribution using a back projection of 100\,m in X and Z.}
+  \label{subFig:BackProjectionXZ}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/BackProjectionYZ.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Starting positions for generated CRY distribution using a back projection of 100\,m in Y and Z.}
+  \label{subFig:BackProjectionYZ}
+\end{subfigure}
+\caption{Starting positions for the generated CRY distribution for XZ and YZ with a back projection of 100\,m.}
+\label{fig:BackProjection_XZ_YZ}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.8\linewidth]{Chapter4/Figs/Raster/CryPlots/CRY_rates.png}
+ \captionof{figure}{How the rates vary depending on the world material in GEANT4. For Galactic world materials secondary production is minimal. The rates are most accurate for Galactic world material but the paths will be more accurate for Air. Measured from a PVT block of 1\,m $\times$ 1\,m $\times$ 1\,cm to approximate particles s$^{-1}$ m$^{-2}$.} 
+ \label{fig:CRY_rates}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/genPhi-scatPhi.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{How the Generated $\phi$ - scattered $\phi$ varies for air and galactic world material in GEANT4.}
+  \label{subFig:genPhi-scatPhi}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/genTheta-scatTheta.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{How the Generated $\theta$ - scattered $\theta$ varies for air and galactic world material in GEANT4.}
+  \label{subFig:genTheta-scatPhi}
+\end{subfigure}
+\caption{How the scattering in $\phi$ and $\theta$ is effected by world material in GEANT4. Scattering is much more realistic when using G4 Air.}
+\label{fig:gen-scat_PhiTheta}
 \end{figure}
 
 \section{Modelling TiO$_2$ Coating}
