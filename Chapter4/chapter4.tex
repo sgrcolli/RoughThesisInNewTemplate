@@ -71,6 +71,8 @@ muons and pions, are not included.}
  \label{fig:pdg_dedx_gcm2}
 \end{figure}
 
+By simulating a single scintillating bar of dimensions 4\,cm $\times$ 152\,cm $\times$ 1\,cm (X,Y,Z) and firing a $\mu$ directly down in the Z plane it is possible to measure the $dE/dx$. In this scenario the energy deposition approximates $dE/dx$ in units of MeV/cm$^{-1}$. So by simulating the generated kinetic $\mu$ energy from 0.1\,MeV -- 250\,MeV in figure \ref{fig:muon_0_250} the mean energy deposition settles to MIP levels of $\sim$ 2 between 100\,MeV -- 200\,MeV. When using the CRY library \cite{ieee_cry_2007} to get a rough approximation of the expected energies shown in figure \ref{fig:keMevCryMuons}. In figure \ref{fig:keMevCryMuons} > 99\,\% of the $\mu$ particles produced by the CRY library are between 1\,GeV -- 40\,GeV this coupled with figures \ref{fig:pdg_MuonMomentumStopping} and \ref{fig:pdg_dedx_gcm2} it is reasonable to assume that > 99\,\% of the expected $\mu$ distribution will be MIP like in its behaviour. The distribution for the energy loss of fast particles by ionisation was quantified by Landau in 1944 \cite{landau1944energy}. The Landau distribution represents the energy deposited and can be seen in the simulated bar results in figure \ref{fig:mev_per_cm_muons}. More than 99\,\% of the $\mu$ distribution will have the Landau distribution shown in figure \ref{fig:mev_per_cm_muons}. 
+
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/year1Plots/Muon_TiO2_med_eng.png}
@@ -78,7 +80,12 @@ muons and pions, are not included.}
  \label{fig:muon_0_250}
 \end{figure}
 
-By simulating a single scintillating bar of dimensions 4\,cm $\times$ 152\,cm $\times$ 1\,cm (X,Y,Z) and firing a $\mu$ directly down in the Z plane it is possible to measure the $dE/dx$. In this scenario the energy deposition approximates $dE/dx$ in units of MeV/cm$^{-1}$. So by simulating the generated kinetic $\mu$ energy from 0.1\,MeV -- 250\,MeV  
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/keMevCryMuons.png}
+ \captionof{figure}{Generated kinetic energy $\mu$ particles using the CRY library \cite{ieee_cry_2007} at sea level with latitude 53$^\circ$ (Liverpool's latitude) and date: 01 -- March -- 2021. 99\,\% + of generated $\mu$ particles are between 1\,GeV (1000\,MeV) and 40\,GeV (40000\,MeV) kinetic energy.} 
+ \label{fig:keMevCryMuons}
+\end{figure}
 
 \begin{figure}[htbp]
  \centering
@@ -86,6 +93,23 @@ By simulating a single scintillating bar of dimensions 4\,cm $\times$ 152\,cm $\
  \captionof{figure}{dE/dx of muons through single plastic bar assuming a density of plastic of 1\,g\,cm$^{-3}$. Mearuemnts for plastic are similar to carbon. For carbon $\sim$ 2\,MeV\,cm$^{-1}$ is expected for dE/dx {\cite{Olive_2014}. Mean dE/dx for 250\,MeV, 500\,MeV, 750\,MeV, 1000\,MeV are respectively 1.9907 $\pm$  0.0005\,MeV\,cm$^{-1}$, 1.9387 $\pm$  0.0005\,MeV\,cm$^{-1}$, 1.9374 $\pm$  0.0005 MeV\,cm$^{-1}$, 1.9407 $\pm$  0.0005 MeV\,cm$^{-1}$.\\}}
  \label{fig:mev_per_cm_muons}
 \end{figure}
+
+As mentioned before the CRY library is very useful as it contains a large amount of relevant physics and information with the latest version being 1.7 produced in 2012 \cite{hagmann2012cosmicCry}. The CRY library splits up the directions in the x,y and z by using cosine directions u (see equation\ref{equ:cos_u}), v (see equation \ref{equ:cos_v}) and w (see equation \ref{equ:cos_w}). However, whilst the generated cosine direction for u and v were very fine the binning for cosine w was coarse. As a result an 8 dimensional polynomial function was fitted to the cosine w distribution in figure \ref{fig:Cry_GeneratedFit} to smooth out the distribution. The improvement to the distribution can be seen in figure \ref{fig:CrySmoothingCosTheta} where the improvement to the cosine direction w in figure \ref{subFig:CrySmoothingCosine} leads to a smoother more accurate $\theta$ distribution in figure \ref{subFig:CrySmoothingTheta}. 
+
+\begin{equation}
+\alpha = \cos{u} = \frac{v_x}{\sqrt{v_x^2+v_y^2+v_z^2}}
+\label{equ:cos_u}
+\end{equation}
+
+\begin{equation}
+\beta = \cos{v} = \frac{v_y}{\sqrt{v_x^2+v_y^2+v_z^2}}
+\label{equ:cos_v}
+\end{equation}
+
+\begin{equation}
+\gamma = \cos{w} = \frac{v_z}{\sqrt{v_x^2+v_y^2+v_z^2}}
+\label{equ:cos_w}
+\end{equation}
 
 \begin{figure}[htbp]
  \centering
@@ -110,28 +134,17 @@ By simulating a single scintillating bar of dimensions 4\,cm $\times$ 152\,cm $\
   \caption{Smoothed distribution of $\theta$ compared to the originally generated CRY distribution.}
   \label{subFig:CrySmoothingTheta}
 \end{subfigure}
-\caption{How the smoothing effects the CRY distribution in Cos W and $\theta$. The nonphysical peaks seen in the non-smoothed $\theta$ distribution are a direct result of CRY's coarse binning in $\theta$. }
+\caption{How the smoothing effects the CRY distribution in Cos W and $\theta$. The nonphysical peaks seen in the non-smoothed $\theta$ distribution are a direct result of CRY's coarse binning in $\theta$.}
 \label{fig:CrySmoothingCosTheta}
 \end{figure}
 
+Now the $\theta$ distribution has been smoothed out accordingly now the cosmic $\mu$ particles need to be back projected. Back projection is where positions that CRY generates (see figure \ref{fig:cryxm_vs_cryym}) is taken as a ``target'' and then the $\phi$ values (a flat distribution between 0 -- 360$^\circ$) and smoothed $\theta$ values (see figure \ref{subFig:CrySmoothingTheta}) are used to project backwards to a point for a given radius. The larger the back projection radius the more accurate the simulation but the more computationally intensive it becomes. A back projection of 100\,m is a reasonable approximation to simulate all incoming side on and top down events. Figure \ref{fig:BackProjectionXY} shows how this looks in the x and y from a top down perspective, the ``halo'' in figure \ref{fig:BackProjectionXY} is a result of the $\theta$ distribution seen in figure \ref{subFig:CrySmoothingTheta}. The rest of the simulated dome can be seen in figure \ref{fig:BackProjection_XZ_YZ} where the XZ and YZ distributions are very similar to each other. 
+
 \begin{figure}[htbp]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/CrossedZAxisShort.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{Where the CRY distribution crosses the Z axis with only 1\,cm back projection.}
-  \label{subFig:CrossedZAxisShort}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/Crossed_atZ_XY.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{Where the CRY distribution crosses the Z axis after back projected 100\,m.}
-  \label{subFig:Crossed_atZ_XY}
-\end{subfigure}
-\caption{How the generated CRY distribution crosses the Z axis with only 1\,cm of back projection vs 100\,m of back projection.}
-\label{fig:Crossed_atZ_XY_AndShort}
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/CryPlots/cryxm_vs_cryym.png}
+ \captionof{figure}{Generated CRY X and Y positions in the simulation. A circle has been cut out of the generated square to give a flat $\phi$ distribution. All particles in CRY are generated at Z = 0.} 
+ \label{fig:cryxm_vs_cryym}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -161,12 +174,29 @@ By simulating a single scintillating bar of dimensions 4\,cm $\times$ 152\,cm $\
 \label{fig:BackProjection_XZ_YZ}
 \end{figure}
 
+The impact of back projection is relatively small when looking at where the particles cross the z Axis. As shown in figure \ref{fig:Crossed_atZ_XY_AndShort} the comparing a back projection of 1\,cm (figure \ref{subFig:CrossedZAxisShort}) to 100\,m (figure \ref{subFig:Crossed_atZ_XY}) both reproduce the circular distribution seen in figure \ref{fig:cryxm_vs_cryym} there is more scattering with more back projection but this is of minimal concern as most particles cross where expected. 
+
 \begin{figure}[htbp]
- \centering
- \includegraphics[width=0.8\linewidth]{Chapter4/Figs/Raster/CryPlots/CRY_rates.png}
- \captionof{figure}{How the rates vary depending on the world material in GEANT4. For Galactic world materials secondary production is minimal. The rates are most accurate for Galactic world material but the paths will be more accurate for Air. Measured from a PVT block of 1\,m $\times$ 1\,m $\times$ 1\,cm to approximate particles s$^{-1}$ m$^{-2}$.} 
- \label{fig:CRY_rates}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/CrossedZAxisShort.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Where the CRY distribution crosses the Z axis with only 1\,cm back projection.}
+  \label{subFig:CrossedZAxisShort}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/Crossed_atZ_XY.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Where the CRY distribution crosses the Z axis after back projected 100\,m.}
+  \label{subFig:Crossed_atZ_XY}
+\end{subfigure}
+\caption{How the generated CRY distribution crosses the Z axis with only 1\,cm of back projection vs 100\,m of back projection. When world environment in GEANT4 is G4 Galactic}
+\label{fig:Crossed_atZ_XY_AndShort}
 \end{figure}
+
+Also the effect of modelling the atmosphere needs to be taken into account. The atmosphere produces two main effects: it increases particle scattering (see figure \ref{fig:gen-scat_PhiTheta} and it increases the rate of secondaries produced (see figure \ref{fig:CRY_rates}). The CRY simulation takes the atmosphere into account \cite{hagmann2007monteCry} but only produces the particles that cross the Z axis at z = 0. As a result the secondaries produced by GEANT4 are also simulated by CRY thus resulting in some secondary particles being ``double simulated.'' This effect is most visible in figure \ref{fig:CRY_rates} where the rates in simulated air are overall $\sim$ 25\,\% higher than in a low density galactic void. However the paths of the particles are more accurate in air and the secondaries produced inside a detector still need to be taken into account. For the most accurate cosmic modelling the air should be used whilst killing all secondaries that occur in the air. However, due to time constraints this was unable to be added to the simulation. \hl{I would like to change this if there's sufficient time left...}.
 
 \begin{figure}[htbp]
 \centering
@@ -188,26 +218,34 @@ By simulating a single scintillating bar of dimensions 4\,cm $\times$ 152\,cm $\
 \label{fig:gen-scat_PhiTheta}
 \end{figure}
 
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.8\linewidth]{Chapter4/Figs/Raster/CryPlots/CRY_rates.png}
+ \captionof{figure}{How the rates vary depending on the world material in GEANT4. For Galactic world materials secondary production is minimal. The rates are most accurate for Galactic world material but the paths will be more accurate for Air. Measured from a PVT block of 1\,m $\times$ 1\,m $\times$ 1\,cm to approximate particles s$^{-1}$ m$^{-2}$.} 
+ \label{fig:CRY_rates}
+\end{figure}
+
 \section{Modelling TiO$_2$ Coating}
+The plastic scintillating bars of the VIDARR detector are extruded at Fermilab and has been used in other experiments such as the T2K ND280 ECAL \cite{Allan_2013} Miner$\nu$a \cite{aliaga2014design} and in Mu2e as a cosmic ray veto \cite{Pla-Dalmau2014}. This needed to be correctly modelled as it can have a significant impact on heavier particles. The effect for less massive particles such as e$^+$ (see figure \ref{fig:positron_TiO2}) is virtually non-existent over the energy range of interest 0 -- 10\,MeV. The effect of the TiO$_2$ coating is more noticeable for $\mu$ however this will only impact stopping $\mu$ with energies < 5\,MeV as seen in figure \ref{fig:muon_TiO2}. A significant effect is seen with protons in figure \ref{fig:proton_TiO2} and this effects all protons between 0 -- 15\,MeV and so for simulation purposes it is important the TiO$_2$ coating is correctly quantified. The TiO$_2$ coating is 15\,\% TiO$_2$ to 85\,\% polythene \cite{aliaga2014design} \cite{Pla-Dalmau2014} with a thickness of 0.25\,mm \cite{Pla-Dalmau2014}.
 
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/year1Plots/positron_TiO2__.png}
- \captionof{figure}{.} 
+ \captionof{figure}{The average dE/dx for generated positrons deposited in a single bar of scintillator the \% of TiO$_2$ has minimal effect on positrons. The dE/dx occasionally rises due to annihilation $\gamma$s depositing energy.} 
  \label{fig:positron_TiO2}
 \end{figure}
 
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/year1Plots/muon_TiO2__.png}
- \captionof{figure}{.} 
+ \captionof{figure}{The average dE/dx for generated cosmic $\mu$ deposited in a single bar of scintillator the \% of TiO$_2$ has some impact on the dE/dx at low energies.} 
  \label{fig:muon_TiO2}
 \end{figure}
 
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.6\linewidth]{Chapter4/Figs/Raster/year1Plots/proton_TiO2__.png}
- \captionof{figure}{.} 
+ \captionof{figure}{The average dE/dx for generated protons deposited in a single bar of scintillator the \%  of TiO$_2$ coating has significant impact except towards higher energies.} 
  \label{fig:proton_TiO2}
 \end{figure}
 
