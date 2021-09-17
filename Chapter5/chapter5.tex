@@ -97,13 +97,16 @@ For figure \ref{fig:thetaVsPhiExpectedCube} there is a slight distortion caused 
 \end{figure}
 
 \section{Muon Analysis Chain}\label{sec:muonAnalysisChain}
-
+The $\mu$ analysis chain is shown in figure \ref{fig:analysisChain} for calibration of the old detector data an older version of the analysis chain is used based on T2K collaboration analysis chain. For data from the prototype data is extracted from a .mid.gz file then calibrated before being converted into a .root file. The prototypes detector analysed data in cycles of 1.5\,$\mu$s. There are 23 cycles in the prototype detector data from 0 -- 22 with cycle 18 as the trigger cycle and cycles 17 and 19 considered to be underflow and overflow for the trigger signal. The cycles are then interpreted depending on weather the user wants to analyse cosmic $\mu$ data or IBD data. Each cycle will be considered as its own event for cosmic $\mu$ data and the trigger cycles 17 -- 19 are ignored. Whereas the data is split between prompt (cycles 0 -- 16) and delayed (cycles 17 -- 19) for IBD analysis with excess data (cycles 20 -- 22) being ignored. Which mode is decided by convert old detector data so the other programs can interpret the prototype detector data correctly. Simulated data requires minimal changes as it puts data into delayed, prompt and ambiguous categories automatically using truth information. Unfortunately due to the COVID-19 pandemic the calibration and conversion of the new detector data was unable to be constructed as no data exists due to the detector not being constructed. 
+ 
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=1.0\linewidth]{Chapter5/Figs/Raster/analysisChain.jpg}
- \captionof{figure}{.} 
+ \captionof{figure}{The analysis chain for the detector. It is able to process both simulated and measured data. It uses a combination python programs to handle visualisation and machine learning and c++ programs to process the data. There's a python program that functions as wrapper the instruction interpreter which allows for the creation of macro files to allow for results to be highly replicable. The c++ programs are multithreaded.} 
  \label{fig:analysisChain}
 \end{figure}
+
+The cosmic $\mu$ events at Wylfa were taken in accidental coincidence as a result much noise made it into the cosmic $\mu$ data sets. In the raw unprocessed data sets for every 3 cosmic $\mu$ events there are $\sim$ 10000 noise events. As such the SVM machine learning technique previously described in section \ref{sec:MachineLearningTrigger} was used again to filter out the noise. It found the best separating hyper-plane at 8 bars for a threshold of 17.325\,PE (0.693\,MeV) shown in figure \ref{fig:cosmic8BarSignalNoiseCutSVM}. A zoomed in version is also shown in figure \ref{fig:Cosmic8BarSignalNoiseZoomCutSVM} to give a clearer view of the separating line. As seen in figure \ref{subFig:Cosmic8BarNoiseZoomCutSVM} most of the noise is highly concentrated at a low number of bar hits. As a result this is a very effective method of removing the noise. This removes 99.9\,\% of noise and keeps 99\,\% of the cosmic $\mu$ signal so now every 3 cosmic events there are $\sim$ 10 noise events. This greatly improves the signal to noise ratio whilst keeping almost all of the signal. Finding simple effective selection criteria is a task the SVM is well suited to. 
 
 \begin{figure}[htbp]
 \centering
@@ -111,17 +114,17 @@ For figure \ref{fig:thetaVsPhiExpectedCube} there is a slight distortion caused 
   \centering
   \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/Cosmic8BarSignalCutSVM.png}
   \captionsetup{width=.9\linewidth}
-  \caption{.}
+  \caption{8 bar selection criteria for cosmic $\mu$ on measured cosmic data.}
   \label{subFig:cosmic8BarSignalCutSVM}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
 \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/Cosmic8BarNoiseCutSVM.png}
   \captionsetup{width=.9\linewidth}
-  \caption{.}
+  \caption{8 bar selection criteria for cosmic $\mu$ on measured noise data.}
   \label{subFig:cosmic8BarNoiseCutSVM}
 \end{subfigure}
-\caption{.}
+\caption{How an SVM classifier separates out measured cosmic $\mu$ data it settled on an 8 bar cut above 17.325\,PE (0.693\,MeV). Where everything above the solid line is considered a cosmic $\mu$ and everything below is considered noise.The logic for the SVM classifier is outlined in figure \ref{sec:MachineLearningTrigger}.}
 \label{fig:cosmic8BarSignalNoiseCutSVM}
 \end{figure}
 
@@ -131,25 +134,47 @@ For figure \ref{fig:thetaVsPhiExpectedCube} there is a slight distortion caused 
   \centering
   \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/Cosmic8BarSignalZoomCutSVM.png}
   \captionsetup{width=.9\linewidth}
-  \caption{.}
+  \caption{Figure \ref{subFig:cosmic8BarSignalCutSVM} zoomed in to show how few cosmic events are removed.} 
   \label{subFig:cosmic8BarSignalZoomCutSVM}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
 \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/Cosmic8BarNoiseZoomCutSVM.png}
   \captionsetup{width=.9\linewidth}
-  \caption{.}
+  \caption{Figure \ref{subFig:cosmic8BarNoiseCutSVM} zoomed in to show how many noise events are clustered around small bar hits.}
   \label{subFig:Cosmic8BarNoiseZoomCutSVM}
 \end{subfigure}
-\caption{.}
+\caption{Zoomed in version of figure \ref{fig:cosmic8BarSignalNoiseCutSVM} to show how effective the SVM is at removing noise.}
 \label{fig:Cosmic8BarSignalNoiseZoomCutSVM}
 \end{figure}
+
+Finally when analysing the response for cosmic $\mu$ event some cycles are correlated to the trigger cycle 18. These cycles are considered as ``bad'' for cosmic $\mu$ data because they are biased towards the trigger cycles these bad cycles are shown in figure \ref{fig:badCycles}. Weather a cycle is considered bad depends on weather or not its count rate is above count rate for cycle 20 in figure \ref{fig:badCycles}. If these bad cycles are added into the data set strange biasing occurs at the side left hand side of side A and side B as seen in figure \ref{fig:sideABHitsWithBadCycles}. These results are a direct effect of the electronic biasing when taking cosmic $\mu$ data in accidental coincidence and are not a result of track fitting as shown later in figures \ref{fig:wylfaSideABHits} and \ref{fig:liverpoolSideABHits} the track fitter does not seem to cause any biasing. 
 
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter5/Figs/Raster/badCycles.png}
- \captionof{figure}{.} 
+ \captionof{figure}{The bad cycles (trigger cycles 17,18 and 19 already removed) for cosmic $\mu$ in the measured data for the Wylfa data set. Weather a cycle is considered ``bad'' depends on how much the cycle correlates to the trigger cycles.} 
  \label{fig:badCycles}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/sideAHitsWithBadCycles.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Side A cosmic $\mu$ hits reconstructed with bad cycles included.} 
+  \label{subFig:sideAHitsWithBadCycles}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+\includegraphics[width=\linewidth]{Chapter5/Figs/Raster/sideBHitsWithBadCycles.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Side B cosmic $\mu$ hits reconstructed with bad cycles included.}
+  \label{subFig:sideBHitsWithBadCycles}
+\end{subfigure}
+\caption{The detector hits for cosmic $\mu$ when reconstructed with a tracker when bad cycles are included. Large streaks are visible on the left hand sides of both side A and side B.}
+\label{fig:sideABHitsWithBadCycles}
 \end{figure}
 
 \section{Deployment At Wylfa}\label{sec:deploymentAtWylfa}
@@ -486,6 +511,9 @@ Using the GEANT4 simulation it is possible to simulate each building and outline
  \captionof{figure}{An updated version of figure \ref{fig:wylfaCircular0-37.5Deg_Overlay} using the boundaries from the Wylfa trace (figure \ref{fig:wylfaTraceStep4}) and figure \ref{fig:measuredTrackerRecon}. To highlight the key features of the turbine hall main reactor building and reactor core.}  
  \label{fig:wylfaCircular0-37.5Deg_Overlay_Updated}
 \end{figure}
+
+\section{Cosmic Tracker Uncertainties}\label{sec:cosmicTrackerUncertainties}
+The cosmic $\mu$ results from figures \ref{fig:simulatedTrackerRecon} \ref{fig:measuredTrackerRecon} and \ref{fig:wylfaCircular0-37.5Deg_Overlay_Updated} are highly promising. However, there are some potential issues with regards to the bin migration previously mentioned especially in figures \ref{fig:measuredTrackerReconNoLines} and \ref{fig:measuredTrackerRecon} where the vertical lines at $\phi$ = 0$^\circ$, $\phi$ = 90$^\circ$, $\phi$ = 180$^\circ$, $\phi$ = 270$^\circ$ are still visible. The uncertainties can be quantified to some extent, but the limits are more due to the detector's geometry and segmentation. See weekly work presentations: 21/01/2021 - 17/02/2021. 
 
 % Cosmic $\mu$ tomography is split into two distinct types two sided and one sided. Two sided cosmic $\mu$ is preferred if it is feasible this is because both attenuation and scattering can be measured when using this technique. The effect of the cosmic $\mu$ scattering can be seen in figure \ref{fig:twoSidedCosmicMuonTomographySchults} the cosmic $\mu$ which travel through the dense object will scatter more than the cosmic $\mu$ that don't. By making coincident measurements of the cosmic $\mu$ it is possible to find vertices using this method. This method is extremely powerful but can only be used for smaller objects in most cases. 
 % \\\\ For larger objects one sided cosmic $\mu$ tomography has to be used. An example of what one sided cosmic muon tomography looks like can be seen in figure \ref{fig:oneSidedCosmicMuonExample} when there is an object that can attenuate cosmic $\mu$ then the number of cosmic $\mu$ will decrease in the direction of the object being imaged. This method cannot measure scattering or vertices however that is still sufficient in many cases such as the imaging done by the DIAPHANE collaboration seen in figure  \ref{fig:diaphaneStructualImaging}. Which uses 4 different locations to image the La Soufriere of Guadeloupe dome and measure the density for volcanic observations \cite{Marteau_2017}.
