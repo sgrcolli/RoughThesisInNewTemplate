@@ -513,7 +513,146 @@ Using the GEANT4 simulation it is possible to simulate each building and outline
 \end{figure}
 
 \section{Cosmic Tracker Uncertainties}\label{sec:cosmicTrackerUncertainties}
-The cosmic $\mu$ results from figures \ref{fig:simulatedTrackerRecon} \ref{fig:measuredTrackerRecon} and \ref{fig:wylfaCircular0-37.5Deg_Overlay_Updated} are highly promising. However, there are some potential issues with regards to the bin migration previously mentioned especially in figures \ref{fig:measuredTrackerReconNoLines} and \ref{fig:measuredTrackerRecon} where the vertical lines at $\phi$ = 0$^\circ$, $\phi$ = 90$^\circ$, $\phi$ = 180$^\circ$, $\phi$ = 270$^\circ$ are still visible. The uncertainties can be quantified to some extent, but the limits are more due to the detector's geometry and segmentation. See weekly work presentations: 21/01/2021 - 17/02/2021. 
+The cosmic $\mu$ results from figures \ref{fig:simulatedTrackerRecon} \ref{fig:measuredTrackerRecon} and \ref{fig:wylfaCircular0-37.5Deg_Overlay_Updated} are highly promising. However, there are some potential issues with regards to the bin migration previously mentioned especially in figures \ref{fig:measuredTrackerReconNoLines} and \ref{fig:measuredTrackerRecon} where the vertical lines at $\phi$ = 0$^\circ$, $\phi$ = 90$^\circ$, $\phi$ = 180$^\circ$, $\phi$ = 270$^\circ$ are still visible. The uncertainties can be quantified to some extent, but the limits are more due to the detector's geometry and segmentation. In order to quantify the uncertainty of the tracker and detector 1E6 particles were simulated in GEANT4 with a $\phi$ =  135$^\circ$ and $\theta$ = 45$^\circ$ a random spot is then chosen in the detector and then they are back projected by 3\,m. The generated distribution of which can be seen in figure \ref{fig:sideABGen_PVsT_135_45}. The fitter then reconstructs the tracks shown in figure \ref{fig:trackedABWithDead}. When comparing the tracker results from figure \ref{fig:trackedABWithDead} with the generated distributions in figure \ref{fig:sideABGen_PVsT_135_45} there is minimal difference which is unsurprising as the efficiency is 98.6\,\% for the reconstruction. 
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/sideAGen_PVsT_135_45.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Side A generated hits for $\phi$ =  135$^\circ$ and $\theta$ = 45$^\circ$.}
+  \label{subFig:sideAGen_PVsT_135_45}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+\includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/sideBGen_PVsT_135_45.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Side B generated hits for $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$.}
+  \label{subFig:sideBGen_PVsT_135_45}
+\end{subfigure}
+\caption{The generated hits in GEANT4 for $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$ with dead and un-instrumented channels taken into account.}
+\label{fig:sideABGen_PVsT_135_45}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/trackedAWithDead.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Side A tracker reconstructed hits for $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$.}
+  \label{subFig:trackedAWithDead}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+\includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/trackedBWithDead.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Side B tracker reconstructed hits for $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$.}
+  \label{subFig:trackedBWithDead}
+\end{subfigure}
+\caption{Tracker reconstructed hits for the $\phi$ 135$^\circ$ and $\theta$ = 45$^\circ$ the tracker is not thrown off by the dead channels or the fiducial channels. It reconstructs the simulated distribution well.}
+\label{fig:trackedABWithDead}
+\end{figure}
+
+The reconstructed $\phi$ and $\theta$ that the tracker produces is shown in figure \ref{fig:pVsTWithDeadLog} where about $\sim$ 50\,\% of the data is reconstructed to 135$^\circ$ 45$^\circ$ bin. However, in figure \ref{fig:pVsTWithDeadLog} there is significant smearing in both angles. The smearing in $\phi$ is roughly even with smearing likely to be both above and below the generated value of $\phi$ = 135$\circ$. More interesting is the smearing in $\theta$ which is more likely to smear above the generated value than below of $\theta$ = 45$^\circ$. This is a result of how cosmic $\mu$ events propagate in the detector and the nature of fiducialisation in the detector. In figure \ref{fig:badFitNoFiducial} an example event shows how the fitter ignores noise and fits signal. But figure \ref{fig:badFitWithFiducial} shows how that can become a problem once the detector is made narrower the noise is now being treated as part of the cosmic $\mu$ event. This has had the effect of pushing the event to a higher value of $\theta$ and a lower value of $\phi$. Even if the noise is properly excluded as in figure \ref{fig:badFitNoFiducial} there isn't enough information to correctly extrapolate the correct values of $\phi$ and $\theta$ as the event in \ref{fig:badFitWithFiducial} is only 2 channels wide. Also due to timing and electronic effects sometimes cosmic $\mu$ events will have large gaps inside of them in real world data so excluding events like \ref{fig:badFitWithFiducial} is not feasible. As cosmic $\mu$ events propagate downwards through the detector the fitter will be more likely the fitter will fit above expected values rather than below as corner clipping events are likely to be narrower than the $\mu$ even they represent this is also a key component of the bin migration previously mentioned. 
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/pVsTWithDeadLog.png}
+ \captionof{figure}{Tracker reconstructed $\phi$ and $\theta$ for simulated $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$. The most likely value to be reconstructed is $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$ (representing $\sim$ 55\,\% of the reconstruction) but there is significant smearing in both angles. But efficiency is 98.6\,\%.} 
+ \label{fig:pVsTWithDeadLog}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/135,45_85,60__noDead_updatedAxis_cosmicCandidate195939.png}
+ \captionof{figure}{Example candidate cosmic event from the generated GEANT4 data for $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$ with all channels. The tracker correctly ignores the noise and fits the signal.} 
+ \label{fig:badFitNoFiducial}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/135,45_85,60__withDead_updatedAxis_cosmicCandidate195939.png}
+ \captionof{figure}{figure \ref{fig:badFitNoFiducial} with fiducial dead and un-instrumented channels taken into account. The tracker tries to fit the signal but due to corner clipping nature of the event the fitting on side A has failed and fits to $\phi$ = 85$^\circ$ and $\theta$ = 60$^\circ$ instead of $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$. } 
+ \label{fig:badFitWithFiducial}
+\end{figure}
+
+Fitting both $\phi$ and $\theta$ yields bad results which is unsurprising considering how significant the smearing is in figure \ref{fig:pVsTWithDeadLog}. For both the $\chi^2$/DOF is > 170 which is far above acceptable levels (see figures \ref{fig:fittingPhiWithDead}, \ref{fig:fittingThetaWithDead}). In both cases the function attempted to be fitted is a double Gaussian function with a ``noise'' Gaussian function to take into account the smearing and a Gaussian attempting to fit the signal. For $\phi$ the signal mean was 136.288$^\circ$ and the signal $\sigma$ was 0.728$^\circ$. Considering the spread on $\phi$ is significant these values are reasonable but its clear from figure \ref{fig:fittingPhiWithDead} that the top of the signal distribution isn't being fitted well. For $\theta$ the signal mean was 45.1275$^\circ$ and the signal $\sigma$ was 0.3524$^\circ$. These values are very good for $\theta$ and whilst the fit has large $\chi^2$/DOF in figure \ref{fig:fittingThetaWithDead} the signal distribution seems to have been fitted quite well. It is not surprising that the fitting for $\theta$ is more accurate as the segments for the detector are 4 times wider than they are tall. 
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/fittingPhiWithDead.png}
+ \captionof{figure}{Double Gaussian fitted to the reconstructed tracker $\phi$ values when simulating $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$ exclusively. The $\chi^2$/DOF is 181.31 showing a poor fit which is largely due to segmentation effects. signal mean = 136.288, signal $\sigma$ 0.728, noise mean = 140.101, noise $\sigma$ 7.819.} 
+ \label{fig:fittingPhiWithDead}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/fittingThetaWithDead.png}
+ \captionof{figure}{Double Gaussian fitted to the reconstructed tracker $\theta$ values when simulating $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$ exclusively. The $\chi^2$/DOF is 172.758 showing a poor fit which is largely due to segmentation effects. Signal mean = 45.1275, signal $\sigma$ = 0.3524, noise mean = 46.8153, noise $\sigma$ = 1.6294.} 
+ \label{fig:fittingThetaWithDead}
+\end{figure}
+
+It is possible to 
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/pVsT135FidFix_20barCutPerSide.png}
+ \captionof{figure}{Figure \ref{fig:pVsTWithDeadLog} but with all events that have $<$ 20 hits for side A and $<$ 20 hits for side B removed. This greatly improves the distribution and reduces smearing. However efficiency is only 68.9\,\% $\sim$ 30\,\% lower than with a 4 bar cut either side.} 
+ \label{fig:pVsT135FidFix_20barCutPerSide}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/20CutRatioWylfaDivLiv.png}
+ \captionof{figure}{How the ratio of the Liverpool and Wylfa data sets looks when a 20 bar cut per side is used. Instead of a 4 bar cut (See figures \ref{fig:measuredTrackerReconNoLines} and \ref{fig:measuredTrackerRecon}). The shadows for both the turbine hall (centred around $\phi$ = 270$^\circ$) and reactor buildings (centred around $\phi$ = 90 $^\circ$) are less accurately resolved now. Despite the more accurate angle reconstruction the number of side on events has been greatly reduced and as those are the most useful events for this tomography the outlines have greatly degraded. \hl{This plot needs to be redone to match the others like it}.}
+ \label{fig:20CutRatioWylfaDivLiv}
+\end{figure}
+
+\section{Using Simulated Data as Control Data}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/mc_theatOnly.png}
+ \captionof{figure}{$\theta$ distribution from simulation using measured data and redistributing to account for potential reconstruction issues and using an exponential tail fit. \hl{plot needs to be reversed and need to use CRY distribution}}
+ \label{fig:mc_thetaOnly}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/mc_PvsT.png}
+ \captionof{figure}{$\phi$ and $\theta$ distribution for simulated data using the distribution for theta seen in figure \ref{fig:mc_thetaOnly}.\hl{plot needs to be reversed and needs to be redone with CRY distribution + reformatting}.}
+ \label{fig:mc_PvsT}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/WylfaToMCRatio.png}
+ \captionof{figure}{Ratio of Wylfa to GEANT4 simulated data the bin migration hides the shadows \hl{Needs to be redone with Cry Distribution + reformatting}} 
+ \label{fig:WylfaToMCRatio}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/WylfaToMCRatio0-2.png}
+ \captionof{figure}{Ratio of Wylfa to GEANT4 simulated data restricted to a maximum of 2 the bin migration still causes the tops of the shadows to be difficult to determine. \hl{Needs to be redone with Cry Distribution + reformatting}}
+ \label{fig:WylfaToMCRatio0-2}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/LiverpoolToMCRatio.png}
+ \captionof{figure}{Ratio of Liverpool to GEANT4 simulated data the bin migration dominates \hl{Needs to be redone with Cry Distribution + reformatting}.}
+ \label{fig:LiverpoolToMCRatio}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/LiverpoolToMCRatio0-2.png}
+ \captionof{figure}{Ratio of the Liverpool to GEANT4 simulated data restricted to a maximum of 2. Unexpected areas below blocked incidence of 1 are visible even though there is nothing at the Liverpool site that could cause such shadows to occur. \hl{Needs to be redone with Cry Distribution + reformatting}.}
+ \label{fig:LiverpoolToMCRatio0-2}
+\end{figure}
 
 % Cosmic $\mu$ tomography is split into two distinct types two sided and one sided. Two sided cosmic $\mu$ is preferred if it is feasible this is because both attenuation and scattering can be measured when using this technique. The effect of the cosmic $\mu$ scattering can be seen in figure \ref{fig:twoSidedCosmicMuonTomographySchults} the cosmic $\mu$ which travel through the dense object will scatter more than the cosmic $\mu$ that don't. By making coincident measurements of the cosmic $\mu$ it is possible to find vertices using this method. This method is extremely powerful but can only be used for smaller objects in most cases. 
 % \\\\ For larger objects one sided cosmic $\mu$ tomography has to be used. An example of what one sided cosmic muon tomography looks like can be seen in figure \ref{fig:oneSidedCosmicMuonExample} when there is an object that can attenuate cosmic $\mu$ then the number of cosmic $\mu$ will decrease in the direction of the object being imaged. This method cannot measure scattering or vertices however that is still sufficient in many cases such as the imaging done by the DIAPHANE collaboration seen in figure  \ref{fig:diaphaneStructualImaging}. Which uses 4 different locations to image the La Soufriere of Guadeloupe dome and measure the density for volcanic observations \cite{Marteau_2017}.
