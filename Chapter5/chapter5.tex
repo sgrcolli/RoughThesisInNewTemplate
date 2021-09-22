@@ -594,7 +594,7 @@ Fitting both $\phi$ and $\theta$ yields bad results which is unsurprising consid
  \label{fig:fittingThetaWithDead}
 \end{figure}
 
-It is possible to 
+It is possible to mitigate the effect of these corner clipping events by requiring a large number of bar segments to be hit per side. In figure \ref{fig:pVsT135FidFix_20barCutPerSide} a requirement of 20 bars being hit for each side is introduced. When comparing figure \ref{fig:pVsTWithDeadLog} which requires 4 bars to be hit per side and figure \ref{fig:pVsT135FidFix_20barCutPerSide} which requires 20 bars to be hit per side the spread has been greatly reduced. However this selection criteria reduces the efficiency from 98.6\,\% to 68.9\,\%. But this effect does not effect all events equally, events with a lower value of $\theta$ will be more likely to be removed. As a result when using this selection criteria on the measured data in figure \ref{fig:20CutRatioWylfaDivLiv} the shadows become less clear as $\theta$ decreases. This highlights the paradox between increasing precision and increasing accuracy for this particular data set. Cosmic $\mu$ events that cross the corner of the detector are the most useful for cosmic $\mu$ tomography at low angles of $\theta$ so shadow analysis that uses these events will be more accurate. But these are also the events that will have the most smearing and so will have less precision. 
 
 \begin{figure}[htbp]
  \centering
@@ -611,6 +611,7 @@ It is possible to
 \end{figure}
 
 \section{Using Simulated Data as Control Data}
+Another possible alternative to using the Liverpool data set as a control data set is to use simulated data as a control data set. However, this has major limitations even when using a $\theta$ distribution which is derived from measured data (\hl{probably better to use CRY distribution}). The overall $\theta$ distribution for simulated data can be seen in figure \ref{fig:mc_thetaOnly} which is a good approximation to the measured data in figure \ref{fig:measuredThetaWylfaLiverpool}. The overall $\phi$ and $\theta$ distribution for the simulated data can be seen in figure \ref{fig:mc_PvsT} providing the $\theta$ distribution is accurate and the GEANT4 simulation correctly models the atmospheric smearing this should only have detector effects and segmentation effects smearing the distribution. 
 
 \begin{figure}[htbp]
  \centering
@@ -620,11 +621,33 @@ It is possible to
 \end{figure}
 
 \begin{figure}[htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/measuredThetaWylfa.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{The tracker reconstructed $\theta$ distribution for Wylfa cosmic $\mu$ events.}
+  \label{subFig:measuredThetaWylfa}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+\includegraphics[width=\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/measuredThetaLiverpool.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{The tracker reconstructed $\theta$ distribution for Liverpool cosmic $\mu$ events.}
+  \label{subFig:measuredThetaLiverpool}
+\end{subfigure}
+\caption{The measured $\theta$ distributions for Wylfa and Liverpool there's a peak at 60$^\circ$ in both and the overall reconstructed distributions look similar.}
+\label{fig:measuredThetaWylfaLiverpool}
+\end{figure}
+
+\begin{figure}[htbp]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/mc_PvsT.png}
  \captionof{figure}{$\phi$ and $\theta$ distribution for simulated data using the distribution for theta seen in figure \ref{fig:mc_thetaOnly}.\hl{plot needs to be reversed and needs to be redone with CRY distribution + reformatting}.}
  \label{fig:mc_PvsT}
 \end{figure}
+
+However, the simulation can't quite account for all of the different effects as seen in figure \ref{fig:WylfaToMCRatio} when the ratio is taken between simulation and measured Wylfa data. In figure \ref{fig:WylfaToMCRatio} the bin migration is still obscuring the shadows quite significantly. It is possible to force the ratio plot to be between 0 and 2 which is done in figure \ref{fig:WylfaToMCRatio0-2} when this is done it is possible to see the Wylfa shadows however the bin migration makes it difficult to determine where the shadows for the turbine hall and reactor buildings separate. The same effect can be seen when taking the ratio between GEANT4 and Liverpool data in figures \ref{fig:LiverpoolToMCRatio} \ref{fig:LiverpoolToMCRatio0-2} which clearly shows that the simulated distribution is struggling to act as a control data set. The amount of cosmic $\mu$ sky blockage is very minimal in the Liverpool data set but there is still a large discrepancy between that data set and the generated cosmic $\mu$ data set. As a result the Liverpool data set is the preferred control data set to the generated GEANT4 data. 
 
 \begin{figure}[htbp]
  \centering
