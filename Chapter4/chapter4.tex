@@ -12,6 +12,28 @@
 
 \section{GEANT4 Overview}\label{sec:geant4Simulation_g4Overview}
 The VIDARR detector is also represented in a GEANT4 simulation which is a provident physics simulation package. According to the GEANT4 collaboration GEANT4 ``covers a comprehensive range including electromagnetic, hadronic and optical processes and a large set of long-lived particles materials and elements over a wide energy range starting in some cases from 250\,eV and extending in others to the TeV range'' \cite{Agostinelli:2002hh}. Considering that the energy range for inverse $\beta$ decay is 2\,MeV-8\,MeV \cite{Mueller_2011} this simulation package appears to meet the needs of the VIDARR collaboration. However whilst the simulation of the resulting positrons is reasonably simplistic the simulation of the neutrons is more challenging due to the difficulty in simulating the Gadolinium cascade. 
+\\\\This was initially designed to simulate inverse $\beta$ decay (IBD) events (see equation \ref{inverse_beta_decay} and figure \ref{fig:inverse_beta_diagram}). An example of a GEANT4 simulated IBD event can be seen in \ref{fig:simultaedIbdEvent}, the simulation produces a e$^+$ and neutron simultaneously it does not simulate the $\bar{\nu_e}$ interaction with matter. This is not a major constraint as this is what the detector measures but it does mean that the $\bar{\nu_e}$ rate is not modelled by this simulation. The times for the generated neutron to complete its random walk through the detector + the time taken for the Gadolinium sheets in-between the segments to absorb the neutron + the time taken for the cascade to occur is shown in figure \ref{fig:delayedIbdTimes}. Whilst the tail in figure \ref{fig:delayedIbdTimes} extends to 1e5\,ns (100\,$\mu$s) but 99.9\,\%+ of the time the neutron walk and capture happens before 100\,ns as shown by figure \ref{fig:delayedIbdTimesZoom}.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/simultaedIbdEvent.png}
+ \captionof{figure}{A simulated inverse $\beta$ decay event in GEANT4 in the upgraded detector with 70 layers and shielding around the outside of the detector. The delayed component is shown in blue and the prompt component is shown in red. The delayed component hits more bars than the prompt component.} 
+ \label{fig:simultaedIbdEvent}
+\end{figure} 
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/delayedIbdTimes.png}
+ \captionof{figure}{The time taken for the neutron from the simulated $\bar{\nu_e}$ inverse $\beta$ decay event to thermilise and be absorbed by the Gadolinium sheets in the simulated VIDARR detector. The tail is extremely long lasting 1E5\,ns after the initial peak.} 
+ \label{fig:delayedIbdTimes}
+\end{figure} 
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/delayedIbdTimesZoom.png}
+ \captionof{figure}{Figure \ref{fig:delayedIbdTimes} but with the x axis restricted to 1000\,ns and the y axes no longer on a log scale. This is done to show that above 99.9\,\% of the events are captured before 100\,ns.} 
+ \label{fig:delayedIbdTimesZoom}
+\end{figure} 
 
 \section{Modelling The Mass Increase}
 The number of layers in the prototype detector was 49 out of a possible 70 the upgrade will therefore add $\sim$ 43\,\% additional mass into the detector compared to the prototype. In reality out of a possible 1862 channels only 1793 were instrumented due to limitations in securing enough parts for the prototype. Never the less the simulation will focus on the theoretical maximum number of bars in both cases for the sake of simplicity. As can be seen from figure \ref{fig:prototypeMeasumentFlux} there is an expectation of $\sim$ 200 $\Bar{\nu_e}$ a day and so from the upgraded detector it is reasonable to assume a rate of $\sim$ 300 $\Bar{\nu_e}$ a day with the additional mass. But in addition the quality of each event will also improve as more of the energy of the 8\,MeV $\gamma$ cascade is kept within the detector. The amount of energy kept inside the detector would be considered the ``containment'' of the cascade where a containment of 100\,\% would mean 100\,\% of the energy is kept inside the detector. In figure \ref{fig:containment_comparison} it can be seen that the quality of the containment increases when the additional mass has been added. 
@@ -19,7 +41,7 @@ The number of layers in the prototype detector was 49 out of a possible 70 the u
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/year1Plots/containment_Energy.png}
- \captionof{figure}{Quality of the containment of event energy in the 1862 bars detector and the 2660 bars detector where the containment is defined as the percentage of $\gamma$ cascade reconstructed energy compared to the $\gamma$ cascade generated energy.\hl{this plot needs to be remade with the dicebox}} %~can be used as a kind of place holder in latex
+ \captionof{figure}{Quality of the containment of event energy in the 1862 bars detector and the 2660 bars detector where the containment is defined as the percentage of $\gamma$ cascade reconstructed energy compared to the $\gamma$ cascade generated energy.\hl{this plot needs to be remade with the dicebox}}
  \label{fig:containment_comparison}
 \end{figure} 
 

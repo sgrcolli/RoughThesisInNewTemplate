@@ -203,9 +203,25 @@ In addition the structure of the buildings needs to be considered as well. An ex
  \label{fig:wylfaReactorRoughStructure}
 \end{figure}
 
-\section{Simulation Of Cosmic Muons}\label{sec:SimulationOfCosmics}
-Before the data could be analysed a simulation of cosmic $\mu$ using a cosmic hemisphere was used in order to quantify segmentation effects and any other detector effects. These can be quite significant as seen in figures \ref{fig:phiGenVsRecoHem} and \ref{fig:cirPhiGenVsRecoHem} the reconstruction of our detector can be quite adversely effected by vertical events. If an event is vertical in one side of the detector then the other side will dominate as such it results in spikes at 0$^\circ$, 90$^\circ$, 180$^\circ$, 270$^\circ$. This bin migration is caused by the detector being a segmented cuboid, any segmented cuboid detector as the projection of a smooth hemispherical distribution will not map cleanly onto cuboid. 
-\\\\ However this is only true with $\phi$, bin migration is significantly less pronounced in $\theta$ as seen in figure \ref{fig:thetaGenVsRecoHem}. Significant bin migration is is only seen in bins 0$^\circ$, 5$^\circ$, 80$^\circ$, 85$^\circ$, 90$^\circ$ but bins 10$^\circ$ -- 75$^\circ$ are accurately reconstructed. The large discrepancy in bin migration between $\theta$ and $\phi$ is due to the size of the segments in the VIDARR detector as they are 4\,cm wide by 1\,cm tall they are able to more accurately reconstruct information vertically than in any other direction. Which is useful for reconstructing vertical information such as the height of buildings.
+\section{Simulation of Cosmic Muon Hemisphere}\label{sec:SimulationOfCosmics}
+Before the data could be analysed a simulation of cosmic $\mu$ using a cosmic hemisphere was used in order to quantify segmentation effects and any other detector effects. These can be quite significant as seen in figures \ref{fig:phiGenVsRecoHem} and \ref{fig:cirPhiGenVsRecoHem} the reconstruction of our detector can be quite adversely effected by vertical events. If an event is vertical in one side of the detector then the other side will dominate as such it results in spikes at 0$^\circ$, 90$^\circ$, 180$^\circ$, 270$^\circ$. This bin migration is caused by the detector being a segmented cuboid, any segmented cuboid detector as the projection of a smooth hemispherical distribution will not map cleanly onto cuboid. Figures \ref{fig:cosmicBinMigrationSideA} and \ref{fig:cosmicBinMigrationSideB} show how the segmentation of the VIDARR detector causes bin migration. For figure \ref{fig:cosmicBinMigrationSideA} angles of $\phi$ are solely determined by angle in side A the same is true for side B in figure \ref{fig:cosmicBinMigrationSideB}. 
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicBinMigrationSideA.png}
+ \captionof{figure}{Side A Bin migration due to the segmentation size of VIDARR. In this example side B has no $\phi$ component and so any value on side A determines $\phi$ exclusively warping the distribution. \hl{this plot is old and needs to be redone with current colour scheme}.} 
+ \label{fig:cosmicBinMigrationSideA}
+\end{figure}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicBinMigrationSideB.png}
+ \captionof{figure}{Side B Bin migration due to the segmentation size of VIDARR. In this example side A has no $\phi$ component and so any value on side B determines $\phi$ exclusively warping the distribution.\hl{this plot is old and needs to be redone with current colour scheme}.} 
+ \label{fig:cosmicBinMigrationSideB}
+\end{figure}
+
+However this is only true with $\phi$, bin migration is significantly less pronounced in $\theta$ as seen in figure \ref{fig:thetaGenVsRecoHem}. Significant bin migration is is only seen in bins 0$^\circ$, 5$^\circ$, 80$^\circ$, 85$^\circ$, 90$^\circ$ but bins 10$^\circ$ -- 75$^\circ$ are accurately reconstructed. The large discrepancy in bin migration between $\theta$ and $\phi$ is due to the size of the segments in the VIDARR detector as they are 4\,cm wide by 1\,cm tall they are able to more accurately reconstruct information vertically than in any other direction. Which is useful for reconstructing vertical information such as the height of buildings. Though as will be outlined in section \ref{sec:cosmicTrackerUncertainties} the segmentation and effect of corner clipping events makes reconstruction of $\theta$ more difficult than expected. When comparing the generated hit map in figure \ref{fig:rawHemisphereFiducialBarsSideAB} for a cosmic the $\mu$ hemisphere the reconstruction appears to be very accurate in figure \ref{fig:HemisphereFiducialBarsSideAB}. From this it is reasonable to assume that the tracker not introducing any biases into the generated data set.
+
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/hemispherePhiCompare.png}
@@ -226,6 +242,46 @@ Before the data could be analysed a simulation of cosmic $\mu$ using a cosmic he
  \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/hemisphereThetaCompare.png}
  \captionof{figure}{Generated $\theta$ vs reconstructed $\theta$ for a cosmic hemisphere distribution} 
  \label{fig:thetaGenVsRecoHem}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/rawHemisphereFiducialBarsSideA.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Generated bars hit for side A.}
+  \label{subFig:rawHemisphereFiducialBarsSideA}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+\includegraphics[width=\linewidth]{Chapter5/Figs/Raster/rawHemisphereFiducialBarsSideB.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Generated bars hit for side B.}
+  \label{subFig:rawHemisphereFiducialBarsSideB}
+\end{subfigure}
+\caption{Generated hemisphere bars hit when using the generated $\phi$ seen in figure \ref{fig:phiGenVsRecoHem} and generated $\theta$ \ref{fig:thetaGenVsRecoHem}. Dead and un-instrumented channels are simulated to improve accuracy and the simulation bounds match the fiducial bounds.}
+\label{fig:rawHemisphereFiducialBarsSideAB}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/hemisphereFiducialBarsSideA.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Reconstructed bars hit for side A.}
+  \label{subFig:hemisphereFiducialBarsSideA}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+\includegraphics[width=\linewidth]{Chapter5/Figs/Raster/hemisphereFiducialBarsSideB.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{Reconstructed bars hit for side B.}
+  \label{subFig:hemisphereFiducialBarsSideB}
+\end{subfigure}
+\caption{Reconstructed hemisphere bars hit when using the reconstructed $\phi$ seen in figure \ref{fig:phiGenVsRecoHem} and reconstructed $\theta$ \ref{fig:thetaGenVsRecoHem}. The tracker is not disrupted by the dead channels and accurately reconstructs the hits seen in figure \ref{fig:rawHemisphereFiducialBarsSideAB} with minimal detector corner clipping events removed.}
+\label{fig:HemisphereFiducialBarsSideAB}
 \end{figure}
 
 In order to quantify the effect of cosmic $\mu$ coming for every possible angle a cosmic hemisphere is simulated. The reconstruction of the cosmic hemisphere done by the tracker can be seen in figure \ref{fig:simulatedHemisphereDist}. The reconstruction artefacts shown in figures \ref{fig:phiGenVsRecoHem} and \ref{fig:thetaGenVsRecoHem} can also be seen to have a dependence on one another in figure \ref{fig:simulatedHemisphereDist}. Apart from the uncertainties introduced from segmentation there are no other uncertainties that are significant that are visible in \ref{fig:simulatedHemisphereDist}. However, this does not mean that that other uncertainties are not present just that the most noticeable uncertainty is due to the segmentation. 
@@ -324,8 +380,23 @@ Now that figure \ref{fig:wylfaTraceStep4} has been produced and the features of 
 \label{fig:wylfaSideABHits}
 \end{figure}
 
-Once the fitters potential bias has been addressed the $\phi$ and $\theta$ values can be analysed. Due to the high energy and penetrating nature of cosmic $\mu$ \hl{a citation} the reactor buildings may not be dense enough to stop all incoming cosmic $\mu$. As a result the shadows can only be seen with high statistics. However, the detector took cosmic $\mu$ data in accidental coincidence at the Wylfa site and this greatly limited the amount of data that could be gathered to $\sim$ 3 $\times$ 10$^6$ cosmic $\mu$ events. According to the CRY library \cite{ieee_cry_2007} 162000 $\mu^-$ and 174000 $\mu^+$ are produced in 2820\,s for 1 m\,$^2$. VIDARR's top surface area is 1.52\,m $\times$ 1.52\,m = 2.31\,m$^2$ resulting in $\sim$ 275 muons s$^{-1}$. Therefore a data set of 3 $\times$ 10$^6$ cosmic $\mu$ events corresponds to $\sim$ 3 hours of live time. 
-\\\\The tracker reconstructed $\phi$ and $\theta$ distribution from the Wylfa data set can be seen in figure \ref{fig:pVsTWylfaReversed} but the shadows don't seem as clear as one would have expected from such dense and heavy buildings. In figure \ref{fig:pVsTWylfaReversed} the bin migration is so significant even though the shadows extend up to 60$^o$ in $\theta$ they are masked very effectively. But the bin migration does become less pronounced as $\theta$ decreases. As $\theta$ decreases the chance of either side having a vertical track is greatly reduced thus reducing the bin migration. However, this poses a problem as the statistics also decrease with $\theta$ as seen in figure \ref{fig:pVsTWylfaReversed}. So by taking the 2d x projection of figure \ref{fig:pVsTWylfaReversed} from 0$^\circ$ -- 37.5$^\circ$ $\theta$ it is possible to ignore most of the bin migration whilst also having suitable statistics to observe the widths of the turbine hall and reactor building which is done in figure \ref{fig:LinearHist_theta_0-37.5_Deg}. It is possible to then take the linear projection in figure \ref{fig:LinearHist_theta_0-37.5_Deg} and then apply it to a circular projection and overlay that projection on top of the wylfa trace seen in figure \ref{fig:wylfaTraceStep4} which is done in figure \ref{fig:wylfaCircular0-37.5Deg_Overlay}. 
+Once the fitters potential bias has been addressed the $\phi$ and $\theta$ values can be analysed. Due to the high energy and penetrating nature of cosmic $\mu$ \hl{a citation} the reactor buildings may not be dense enough to stop all incoming cosmic $\mu$. As a result the shadows can only be seen with high statistics. However, the detector took cosmic $\mu$ data in accidental coincidence at the Wylfa site and this greatly limited the amount of data that could be gathered to $\sim$ 3 $\times$ 10$^6$ cosmic $\mu$ events. According to the CRY library \cite{ieee_cry_2007} 162000 $\mu^-$ and 174000 $\mu^+$ are produced in 2820\,s for 1 m\,$^2$. VIDARR's top surface area is 1.52\,m $\times$ 1.52\,m = 2.31\,m$^2$ resulting in $\sim$ 275 muons s$^{-1}$. Therefore a data set of 3 $\times$ 10$^6$ cosmic $\mu$ events corresponds to $\sim$ 3 hours of live time. With a rate of 275 muons s$^{-1}$ then the maximum time a fit should be allowed to take is 3600 micro seconds for online track fitting which figure \ref{fig:wylfaTrackerTime} shows is the case for almost all events. Figure \ref{fig:wylfaTrackerTimeLog} takes figure \ref{fig:wylfaTrackerTime} and applies a log to the y axis showing that a very small fraction of events don't fit within the time limit of 3600 micro seconds so a time selection criteria will be required. Whilst online track fitting was not required it is useful to know that the same tracking logic can be applied for both online calibration and full cosmic $\mu$ tomography by only adding a time and $\chi^2$ cut. 
+
+ \begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter5/Figs/Raster/wylfaTrackerTime.png}
+ \captionof{figure}{The time taken for each fit for the Wylfa data set. Assuming a rate of $\sim$ 275 cosmic muons s$^{-1}$ then the maximum time allow would be 3600 mirco seconds. Almost all cosmic candidate events fit within this time.} 
+ \label{fig:wylfaTrackerTime}
+\end{figure}
+
+ \begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter5/Figs/Raster/wylfaTrackerTimeLog.png}
+ \captionof{figure}{Figure \ref{fig:wylfaTrackerTime} but with the y axis taken as a log some events exceed 3600 micro seconds to fit so a maximum time selection criteria is needed for those events.} 
+ \label{fig:wylfaTrackerTimeLog}
+\end{figure}
+
+The tracker reconstructed $\phi$ and $\theta$ distribution from the Wylfa data set can be seen in figure \ref{fig:pVsTWylfaReversed} but the shadows don't seem as clear as one would have expected from such dense and heavy buildings. In figure \ref{fig:pVsTWylfaReversed} the bin migration is so significant even though the shadows extend up to 60$^o$ in $\theta$ they are masked very effectively. But the bin migration does become less pronounced as $\theta$ decreases. As $\theta$ decreases the chance of either side having a vertical track is greatly reduced thus reducing the bin migration. However, this poses a problem as the statistics also decrease with $\theta$ as seen in figure \ref{fig:pVsTWylfaReversed}. So by taking the 2d x projection of figure \ref{fig:pVsTWylfaReversed} from 0$^\circ$ -- 37.5$^\circ$ $\theta$ it is possible to ignore most of the bin migration whilst also having suitable statistics to observe the widths of the turbine hall and reactor building which is done in figure \ref{fig:LinearHist_theta_0-37.5_Deg}. It is possible to then take the linear projection in figure \ref{fig:LinearHist_theta_0-37.5_Deg} and then apply it to a circular projection and overlay that projection on top of the wylfa trace seen in figure \ref{fig:wylfaTraceStep4} which is done in figure \ref{fig:wylfaCircular0-37.5Deg_Overlay}. 
 
  \begin{figure}[htbp]
  \centering
