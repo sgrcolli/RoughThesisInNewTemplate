@@ -2,7 +2,7 @@
 %****************************** Fifth Chapter *********************************
 %*******************************************************************************
 
-\chapter{Cosmic Muon Tomography}\label{chp:cosmicMuonTomography}
+\chapter{Cosmic $\mu$ Tomography}\label{chp:cosmicMuonTomography}
 
 \ifpdf
     \graphicspath{{Chapter5/Figs/Raster/}{Chapter5/Figs/PDF/}{Chapter5/Figs/}}
@@ -52,9 +52,9 @@ Cosmic $\mu$ tomography can be split into two distinct types. Two sided cosmic $
 
 For figure \ref{fig:thetaVsPhiExpectedCube} there is a slight distortion caused at the top of the building due to the projection of a hemispherical distribution onto a cuboid detector. The amount of distortion will also vary depending on the distance from the detector and the size and shape of the building in question. For example a longer shorter building would have significantly more distortion at the top than a tall narrow building. Also the slope of the distortion will vary depending on the position relative to the detector. Further in figure \ref{fig:thetaVsPhiExpectedCube} the drop in intensity would not be expected to be instantaneous, there would be a gradual decrease in intensity resulting in blurred edges around the occlusion pattern or ``shadow.'' These effects will vary depending on the setup. The VIDARR prototype and upgraded VIDARR detectors for example are cuboid detectors that analyse the whole hemisphere at once, and as such can be considered as 360$^\circ$ cosmic camera rather than as a cosmic $\mu$ telescope in the strictest sense. This is an important consideration as the other cosmic $\mu$ experiments have very different experimental setups. Please see section \ref{sec:cosmicMuTelescopes} for more details.
 
-\section{Muon Analysis Chain}\label{sec:muonAnalysisChain}
+\section{$\mu$ Analysis Chain}\label{sec:muonAnalysisChain}
 In order to analyse the $\mu$ data from the Wylfa deployment a series of programs called an analysis chain is required. There are two of them for this analysis. The first is based on the T2K analysis chain which converts the data stored in .mid.gz files to .root files and calibrates the data (see figure \ref{fig:mattMurdocksChain}). The second analysis chain (figure \ref{fig:analysisChain}) is designed to analyse simulated data and the data from the upgraded detector once it is complete. However, because the new analysis chain is multi-threaded and much faster in general than the old T2K chain (and doesn't depend on specific operating system kernel, specific ROOT version and specific GEANT4 version) it is preferable to use the new analysis chain for the prototype detector data as well. This also has the advantage of ensuring the cosmic $\mu$ tracker will be functional for both versions of the detector allowing for an interesting comparison once the upgraded detector is complete. 
-\\\\The prototype detector deployed at Wylfa analysed data in cycles of 1.5\,$\mu$s. There are 23 cycles in the prototype data from 0 -- 22 with cycle 18 as the trigger cycle and cycles 17 and 19 considered to be underflow and overflow for the trigger signal respectively. The cycles are then interpreted depending on weather the user wants to analyse cosmic $\mu$ data or IBD data. For cosmic $\mu$ data each cycle will be considered as its own event with trigger cycles 17 -- 19 being ignored. Whereas for IBD analysis the data is split between prompt (cycles 0 -- 16) and delayed (cycles 17 -- 19) with the excess data (cycles 20 -- 22) being ignored. Which mode is decided by the program convertOldDetectorData (see figure \ref{fig:analysisChain}) to ensure the other programs can interpret the prototype's data correctly. Simulated data requires minimal changes as it puts data into delayed, prompt and ambiguous categories automatically using truth information. Unfortunately due to the COVID-19 pandemic the upgraded detector remains incomplete and so the calibration program for the new detector data has not been constructed at present. 
+\\\\The prototype detector deployed at Wylfa analysed data in cycles of 1.5\,$\mu$. There are 23 cycles in the prototype data from 0 -- 22 with cycle 18 as the trigger cycle and cycles 17 and 19 considered to be underflow and overflow for the trigger signal respectively. The cycles are then interpreted depending on weather the user wants to analyse cosmic $\mu$ data or IBD data. For cosmic $\mu$ data each cycle will be considered as its own event with trigger cycles 17 -- 19 being ignored. Whereas for IBD analysis the data is split between prompt (cycles 0 -- 16) and delayed (cycles 17 -- 19) with the excess data (cycles 20 -- 22) being ignored. Which mode is decided by the program convertOldDetectorData (see figure \ref{fig:analysisChain}) to ensure the other programs can interpret the prototype's data correctly. Simulated data requires minimal changes as it puts data into delayed, prompt and ambiguous categories automatically using truth information. Unfortunately due to the COVID-19 pandemic the upgraded detector remains incomplete and so the calibration program for the new detector data has not been constructed at present. 
 
 \begin{figure}[htbp]
  \centering
@@ -141,7 +141,7 @@ In addition some cycles that contain $\mu$ data are correlated to the trigger cy
 \label{fig:sideABHitsWithBadCycles}
 \end{figure}
 
-\section{Simulation of Cosmic Muon Hemisphere}\label{sec:SimulationOfCosmics}
+\section{Simulation of Cosmic $\mu$ Hemisphere}\label{sec:SimulationOfCosmics}
 Before the data could be analysed a simulation of cosmic $\mu$ using a cosmic hemisphere was used in order to quantify segmentation and other detector effects. These effects can be quite significant as seen in figures \ref{fig:phiGenVsRecoHem} and \ref{fig:cirPhiGenVsRecoHem} the reconstruction of the prototype detector can be quite adversely effected by vertical events. If an event is vertical in one side of the detector then the other side will dominate as such it results in spikes at $\phi$ = 0$^\circ$, $\phi$ = 90$^\circ$, $\phi$ = 180$^\circ$, $\phi$ = 270$^\circ$. This bin migration is caused by the detector being a segmented cuboid. Any segmented cuboid detector will not cleanly represent a hemispherical distribution. Figures \ref{fig:cosmicBinMigrationSideA} and \ref{fig:cosmicBinMigrationSideB} show how the segmentation of the VIDARR detector causes bin migration. For figure \ref{fig:cosmicBinMigrationSideA} angles of $\phi$ are solely determined by angle in side A the same is true for side B in figure \ref{fig:cosmicBinMigrationSideB}. 
 
 \begin{figure}[htbp]
@@ -343,12 +343,12 @@ Now that figure \ref{fig:wylfaTraceStep4} has been produced and the features of 
 \label{fig:wylfaSideABHits}
 \end{figure}
 
-Once the fitters potential bias has been addressed the $\phi$ and $\theta$ values can be analysed. Due to the high energy and highly penetrating nature of cosmic $\mu$ \cite{Olive_2014} the reactor buildings may not be dense enough to stop all incoming cosmic $\mu$. As a result the shadows can only be seen with high statistics. However, the detector took cosmic $\mu$ data in accidental coincidence at the Wylfa site and this greatly limited the amount of data that could be gathered to $\sim$ 3 $\times$ 10$^6$ cosmic $\mu$ events. According to the CRY library \cite{ieee_cry_2007} 162000 $\mu^-$ and 174000 $\mu^+$ are produced in 2820\,s for 1 m\,$^2$. The VIDARR prototype's top surface area is 1.52\,m $\times$ 1.52\,m = 2.31\,m$^2$ resulting in $\sim$ 275 muons s$^{-1}$. Therefore a data set of 3 $\times$ 10$^6$ cosmic $\mu$ events corresponds to $\sim$ 3 hours of live time. With a rate of 275 muons s$^{-1}$ the maximum time a fit should be allowed to take is 3600 micro seconds for online track fitting which figure \ref{fig:wylfaTrackerTime} shows is the case for almost all events. Figure \ref{fig:wylfaTrackerTimeLog} takes figure \ref{fig:wylfaTrackerTime} and applies a log to the y axis showing that a very small fraction of events don't fit within the time limit of 3600 micro seconds so a time selection criteria will be required for online track fitting. Whilst online track fitting was not required it is useful to know that the same tracker logic can be applied for both online calibration and full cosmic $\mu$ tomography by only adding a time and $\chi^2$ selection cut. 
+Once the fitters potential bias has been addressed the $\phi$ and $\theta$ values can be analysed. Due to the high energy and highly penetrating nature of cosmic $\mu$ \cite{Olive_2014} the reactor buildings may not be dense enough to stop all incoming cosmic $\mu$. As a result the shadows can only be seen with high statistics. However, the detector took cosmic $\mu$ data in accidental coincidence at the Wylfa site and this greatly limited the amount of data that could be gathered to $\sim$ 3 $\times$ 10$^6$ cosmic $\mu$ events. According to the CRY library \cite{ieee_cry_2007} 162000 $\mu^-$ and 174000 $\mu^+$ are produced in 2820\,s for 1 m\,$^2$. The VIDARR prototype's top surface area is 1.52\,m $\times$ 1.52\,m = 2.31\,m$^2$ resulting in $\sim$ 275 $\mu$ s$^{-1}$. Therefore a data set of 3 $\times$ 10$^6$ cosmic $\mu$ events corresponds to $\sim$ 3 hours of live time. With a rate of 275 $\mu$ s$^{-1}$ the maximum time a fit should be allowed to take is 3600 micro seconds for online track fitting which figure \ref{fig:wylfaTrackerTime} shows is the case for almost all events. Figure \ref{fig:wylfaTrackerTimeLog} takes figure \ref{fig:wylfaTrackerTime} and applies a log to the y axis showing that a very small fraction of events don't fit within the time limit of 3600 micro seconds so a time selection criteria will be required for online track fitting. Whilst online track fitting was not required it is useful to know that the same tracker logic can be applied for both online calibration and full cosmic $\mu$ tomography by only adding a time and $\chi^2$ selection cut. 
 
  \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter5/Figs/Raster/wylfaTrackerTime.png}
- \captionof{figure}{The time taken for each fit for the Wylfa data set. Assuming a rate of $\sim$ 275 cosmic muons s$^{-1}$ then the maximum time allow would be 3600 mirco seconds. Almost all cosmic candidate events fit within this time.} 
+ \captionof{figure}{The time taken for each fit for the Wylfa data set. Assuming a rate of $\sim$ 275 cosmic $\mu$ s$^{-1}$ then the maximum time allow would be 3600 mirco seconds. Almost all cosmic candidate events fit within this time.} 
  \label{fig:wylfaTrackerTime}
 \end{figure}
 
@@ -450,7 +450,7 @@ When taking figure \ref{fig:pVsTWylfaReversed} (the Wylfa data) and dividing it 
  \label{fig:measuredTrackerReconNoLines}
 \end{figure}
 
-The simulation previously mentioned in chapter \ref{chp:geant4Simulation} has the detector as the centre of the simulation world in the $x$ and $y$ and put the detector on the floor at  $z = 0 $. As such all of the reactor buildings need to be positioned relative to the detector and also placed at $z = 0$. The Wylfa trace seen in figure \ref{fig:wylfaTraceStep4} can be approximated by having simple shapes placed on top of the trace as seen in figure \ref{fig:simulatedPositions} which also shows the positions in $x$ and $y$ relative to the detector. Then is also done for the widths and depths of the buildings as well (figure \ref{fig:simulatedWidthsDepths}). Finally the heights have to be approximated. This is difficult due to the distortion tops of buildings are subject to as part of projecting a comic hemisphere distribution onto a cuboid. In addition, distance, height, building shape and construction are all combine into a single measurement. This is the main reason the building widths are intuited from Google Earth rater than from measured data. Sadly no information pertaining to heights has been preserved It is temping to use the measurements of $\theta$ to produce reconstructions of the heights via equation \ref{equ:tanHeightEquation} with the lengths provided by Google Earth. But this approach has two key assumptions: 1. perfectly solid uniform buildings 2. minimal scattering of cosmic $\mu$. Assumption 1 is known to be inaccurate from figure \ref{fig:wylfaReactorRoughStructure}. Assumption 2 is asinine considering the high Z values and densities used in the construction of the reactor buildings. As a result it is best to use the estimates provided by equation \ref{equ:tanHeightEquation} and then edit the heights in simulation to roughly match the shadow shapes seen in figure \ref{fig:measuredTrackerReconNoLines}. The resultant heights are shown in figure \ref{fig:simulatedHeights}. Ideally the heights in the simulation would be resolved by going on site and taking detailed measurements. Due to the decommissioning currently taking place at the Wylfa site this is not possible. %which is done by adjusting the simulated heights until the heights in figure \ref{fig:simulatedHeights} are produced.
+The simulation previously mentioned in chapter \ref{chp:GEANT4Simulation} has the detector as the centre of the simulation world in the $x$ and $y$ and put the detector on the floor at  $z = 0 $. As such all of the reactor buildings need to be positioned relative to the detector and also placed at $z = 0$. The Wylfa trace seen in figure \ref{fig:wylfaTraceStep4} can be approximated by having simple shapes placed on top of the trace as seen in figure \ref{fig:simulatedPositions} which also shows the positions in $x$ and $y$ relative to the detector. Then is also done for the widths and depths of the buildings as well (figure \ref{fig:simulatedWidthsDepths}). Finally the heights have to be approximated. This is difficult due to the distortion tops of buildings are subject to as part of projecting a comic hemisphere distribution onto a cuboid. In addition, distance, height, building shape and construction are all combine into a single measurement. This is the main reason the building widths are intuited from Google Earth rater than from measured data. Sadly no information pertaining to heights has been preserved It is temping to use the measurements of $\theta$ to produce reconstructions of the heights via equation \ref{equ:tanHeightEquation} with the lengths provided by Google Earth. But this approach has two key assumptions: 1. perfectly solid uniform buildings 2. minimal scattering of cosmic $\mu$. Assumption 1 is known to be inaccurate from figure \ref{fig:wylfaReactorRoughStructure}. Assumption 2 is asinine considering the high Z values and densities used in the construction of the reactor buildings. As a result it is best to use the estimates provided by equation \ref{equ:tanHeightEquation} and then edit the heights in simulation to roughly match the shadow shapes seen in figure \ref{fig:measuredTrackerReconNoLines}. The resultant heights are shown in figure \ref{fig:simulatedHeights}. Ideally the heights in the simulation would be resolved by going on site and taking detailed measurements. Due to the decommissioning currently taking place at the Wylfa site this is not possible. %which is done by adjusting the simulated heights until the heights in figure \ref{fig:simulatedHeights} are produced.
 
 \begin{equation}
 H = \frac{L}{\tan{\theta}}
@@ -729,7 +729,7 @@ However, the simulation can't quite account for all of the different effects sho
 \end{figure}
 
 % Cosmic $\mu$ tomography is split into two distinct types two sided and one sided. Two sided cosmic $\mu$ is preferred if it is feasible this is because both attenuation and scattering can be measured when using this technique. The effect of the cosmic $\mu$ scattering can be seen in figure \ref{fig:twoSidedCosmicMuonTomographySchults} the cosmic $\mu$ which travel through the dense object will scatter more than the cosmic $\mu$ that don't. By making coincident measurements of the cosmic $\mu$ it is possible to find vertices using this method. This method is extremely powerful but can only be used for smaller objects in most cases. 
-% \\\\ For larger objects one sided cosmic $\mu$ tomography has to be used. An example of what one sided cosmic muon tomography looks like can be seen in figure \ref{fig:oneSidedCosmicMuonExample} when there is an object that can attenuate cosmic $\mu$ then the number of cosmic $\mu$ will decrease in the direction of the object being imaged. This method cannot measure scattering or vertices however that is still sufficient in many cases such as the imaging done by the DIAPHANE collaboration seen in figure  \ref{fig:diaphaneStructualImaging}. Which uses 4 different locations to image the La Soufriere of Guadeloupe dome and measure the density for volcanic observations \cite{Marteau_2017}.
+% \\\\ For larger objects one sided cosmic $\mu$ tomography has to be used. An example of what one sided cosmic $\mu$ tomography looks like can be seen in figure \ref{fig:oneSidedCosmicMuonExample} when there is an object that can attenuate cosmic $\mu$ then the number of cosmic $\mu$ will decrease in the direction of the object being imaged. This method cannot measure scattering or vertices however that is still sufficient in many cases such as the imaging done by the DIAPHANE collaboration seen in figure  \ref{fig:diaphaneStructualImaging}. Which uses 4 different locations to image the La Soufriere of Guadeloupe dome and measure the density for volcanic observations \cite{Marteau_2017}.
 % \\\\Need to cite \cite{ANASTASIO2013423} talking about Mu-Ray and SiPms blah
 
 % In order to find the approximate position of detector at the Wylfa site Google Maps was used as the detector's container was large enough to be seen by the Google Maps satellite. The initial step can be seen in figure \ref{fig:wylfaTraceStep0}. Once the detector position has been identified a rough trace of the buildings is then performed with basic shapes seen in figure \ref{fig:wylfaTraceStep1}. However because the site buildings are taller than the detector by quite a significant margin the base position of the buildings does not match the top position of the buildings seen in the google maps. In figure \ref{fig:wylfaTraceStep2} key areas of the site buildings are used as anchor points to so that the base of the buildings is more accurately represented. Finally the background and any connecting lines are removed in figure \ref{fig:wylfaTraceStep4} which shows the final Wylfa trace.  
@@ -775,21 +775,21 @@ However, the simulation can't quite account for all of the different effects sho
 % \begin{figure}[htbp]
 %  \centering
 %  \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/pVsTWylfaReversed.png}
-%  \captionof{figure}{Measured $\theta$ and $\phi$ from the cosmic muons from the Wylfa deployment, the reactor is at $\sim$ 90$^{\circ}$. The turbine hall is at $\sim$ 270$^{\circ}$.} 
+%  \captionof{figure}{Measured $\theta$ and $\phi$ from the cosmic $\mu$ from the Wylfa deployment, the reactor is at $\sim$ 90$^{\circ}$. The turbine hall is at $\sim$ 270$^{\circ}$.} 
 %  \label{fig:pVsTWylfaReversed}
 % \end{figure}
 
 % \begin{figure}[htbp]
 %  \centering
 %  \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/pVsTLiverpoolReversed.png}
-%  \captionof{figure}{Measured $\theta$ and $\phi$ from the cosmic muons from the Liverpool deployment.} 
+%  \captionof{figure}{Measured $\theta$ and $\phi$ from the cosmic $\mu$ from the Liverpool deployment.} 
 %  \label{fig:pVsTLiverpoolReversed}
 % \end{figure}
 
 % \begin{figure}[htbp]
 %  \centering
 %  \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/liverpoolShadows.png}
-%  \captionof{figure}{Measured $\theta$ and $\phi$ from the cosmic muons from the Liverpool deployment shown with the map of Liverpool in the background. The major dip at highlighted by the black lines is due to the accelerator hall at Liverpool.} 
+%  \captionof{figure}{Measured $\theta$ and $\phi$ from the cosmic $\mu$ from the Liverpool deployment shown with the map of Liverpool in the background. The major dip at highlighted by the black lines is due to the accelerator hall at Liverpool.} 
 %  \label{fig:liverpoolCirShadows}
 % \end{figure}
 
@@ -856,7 +856,7 @@ However, the simulation can't quite account for all of the different effects sho
 % \begin{figure}[htbp]
 %  \centering
 %  \includegraphics[width=1.0\linewidth]{Chapter5/Figs/Raster/wylfaToLiverpoolRatioDynamic17.5-87.5.png}
-%  \captionof{figure}{The ratio of the Wylfa $\theta$ and $\phi$ cosmic muon distribution divided by the Liverpool $\theta$ and $\phi$ cosmic muon distribution. The Liverpool data is normalised to the Wylfa data. The ratio minimum $\sim$ 0.5 represents a deficit (attenuation) of $\sim$ 50\,$\%$. The maximum ratio $\sim$ 1.5 represents an excess of $\sim$ 50\,$\%$.} 
+%  \captionof{figure}{The ratio of the Wylfa $\theta$ and $\phi$ cosmic $\mu$ distribution divided by the Liverpool $\theta$ and $\phi$ cosmic $\mu$ distribution. The Liverpool data is normalised to the Wylfa data. The ratio minimum $\sim$ 0.5 represents a deficit (attenuation) of $\sim$ 50\,$\%$. The maximum ratio $\sim$ 1.5 represents an excess of $\sim$ 50\,$\%$.} 
 %  \label{fig:wylfaDivLiverpool}
 % \end{figure}
 
@@ -896,14 +896,14 @@ However, the simulation can't quite account for all of the different effects sho
 %   \centering
 %   \includegraphics[width=0.685\linewidth]{Chapter5/Figs/Raster/reactorBuildingsTopDown.png}
 %   \captionsetup{width=.9\linewidth}
-%   \caption{Top down perspective of simulated reactor buildings in Geant4.}
+%   \caption{Top down perspective of simulated reactor buildings in GEANT4.}
 %   \label{subFig:simulatedReactorBuildingsTopDown}
 % \end{subfigure}%
 % \begin{subfigure}{.5\textwidth}
 %   \centering
 %   \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/reactorBulidingsDepth.png}
 %   \captionsetup{width=.9\linewidth}
-%   \caption{Side on Perspective of simulated reactor buildings in Geant4.}
+%   \caption{Side on Perspective of simulated reactor buildings in GEANT4.}
 %   \label{subFig:simulatedReactorBuildingsDepth}
 % \end{subfigure}
 % \caption{The reactor buildings simulated in Geant 4 next to the detector which is at the origin.}
