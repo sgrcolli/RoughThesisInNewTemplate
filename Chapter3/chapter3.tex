@@ -12,18 +12,18 @@
 \fi
 
 \section{The Upgraded Detector}\label{sec:theUpgradedDetector}
-Please note that in the following section of text the term upgraded and VIDARR detector are used interchangeably. The upgraded detector will have 21 more layers than the prototype detector going from 49 to 70 layers. In addition the 3 missing columns in side A are also now instrumented. This means the number of channels has increased from 1793 to 2660 which results in a mass increase of $\sim$ 50\,\%, thus improving the fiducial volume of the detector. This means that more energy from the gadolinium cascade is contained within the detector thus allowing for more effective noise reduction when triggering. Therefore the increase in layers will increase the amount of the 8\,MeV Gd cascade contained in the detector. The increase in layers will not yield a significant increase in e$^+$ efficiency as e$^+$s are effectively contained to a $\sim$ 99\,\% level with both 1793 channels and 2660 channels as they are contained within 1-2 bars.
-\\\\The electronics have been improved significantly when compared to the original detector. The original electronics were carried over from the T2K Ecal. They were the first generation of this technology with relatively high noise rates compared to the current generation used in the VIDARR detector. The energy resolution of the electronics has been greatly increased. The noise rates for the original electronics were also more susceptible to changes in temperature than the electronics in the upgraded detector. In addition the upgraded detector will also have field-programmable gate array (FPGA) boards which connect with analogue boards in turn connecting to the MPPCs. The use of FPGA boards will allow for more complex trigger functions to be used with up to two discriminating energy thresholds available. These discriminating energy threshold will greatly improve the S/N ratio of triggering events. This will be achieved by looking at the summed energy and number of bars hit past each threshold. As will be expanded upon later in section \ref{sec:MachineLearningTrigger} the improvement to energy resolution has a significant effect on the S/N ratio as well. During the analysis the lowest available threshold of $\sim$ 0.1\,MeV was the most effective in distinguishing signal from noise. This improvement is only possible due to the upgraded electronics. The use of two thresholds as opposed to one on the prototype also proved useful for improving generated neutron efficiency. 
+Please note that in the following section of text the term upgraded and VIDARR detector are used interchangeably. The upgraded detector will have 21 more layers than the prototype detector going from 49 to 70 layers. In addition, the 3 missing columns on side A are also now instrumented. This means the number of channels has increased from 1793 to 2660 which results in a mass increase of $\sim$ 50\,\%, thus improving the fiducial volume of the detector. This means that more energy from the gadolinium cascade is contained within the detector thus allowing for more effective noise reduction when triggering. Therefore the increase in layers will increase the amount of the 8\,MeV Gd cascade contained in the detector. The increase in layers will not yield a significant increase in e$^+$ efficiency as e$^+$s are effectively contained to a $\sim$ 99\,\% level with both 1793 channels and 2660 channels as they are contained within 1-2 bars.
+\\\\The electronics have been improved significantly when compared to the original detector. The original electronics were carried over from the T2K Ecal. They were the first generation of this technology with relatively high noise rates compared to the current generation used in the VIDARR detector. The energy resolution of the electronics has been greatly increased. The noise rates for the original electronics were also more susceptible to changes in temperature than the electronics in the upgraded detector. In addition, the upgraded detector will also have field-programmable gate array (FPGA) boards that connect with analogue boards in turn connecting to the MPPCs. The use of FPGA boards will allow for more complex trigger functions to be used with up to two discriminating energy thresholds available. These discriminating energy thresholds will greatly improve the S/N ratio of triggering events. This will be achieved by looking at the summed energy and the number of bars hit past each threshold. As will be expanded upon later in section \ref{sec:MachineLearningTrigger} the improvement to energy resolution has a significant effect on the S/N ratio as well. During the analysis the lowest available threshold of $\sim$ 0.1\,MeV was the most effective in distinguishing signal from noise. This improvement is only possible due to the upgraded electronics. The use of two thresholds as opposed to one on the prototype also proved useful for improving generated neutron efficiency. 
 %\\\\A basic cut investigation used a form of machine learning called a support vector machine (SVM) to determine the best cut and which dimensions gave the best separation. The cut was dominated by the number of bars hit at the lower threshold of 0.1\,MeV, the most accurate cut would have been utilising the number of bars hit above 0.1\,MeV and the summed energy above the 0.1\,MeV threshold. However due to the structure of the FPGA boards and their programming it was more prudent to use the number of bars hit above both the 0.1\,MeV thresholds and 0.5\,MeV threshold. The cost in classifier accuracy was minimal and it allowed for faster development of the FPGA firmware. 
-\\\\To lessen temperature fluctuations in the VIDARR detector the cooling in and around the detector module has been greatly increased from the prototype. The original detector had six radiator fins on 2 sides of the detector which were primarily aimed at cooling the TFBs on each fin (see figure \ref{fig:detCon002_OldTearAway}). The upgraded VIDARR detector will also have these fins which will help cool the new boards but on the same 2 sides as the fins there will also be two new radiators behind the fins which run the width and height of a side figure \ref{fig:detCon_RadiatorConstruction_RadiatorPiping} shows the radiators being constructed. The new active cooling the radiators will provide will remove large amounts of heat from the detector. This will allow for a more consistent temperature  thus reducing dark noise from the MPPCs below the original detector's levels. 
+\\\\To lessen temperature fluctuations in the VIDARR detector the cooling in and around the detector module has been greatly increased from the prototype. The original detector had six radiator fins on 2 sides of the detector which were primarily aimed at cooling the TFBs on each fin (see figure \ref{fig:detCon002_OldTearAway}). The upgraded VIDARR detector will also have these fins which will help cool the new boards but on the same 2 sides as the fins, there will also be two new radiators behind the fins which run the width and height of a side figure \ref{fig:detCon_RadiatorConstruction_RadiatorPiping} shows the radiators being constructed. The new active cooling the radiators will provide will remove large amounts of heat from the detector. This will allow for a more consistent temperature  thus reducing dark noise from the MPPCs below the original detector's levels. 
 
 \section{Detector Construction}\label{sec:DetectorConstruction}
-The detector construction was a process that was sadly disrupted due to the COVID-19 pandemic which is still on-going. The detector construction originally started in November of 2018 with the cutting and painting of scintillation bars. These bars will increase mass by $\sim$ 50\,\%. This process was completed by December of 2018. Also in December of 2018 the original detector was moved out of the shipping container which housed it (figure \ref{fig:detCon000_TakeOut1}). It was then placed inside a clean room opened and disassembled (figure \ref{fig:detCon002_OldTearAway}). The original electronics were re-purposed from the T2K ECal. As a result their timing resolution could be significantly improved upon. These improved electronics also increased the power draw and so an increase in active cooling was desired. Then new scintillator was purchased from Fermi-lab which was $\sim$ twice as long as required. This new scintillator was then cut (figure \ref{subFig:detCon003bb_CuttingScint}) so its dimensions match the old scintillating bars (152\,cm $\times$ 4\,cm $\times$ 1\,cm) and fit exactly inside the detector casing. Once this was done the edges of the freshly cut scintillator were arranged and painted with TiO$_2$ paint (figure \ref{subFig:detCon005b_PaintingEnds}) to help reflect the light. The cut and painted scintillator was then placed inside the housing for the detector  whilst it was in the clean room (figure \ref{fig:detCon006_RonInCleanRoom}).
+The detector construction was a process that was sadly disrupted due to the COVID-19 pandemic which is still ongoing. The detector construction originally started in November of 2018 with the cutting and painting of scintillation bars. These bars will increase mass by $\sim$ 50\,\%. This process was completed by December of 2018. Also in December of 2018, the original detector was moved out of the shipping container which housed it (figure \ref{fig:detCon000_TakeOut1}). It was then placed inside a cleanroom opened and disassembled (figure \ref{fig:detCon002_OldTearAway}). The original electronics were re-purposed from the T2K ECal. As a result, their timing resolution could be significantly improved upon. These improved electronics also increased the power draw and so an increase in active cooling is desired. Then new scintillator was purchased from Fermi-lab which was $\sim$ twice as long as required. This new scintillator was then cut (figure \ref{subFig:detCon003bb_CuttingScint}) so its dimensions match the old scintillating bars (152\,cm $\times$ 4\,cm $\times$ 1\,cm) and fit exactly inside the detector casing. Once this was done the edges of the freshly cut scintillator were arranged and painted with TiO$_2$ paint (figure \ref{subFig:detCon005b_PaintingEnds}) to help reflect the light. The cut and painted scintillator were then placed inside the housing for the detector  whilst it was in the cleanroom (figure \ref{fig:detCon006_RonInCleanRoom}).
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\linewidth]{Chapter3/Figs/Raster/detCon002_OldTearAway.png}
-\captionof{figure}{A view of the electronics in the prototype detector. There is much available space in between the boards and the detector itself. The cables are 100\,mm long.} 
+\captionof{figure}{A view of the electronics in the prototype detector. There is much available space between the boards and the detector itself. The cables are 100\,mm long.} 
 \label{fig:detCon002_OldTearAway}
 \end{figure}
 
@@ -43,7 +43,7 @@ The detector construction was a process that was sadly disrupted due to the COVI
   \caption{The new radiator having the piping inserted.}
   \label{subFig:detCon012b_RadiatorPiping}
 \end{subfigure}
-\caption{The construction of the new radiator which has more active cooling and larger surface area than the original radiator. \hl{numbers for cooling anywhere?}}
+\caption{The construction of the new radiator has more active cooling and a larger surface area than the original radiator. \hl{numbers for cooling anywhere?}}
 \label{fig:detCon_RadiatorConstruction_RadiatorPiping}
 \end{figure}
 
@@ -77,13 +77,13 @@ The detector construction was a process that was sadly disrupted due to the COVI
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\linewidth]{Chapter3/Figs/Raster/detCon006_RonInCleanRoom.png}
-\captionof{figure}{Me (Ronald Collins) in the clean room putting scintillator into the detector. The white sheet of Gadolinium Oxide in-between the layers is also visible.} 
+\captionof{figure}{Me (Ronald Collins) in the cleanroom putting scintillator into the detector. The white sheet of Gadolinium Oxide in-between the layers is also visible.} 
 \label{fig:detCon006_RonInCleanRoom}
 \end{figure}
 
-One of the major improvements made during the upgrade of the VIDARR detector was an increase in cooling. The original detector had much space between the electronic boards and the MPPCs with the electronic boards placed directly on cooling fins (see in figure \ref{fig:detCon002_OldTearAway}). In addition to the cooling fins seen in figure \ref{fig:detCon002_OldTearAway} large radiators have now been added in-between the cooling fins and the MPPCs for each side. These new radiators are comprised of large stainless steel plates which were cut using a water cutter shown in figure \ref{subFig:detCon011b_RadiatorConstruction}. Then copper piping was placed through the sections seen in figure \ref{subFig:detCon012b_RadiatorPiping}. This copper piping will face the MPPCs and the detector scintillator whilst the radiator fins will be attached behind the radiator away from the MPPCs and behind insulation. As in the prototype the electronic boards will be placed on the fins similar to figure \ref{fig:detCon002_OldTearAway}. This should improve the cooling in the detector significantly as the heat from the electronic boards should be isolated from the scintillator and the MPPCs when compared to the prototype. 
+One of the major improvements made during the upgrade of the VIDARR detector was an increase in cooling. The original detector had much space between the electronic boards and the MPPCs with the electronic boards placed directly on cooling fins (see in figure \ref{fig:detCon002_OldTearAway}). In addition to the cooling fins seen in figure \ref{fig:detCon002_OldTearAway} large radiators have now been added in-between the cooling fins and the MPPCs for each side. These new radiators are comprised of large stainless steel plates which were cut using a water cutter shown in figure \ref{subFig:detCon011b_RadiatorConstruction}. Then copper piping was placed through the sections seen in figure \ref{subFig:detCon012b_RadiatorPiping}. This copper piping will face the MPPCs and the detector scintillator whilst the radiator fins will be attached behind the radiator away from the MPPCs and behind the insulation. As in the prototype, the electronic boards will be placed on the fins similar to figure \ref{fig:detCon002_OldTearAway}. This should improve the cooling in the detector significantly as the heat from the electronic boards should be isolated from the scintillator and the MPPCs when compared to the prototype. 
 
-Once the scintillator is in the detector casing several individual components need to be assembled so that the light emitted by the scintillator can then be analysed. A small amount of light emitted by the scintillator upon particle interaction is trapped by the WLS fibres. These fibres are threaded through the centre of the scintillator and capture light and shift it to green light seen in figure \ref{subFig:detCon013b_WlsFibres}. These WLS fibres then have 3d printed connectors glued on to the ends of them as seen in figure \ref{subFig:detCon014b_WlsWithEnds}. Then the MPPC's connectors are 3D printed seen both with the support struts in figure \ref{subFig:detCon015b_3dPrintedHolders} and without in figure \ref{subFig:detCon016b_3dPrintedFreed}. Then the holders for the MPPCs which attach to the Then PCBs which connect the MPPCs to the coaxial cables need to be produced. A sheet of which can be seen in figure \ref{subFig:detCon008b_PlacingPcbs}. These PCBs have to have a coaxial cable connector soldered on to them and pins pushed through them so they can pick up the signals that the MPPCs produce. A finished example of one of these PCBs can be seen in figure \ref{subFig:detCon009b_SoloPcb}. The holders PCBs and MPPCs all fit together as shown in figure \ref{fig:detCon017b_HoldersWithParts}.
+Once the scintillator is in the detector casing several individual components need to be assembled so that the light emitted by the scintillator can then be analysed. A small amount of light emitted by the scintillator upon particle interaction is trapped by the WLS fibres . These fibres are threaded through the centre of the scintillator and capture light and shift it to green light seen in figure \ref{subFig:detCon013b_WlsFibres}. These WLS fibres then have 3d printed connectors glued to the ends of them as seen in figure \ref{subFig:detCon014b_WlsWithEnds}. Then the MPPC's connectors are 3D printed seen both with the support struts in figure \ref{subFig:detCon015b_3dPrintedHolders} and without in figure \ref{subFig:detCon016b_3dPrintedFreed}. Then the holders for the MPPCs which attach to the Then PCBs which connect the MPPCs to the coaxial cables need to be produced. A sheet of which can be seen in figure \ref{subFig:detCon008b_PlacingPcbs}. These PCBs have to have a coaxial cable connector soldered on to them and pins pushed through them so they can pick up the signals that the MPPCs produce. A finished example of one of these PCBs can be seen in figure \ref{subFig:detCon009b_SoloPcb}. The holders PCBs and MPPCs all fit together as shown in figure \ref{fig:detCon017b_HoldersWithParts}.
 
 \begin{figure}[htbp]
 \centering
@@ -91,17 +91,17 @@ Once the scintillator is in the detector casing several individual components ne
   \centering
   \includegraphics[width=\linewidth]{Chapter3/Figs/Raster/detCon013b_WlsFibres.png}
   \captionsetup{width=.9\linewidth}
-  \caption{The WLS fibres which are threaded into the scintillator.}
+  \caption{The WLS fibres are threaded into the scintillator.}
   \label{subFig:detCon013b_WlsFibres}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter3/Figs/Raster/detCon014b_WlsWithEnds.png}
   \captionsetup{width=.9\linewidth}
-  \caption{The WLS fibres with ends which connect to the plastic holders which house the MPPCs.}
+  \caption{The WLS fibres with ends that connect to the plastic holders which house the MPPCs.}
   \label{subFig:detCon014b_WlsWithEnds}
 \end{subfigure}
-\caption{The WLS fibres which will funnel light from the scintillator to the MPPCs. They are assembled on cardboard and have 3d printed ends glued onto them.}
+\caption{The WLS fibres will funnel light from the scintillator to the MPPCs. They are assembled on cardboard and have 3d printed ends glued onto them.}
 \label{fig:detCon_WlsFibres_WlsWithEnds}
 \end{figure}
 
@@ -148,11 +148,11 @@ Once the scintillator is in the detector casing several individual components ne
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\linewidth]{Chapter3/Figs/Raster/detCon017b_HoldersWithParts.png}
-\captionof{figure}{Holder next to MPPC and PCB (Top) and holder with assembled components (Bottom). Note the the MPPC in the top right is actually reversed from its correct orientation, the prongs of the MPPC go through the PCB board pins.} 
+\captionof{figure}{Holder next to MPPC and PCB (Top) and holder with assembled components (Bottom). Note the MPPC in the top right is actually reversed from its correct orientation, the prongs of the MPPC go through the PCB board pins.} 
 \label{fig:detCon017b_HoldersWithParts}
 \end{figure}
 
-The next step was to label the coaxial cables. These cables connect the PCBs in figure \ref{fig:detCon_PlacingPcbs_SoloPcb} to the analogue boards. The labels are printed out by the machine seen in figure  \ref{subFig:detCon018b_HeatLabelsPrinted}. This machine prints the labels in long streams which then need to be cut into individual labels seen in figure \ref{subFig:detCon019b_CutLabels}. The label syntax is: side-row-column with the bottom left of each side being the coordinate for (0,0). These labels are then slid onto the coaxial cables 8\,cm from the end that connects to the analogue boards as seen in figure \ref{subFig:detCon020b_LabelsLoose}. A heat gun is used to shrink the labels onto the coaxial cables as seen in figure \ref{subFig:detCon021b_LabelsHeated}. These cables are then connected to the holders where the PCB connector seen in figure \ref{subFig:detCon009b_SoloPcb} connects firmly to the cable. The holder is also put into a sheath so that it is held firmly in place once inside the detector, as seen in figure \ref{fig:detCon023b_HoldersConnectedZoom}.
+The next step was to label the coaxial cables. These cables connect the PCBs in figure \ref{fig:detCon_PlacingPcbs_SoloPcb} to the analogue boards. The labels are printed out by the machine seen in figure  \ref{subFig:detCon018b_HeatLabelsPrinted}. This machine prints the labels in long streams which then need to be cut into individual labels seen in figure \ref{subFig:detCon019b_CutLabels}. The label syntax is side-row-column with the bottom left of each side being the coordinate for (0,0). These labels are then slid onto the coaxial cables 8\,cm from the end that connects to the analogue boards as seen in figure \ref{subFig:detCon020b_LabelsLoose}. A heat gun is used to shrink the labels onto the coaxial cables as seen in figure \ref{subFig:detCon021b_LabelsHeated}. These cables are then connected to the holders where the PCB connector seen in figure \ref{subFig:detCon009b_SoloPcb} connects firmly to the cable. The holder is also put into a sheath so that it is held firmly in place once inside the detector, as seen in figure \ref{fig:detCon023b_HoldersConnectedZoom}.
 
 \begin{figure}[htbp]
 \centering
@@ -170,7 +170,7 @@ The next step was to label the coaxial cables. These cables connect the PCBs in 
   \caption{Individual labels for specific cables.}
   \label{subFig:detCon019b_CutLabels}
 \end{subfigure}
-\caption{Heat shrink labels that are used to identify cables. Labels are printed out in the form side-Row-Column where bottom left is (0,0) }
+\caption{Heat-shrink labels are used to identify cables. Labels are printed out in the form side-Row-Column where the bottom left is (0,0) }
 \label{fig:detCon_HeatLabelsPrinted_CutLabels}
 \end{figure}
 
@@ -197,11 +197,11 @@ The next step was to label the coaxial cables. These cables connect the PCBs in 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\linewidth]{Chapter3/Figs/Raster/detCon023b_HoldersConnectedZoom.png}
-\captionof{figure}{The holder connected to a cable and put inside a sheath.} 
+\captionof{figure}{The holder is connected to a cable and put inside a sheath.} 
 \label{fig:detCon023b_HoldersConnectedZoom}
 \end{figure}
 
-All of the MPPC holders in their sheaths with connected cables are then attached to the WLS fibres and their 3D printed connectors shown in figure \ref{subFig:detCon014b_WlsWithEnds}. There are two distinct sheath types: the grey which are made via injection moulding and orange sheaths which were 3d printed. These sheaths protect the rest of the components and can be seen clearly in figure \ref{fig:detCon_HaningOffRadiator_RadiatorTopDown} as they protrude from the detector casing. The radiator was slowly moved into position as cables were thread through the insulation as can be seen in figure \ref{subFig:detCon026b_HaningOffRadiator}. Once the radiator was moved into position the space between the radiator and sheaths was checked to ensure that no undue pressure was being applied to the sheaths, which as figure \ref{subFig:detCon028b_RadiatorTopDown} shows there wasn't. Once the radiator was in position the cooling fins were also attached as seen in figure \ref{fig:detCon030b_RadiatorWithFins}. Also in figure \ref{fig:detCon030b_RadiatorWithFins} the x shaped analogue board holders have been attached via thermal paste to the cooling fins. An example of how the analogue boards are attached to the cooling fins can be seen in figure \ref{fig:detCon032_ConnectedBoard}. Which shows how the cables are connected to the analogue boards and aligned through an orange cable comb. 
+All of the MPPC holders in their sheaths with connected cables are then attached to the WLS fibres and their 3D printed connectors shown in figure \ref{subFig:detCon014b_WlsWithEnds}. There are two distinct sheath types: grey made via injection moulding and orange sheaths which were 3d printed. These sheaths protect the rest of the components and can be seen clearly in figure \ref{fig:detCon_HaningOffRadiator_RadiatorTopDown} as they protrude from the detector casing. The radiator was slowly moved into position as cables were threaded through the insulation as can be seen in figure \ref{subFig:detCon026b_HaningOffRadiator}. Once the radiator was moved into position the space between the radiator and sheaths was checked to ensure that no undue pressure was being applied to the sheaths, which as figure \ref{subFig:detCon028b_RadiatorTopDown} shows there wasn't. Once the radiator was in position the cooling fins were also attached as seen in figure \ref{fig:detCon030b_RadiatorWithFins}. Also in figure \ref{fig:detCon030b_RadiatorWithFins} the x shaped analogue board holders have been attached via thermal paste to the cooling fins. An example of how the analogue boards are attached to the cooling fins can be seen in figure \ref{fig:detCon032_ConnectedBoard}. Which shows how the cables are connected to the analogue boards and aligned through an orange cable comb. 
 
 \begin{figure}[htbp]
 \centering
@@ -216,10 +216,10 @@ All of the MPPC holders in their sheaths with connected cables are then attached
   \centering
   \includegraphics[width=\linewidth]{Chapter3/Figs/Raster/detCon028b_RadiatorTopDown.png}
   \captionsetup{width=.9\linewidth}
-  \caption{The side A radiator in position with all of the cables threaded through the insulation. This is minimal space}
+  \caption{The side A radiator is in position with all of the cables threaded through the insulation. There is minimal space.}
   \label{subFig:detCon028b_RadiatorTopDown}
 \end{subfigure}
-\caption{As part of the upgrade the radiators are significantly larger and do not leave much space between the detector and the electronics.}
+\caption{As part of the upgrade, the radiators are significantly larger and do not leave much space between the detector and the electronics.}
 \label{fig:detCon_HaningOffRadiator_RadiatorTopDown}
 \end{figure}
 
@@ -257,7 +257,7 @@ All of the MPPC holders in their sheaths with connected cables are then attached
 \label{fig:detCon032_ConnectedBoard}
 \end{figure}
 
-The upgraded container was delivered 18$^{th}$ of September 2019 which can be seen \ref{subFig:detCon037c_ContainerArrives}. But it wasn't until 24$^{th}$ of November 2020 that the detector was placed inside its new container (figure \ref{subFig:detCon039b_PutIn2}). The detector upgrade was not complete at this point and currently remains incomplete this is largely due to the COVID-19 pandemic. The upgrade's progressed ceased around the same time as the container arrived during September of 2019 as an issue with electronics was discovered. Currently this remains unresolved. Due to the issues in the electronics supply chain caused by the COVID-19 crisis and the small size of the VIDARR collaboration obtaining replacement electronics has been impossible up to September of 2021. Though in recent months there has been some movement in obtaining the relevant components. 
+The upgraded container was delivered 18$^{th}$ of September 2019 which can be seen in figure  \ref{subFig:detCon037c_ContainerArrives}. But it wasn't until 24$^{th}$ of November 2020 that the detector was placed inside its new container (figure \ref{subFig:detCon039b_PutIn2}). The detector upgrade was not complete at this point and currently remains incomplete this is largely due to the COVID-19 pandemic. The upgrade's progress ceased around the same time as the container arrived during September of 2019 as an issue with electronics was discovered. Currently, this remains unresolved. Due to the issues in the electronics supply chain caused by the COVID-19 crisis and the small size of the VIDARR collaboration obtaining replacement electronics has been impossible up to September of 2021. Though in recent months there has been some movement in obtaining the relevant components. 
 
 \begin{figure}[htbp]
 \centering
@@ -272,20 +272,20 @@ The upgraded container was delivered 18$^{th}$ of September 2019 which can be se
   \centering
   \includegraphics[width=\linewidth]{Chapter3/Figs/Raster/detCon039b_PutIn2.png}
   \captionsetup{width=.9\linewidth}
-  \caption{The partially upgraded detector deposited in the new container.}
+  \caption{The partially upgraded detector being deposited in the new container.}
   \label{subFig:detCon039b_PutIn2}
 \end{subfigure}
 \caption{The new container arrives and the partially upgraded detector is deposited inside of it.}
 \label{fig:detCon_ContainerArrives_PutIn}
 \end{figure}
 
-The upgraded container has much improved air flow when compared to the original. 
-In figure  \ref{fig:detCon035b_ContainerAirCon} the air conditioning and improved ventilation system can be seen. The upgraded container should be able to keep the temperature consistent and thus reduce the uncertainties caused by temperature fluctuations. In addition there has been a significant improvement to computational power with both a new computer rack seen in figure \ref{fig:detCon042b_Rack1}. And a powerful new computer with 64 total threads and 64\,Gb of RAM seen in figure \ref{fig:detCon044_NewComputer}. Neither of these are currently in the container due to the issues with COVID-19 previously discussed as they are being used to diagnose any issues with the electronics and analyse older data sets.  
+The upgraded container has much improved airflow when compared to the original. 
+In figure  \ref{fig:detCon035b_ContainerAirCon} the air conditioning and improved ventilation system can be seen. The upgraded container should be able to keep the temperature consistent and thus reduce the uncertainties caused by temperature fluctuations. In addition, there has been a significant improvement to computational power with both a new computer rack seen in figure \ref{fig:detCon042b_Rack1}. And a powerful new computer with 64 total threads and 64\,Gb of RAM is seen in figure \ref{fig:detCon044_NewComputer}. Neither of these are currently in the container due to the issues with COVID-19 previously discussed as they are being used to diagnose any issues with the electronics and analyse older data sets.  
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.7\linewidth]{Chapter3/Figs/Raster/detCon035b_ContainerAirCon.png}
-\captionof{figure}{The new container which has an air conditioning and air circulatory system to help keep consistent temperature.} 
+\captionof{figure}{The new container has air conditioning and an air circulatory system to help keep a consistent temperature.} 
 \label{fig:detCon035b_ContainerAirCon}
 \end{figure}
 
