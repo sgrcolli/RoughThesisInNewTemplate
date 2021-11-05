@@ -82,8 +82,6 @@
 % Preamble: Contains packages and user-defined commands and settings
 \input{Preamble/preamble}
 
-\captionsetup[table]{font={stretch=1.2}}     %% change 1.2 as you like
-
 % ************************ Thesis Information & Meta-data **********************
 % Thesis title and author information, refernce file for biblatex
 \input{thesis-info}
@@ -108,6 +106,8 @@
  \includeonly{Chapter3/chapter3}
 \fi
 
+\usepackage{float} 
+
 % ******************************** Front Matter ********************************
 \begin{document}
 
@@ -118,13 +118,13 @@
 %\include{Dedication/dedication}
 \include{Declaration/declaration}
 \include{Acknowledgement/acknowledgement}
+\include{AutorsContributions/AuthorsContributions}
 \include{Abstract/abstract}
 
 % *********************** Adding TOC and List of Figures ***********************
 
 \tableofcontents
 
-\listoffigures
 \include{AuthorsContributions/AuthorsContributions}
 %\listoftables
 
@@ -142,9 +142,10 @@
 \include{Chapter4/chapter4}
 \include{Chapter5/chapter5}
 \include{Chapter6/chapter6}
-%\include{Chapter7/chapter7}
+\include{Chapter7/chapter7}
 
 
+\listoffigures
 
 % ********************************** Back Matter *******************************
 % Backmatter should be commented out, if you are using appendices after References
