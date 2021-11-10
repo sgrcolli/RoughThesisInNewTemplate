@@ -21,33 +21,41 @@ The aim of the Verification Instrument for the Direct Assay of Radiation at Rang
 As mentioned earlier in section \ref{Direct_Measurements_section} an attempt to measure anti-neutrinos from reactors was the first method to prove anti-neutrinos existed. By measuring the response of anti-neutrinos in cadmium doped liquid scintillator \cite{Cowan1956Confirmation} which used inverse $\beta$ decay (equation \ref{inverse_beta_decay}). $\sim$ 20 years after that experiment in 1978 it was proposed that measuring anti-neutrinos from reactors could be used for reactor monitoring \cite{Borovoi_1978}. However, due to the geopolitics of the time, the interest in non-proliferation was not as high as in modern times. It took until 2007 for the SONGS1 prototype to be deployed as proof of concept for reactor monitoring \cite{Bowden_2007}. 
 \\\\After the deployment of the SONGS1 prototype the International Atomic Energy Agency (IAEA) issued a list of positive traits that they would like to see in an anti-neutrino reactor monitoring detector. These traits include inert construction, non-liquid, easy operation, cheap, portable, robust, above-ground operation, easy deployment \cite{IAEA_2008}. Whilst these are not requirements all of these traits can be met in a single detector. For example, VIDARR meets all of these traits. 
 \\\\Reactors produce $10^{20}$ $\Bar{\nu_e}$/s per GW$^{Th}$ as the fission products in the fuel elements $\beta$ decay \cite{Mueller_2011}. Though these statistics are very high the interaction cross-section to first order is $\sim$ $10^{-42}$cm$^2$ as can be seen in figure \ref{vogelAndBeacomCrossSection} \cite{Vogel_1999}. In addition to this different fission, fractions will decay at different rates as can be seen in figure \ref{mullerAndVogelCombined}. The combination of these two effects can be seen in figure \ref{mullerEtAlDetectedSpectrum} \cite{Mueller_2011}. From figure \ref{mullerEtAlDetectedSpectrum} the range of anti-neutrino energies expected to be detected ranges from $\sim$ 1.8\,MeV to $\sim$ 8.5\,MeV.
+
 \begin{figure}[!h]
- \centering
- \includegraphics[width=120mm]{Chapter1/Figs/Raster/vogelAndBeacomCrossSection.png} %height of this plot had to be adjusted because of its unusal diemensions
- \captionof{figure}{Upper panel: total cross-section for Inverse $\beta$ decay; bottom panel: $\bra{}\cos(\theta)\ket{}$ for the same reaction; both as a function of the anti-neutrino energy. The solid line is the O(1/M) result and the short-dashed line is the O(1) result. The long-dashed line is the result of Eq. 3.18. From \cite{smith_1972} \cite{Vogel_1999}} %~can be used as a kind of place holder in latex
- \label{vogelAndBeacomCrossSection}
+\centering
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter1/Figs/Raster/vogelAndBeacomCrossSection.png}
+  \captionof{figure}{Upper panel: total cross-section for Inverse $\beta$ decay; bottom panel: $\bra{}\cos(\theta)\ket{}$ for the same reaction; both as a function of the anti-neutrino energy. The solid line is the O(1/M) result and the short-dashed line is the O(1) result. The long-dashed line is the result of Eq. 3.18. From \cite{smith_1972} \cite{Vogel_1999}} 
+  \label{vogelAndBeacomCrossSection}
+\end{minipage}%
+\qquad
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter1/Figs/Raster/mullerAndVogelCombined.png} 
+  \captionof{figure}{A combination of the fission fractions from \cite{Mueller_2011} and the first-order approximation of the cross-section from \cite{Vogel_1999} and how they evolve over the energy range where the two distributions cross over.}
+  \label{mullerAndVogelCombined}
+\end{minipage}
 \end{figure}
+
 \begin{figure}[!h]
  \centering
- \includegraphics[height=75mm]{Chapter1/Figs/Raster/mullerAndVogelCombined.png} %height of this plot had to be adjusted because of its unusal diemensions
- \captionof{figure}{A combination of the fission fractions from \cite{Mueller_2011} and the first-order approximation of the cross-section from \cite{Vogel_1999} and how they evolve over the energy range where the two distributions cross over.} %~can be used as a kind of place holder in latex
- \label{mullerAndVogelCombined}
-\end{figure}
-\begin{figure}[!h]
- \centering
- \includegraphics[height=75mm]{Chapter1/Figs/Raster/mullerEtAlDetectedSpectrum.png} %height of this plot had to be adjusted because of its unusal diemensions
+ \includegraphics[width=0.4\linewidth]{Chapter1/Figs/Raster/mullerEtAlDetectedSpectrum.png} %height of this plot had to be adjusted because of its unusal diemensions
  \captionof{figure}{Colour online) Detected anti-neutrino spectrum for $^{235}$U fission (blue solid curve). Units are arbitrary and oscillation effects are suppressed. The detected rate rises from the threshold value at about 1.8\,MeV, reaches a maximum around 4\,MeV, and vanishes after 8\,MeV. This shape is the result of folding the emitted spectrum (black dashed-dotted curve), parametrization taken from \cite{Mueller_2011} Sec. V A and inverse $\beta$ cross-section (red dashed curve). From \cite{Mueller_2011}} %~can be used as a kind of place holder in latex
  \label{mullerEtAlDetectedSpectrum}
 \end{figure}
-\\\\It may be possible to discern the different fission fraction isotopes from their detected spectra. Providing the energy resolution, statistics, and location of the detector is sufficient. This would be very useful for non-proliferation purposes as measuring the Pu$^{239}$ burn up would lead to a more accurate measure of weapons-grade material than measuring on-off cycles. As online refuelling methods seen in reactors such as the Advanced Gas-cooled Reactors (AGRs) would not work around the measurement of Pu$^{239}$ burn-up. 
 
+It may be possible to discern the different fission fraction isotopes from their detected spectra. Providing the energy resolution, statistics, and location of the detector is sufficient. This would be very useful for non-proliferation purposes as measuring the Pu$^{239}$ burn up would lead to a more accurate measure of weapons-grade material than measuring on-off cycles. As online refuelling methods seen in reactors such as the Advanced Gas-cooled Reactors (AGRs) would not work around the measurement of Pu$^{239}$ burn-up. 
+
+\clearpage
 \section{Existing Reactor monitoring programs}\label{sec:exisitingReactorMonitoringPrograms}
 %I feel like Double Chooz, Reno, KamLAND and Daya Bay are all very similar, liquid scintillating detectors with Gd doping initlally trying to find theta_13 but then transitioned to the 5 MeV reactor bump all of these are not proliforation focussed but measrument focussed experiments 
 %Double Chooz is probably one of the most well known reactor monitoring programs. \cite{abe2014improved} goes over some of the details and I have already mentioned it here. Also the \cite{lasserre2006} reference may be useful, used it once before in the first year literature survey. I've also cited \cite{Abe_2012} in the past and that may prove useful here. Further the reference \cite{Olive_2014} may also be of use. Double Chooz is a good one to cite because its clearly not in competition with VIDARR. It requires to be very close and a big hole dug underground and uses gadolinium suspended in liquid organic scintillator. Which is not cheap or portable, it does however give significantly better measurements for the disappearance of anti-neutrinos which the above references mention.
 The Double Chooz experiment is an evolution of the original Chooz experiment which was set up at the Chooz nuclear power plant in France\cite{lasserre2006}. Both of these experiments attempted to measure the $\Bar{\nu_e}$ disappearance from the same reactor however the original Chooz experiment was unable to see any disappearance to a 90$\,\%$ confidence level \cite{Apollonio_2003}. Both experiments used gadolinium doped liquid scintillator with the Double Chooz experiment having a near and far detector at 280\,m and 1050\,m respectively\cite{lasserre2006}. Finally, in 2012 $\Bar{\nu_e}$ disappearance was observed at the Double Chooz experiment \cite{Abe_2012}. These results were improved further in 2014 \cite{abe2014improved}.
 \begin{figure}[!h]
  \centering
- \includegraphics[height=75mm]{Chapter2/Figs/Raster/DCNearDetector.png} %height of this plot had to be adjusted because of its unusal diemensions
+ \includegraphics[width=0.25\linewidth]{Chapter2/Figs/Raster/DCNearDetector.png} %height of this plot had to be adjusted because of its unusal diemensions
  \captionof{figure}{The near detector of the Double Chooz experiment 250\,m - 300\,m from the reactor with an overburden of 30\,m of rock. From \cite{lasserre2006}.} %~can be used as a kind of place holder in latex
  \label{DoubleChoozNearDetector}
 \end{figure}
@@ -84,17 +92,17 @@ n + {^{155,157}Gd} \rightarrow {^{156,158} Gd} + \gamma (\sim 8\,MeV)
   \centering
   \includegraphics[width=\linewidth]{Chapter2/Figs/Raster/Panda_far.png}
   \captionsetup{width=.9\linewidth}
-  \caption{The exterior of PANDA. The bars are clustered together with photon multiplier tubes at the end to measure photons.}
+  \caption{}
   \label{subFig:pandaFar}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
 \includegraphics[width=\linewidth]{Chapter2/Figs/Raster/Panda_close.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Interior of the PANDA detector, prompt event of a positron and delayed gadolinium capture and cascade from a neutron event.}
+  \caption{}
   \label{subFig:pandaClose}
 \end{subfigure}
-\caption{Exterior (\ref{subFig:pandaFar}) and interior (\ref{subFig:pandaClose}) of the PANDA detector. From \cite{PANDA_2014}.}
+\caption{The exterior of PANDA is shown in (a). The bars are clustered together with photon multiplier tubes at the end to measure photons. The interior is shown in (b) which also shows a  $\bar{\nu_e}$ interaction with prompt and delayed components. From \cite{PANDA_2014}.}
 \label{fig:pandaCloseFar}
 \end{figure}
 

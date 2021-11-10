@@ -23,7 +23,7 @@ In order to analyse the $\mu$ data from the Wylfa deployment a series of program
  
 \begin{figure}[!h]
  \centering
- \includegraphics[width=1.0\linewidth]{Chapter5/Figs/Raster/analysisChainRevisedAgain.png}
+ \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/analysisChainRevisedAgain.png}
  \captionof{figure}{The analysis chain for the detector. It is able to process both simulated and measured data. It uses a combination of python programs to handle visualisation and machine learning and C++ programs to process the data. The python program instrutionInterpreter that functions as a wrapper allows for the creation of macro files so results are highly replicable. The C++ programs are multi-threaded. The python programs are in the \textbf{repository} the C++ programs are in \textbf{repository/prg}.} 
  \label{fig:analysisChain}
 \end{figure}
@@ -36,17 +36,17 @@ The cosmic $\mu$ events at Wylfa were taken in accidental coincidence and as a r
   \centering
   \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/Cosmic8BarSignalCutSVM.png}
   \captionsetup{width=.9\linewidth}
-  \caption{8 bar selection criteria for cosmic $\mu$ on measured cosmic data.}
+  \caption{}
   \label{subFig:cosmic8BarSignalCutSVM}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
 \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/Cosmic8BarNoiseCutSVM.png}
   \captionsetup{width=.9\linewidth}
-  \caption{8 bar selection criteria for cosmic $\mu$ on measured noise data.}
+  \caption{}
   \label{subFig:cosmic8BarNoiseCutSVM}
 \end{subfigure}
-\caption{How an SVM classifier separates out measured cosmic $\mu$ data it settled on an 8 bar cut above 17.325\,PE (0.693\,MeV). Where everything above the solid line is considered a cosmic $\mu$ and everything below is considered noise. The logic for the SVM classifier is outlined in figure \ref{sec:MachineLearningTrigger}.}
+\caption{How an SVM classifier separates out measured cosmic $\mu$ data it settled on an 8 bar cut above 17.325\,PE (0.693\,MeV). Where everything above the solid line is considered a cosmic $\mu$ and everything below is considered noise. In (a) the $\mu$ data is represented. In (b) the noise data is represented. The logic for the SVM classifier is outlined in figure \ref{sec:MachineLearningTrigger}. }
 \label{fig:cosmic8BarSignalNoiseCutSVM}
 \end{figure}
 
@@ -56,17 +56,17 @@ The cosmic $\mu$ events at Wylfa were taken in accidental coincidence and as a r
   \centering
   \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/Cosmic8BarSignalZoomCutSVM.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Figure \ref{subFig:cosmic8BarSignalCutSVM} zoomed in to show how few cosmic events are removed.} 
+  \caption{} 
   \label{subFig:cosmic8BarSignalZoomCutSVM}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
 \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/Cosmic8BarNoiseZoomCutSVM.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Figure \ref{subFig:cosmic8BarNoiseCutSVM} zoomed in to show how many noise events are clustered around small bar hits.}
+  \caption{}
   \label{subFig:Cosmic8BarNoiseZoomCutSVM}
 \end{subfigure}
-\caption{Zoomed in version of figure \ref{fig:cosmic8BarSignalNoiseCutSVM} to show how effective the SVM is at removing noise.}
+\caption{Zoomed in version of figure \ref{fig:cosmic8BarSignalNoiseCutSVM} to show how effective the SVM is at removing noise. In (a) the $\mu$ data is represented. In (b) the noise data is represented.}
 \label{fig:Cosmic8BarSignalNoiseZoomCutSVM}
 \end{figure}
 
@@ -85,35 +85,42 @@ In addition, some cycles that contain $\mu$ data are correlated to the trigger c
   \centering
   \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/sideAHitsWithBadCycles.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Side A cosmic $\mu$ hits reconstructed with bad cycles included.} 
+  \caption{} 
   \label{subFig:sideAHitsWithBadCycles}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
 \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/sideBHitsWithBadCycles.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Side B cosmic $\mu$ hits reconstructed with bad cycles included.}
+  \caption{}
   \label{subFig:sideBHitsWithBadCycles}
 \end{subfigure}
-\caption{The detector hits for cosmic $\mu$ when reconstructed with a tracker when bad cycles are included. Large streaks are visible on the left-hand sides of both side A and side B.}
+\caption{The detector hits for cosmic $\mu$ when reconstructed with a tracker when bad cycles are included. Side A is shown in (a). Side B is shown in (b). Large streaks are visible on the left-hand sides of both side A and side B.}
 \label{fig:sideABHitsWithBadCycles}
 \end{figure}
 
 \section{Simulation of Cosmic $\mu$ Hemisphere}\label{sec:SimulationOfCosmics}
 Before the data could be analysed a simulation of cosmic $\mu$ using a cosmic hemisphere was used in order to quantify segmentation and other detector effects. These effects can be quite significant as seen in figures \ref{fig:phiGenVsRecoHem} and \ref{fig:cirPhiGenVsRecoHem} the reconstruction of the prototype detector can be quite adversely affected by vertical events. If an event is vertical in one side of the detector then the other side will dominate as such it results in spikes at $\phi$ = 0$^\circ$, $\phi$ = 90$^\circ$, $\phi$ = 180$^\circ$, $\phi$ = 270$^\circ$. This bin migration is caused by the detector being a segmented cuboid. Any segmented cuboid detector will not cleanly represent a hemispherical distribution. Figures \ref{fig:cosmicBinMigrationSideA} and \ref{fig:cosmicBinMigrationSideB} show how the segmentation of the VIDARR detector causes bin migration. For figure \ref{fig:cosmicBinMigrationSideA} angles of $\phi$ are solely determined by the direction in side A the same is true for side B in figure \ref{fig:cosmicBinMigrationSideB}. 
 
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/hemispherePhiCompare.png}
- \captionof{figure}{Generated $\phi$ vs reconstructed $\phi$ with the online track fitter for a cosmic hemisphere distribution} 
- \label{fig:phiGenVsRecoHem}
-\end{figure}
 
 \begin{figure}[!h]
- \centering
- \includegraphics[width=0.6\linewidth]{Chapter5/Figs/Raster/cosmicSimpleHemNoDead_Ciruclarphi.png}
- \captionof{figure}{Circular plot of the reconstructed $\phi$ for a simulated cosmic hemisphere.} 
- \label{fig:cirPhiGenVsRecoHem}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter6/Figs/hemispherePhi_linHist.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{} 
+  \label{subFig:phiGenVsRecoHem}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+\includegraphics[width=\linewidth]{Chapter6/Figs/hemispherePhi_cirHist.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:cirPhiGenVsRecoHem}
+\end{subfigure}
+\caption{(a) Generated $\phi$ vs reconstructed $\phi$ with the online track fitter for a cosmic hemisphere distribution.(b) Circular plot of the reconstructed $\phi$ for a simulated cosmic hemisphere.}
+\label{fig:linCirPhiGenVsRecoHem}
 \end{figure}
 
 \begin{figure}[!h]
@@ -134,7 +141,7 @@ However, bin migration is significantly less pronounced in $\theta$. As shown by
 
 \begin{figure}[!h]
  \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/hemisphereThetaCompare.png}
+ \includegraphics[width=0.6\linewidth]{Chapter5/Figs/Raster/hemisphereThetaCompare.png}
  \captionof{figure}{Generated $\theta$ vs reconstructed $\theta$ for a cosmic hemisphere distribution} 
  \label{fig:thetaGenVsRecoHem}
 \end{figure}
@@ -145,17 +152,17 @@ However, bin migration is significantly less pronounced in $\theta$. As shown by
   \centering
   \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/rawHemisphereFiducialBarsSideA.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Generated bars hit for side A.}
+  \caption{}
   \label{subFig:rawHemisphereFiducialBarsSideA}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
 \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/rawHemisphereFiducialBarsSideB.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Generated bars hit for side B.}
+  \caption{}
   \label{subFig:rawHemisphereFiducialBarsSideB}
 \end{subfigure}
-\caption{Generated hemisphere bars hit when using the generated $\phi$ seen in figure \ref{fig:phiGenVsRecoHem} and generated $\theta$ seen in figure \ref{fig:thetaGenVsRecoHem}. Dead and un-instrumented channels are simulated to improve accuracy and the simulation bounds match the fiducial bounds.}
+\caption{Generated hemisphere bars hit when using the generated $\phi$ seen in figure \ref{fig:phiGenVsRecoHem} and generated $\theta$ seen in figure \ref{fig:thetaGenVsRecoHem}. Dead and un-instrumented channels are simulated to improve accuracy and the simulation bounds match the fiducial bounds. Side A is shown in (a). Side B is shown in (b).}
 \label{fig:rawHemisphereFiducialBarsSideAB}
 \end{figure}
 
@@ -165,17 +172,17 @@ However, bin migration is significantly less pronounced in $\theta$. As shown by
   \centering
   \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/hemisphereFiducialBarsSideA.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Reconstructed bars hit for side A.}
+  \caption{}
   \label{subFig:hemisphereFiducialBarsSideA}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
 \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/hemisphereFiducialBarsSideB.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Reconstructed bars hit for side B.}
+  \caption{}
   \label{subFig:hemisphereFiducialBarsSideB}
 \end{subfigure}
-\caption{Reconstructed hemisphere bars hit when using the reconstructed $\phi$ seen in figure \ref{fig:phiGenVsRecoHem} and reconstructed $\theta$ seen in figure \ref{fig:thetaGenVsRecoHem}. The tracker is not disrupted by the dead channels and accurately reconstructs the hits seen in figure \ref{fig:rawHemisphereFiducialBarsSideAB} with minimal detector corner clipping events removed.}
+\caption{Reconstructed hemisphere bars hit when using the reconstructed $\phi$ seen in figure \ref{fig:phiGenVsRecoHem} and reconstructed $\theta$ seen in figure \ref{fig:thetaGenVsRecoHem}. The tracker is not disrupted by the dead channels and accurately reconstructs the hits seen in figure \ref{fig:rawHemisphereFiducialBarsSideAB} with minimal detector corner clipping events removed. Side A is shown in (a). Side B is shown in (b).}
 \label{fig:HemisphereFiducialBarsSideAB}
 \end{figure}
 
@@ -195,17 +202,20 @@ The cosmic hemisphere distribution was chosen as it tests all possible angles in
 As mentioned previously this analysis includes showering events to give as many statistics as possible. a $\chi^2$ cut would be useful for calibration as the $dE/dx$ of cosmic $\mu$ MIPs with no secondaries are useful for calibration. The $\chi^2$ discrimination would be the 10$^{th}$ step. The fitter uses the GNU scientific library simplex minimiser \cite{galassi2002gnu} in order to solve for $y$ = $mx$ + $c$.  
 
 \begin{figure}[!h]
- \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/pvsTFiduicalHemisphere.png}
- \captionof{figure}{Simulated cosmic hemisphere which has a flat distribution in $\theta$ from 0$^\circ$ to 90$^\circ$ and a flat distribution in $\phi$ from 0$^\circ$ to 360$^\circ$ which is then reconstructed using the track fitter logic described in section \ref{sec:SimulationOfCosmics}} 
- \label{fig:simulatedHemisphereDist}
-\end{figure}
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/dedxComarison.png}
- \captionof{figure}{\hl{This needs to be a plot showing a more accurate De/dx measurement i.e with and without the $\chi^2$ cut} This is also more a show of the $\chi^2$/DOF effects the dE/dx and therefore how that may or may not be useful for online use.} 
- \label{fig:dedxGenVsRecoHem}
+\centering
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/pvsTFiduicalHemisphere.png}
+  \captionof{figure}{Simulated cosmic hemisphere which has a flat distribution in $\theta$ from 0$^\circ$ to 90$^\circ$ and a flat distribution in $\phi$ from 0$^\circ$ to 360$^\circ$ which is then reconstructed using the track fitter logic described in section \ref{sec:SimulationOfCosmics}}
+  \label{fig:simulatedHemisphereDist}
+\end{minipage}%
+\qquad
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/dedxComarison.png}
+  \captionof{figure}{\hl{This needs to be a plot showing a more accurate De/dx measurement i.e with and without the $\chi^2$ cut} This is also more a show of the $\chi^2$/DOF effects the dE/dx and therefore how that may or may not be useful for online use.}
+  \label{fig:dedxGenVsRecoHem}
+\end{minipage}
 \end{figure}
 
 % \begin{figure}[!h]
@@ -219,18 +229,38 @@ As mentioned previously this analysis includes showering events to give as many 
 The original prototype detector was deployed at the Wylfa Nuclear power station from 07-07-2014 to 25-02-2016 with data being taken continuously over that time period both with the reactor on and reactor off taking the IBD measurements seen in figure \ref{fig:prototypeMeasumentFlux}. The placement of the detector in relation to the Wylfa reactor buildings can be seen in figure \ref{fig:DetectorPositionTopDown} the reactors are located at either end of the main reactor building the ``dog bone'' and are assumed to be in the centre of the cylinders. Whilst there is no good height data for the buildings at the Wylfa reactor site there is a drone picture available seen in figure \ref{fig:wylfaAir}. In figure \ref{fig:wylfaAir} the tallest buildings are clearly visible, of particular importance is the main reactor building and the turbine hall. The service buildings in between the turbine hall and the  main reactor building are also very important as they are much closer to the detector's position as seen in figure \ref{fig:DetectorPositionTopDown} and so will appear taller than the main reactor building. Also in figures \ref{fig:DetectorPositionTopDown} and \ref{fig:wylfaAir} the steam bridges that connect the main reactor building and the turbine hall are also visible. The steam bridges are not large buildings and are approximated to be 5\,m thick and 10\,m off of the ground in simulation. But one of the steam bridges is very close to the detector as can be seen in figure \ref{fig:DetectorPositionTopDown} and so will occlude a significant portion of the ($\phi$, $\theta$) space the detector observes. 
 
 \begin{figure}[!h]
- \centering
- \includegraphics[width=0.75\linewidth]{Chapter5/Figs/wylfaRasterNew/DetectorPositionTopDown.png}
- \captionof{figure}{Google Maps aerial photography image, displaying the Wylfa reactor site as well as the approximate detector position. The detector is in the middle of many site buildings occluding the incident cosmic rays. Key buildings shown are the reactor building, the turbine hall and the steam pipe connections between the two \cite{GoogleMapsWylfaLink}.} 
- \label{fig:DetectorPositionTopDown}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/DetectorPositionTopDown.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:DetectorPositionTopDown}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+\includegraphics[width=\linewidth]{Chapter5/Figs/Raster/wylfaArielView.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:wylfaArielView}
+\end{subfigure}
+\caption{(a) Google Maps aerial photography image, displaying the Wylfa reactor site as well as the approximate detector position. The detector is in the middle of many site buildings occluding the incident cosmic rays. Key buildings shown are the reactor building, the turbine hall and the steam pipe connections between the two \cite{GoogleMapsWylfaLink}. (b) An aerial view of the Wylfa power station the main reactor building is the shape of a "dog bone" the detector was placed in-between the turbine hall and reactor building. Edited from \cite{wylfaDronePictureLink}.}
+\label{fig:DetectorPosition_TopDownAndAriel}
 \end{figure}
 
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.6\linewidth]{Chapter5/Figs/Raster/wylfaArielView.png}
- \captionof{figure}{An aerial view of the Wylfa power station the main reactor building is the shape of a "dog bone" the detector was placed in-between the turbine hall and reactor building. Edited from \cite{wylfaDronePictureLink}.} 
- \label{fig:wylfaAir}
-\end{figure}
+% \begin{figure}[!h]
+%  \centering
+%  \includegraphics[width=0.75\linewidth]{Chapter5/Figs/wylfaRasterNew/DetectorPositionTopDown.png}
+%  \captionof{figure}{Google Maps aerial photography image, displaying the Wylfa reactor site as well as the approximate detector position. The detector is in the middle of many site buildings occluding the incident cosmic rays. Key buildings shown are the reactor building, the turbine hall and the steam pipe connections between the two \cite{GoogleMapsWylfaLink}.} 
+%  \label{fig:DetectorPositionTopDown}
+% \end{figure}
+
+% \begin{figure}[!h]
+%  \centering
+%  \includegraphics[width=0.6\linewidth]{Chapter5/Figs/Raster/wylfaArielView.png}
+%  \captionof{figure}{An aerial view of the Wylfa power station the main reactor building is the shape of a "dog bone" the detector was placed in-between the turbine hall and reactor building. Edited from \cite{wylfaDronePictureLink}.} 
+%  \label{fig:wylfaAir}
+% \end{figure}
 
 In addition, the structure of these buildings needs to be considered as well. The reactor building structure is seen in figure \ref{fig:wylfaReactorRoughStructure} with the top half of the structure being air wrapped in a concrete skin and the bottom half being thick concrete shielding. As a result, any cosmic $\mu$ events that traverse through the top of the section will have a much greater chance to get through than those traversing at lower angles of $\theta$. This will have two important impacts on the data set firstly it will mean that the tops of the buildings will be ``blurred'' to some extent as the amount of material will be initially low. Secondly, it will mean that the transmission value will decrease with the $\theta$ value. This decrease will be especially pronounced where the reactor core and reactor shielding would be located. 
 
@@ -287,69 +317,64 @@ Now that figure \ref{fig:wylfaTraceStep4} has been produced and the features of 
   \centering
   \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaSideAHits.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Bars hit for side A cosmic $\mu$ reconstructed tracks for the Wylfa data set.}
+  \caption{}
   \label{subFig:wylfaSideAHits}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
 \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaSideBHits.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Bars hit for side B cosmic $\mu$ reconstructed tracks for the Wylfa data set.}
+  \caption{}
   \label{subFig:wylfaSideBHits}
 \end{subfigure}
-\caption{Bars hit for sides A and B cosmic $\mu$ reconstructed tracks for the Wylfa data set. The results are mostly even except for a few dead or almost dead channels and one noisy channel on side B. Suggesting the tracker has minimal biasing.}
+\caption{Bars hit for sides A and B cosmic $\mu$ reconstructed tracks for the Wylfa data set. The results are mostly even except for a few dead or almost dead channels and one noisy channel on side B. Suggesting the tracker has minimal biasing. Side A is shown in (a). Side B is Shown in (b)}
 \label{fig:wylfaSideABHits}
 \end{figure}
 
 Once the fitter's potential bias has been addressed the $\phi$ and $\theta$ values can be analysed. Due to the high energy and highly penetrating nature of cosmic $\mu$ \cite{Olive_2014} the reactor buildings may not be dense enough to stop all incoming cosmic $\mu$. As a result, the shadows can only be seen with high statistics. However, the detector took cosmic $\mu$ data in accidental coincidence at the Wylfa site and this greatly limited the amount of data that could be gathered to $\sim$ 3 $\times$ 10$^6$ cosmic $\mu$ events. According to the CRY library, \cite{ieee_cry_2007} 162000 $\mu^-$ and 174000 $\mu^+$ are produced in 2820\,s for 1 m\,$^2$. The VIDARR prototype's top surface area is 1.52\,m $\times$ 1.52\,m = 2.31\,m$^2$ resulting in $\sim$ 275 $\mu$ s$^{-1}$. Therefore a data set of 3 $\times$ 10$^6$ cosmic $\mu$ events corresponds to $\sim$ 3 hours of live time. With a rate of 275 $\mu$ s$^{-1}$ the maximum time a fit should be allowed to take is 3600 microseconds for online track fitting which figure \ref{fig:wylfaTrackerTime} shows is the case for almost all events. Figure \ref{fig:wylfaTrackerTimeLog} takes figure \ref{fig:wylfaTrackerTime} and applies a log to the y axis showing that a very small fraction of events don't fit within the time limit of 3600 microseconds so a time selection criteria will be required for online track fitting. Whilst online track fitting was not required it is useful to know that the same tracker logic can be applied for both online calibration and full cosmic $\mu$ tomography by only adding a time and $\chi^2$ selection cut. 
 
- \begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter5/Figs/Raster/wylfaTrackerTime.png}
- \captionof{figure}{The time taken for each fit for the Wylfa data set. Assuming a rate of $\sim$ 275 cosmic $\mu$ s$^{-1}$ then the maximum time allowed would be 3600 microseconds. Almost all cosmic candidate events fit within this time.} 
- \label{fig:wylfaTrackerTime}
-\end{figure}
-
- \begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter5/Figs/Raster/wylfaTrackerTimeLog.png}
- \captionof{figure}{Figure \ref{fig:wylfaTrackerTime} but with the y axis taken as a log some events exceed 3600 microseconds to fit so a maximum time selection criterion is needed for those events.} 
- \label{fig:wylfaTrackerTimeLog}
+\begin{figure}[!h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/wylfaTrackerTime.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:wylfaTrackerTime}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+\includegraphics[width=\linewidth]{Chapter5/Figs/Raster/wylfaTrackerTimeLog.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:wylfaTrackerTimeLog}
+\end{subfigure}
+\caption{(a) The time taken for each fit for the Wylfa data set. Assuming a rate of $\sim$ 275 cosmic $\mu$ s$^{-1}$ then the maximum time allowed would be 3600 microseconds. Almost all cosmic candidate events fit within this time. (b) Figure \ref{subFig:wylfaTrackerTime} but with the y axis taken as a log some events exceed 3600 microseconds to fit so a maximum time selection criterion is needed for those events.}
+\label{fig:wylfaTrackerTimeAndLog}
 \end{figure}
 
 The tracker reconstructed $\phi$ and $\theta$ distribution from the Wylfa data set can be seen in figure \ref{fig:pVsTWylfaReversed} but the shadows don't seem as clear as one would have expected from such large and dense buildings. In figure \ref{fig:pVsTWylfaReversed} the bin migration is so significant even though the shadows extend up to 60$^o$ in $\theta$ they are masked very effectively. But the bin migration does become less pronounced as $\theta$ decreases. As $\theta$ decreases the chance of either side of the detector having a vertical track is greatly reduced thus reducing the bin migration (see section \ref{sec:SimulationOfCosmics}). However, this poses a problem as the statistics also decrease with $\theta$ as seen in figure \ref{fig:pVsTWylfaReversed}. So by taking the 2d x projection of figure \ref{fig:pVsTWylfaReversed} from 0$^\circ$ -- 37.5$^\circ$ in $\theta$ it is possible to ignore most of the bin migration whilst also having suitable statistics to observe the widths of the turbine hall and reactor building. This is done in figure \ref{fig:LinearHist_theta_0-37.5_Deg}. It is possible to take figure \ref{fig:LinearHist_theta_0-37.5_Deg} and show it via a circular histogram and overlay that histogram on top of the Wylfa trace seen in figure \ref{fig:wylfaTraceStep4}. This is done in figure \ref{fig:wylfaCircular0-37.5Deg_Overlay}. 
 
- \begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter5/Figs/Raster/pVsTWylfaReversed.png}
- \captionof{figure}{The cosmic $\mu$ distribution from VIDARR prototype deployment at Wylfa the shadows extend from $\theta$ = 0$^\circ$ -- $\theta$ = 60$^\circ$. Bin migration causes signifficant warping.} 
- \label{fig:pVsTWylfaReversed}
-\end{figure}
-
-%  \begin{figure}[!h]
-%  \centering
-%  \includegraphics[width=0.7\linewidth]{Chapter5/Figs/wylfaRasterNew/LinearHist_theta_0-57.5_Deg.png}
-%  \captionof{figure}{.} 
-%  \label{fig:}
-% \end{figure}
-
-%  \begin{figure}[!h]
-%  \centering
-%  \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaCircular0-57.5Deg_Overlay.png}
-%  \captionof{figure}{.} 
-%  \label{fig:}
-% \end{figure}
-
 \begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter5/Figs/wylfaRasterNew/LinearHist_theta_0-37.5_Deg.png}
- \captionof{figure}{Linear histogram showing a 2d projection of figure \ref{fig:pVsTWylfaReversed} from $\theta$ = 0$^\circ$ -- $\theta$ = 37.5$^\circ$ this range was chosen to avoid as much bin migration as possible whilst having as high statistics as possible. The main reactor shadow is highlighted by black lines the turbine hall is highlighted by orange lines.}
- \label{fig:LinearHist_theta_0-37.5_Deg}
+\centering
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/pVsTWylfaReversed.png}
+  \captionof{figure}{The cosmic $\mu$ distribution from VIDARR prototype deployment at Wylfa the shadows extend from $\theta$ = 0$^\circ$ -- $\theta$ = 60$^\circ$. Bin migration causes signifficant warping.}
+  \label{fig:pVsTWylfaReversed}
+\end{minipage}%
+\qquad
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/LinearHist_theta_0-37.5_Deg.png}
+  \captionof{figure}{Linear histogram showing a 2d projection of figure \ref{fig:pVsTWylfaReversed} from $\theta$ = 0$^\circ$ -- $\theta$ = 37.5$^\circ$ this range was chosen to avoid as much bin migration as possible whilst having as high statistics as possible. The main reactor shadow is highlighted by black lines the turbine hall is highlighted by orange lines.}
+  \label{fig:LinearHist_theta_0-37.5_Deg}
+\end{minipage}
 \end{figure}
 
  \begin{figure}[!h]
  \centering
- \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaCircular0-37.5Deg_Overlay.png}
+ \includegraphics[width=0.7\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaCircular0-37.5Deg_Overlay.png}
  \captionof{figure}{Figure \ref{fig:wylfaTraceStep4} overlaid with the circular histogram from figure \ref{fig:LinearHist_theta_0-37.5_Deg} to show how the borders line up with the Wylfa trace.} 
  \label{fig:wylfaCircular0-37.5Deg_Overlay}
 \end{figure}
@@ -366,17 +391,20 @@ Figure \ref{fig:wylfaCircular0-37.5Deg_Overlay} also shows the limitation of thi
 A way to solve the issue of bin migration was highlighted in section \ref{sec:cosmicMuTelescopes} which is to use the transmission method the MU-RAY collaboration have done in figure \ref{fig:mtVesuviusMuRayTransmission} \cite{Ambrosino_2014}. In order for this to work  another data set that reconstructs the whole hemisphere in $\phi$ and $\theta$ is required. It might be possible to use simulated cosmic data to achieve this result however it won't take into account the atmospheric scattering properly (As will be shown in section \ref{sec:usingSimulatedDataAsControlData}). The best approach would be to use measured data in the same location after the demolition of the Wylfa buildings, but as that will take decades this is infeasible. Instead, measured data was taken at Liverpool from 2016 -- 2018 which produced figure \ref{fig:pVsTLiverpoolReversed}. There are some shadows in the Liverpool data specifically from the accelerator hall at low angles of $\theta$ from 0$^\circ$ -- 17.5 $^\circ$ which is shown in figure \ref{fig:liverpoolShadows}. However, once those angles are removed from the data set it serves as a useful control as there is minimal cosmic $\mu$ sky blockage. When checking for any potential bias in the Liverpool data set none is visible in either side as shown in figure \ref{fig:liverpoolSideABHits}. 
 
 \begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter5/Figs/Raster/pVsTLiverpoolReversed.png}
- \captionof{figure}{The cosmic $\mu$ distribution from the VIDARR prototype deployment at Liverpool. There are some faint shadows below 17.5$^\circ$ but otherwise, the data has no major cosmic $\mu$ sky blockage.} 
- \label{fig:pVsTLiverpoolReversed}
-\end{figure}
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter5/Figs/Raster/liverpoolShadows.png}
- \captionof{figure}{The shadows in the Liverpool data below $\theta$ 17.5$^\circ$. The accelerator Hall causes significant cosmic $\mu$ blockage.} 
- \label{fig:liverpoolShadows}
+\centering
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/pVsTLiverpoolReversed.png}
+  \captionof{figure}{The cosmic $\mu$ distribution from the VIDARR prototype deployment at Liverpool. There are some faint shadows below 17.5$^\circ$ but otherwise, the data has no major cosmic $\mu$ sky blockage.} 
+  \label{fig:pVsTLiverpoolReversed}
+\end{minipage}%
+\qquad
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/liverpoolShadows.png}
+  \captionof{figure}{The shadows in the Liverpool data below $\theta$ 17.5$^\circ$. The accelerator Hall causes significant cosmic $\mu$ blockage.}
+  \label{fig:liverpoolShadows}
+\end{minipage}
 \end{figure}
 
 \begin{figure}[!h]
@@ -385,17 +413,17 @@ A way to solve the issue of bin migration was highlighted in section \ref{sec:co
   \centering
   \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/liverpoolSideAHits.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Bars hit for side A cosmic $\mu$ reconstructed tracks for the Liverpool data set.}
+  \caption{}
   \label{subFig:liverpoolSideAHits}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
 \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/liverpoolSideBHits.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Bars hit for side B cosmic $\mu$ reconstructed tracks for the Liverpool data set.}
+  \caption{}
   \label{subFig:liverpoolSideBHits}
 \end{subfigure}
-\caption{Bars hit for sides A and B cosmic $\mu$ reconstructed tracks for the Liverpool data set. The results are mostly even except for a few dead or almost dead channels. Suggesting the tracker has minimal biasing.}
+\caption{Bars hit for sides A and B cosmic $\mu$ reconstructed tracks for the Liverpool data set. The results are mostly even except for a few dead or almost dead channels. Suggesting the tracker has minimal biasing. Side A is shown in (a). Side B is shown in (b).}
 \label{fig:liverpoolSideABHits}
 \end{figure}
 
@@ -417,24 +445,50 @@ H = \frac{L}{\tan{\theta}}
 
  \begin{figure}[!h]
  \centering
- \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/simulatedPositions.png}
- \captionof{figure}{Positions from the Wylfa trace (figure \ref{fig:wylfaTraceStep4}) with their x and y positions labelled these were then put into GEANT4.} 
+ \includegraphics[width=0.8\linewidth]{Chapter6/Figs/Raster/simulatedAnotatedBuildings.png}
+ \captionof{figure}{The Wylfa trace (figure \ref{fig:wylfaTraceStep4}) with boxes overlaid to recreate the buildings of interest and circles to represent the reactor cores. The scale from the Wylfa trace (top right) is used to give the buildings the correct positions and dimensions in GEANT4 a full list of which can be seen in \ref{tab:simulatedBuildingPositions}. The full list of which can be seen in table \ref{tab:simulatedBuildingPositions}.} 
  \label{fig:simulatedPositions}
 \end{figure}
 
-\begin{figure}[!h]
- \centering
- \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/simulatedWidthsDepths.png}
- \captionof{figure}{Widths and depths from the Wylfa trace (figure \ref{fig:wylfaTraceStep4}) with their widths and depths labelled these were then put into GEANT4.} 
- \label{fig:simulatedWidthsDepths}
-\end{figure}
+% \begin{figure}[!h]
+%  \centering
+%  \includegraphics[width=0.8\linewidth]{Chapter5/Figs/wylfaRasterNew/simulatedWidthsDepths.png}
+%  \captionof{figure}{Widths and depths from the Wylfa trace (figure \ref{fig:wylfaTraceStep4}) with their widths and depths labelled these were then put into GEANT4.} 
+%  \label{fig:simulatedWidthsDepths}
+% \end{figure}
 
-\begin{figure}[!h]
- \centering
- \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/simulatedHeights.png}
- \captionof{figure}{Heights estimated from the measured data at Wylfa (figure \ref{fig:pVsTWylfaReversed}) these were then put into GEANT4.} 
- \label{fig:simulatedHeights}
-\end{figure}
+% \begin{figure}[!h]
+%  \centering
+%  \includegraphics[width=0.8\linewidth]{Chapter5/Figs/wylfaRasterNew/simulatedHeights.png}
+%  \captionof{figure}{Heights estimated from the measured data at Wylfa (figure \ref{fig:pVsTWylfaReversed}) these were then put into GEANT4.} 
+%  \label{fig:simulatedHeights}
+% \end{figure}
+
+\begin{table*}[!h]
+\centering
+\begin{tabular}{lrrrrrrr}  
+\toprule
+\multicolumn{1}{c}{} & \multicolumn{3}{c}{Position} & \multicolumn{3}{c}{Dimension} \\
+\cmidrule(r){2-4}
+\cmidrule(r){5-7}
+Building           & X\,[m] & Y\,[m] & Z\,[m] & Width\,[m] & Depth\,[m] & Height\,[m]\\
+\midrule
+Reactor Core Close & 57.1   &  22.2  & 0.0     & 25.0       & 25.0       & 27.5\\
+Reactor Core Far   & 57.1   & -85.3  & 0.0     & 25.0       & 25.0       & 27.5\\
+Main Building Box  & 57.5   & -30.8  & 0.0     & 40.1       & 136.0      & 45.0\\
+Service Building   & 80.5   & -44.6  & 0.0     & 14.3       & 21.3       & 50.0\\
+“Jut” Close        & 24.4   & -33.6  & 0.0     & 8.4        & 21.2       & 35.0\\
+“Jut” Far          & 33.0   & -34.4  & 0.0     & 8.8        & 46.7       & 35.0\\
+“Tower” Close      & 24.4   & -12.8  & 0.0     & 8.4        & 20.4       & 45.0\\
+“Tower” Far        & 24.4   & -54.5  & 0.0     & 8.4        & 20.4       & 45.0\\
+Steam Bridge Close & 9.73   &  19.7  & 10.0    & 37.9       & 13.1       & 5.0\\
+Steam Bridge Far   & 9.73   & -87.7  & 10.0    & 37.9       & 13.1       & 5.0\\
+Turbine Hall       & -19.2  & -32.7  & 0.0     & 13.5       & 141.0      & 25.0\\
+\bottomrule  
+\end{tabular}
+\caption{The positions and dimensions for each of the simulated buildings in GEANT4 outlined in figure \ref{fig:simulatedPositions} }
+\label{tab:simulatedBuildingPositions}
+\end{table*}
 
 Figure \ref{fig:WylfaSimGeom_SideOn_TopDown} shows how the simulated geometry looks in  GEANT4. The side-on view can be seen in figure \ref{subFig:WylfaSimGeomSideOn} which has the heights annotated, and the top-down view can be seen in figure \ref{subFig:WylfaSimGeomTopDown} which looks similar to figure \ref{fig:simulatedPositions}. Once these dimensions have been approximated it is possible to simulate both with and without buildings. This is done in figure \ref{fig:thetaVsPhiSimulatedWithReactor_0-100} which shows how the bin migration effects compare with the shadows. In the simulation the buildings were simulated as 100\,\% concrete, this is done so they block as many cosmic $\mu$ as possible to give accurate building outlines. Then as with figure  \ref{fig:measuredTrackerReconNoLines} the ratio of the data with and without buildings is taken producing figure \ref{fig:simulatedTrackerReconNoLines}. 
 
@@ -444,17 +498,17 @@ Figure \ref{fig:WylfaSimGeom_SideOn_TopDown} shows how the simulated geometry lo
   \centering
   \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/WylfaSimGeomSideOn.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Simulated geometry in GEANT4 side on perspective.}
+  \caption{}
   \label{subFig:WylfaSimGeomSideOn}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
 \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/WylfaSimGeomTopDown.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Simulated geometry in GEANT4 top-down perspective.}
+  \caption{}
   \label{subFig:WylfaSimGeomTopDown}
 \end{subfigure}
-\caption{The simulated geometry in GEANT4 with heights annotated.}
+\caption{The simulated geometry in GEANT4. (a) shows the side on view (y,z) with heights annotated. (b) shows the top-down perspective.}
 \label{fig:WylfaSimGeom_SideOn_TopDown}
 \end{figure}
 
@@ -464,17 +518,17 @@ Figure \ref{fig:WylfaSimGeom_SideOn_TopDown} shows how the simulated geometry lo
   \centering
   \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/thetaVsPhiSimulatedWithReactor0.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Simulated $\phi$ and $\theta$ with no reactor buildings and a realistic $\theta$ distribution only bin migration effects are present.}
+  \caption{}
   \label{subFig:thetaVsPhiSimulatedWithReactor0}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
 \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/thetaVsPhiSimulatedWithReactor100.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Simulated $\phi$ and $\theta$ with reactor buildings that are 100\,\% concrete and a realistic $\theta$ distribution.}
+  \caption{}
   \label{subFig:thetaVsPhiSimulatedWithReactor100}
 \end{subfigure}
-\caption{A side by side comparison of the GEANT4 simulation with and without reactor buildings using a realistic $\theta$ distribution.}
+\caption{A side by side comparison of the GEANT4 simulation $\phi$ and $\theta$ distributions without reactor buildings (seen in (a)) and with reactor buildings (seen in side (b)) using a realistic $\theta$ distribution.}
 \label{fig:thetaVsPhiSimulatedWithReactor_0-100}
 \end{figure}
 
@@ -515,11 +569,12 @@ In the GEANT4 each building is toggled on individually outlined, then toggled of
 
 \begin{figure}[!h]
  \centering
- \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaCircular0-37.5Deg_Overlay_Updated.png}
+ \includegraphics[width=0.7\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaCircular0-37.5Deg_Overlay_Updated.png}
  \captionof{figure}{An updated version of figure \ref{fig:wylfaCircular0-37.5Deg_Overlay} using the boundaries from the Wylfa trace (figure \ref{fig:wylfaTraceStep4}) and figure \ref{fig:measuredTrackerRecon} to highlight the key features of the turbine hall, main reactor building, and reactor core.}  
  \label{fig:wylfaCircular0-37.5Deg_Overlay_Updated}
 \end{figure}
 
+\clearpage
 \section{Cosmic Tracker Uncertainties}\label{sec:cosmicTrackerUncertainties}
 The cosmic $\mu$ results from figures \ref{fig:simulatedTrackerRecon} \ref{fig:measuredTrackerRecon} and \ref{fig:wylfaCircular0-37.5Deg_Overlay_Updated} are highly promising. However, there are some potential issues with regards to the bin migration previously mentioned especially in figures \ref{fig:measuredTrackerReconNoLines} and \ref{fig:measuredTrackerRecon} where the vertical lines at $\phi$ = 0$^\circ$, $\phi$ = 90$^\circ$, $\phi$ = 180$^\circ$, $\phi$ = 270$^\circ$ are still visible. The uncertainties can be quantified to some extent, but the limits are due to the detector's geometry and segmentation rather than the analysis. In order to quantify the uncertainty of the tracker and detector 1E6 cosmic $\mu$ particles were simulated in GEANT4 with a $\phi$ =  135$^\circ$ and $\theta$ = 45$^\circ$, a random spot is then chosen in the detector and then they are back-projected by 3\,m. The generated distribution of which can be seen in figure \ref{fig:sideABGen_PVsT_135_45}. The fitter then reconstructs the tracks (figure \ref{fig:trackedABWithDead}). When comparing the tracker results from figure \ref{fig:trackedABWithDead} with the generated distributions in figure \ref{fig:sideABGen_PVsT_135_45} there is a minimal difference which is unsurprising as the efficiency is 98.6\,\% for the reconstruction. 
 
@@ -529,17 +584,17 @@ The cosmic $\mu$ results from figures \ref{fig:simulatedTrackerRecon} \ref{fig:m
   \centering
   \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/sideAGen_PVsT_135_45.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Side A generated hits for $\phi$ =  135$^\circ$ and $\theta$ = 45$^\circ$.}
+  \caption{}
   \label{subFig:sideAGen_PVsT_135_45}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
 \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/sideBGen_PVsT_135_45.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Side B generated hits for $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$.}
+  \caption{}
   \label{subFig:sideBGen_PVsT_135_45}
 \end{subfigure}
-\caption{The generated hits in GEANT4 for $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$ with dead and un-instrumented channels taken into account.}
+\caption{The generated hits in GEANT4 for $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$ with dead and un-instrumented channels taken into account. Side A is shown in (a). Side B is shown in (b).}
 \label{fig:sideABGen_PVsT_135_45}
 \end{figure}
 
@@ -549,17 +604,17 @@ The cosmic $\mu$ results from figures \ref{fig:simulatedTrackerRecon} \ref{fig:m
   \centering
   \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/trackedAWithDead.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Side A tracker reconstructed hits for $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$.}
+  \caption{}
   \label{subFig:trackedAWithDead}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
 \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/trackedBWithDead.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Side B tracker reconstructed hits for $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$.}
+  \caption{}
   \label{subFig:trackedBWithDead}
 \end{subfigure}
-\caption{Tracker reconstructed hits for the $\phi$ 135$^\circ$ and $\theta$ = 45$^\circ$ the tracker is not thrown off by the dead channels or the fiducial channels. It reconstructs the simulated distribution well.}
+\caption{Tracker reconstructed hits for the $\phi$ 135$^\circ$ and $\theta$ = 45$^\circ$ the tracker is not thrown off by the dead channels or the fiducial channels. It reconstructs the simulated distribution well. Side A is shown in (a). Side B is shown in (b).}
 \label{fig:trackedABWithDead}
 \end{figure}
 
@@ -567,7 +622,7 @@ The reconstructed $\phi$ and $\theta$ that the tracker produces is shown in figu
 
 \begin{figure}[!h]
  \centering
- \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/pVsTWithDeadLog.png}
+ \includegraphics[width=0.7\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/pVsTWithDeadLog.png}
  \captionof{figure}{Tracker reconstructed $\phi$ and $\theta$ for simulated $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$. The most likely value to be reconstructed is $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$ (representing $\sim$ 55\,\% of the reconstruction) but there is significant smearing in both angles. Efficiency is 98.6\,\%.} 
  \label{fig:pVsTWithDeadLog}
 \end{figure}
@@ -588,25 +643,44 @@ The reconstructed $\phi$ and $\theta$ that the tracker produces is shown in figu
 
 Fitting the $\phi$ and $\theta$ distribution yield inaccurate fits which is unsurprising considering how significant the smearing is in figure \ref{fig:pVsTWithDeadLog}. For both the $\chi^2$/DOF is > 170 which is far above acceptable levels (see figures \ref{fig:fittingPhiWithDead}, \ref{fig:fittingThetaWithDead}). In both cases, the function attempted to be fitted is a double Gaussian function with a ``noise'' Gaussian function to take into account the smearing and a Gaussian attempting to fit the signal. For $\phi$ the signal mean was 136.288$^\circ$ and the signal $\sigma$ was 0.728$^\circ$. Considering the spread on $\phi$ is significant these values are reasonable but it's clear from figure \ref{fig:fittingPhiWithDead} that the peak of the signal distribution isn't fitted well. For $\theta$ the signal mean was 45.1275$^\circ$ and the signal $\sigma$ was 0.3524$^\circ$. These values are very good for $\theta$ and whilst the fit in figure \ref{fig:fittingThetaWithDead} has large $\chi^2$/DOF  the signal distribution seems to have been fitted quite well. It is not surprising that the fitting for $\theta$ is more accurate as the segments for the detector are 4 times wider than they are tall (4\,cm wide by 1\,cm tall). 
 
-\begin{figure}[!h]
- \centering
- f\includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/fittingPhiWithDead.png}
- \captionof{figure}{Double Gaussian fitted to the reconstructed tracker $\phi$ values when simulating $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$ exclusively. The $\chi^2$/DOF is 181.31 showing a poor fit which is largely due to segmentation effects. signal mean = 136.288, signal $\sigma$ 0.728, noise mean = 140.101, noise $\sigma$ 7.819.} 
- \label{fig:fittingPhiWithDead}
-\end{figure}
 
 \begin{figure}[!h]
- \centering
- \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/fittingThetaWithDead.png}
- \captionof{figure}{Double Gaussian fitted to the reconstructed tracker $\theta$ values when simulating $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$ exclusively. The $\chi^2$/DOF is 172.758 showing a poor fit which is largely due to segmentation effects. Signal mean = 45.1275, signal $\sigma$ = 0.3524, noise mean = 46.8153, noise $\sigma$ = 1.6294.} 
- \label{fig:fittingThetaWithDead}
+\centering
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/fittingPhiWithDead.png}
+  \captionof{figure}{Double Gaussian fitted to the reconstructed tracker $\phi$ values when simulating $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$ exclusively. The $\chi^2$/DOF is 181.31 showing a poor fit which is largely due to segmentation effects. signal mean = 136.288, signal $\sigma$ 0.728, noise mean = 140.101, noise $\sigma$ 7.819.} 
+  \label{fig:fittingPhiWithDead}
+\end{minipage}%
+\qquad
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/fittingThetaWithDead.png}
+  \captionof{figure}{Double Gaussian fitted to the reconstructed tracker $\theta$ values when simulating $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$ exclusively. The $\chi^2$/DOF is 172.758 showing a poor fit which is largely due to segmentation effects. Signal mean = 45.1275, signal $\sigma$ = 0.3524, noise mean = 46.8153, noise $\sigma$ = 1.6294.}
+  \label{fig:fittingThetaWithDead}
+\end{minipage}
 \end{figure}
+
+
+% \begin{figure}[!h]
+%  \centering
+%  \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/fittingPhiWithDead.png}
+%  \captionof{figure}{} 
+%  \label{fig:fittingPhiWithDead}
+% \end{figure}
+
+% \begin{figure}[!h]
+%  \centering
+%  \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/fittingThetaWithDead.png}
+%  \captionof{figure}{} 
+%  \label{fig:fittingThetaWithDead}
+% \end{figure}
 
 It is possible to mitigate the effect of these corner clipping events by requiring a large number of bar segments to be hit per side. In figure \ref{fig:pVsT135FidFix_20barCutPerSide} a requirement of 20 bars being hit for each side is introduced. When comparing figure \ref{fig:pVsTWithDeadLog} which requires 4 bars to be hit per side and figure \ref{fig:pVsT135FidFix_20barCutPerSide} which requires 20 bars to be hit per side the spread has been greatly reduced. However, this selection criteria reduces the efficiency from 98.6\,\% to 68.9\,\%. But this effect does not affect all events equally, events with a lower value of $\theta$ will be more likely to be removed. As a result, when using this selection criterion on the measured data in figure \ref{fig:20CutRatioWylfaDivLiv} the shadows become less clear as $\theta$ decreases. This highlights the paradox between increasing precision and increasing accuracy for this particular data set. Cosmic $\mu$ events that cross the corner of the detector are the most useful for cosmic $\mu$ tomography at low angles of $\theta$ so shadow analysis that uses these events will be more accurate. But these are also the events that will have the most smearing and so will have less precision. 
 
 \begin{figure}[!h]
  \centering
- \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/pVsT135FidFix_20barCutPerSide.png}
+ \includegraphics[width=0.7\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/pVsT135FidFix_20barCutPerSide.png}
  \captionof{figure}{Figure \ref{fig:pVsTWithDeadLog} but with all events that have $<$ 20 hits for side A and $<$ 20 hits for side B removed. This greatly improves the distribution and reduces smearing. However, efficiency is only 68.9\,\% $\sim$ 30\,\% lower than with a 4 bar cut on either side.} 
  \label{fig:pVsT135FidFix_20barCutPerSide}
 \end{figure}
@@ -618,6 +692,7 @@ It is possible to mitigate the effect of these corner clipping events by requiri
  \label{fig:20CutRatioWylfaDivLiv}
 \end{figure}
 
+\clearpage
 \section{Using Simulated Data as Control Data}\label{sec:usingSimulatedDataAsControlData}
 Another possible alternative to using the Liverpool data set as control is to use simulated data as a control data set. However, this has major limitations even when using a $\theta$ distribution which is derived from measured data (\hl{probably better to use CRY distribution}). The overall $\theta$ distribution for simulated data can be seen in figure \ref{fig:mc_thetaOnly} which is a good approximation to the measured data in figure \ref{fig:measuredThetaWylfaLiverpool}. The overall $\phi$ and $\theta$ distribution for the simulated data can be seen in figure \ref{fig:mc_PvsT}. Providing the $\theta$ distribution is accurate and the GEANT4 simulation correctly models the atmospheric smearing this should only have detector and segmentation effects smearing the distribution. 
 
@@ -634,17 +709,17 @@ Another possible alternative to using the Liverpool data set as control is to us
   \centering
   \includegraphics[width=\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/measuredThetaWylfa.png}
   \captionsetup{width=.9\linewidth}
-  \caption{The tracker reconstructed $\theta$ distribution for Wylfa cosmic $\mu$ events.}
+  \caption{}
   \label{subFig:measuredThetaWylfa}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
 \includegraphics[width=\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/measuredThetaLiverpool.png}
   \captionsetup{width=.9\linewidth}
-  \caption{The tracker reconstructed $\theta$ distribution for Liverpool cosmic $\mu$ events.}
+  \caption{}
   \label{subFig:measuredThetaLiverpool}
 \end{subfigure}
-\caption{The measured $\theta$ distributions for Wylfa and Liverpool there's a peek at 60$^\circ$ in both and the overall reconstructed distributions look similar.}
+\caption{The measured $\theta$ distributions for Wylfa (shown in a) and Liverpool (shown in b) there's a peek at 60$^\circ$ in both and the overall reconstructed distributions look similar.}
 \label{fig:measuredThetaWylfaLiverpool}
 \end{figure}
 
@@ -658,31 +733,37 @@ Another possible alternative to using the Liverpool data set as control is to us
 However, the simulation can't quite account for all of the different effects shown by figure \ref{fig:WylfaToMCRatio} where the ratio between the simulated and the measured Wylfa data is taken. In figure \ref{fig:WylfaToMCRatio}, the bin migration is still obscuring the shadows quite significantly. It is possible to force the ratio plot to be between 0 and 2 which is done in figure \ref{fig:WylfaToMCRatio0-2}. When this is done it is possible to see the Wylfa shadows but the bin migration still makes it difficult to determine where the shadows for the turbine hall and reactor buildings separate. The same effect can be seen when taking the ratio between the simulated and measured Liverpool data in figures \ref{fig:LiverpoolToMCRatio} and \ref{fig:LiverpoolToMCRatio0-2} which clearly shows that the simulated distribution is struggling to act as a control data set. The amount of cosmic $\mu$ sky blockage is very minimal in the Liverpool data set but there is still a large discrepancy between that data set and the generated cosmic $\mu$ data set. As a result, the Liverpool data set is the preferred control data set to the generated GEANT4 data. 
 
 \begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/WylfaToMCRatio.png}
- \captionof{figure}{Ratio of Wylfa to GEANT4 simulated data the bin migration hides the shadows \hl{Needs to be redone with Cry Distribution + reformatting}} 
- \label{fig:WylfaToMCRatio}
+\centering
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/WylfaToMCRatio.png}
+  \captionof{figure}{Ratio of Wylfa to GEANT4 simulated data the bin migration hides the shadows \hl{Needs to be redone with Cry Distribution + reformatting}} 
+  \label{fig:WylfaToMCRatio}
+\end{minipage}%
+\qquad
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/WylfaToMCRatio0-2.png}
+  \captionof{figure}{Ratio of Wylfa to GEANT4 simulated data restricted to a maximum of 2 the bin migration still causes the tops of the shadows to be difficult to determine. \hl{Needs to be redone with Cry Distribution + reformatting}}
+  \label{fig:WylfaToMCRatio0-2}
+\end{minipage}
 \end{figure}
 
 \begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/WylfaToMCRatio0-2.png}
- \captionof{figure}{Ratio of Wylfa to GEANT4 simulated data restricted to a maximum of 2 the bin migration still causes the tops of the shadows to be difficult to determine. \hl{Needs to be redone with Cry Distribution + reformatting}}
- \label{fig:WylfaToMCRatio0-2}
-\end{figure}
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/LiverpoolToMCRatio.png}
- \captionof{figure}{Ratio of Liverpool to GEANT4 simulated data the bin migration dominates \hl{Needs to be redone with Cry Distribution + reformatting}.}
- \label{fig:LiverpoolToMCRatio}
-\end{figure}
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/LiverpoolToMCRatio0-2.png}
- \captionof{figure}{Ratio of the Liverpool to GEANT4 simulated data restricted to a maximum of 2. Unexpected areas below blocked incidence of 1 are visible even though there is nothing at the Liverpool site that could cause such shadows to occur. \hl{Needs to be redone with Cry Distribution + reformatting}.}
- \label{fig:LiverpoolToMCRatio0-2}
+\centering
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/LiverpoolToMCRatio.png}
+  \captionof{figure}{Ratio of Liverpool to GEANT4 simulated data the bin migration dominates \hl{Needs to be redone with Cry Distribution + reformatting}.} 
+  \label{fig:LiverpoolToMCRatio}
+\end{minipage}%
+\qquad
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/LiverpoolToMCRatio0-2.png}
+  \captionof{figure}{Ratio of the Liverpool to GEANT4 simulated data restricted to a maximum of 2. Unexpected areas below blocked incidence of 1 are visible even though there is nothing at the Liverpool site that could cause such shadows to occur. \hl{Needs to be redone with Cry Distribution + reformatting}.}
+  \label{fig:LiverpoolToMCRatio0-2}
+\end{minipage}
 \end{figure}
 
 % Cosmic $\mu$ tomography is split into two distinct types two sided and one sided. Two sided cosmic $\mu$ is preferred if it is feasible this is because both attenuation and scattering can be measured when using this technique. The effect of the cosmic $\mu$ scattering can be seen in figure \ref{fig:twoSidedCosmicMuonTomographySchults} the cosmic $\mu$ which travel through the dense object will scatter more than the cosmic $\mu$ that don't. By making coincident measurements of the cosmic $\mu$ it is possible to find vertices using this method. This method is extremely powerful but can only be used for smaller objects in most cases. 
