@@ -100,7 +100,7 @@ In addition, some cycles that contain $\mu$ data are correlated to the trigger c
 \end{figure}
 
 \section{Simulation of Cosmic $\mu$ Hemisphere}\label{sec:SimulationOfCosmics}
-Before the data could be analysed a simulation of cosmic $\mu$ using a cosmic hemisphere was used in order to quantify segmentation and other detector effects. These effects can be quite significant as seen in figures \ref{fig:phiGenVsRecoHem} and \ref{fig:cirPhiGenVsRecoHem} the reconstruction of the prototype detector can be quite adversely affected by vertical events. If an event is vertical in one side of the detector then the other side will dominate as such it results in spikes at $\phi$ = 0$^\circ$, $\phi$ = 90$^\circ$, $\phi$ = 180$^\circ$, $\phi$ = 270$^\circ$. This bin migration is caused by the detector being a segmented cuboid. Any segmented cuboid detector will not cleanly represent a hemispherical distribution. Figures \ref{fig:cosmicBinMigrationSideA} and \ref{fig:cosmicBinMigrationSideB} show how the segmentation of the VIDARR detector causes bin migration. For figure \ref{fig:cosmicBinMigrationSideA} angles of $\phi$ are solely determined by the direction in side A the same is true for side B in figure \ref{fig:cosmicBinMigrationSideB}. 
+Before the data could be analysed a simulation of cosmic $\mu$ using a cosmic hemisphere was used in order to quantify segmentation and other detector effects. These effects can be quite significant as seen in figures \ref{subFig:phiGenVsRecoHem} and \ref{subFig:cirPhiGenVsRecoHem} the reconstruction of the prototype detector can be quite adversely affected by vertical events. If an event is vertical in one side of the detector then the other side will dominate as such it results in spikes at $\phi$ = 0$^\circ$, $\phi$ = 90$^\circ$, $\phi$ = 180$^\circ$, $\phi$ = 270$^\circ$. This bin migration is caused by the detector being a segmented cuboid. Any segmented cuboid detector will not cleanly represent a hemispherical distribution. Figures \ref{fig:cosmicBinMigrationSideA} and \ref{fig:cosmicBinMigrationSideB} show how the segmentation of the VIDARR detector causes bin migration. For figure \ref{fig:cosmicBinMigrationSideA} angles of $\phi$ are solely determined by the direction in side A the same is true for side B in figure \ref{fig:cosmicBinMigrationSideB}. 
 
 
 \begin{figure}[!h]
@@ -125,15 +125,15 @@ Before the data could be analysed a simulation of cosmic $\mu$ using a cosmic he
 
 \begin{figure}[!h]
  \centering
- \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicBinMigrationSideA.png}
- \captionof{figure}{Side A Bin migration due to the segmentation size of VIDARR. In this example side B has no $\phi$ component and so any value on side A determines $\phi$ exclusively warping the distribution. \hl{this plot is old, low res, and needs to be redone with the current colour scheme}.} 
+ \includegraphics[width=\linewidth]{Chapter6/Figs/phiSideABinMigration.png}
+ \captionof{figure}{Side A Bin migration due to the segmentation size of VIDARR. In this example side B has no $\phi$ component and so any value on side A determines $\phi$ exclusively warping the distribution.} 
  \label{fig:cosmicBinMigrationSideA}
 \end{figure}
 
 \begin{figure}[!h]
  \centering
- \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicBinMigrationSideB.png}
- \captionof{figure}{Side B Bin migration due to the segmentation size of VIDARR. In this example side A has no $\phi$ component and so any value on side B determines $\phi$ exclusively warping the distribution.\hl{this plot is old, low res, and needs to be redone with current colour scheme}.} 
+ \includegraphics[width=\linewidth]{Chapter6/Figs/phiSideBBinMigration.png}
+ \captionof{figure}{Side B Bin migration due to the segmentation size of VIDARR. In this example side A has no $\phi$ component and so any value on side B determines $\phi$ exclusively warping the distribution.} 
  \label{fig:cosmicBinMigrationSideB}
 \end{figure}
 
@@ -162,7 +162,7 @@ However, bin migration is significantly less pronounced in $\theta$. As shown by
   \caption{}
   \label{subFig:rawHemisphereFiducialBarsSideB}
 \end{subfigure}
-\caption{Generated hemisphere bars hit when using the generated $\phi$ seen in figure \ref{fig:phiGenVsRecoHem} and generated $\theta$ seen in figure \ref{fig:thetaGenVsRecoHem}. Dead and un-instrumented channels are simulated to improve accuracy and the simulation bounds match the fiducial bounds. Side A is shown in (a). Side B is shown in (b).}
+\caption{Generated hemisphere bars hit when using the generated $\phi$ seen in figure \ref{subFig:phiGenVsRecoHem} and generated $\theta$ seen in figure \ref{fig:thetaGenVsRecoHem}. Dead and un-instrumented channels are simulated to improve accuracy and the simulation bounds match the fiducial bounds. Side A is shown in (a). Side B is shown in (b).}
 \label{fig:rawHemisphereFiducialBarsSideAB}
 \end{figure}
 
@@ -182,11 +182,11 @@ However, bin migration is significantly less pronounced in $\theta$. As shown by
   \caption{}
   \label{subFig:hemisphereFiducialBarsSideB}
 \end{subfigure}
-\caption{Reconstructed hemisphere bars hit when using the reconstructed $\phi$ seen in figure \ref{fig:phiGenVsRecoHem} and reconstructed $\theta$ seen in figure \ref{fig:thetaGenVsRecoHem}. The tracker is not disrupted by the dead channels and accurately reconstructs the hits seen in figure \ref{fig:rawHemisphereFiducialBarsSideAB} with minimal detector corner clipping events removed. Side A is shown in (a). Side B is shown in (b).}
+\caption{Reconstructed hemisphere bars hit when using the reconstructed $\phi$ seen in figure \ref{subFig:phiGenVsRecoHem} and reconstructed $\theta$ seen in figure \ref{fig:thetaGenVsRecoHem}. The tracker is not disrupted by the dead channels and accurately reconstructs the hits seen in figure \ref{fig:rawHemisphereFiducialBarsSideAB} with minimal detector corner clipping events removed. Side A is shown in (a). Side B is shown in (b).}
 \label{fig:HemisphereFiducialBarsSideAB}
 \end{figure}
 
-The cosmic hemisphere distribution was chosen as it tests all possible angles in the ($\phi$,$\theta$) space that the detector will encounter. When reconstructing the ($\phi$,$\theta$) distribution of the cosmic hemisphere (figure \ref{fig:simulatedHemisphereDist}) a clear bin migration is visible. The reconstruction artefacts are shown in figures \ref{fig:phiGenVsRecoHem} and \ref{fig:thetaGenVsRecoHem} can be seen to have a dependence on one another in figure \ref{fig:simulatedHemisphereDist}. Apart from the uncertainties introduced from the segmentation and shape of the detector no other uncertainties are significantly visible in figure \ref{fig:simulatedHemisphereDist}. However, this does not mean that other uncertainties are not present just that the most noticeable uncertainty is due to the segmentation and shape of the detector. 
+The cosmic hemisphere distribution was chosen as it tests all possible angles in the ($\phi$,$\theta$) space that the detector will encounter. When reconstructing the ($\phi$,$\theta$) distribution of the cosmic hemisphere (figure \ref{fig:simulatedHemisphereDist}) a clear bin migration is visible. The reconstruction artefacts are shown in figures \ref{subFig:phiGenVsRecoHem} and \ref{fig:thetaGenVsRecoHem} can be seen to have a dependence on one another in figure \ref{fig:simulatedHemisphereDist}. Apart from the uncertainties introduced from the segmentation and shape of the detector no other uncertainties are significantly visible in figure \ref{fig:simulatedHemisphereDist}. However, this does not mean that other uncertainties are not present just that the most noticeable uncertainty is due to the segmentation and shape of the detector. 
 \\\\When reconstructing the ($\phi$, $\theta$) space there is no $\chi^2$ discrimination. This is because many cosmic $\mu$ may shower when inside the detector and as a result may have a high $\chi^2$ but are still an accurate representation of cosmic $\mu$ direction. But a $\chi^2$ cut is effective when trying to accurately measure the $dE/dx$ as seen in figure \ref{fig:dedxGenVsRecoHem}. Showers produce many secondaries in the detector which when divided by the same length causes an increase in $dE/dx$ as shown by figure \ref{fig:dedxGenVsRecoHem}. This is because more energy is produced in a track's length than the energy deposited by the MIP like cosmic. For positional reconstruction, showers are kept but for online use where calibration is the goal showers are discarded. In this analysis, the reconstruction is optimised for the angle-of-incidence extraction (both $\phi$ and $\theta$) as the key analysis variable. The reconstruction steps for fitting each individual track are as follows: 
 \begin{enumerate}
   \item \textbf{Energy Threshold:} Exclude all hits below 0.345\,MeV
@@ -212,8 +212,8 @@ As mentioned previously this analysis includes showering events to give as many 
 \qquad
 \begin{minipage}{.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/dedxComarison.png}
-  \captionof{figure}{\hl{This needs to be a plot showing a more accurate De/dx measurement i.e with and without the $\chi^2$ cut} This is also more a show of the $\chi^2$/DOF effects the dE/dx and therefore how that may or may not be useful for online use.}
+  \includegraphics[width=\linewidth]{Chapter6/Figs/simHemDeDx.png}
+  \captionof{figure}{dE/dx Of the simulated cosmic hemisphere both with and without a $\chi^2$/DOF selection criteria. The difference is minimal suggesting that a good series of selection criteria have been found regardless of $\chi^2$/DOF.}
   \label{fig:dedxGenVsRecoHem}
 \end{minipage}
 \end{figure}
@@ -226,7 +226,7 @@ As mentioned previously this analysis includes showering events to give as many 
 % \end{figure}
 
 \section{Deployment At Wylfa}\label{sec:deploymentAtWylfa}
-The original prototype detector was deployed at the Wylfa Nuclear power station from 07-07-2014 to 25-02-2016 with data being taken continuously over that time period both with the reactor on and reactor off taking the IBD measurements seen in figure \ref{fig:prototypeMeasumentFlux}. The placement of the detector in relation to the Wylfa reactor buildings can be seen in figure \ref{fig:DetectorPositionTopDown} the reactors are located at either end of the main reactor building the ``dog bone'' and are assumed to be in the centre of the cylinders. Whilst there is no good height data for the buildings at the Wylfa reactor site there is a drone picture available seen in figure \ref{fig:wylfaAir}. In figure \ref{fig:wylfaAir} the tallest buildings are clearly visible, of particular importance is the main reactor building and the turbine hall. The service buildings in between the turbine hall and the  main reactor building are also very important as they are much closer to the detector's position as seen in figure \ref{fig:DetectorPositionTopDown} and so will appear taller than the main reactor building. Also in figures \ref{fig:DetectorPositionTopDown} and \ref{fig:wylfaAir} the steam bridges that connect the main reactor building and the turbine hall are also visible. The steam bridges are not large buildings and are approximated to be 5\,m thick and 10\,m off of the ground in simulation. But one of the steam bridges is very close to the detector as can be seen in figure \ref{fig:DetectorPositionTopDown} and so will occlude a significant portion of the ($\phi$, $\theta$) space the detector observes. 
+The original prototype detector was deployed at the Wylfa Nuclear power station from 07-07-2014 to 25-02-2016 with data being taken continuously over that time period both with the reactor on and reactor off taking the IBD measurements seen in figure \ref{fig:prototypeMeasumentFlux}. The placement of the detector in relation to the Wylfa reactor buildings can be seen in figure \ref{subFig:DetectorPositionTopDown} the reactors are located at either end of the main reactor building the ``dog bone'' and are assumed to be in the centre of the cylinders. Whilst there is no good height data for the buildings at the Wylfa reactor site there is a drone picture available seen in figure \ref{subFig:wylfaArielView}. In figure \ref{subFig:wylfaArielView} the tallest buildings are clearly visible, of particular importance is the main reactor building and the turbine hall. The service buildings in between the turbine hall and the  main reactor building are also very important as they are much closer to the detector's position as seen in figure \ref{subFig:DetectorPositionTopDown} and so will appear taller than the main reactor building. Also in figures \ref{subFig:DetectorPositionTopDown} and \ref{subFig:wylfaArielView} the steam bridges that connect the main reactor building and the turbine hall are also visible. The steam bridges are not large buildings and are approximated to be 5\,m thick and 10\,m off of the ground in simulation. But one of the steam bridges is very close to the detector as can be seen in figure \ref{subFig:DetectorPositionTopDown} and so will occlude a significant portion of the ($\phi$, $\theta$) space the detector observes. 
 
 \begin{figure}[!h]
 \centering
@@ -272,21 +272,42 @@ In addition, the structure of these buildings needs to be considered as well. Th
 \end{figure}
 
 \section{Reactor Shadow: Methodology} \label{sec:ReactorShadowMethodology}
-In order to determine any shadows present at the reactor site the detector position relative to any buildings that block cosmic mu needs to be determined. Figure \ref{fig:DetectorPositionTopDown} already shows the detector position as observed by Google Earth. In figure \ref{fig:wylfaTraceStep1}, the buildings have had simple shapes overlaid on top of them with a corresponding key to highlight the buildings of interest. In figure \ref{fig:wylfaTraceStep2} these shapes are then offset to account for the building heights relative to the detector and the angle of the aerial photograph. The most obvious anchor point in figure \ref{fig:wylfaTraceStep2} being the top left of the main reactor building which determines the position of most of the other buildings. The turbine hall offset is slightly different. Finally, the connecting lines and the background aerial photo from figure \ref{fig:wylfaTraceStep2} are removed to produce figure \ref{fig:wylfaTraceStep4}, producing the final clean trace. In figures \ref{fig:wylfaTraceStep1}  -- \ref{fig:wylfaTraceStep4} the size of the reactor core area is roughly inferred from private communications to be a cylinder with a diameter of $\sim$ 25\,m including both the reactor core and reactor core shielding. This inference is later corroborated with measurements from the Wylfa data set. 
+In order to determine any shadows present at the reactor site the detector position relative to any buildings that block cosmic mu needs to be determined. Figure \ref{subFig:DetectorPositionTopDown} already shows the detector position as observed by Google Earth. In figure \ref{subFig:wylfaTraceStep1}, the buildings have had simple shapes overlaid on top of them with a corresponding key to highlight the buildings of interest. In figure \ref{subFig:wylfaTraceStep2} these shapes are then offset to account for the building heights relative to the detector and the angle of the aerial photograph. The most obvious anchor point in figure \ref{subFig:wylfaTraceStep2} being the top left of the main reactor building which determines the position of most of the other buildings. The turbine hall offset is slightly different. Finally, the connecting lines and the background aerial photo from figure \ref{subFig:wylfaTraceStep2} are removed to produce figure \ref{fig:wylfaTraceStep4}, producing the final clean trace. In figures \ref{subFig:wylfaTraceStep1}  -- \ref{fig:wylfaTraceStep4} the size of the reactor core area is roughly inferred from private communications to be a cylinder with a diameter of $\sim$ 25\,m including both the reactor core and reactor core shielding. This inference is later corroborated with measurements from the Wylfa data set. 
+
 
 \begin{figure}[!h]
- \centering
- \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaTraceStep1.png}
- \captionof{figure}{A basic trace on top of figure \ref{fig:wylfaAir}. Basic shapes are overlaid on top of the buildings at Wylfa.} 
- \label{fig:wylfaTraceStep1}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter6/Figs/wylfaTraceStep1NoLeg.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:wylfaTraceStep1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+\includegraphics[width=\linewidth]{Chapter6/Figs/wylfaTraceStep2NoLeg.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:wylfaTraceStep2}
+\end{subfigure}
+\caption{(a) a basic trace on top of figure \ref{subFig:DetectorPositionTopDown}. Basic shapes are overlaid on top of the buildings at Wylfa. In (b) the trace is adjusted to take the overhead camera's position into account by taking the base of the buildings and moving the trace towards the base of the buildings. The key is shown in figure \ref{fig:wylfaTraceStep4}.}
+\label{fig:wylfaTraceSteps1-2}
 \end{figure}
 
-\begin{figure}[!h]
- \centering
- \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaTraceStep2.png}
- \captionof{figure}{Figure \ref{fig:wylfaTraceStep1} with the trace adjusted to take the overhead camera's position into account. By taking the base of the buildings and moving the trace towards the base of the buildings.} 
- \label{fig:wylfaTraceStep2}
-\end{figure}
+% \begin{figure}[!h]
+%  \centering
+%  \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaTraceStep1.png}
+%  \captionof{figure}{A basic trace on top of figure \ref{subFig:DetectorPositionTopDown}. Basic shapes are overlaid on top of the buildings at Wylfa.} 
+%  \label{fig:wylfaTraceStep1}
+% \end{figure}
+
+% \begin{figure}[!h]
+%  \centering
+%  \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaTraceStep2.png}
+%  \captionof{figure}{Figure \ref{fig:wylfaTraceStep1} with the trace adjusted to take the overhead camera's position into account. By taking the base of the buildings and moving the trace towards the base of the buildings.} 
+%  \label{fig:wylfaTraceStep2}
+% \end{figure}
 
 % \begin{figure}[!h]
 %  \centering
@@ -298,7 +319,7 @@ In order to determine any shadows present at the reactor site the detector posit
 \begin{figure}[!h]
  \centering
  \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaTraceStep4.png}
- \captionof{figure}{Figure \ref{fig:wylfaTraceStep2} with the overlapping lines and aerial photography from Google Earth removed to produce the final trace.}
+ \captionof{figure}{Figure \ref{subFig:wylfaTraceStep2} with the overlapping lines and aerial photography from Google Earth removed to produce the final trace.}
  \label{fig:wylfaTraceStep4}
 \end{figure}
 
@@ -306,7 +327,7 @@ Now that figure \ref{fig:wylfaTraceStep4} has been produced and the features of 
 
 \begin{figure}[!h]
  \centering
- \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/3000ExampleEventWithKey.png}
+ \includegraphics[width=\linewidth]{Chapter6/Figs/newExampleEventWylfa.png}
  \captionof{figure}{An example event from the Wylfa data set with a corresponding key showing how the colour coding relates to the channels. The dashed line represents the fit.} 
  \label{fig:3000ExampleEventWithKey}
 \end{figure}
@@ -331,7 +352,7 @@ Now that figure \ref{fig:wylfaTraceStep4} has been produced and the features of 
 \label{fig:wylfaSideABHits}
 \end{figure}
 
-Once the fitter's potential bias has been addressed the $\phi$ and $\theta$ values can be analysed. Due to the high energy and highly penetrating nature of cosmic $\mu$ \cite{Olive_2014} the reactor buildings may not be dense enough to stop all incoming cosmic $\mu$. As a result, the shadows can only be seen with high statistics. However, the detector took cosmic $\mu$ data in accidental coincidence at the Wylfa site and this greatly limited the amount of data that could be gathered to $\sim$ 3 $\times$ 10$^6$ cosmic $\mu$ events. According to the CRY library, \cite{ieee_cry_2007} 162000 $\mu^-$ and 174000 $\mu^+$ are produced in 2820\,s for 1 m\,$^2$. The VIDARR prototype's top surface area is 1.52\,m $\times$ 1.52\,m = 2.31\,m$^2$ resulting in $\sim$ 275 $\mu$ s$^{-1}$. Therefore a data set of 3 $\times$ 10$^6$ cosmic $\mu$ events corresponds to $\sim$ 3 hours of live time. With a rate of 275 $\mu$ s$^{-1}$ the maximum time a fit should be allowed to take is 3600 microseconds for online track fitting which figure \ref{fig:wylfaTrackerTime} shows is the case for almost all events. Figure \ref{fig:wylfaTrackerTimeLog} takes figure \ref{fig:wylfaTrackerTime} and applies a log to the y axis showing that a very small fraction of events don't fit within the time limit of 3600 microseconds so a time selection criteria will be required for online track fitting. Whilst online track fitting was not required it is useful to know that the same tracker logic can be applied for both online calibration and full cosmic $\mu$ tomography by only adding a time and $\chi^2$ selection cut. 
+Once the fitter's potential bias has been addressed the $\phi$ and $\theta$ values can be analysed. Due to the high energy and highly penetrating nature of cosmic $\mu$ \cite{Olive_2014} the reactor buildings may not be dense enough to stop all incoming cosmic $\mu$. As a result, the shadows can only be seen with high statistics. However, the detector took cosmic $\mu$ data in accidental coincidence at the Wylfa site and this greatly limited the amount of data that could be gathered to $\sim$ 3 $\times$ 10$^6$ cosmic $\mu$ events. According to the CRY library, \cite{ieee_cry_2007} 162000 $\mu^-$ and 174000 $\mu^+$ are produced in 2820\,s for 1 m\,$^2$. The VIDARR prototype's top surface area is 1.52\,m $\times$ 1.52\,m = 2.31\,m$^2$ resulting in $\sim$ 275 $\mu$ s$^{-1}$. Therefore a data set of 3 $\times$ 10$^6$ cosmic $\mu$ events corresponds to $\sim$ 3 hours of live time. With a rate of 275 $\mu$ s$^{-1}$ the maximum time a fit should be allowed to take is 3600 microseconds for online track fitting which figure \ref{subFig:wylfaTrackerTime} shows is the case for almost all events. Figure \ref{subFig:wylfaTrackerTimeLog} takes figure \ref{subFig:wylfaTrackerTime} and applies a log to the y axis showing that a very small fraction of events don't fit within the time limit of 3600 microseconds so a time selection criteria will be required for online track fitting. Whilst online track fitting was not required it is useful to know that the same tracker logic can be applied for both online calibration and full cosmic $\mu$ tomography by only adding a time and $\chi^2$ selection cut. 
 
 \begin{figure}[!h]
 \centering
@@ -388,7 +409,7 @@ Figure \ref{fig:wylfaCircular0-37.5Deg_Overlay} also shows the limitation of thi
  \label{fig:sideBySideComparisonTopDownCirc}
 \end{figure}
 
-A way to solve the issue of bin migration was highlighted in section \ref{sec:cosmicMuTelescopes} which is to use the transmission method the MU-RAY collaboration have done in figure \ref{fig:mtVesuviusMuRayTransmission} \cite{Ambrosino_2014}. In order for this to work  another data set that reconstructs the whole hemisphere in $\phi$ and $\theta$ is required. It might be possible to use simulated cosmic data to achieve this result however it won't take into account the atmospheric scattering properly (As will be shown in section \ref{sec:usingSimulatedDataAsControlData}). The best approach would be to use measured data in the same location after the demolition of the Wylfa buildings, but as that will take decades this is infeasible. Instead, measured data was taken at Liverpool from 2016 -- 2018 which produced figure \ref{fig:pVsTLiverpoolReversed}. There are some shadows in the Liverpool data specifically from the accelerator hall at low angles of $\theta$ from 0$^\circ$ -- 17.5 $^\circ$ which is shown in figure \ref{fig:liverpoolShadows}. However, once those angles are removed from the data set it serves as a useful control as there is minimal cosmic $\mu$ sky blockage. When checking for any potential bias in the Liverpool data set none is visible in either side as shown in figure \ref{fig:liverpoolSideABHits}. 
+A way to solve the issue of bin migration was highlighted in section \ref{sec:murayTomographyAndTransmissionMethod} which is to use the transmission method the MU-RAY collaboration have done in figure \ref{fig:mtVesuviusMuRayTransmission} \cite{Ambrosino_2014}. In order for this to work  another data set that reconstructs the whole hemisphere in $\phi$ and $\theta$ is required. It might be possible to use simulated cosmic data to achieve this result however it won't take into account the atmospheric scattering properly (As will be shown in section \ref{sec:usingSimulatedDataAsControlData}). The best approach would be to use measured data in the same location after the demolition of the Wylfa buildings, but as that will take decades this is infeasible. Instead, measured data was taken at Liverpool from 2016 -- 2018 which produced figure \ref{fig:pVsTLiverpoolReversed}. There are some shadows in the Liverpool data specifically from the accelerator hall at low angles of $\theta$ from 0$^\circ$ -- 17.5 $^\circ$ which is shown in figure \ref{fig:liverpoolShadows}. However, once those angles are removed from the data set it serves as a useful control as there is minimal cosmic $\mu$ sky blockage. When checking for any potential bias in the Liverpool data set none is visible in either side as shown in figure \ref{fig:liverpoolSideABHits}. 
 
 \begin{figure}[!h]
 \centering
@@ -436,7 +457,7 @@ When taking figure \ref{fig:pVsTWylfaReversed} (the Wylfa data) and dividing it 
  \label{fig:measuredTrackerReconNoLines}
 \end{figure}
 
-The simulation previously mentioned in chapter \ref{chp:GEANT4Simulation} has the detector as the centre of the simulation world in the $x$ and $y$ and put the detector on the floor at  $z = 0 $. As such all of the reactor buildings need to be positioned relative to the detector and also placed at $z = 0$. The Wylfa trace seen in figure \ref{fig:wylfaTraceStep4} can be approximated by having simple shapes placed on top of the trace as seen in figure \ref{fig:simulatedPositions} which also shows the positions in $x$ and $y$ relative to the detector. Then is also done for the widths and depths of the buildings as well (figure \ref{fig:simulatedWidthsDepths}). Finally, the heights have to be approximated. This is difficult due to the distortion tops of buildings are subject to as part of projecting a comic hemisphere distribution onto a cuboid. In addition, distance, height, building shape and construction are all combined into a single measurement. This is the main reason the building widths are intuited from Google Earth rather than from measured data. Sadly no information pertaining to heights has been preserved It is tempting to use the measurements of $\theta$ to produce reconstructions of the heights via equation \ref{equ:tanHeightEquation} with the lengths provided by Google Earth. But this approach has two key assumptions: 1. perfectly solid uniform buildings 2. minimal scattering of cosmic $\mu$. Assumption 1 is known to be inaccurate from figure \ref{fig:wylfaReactorRoughStructure}. Assumption 2 is asinine considering the high Z values and densities used in the construction of the reactor buildings. As a result, it is best to use the estimates provided by equation \ref{equ:tanHeightEquation} and then edit the heights in the simulation to roughly match the shadow shapes seen in figure \ref{fig:measuredTrackerReconNoLines}. The resultant heights are shown in figure \ref{fig:simulatedHeights}. Ideally, the heights in the simulation would be resolved by going on-site and taking detailed measurements. Due to the decommissioning currently taking place at the Wylfa site, this is not possible. %which is done by adjusting the simulated heights until the heights in figure \ref{fig:simulatedHeights} are produced.
+The simulation previously mentioned in chapter \ref{chp:GEANT4Simulation} has the detector as the centre of the simulation world in the $x$ and $y$ and put the detector on the floor at  $z = 0 $. As such all of the reactor buildings need to be positioned relative to the detector and also placed at $z = 0$. The Wylfa trace seen in figure \ref{fig:wylfaTraceStep4} can be approximated by having simple shapes placed on top of the trace as seen in figure \ref{fig:simulatedPositions}. Figure \ref{fig:simulatedPositions} also clearly labels each major building box, the positions for each box and in x and y and the widths and depths are approximated from this figure and are seen in table \ref{tab:simulatedBuildingPositions}. Finally, the heights have to be approximated. This is difficult due to the distortion tops of buildings are subject to as part of projecting a comic hemisphere distribution onto a cuboid. In addition, distance, height, building shape and construction are all combined into a single measurement. This is the main reason the building widths are intuited from Google Earth rather than from measured data. Sadly no information pertaining to heights has been preserved It is tempting to use the measurements of $\theta$ to produce reconstructions of the heights via equation \ref{equ:tanHeightEquation} with the lengths provided by Google Earth. But this approach has two key assumptions: 1. perfectly solid uniform buildings 2. minimal scattering of cosmic $\mu$. Assumption 1 is known to be inaccurate from figure \ref{fig:wylfaReactorRoughStructure}. Assumption 2 is asinine considering the high Z values and densities used in the construction of the reactor buildings. As a result, it is best to use the estimates provided by equation \ref{equ:tanHeightEquation} and then edit the heights in the simulation to roughly match the shadow shapes seen in figure \ref{fig:measuredTrackerReconNoLines}. The approximate heights and z positions are also shown in table \ref{tab:simulatedBuildingPositions}. Ideally, the heights in the simulation would be resolved by going on-site and taking detailed measurements. Due to the decommissioning currently taking place at the Wylfa site, this is not possible. Appendix \ref{appenC:ReactorBuildingEdges} contains the remaining building boxes simulated, the boxes which are used to emulate the distinctive ``dog bone'' shape of the main reactor building at Wylfa.
 
 \begin{equation}
 H = \frac{L}{\tan{\theta}}
@@ -446,7 +467,7 @@ H = \frac{L}{\tan{\theta}}
  \begin{figure}[!h]
  \centering
  \includegraphics[width=0.8\linewidth]{Chapter6/Figs/Raster/simulatedAnotatedBuildings.png}
- \captionof{figure}{The Wylfa trace (figure \ref{fig:wylfaTraceStep4}) with boxes overlaid to recreate the buildings of interest and circles to represent the reactor cores. The scale from the Wylfa trace (top right) is used to give the buildings the correct positions and dimensions in GEANT4 a full list of which can be seen in \ref{tab:simulatedBuildingPositions}. The full list of which can be seen in table \ref{tab:simulatedBuildingPositions}.} 
+ \captionof{figure}{The Wylfa trace (figure \ref{fig:wylfaTraceStep4}) with boxes overlaid to recreate the buildings of interest and circles to represent the reactor cores. The scale from the Wylfa trace (top right) is used to give the buildings the correct positions and dimensions in GEANT4 a full list of which can be seen in \ref{tab:simulatedBuildingPositions}. The edges for the ``dog bone'' shape are shown in appendix \ref{appenC:ReactorBuildingEdges}.} 
  \label{fig:simulatedPositions}
 \end{figure}
 
@@ -648,14 +669,14 @@ Fitting the $\phi$ and $\theta$ distribution yield inaccurate fits which is unsu
 \centering
 \begin{minipage}{.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/fittingPhiWithDead.png}
+  \includegraphics[width=\linewidth]{Chapter6/phiFittedNewProportions.png}
   \captionof{figure}{Double Gaussian fitted to the reconstructed tracker $\phi$ values when simulating $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$ exclusively. The $\chi^2$/DOF is 181.31 showing a poor fit which is largely due to segmentation effects. signal mean = 136.288, signal $\sigma$ 0.728, noise mean = 140.101, noise $\sigma$ 7.819.} 
   \label{fig:fittingPhiWithDead}
 \end{minipage}%
 \qquad
 \begin{minipage}{.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/fittingThetaWithDead.png}
+  \includegraphics[width=\linewidth]{Chapter6/thetaFittedNewProportions.png}
   \captionof{figure}{Double Gaussian fitted to the reconstructed tracker $\theta$ values when simulating $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$ exclusively. The $\chi^2$/DOF is 172.758 showing a poor fit which is largely due to segmentation effects. Signal mean = 45.1275, signal $\sigma$ = 0.3524, noise mean = 46.8153, noise $\sigma$ = 1.6294.}
   \label{fig:fittingThetaWithDead}
 \end{minipage}
@@ -687,84 +708,120 @@ It is possible to mitigate the effect of these corner clipping events by requiri
 
 \begin{figure}[!h]
  \centering
- \includegraphics[width=\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/20CutRatioWylfaDivLiv.png}
- \captionof{figure}{How the ratio of the Liverpool and Wylfa data sets looks when a 20 bar cut per side is used. Instead of a 4 bar cut (See figures \ref{fig:measuredTrackerReconNoLines} and \ref{fig:measuredTrackerRecon}). The shadows for both the turbine hall (centred around $\phi$ = 270$^\circ$) and reactor buildings (centred around $\phi$ = 90 $^\circ$) are less accurately resolved now. Despite the more accurate angle reconstruction, the number of side on events has been greatly reduced and as those are the most useful events for this tomography the outlines have greatly degraded. \hl{This plot needs to be redone to match the others like it}.}
+ \includegraphics[width=\linewidth]{Chapter6/Figs/simulatedMeasuredCut20Bars.png}
+ \captionof{figure}{How the ratio of the Liverpool and Wylfa data sets looks when a 20 bar cut per side is used. Instead of a 4 bar cut (See figures \ref{fig:measuredTrackerReconNoLines} and \ref{fig:measuredTrackerRecon}). The shadows for both the turbine hall (centred around $\phi$ = 270$^\circ$) and reactor buildings (centred around $\phi$ = 90 $^\circ$) are less accurately resolved now. Despite the more accurate angle reconstruction, the number of side on events has been greatly reduced and as those are the most useful events for this tomography the outlines have greatly degraded.}
  \label{fig:20CutRatioWylfaDivLiv}
 \end{figure}
 
 \clearpage
 \section{Using Simulated Data as Control Data}\label{sec:usingSimulatedDataAsControlData}
-Another possible alternative to using the Liverpool data set as control is to use simulated data as a control data set. However, this has major limitations even when using a $\theta$ distribution which is derived from measured data (\hl{probably better to use CRY distribution}). The overall $\theta$ distribution for simulated data can be seen in figure \ref{fig:mc_thetaOnly} which is a good approximation to the measured data in figure \ref{fig:measuredThetaWylfaLiverpool}. The overall $\phi$ and $\theta$ distribution for the simulated data can be seen in figure \ref{fig:mc_PvsT}. Providing the $\theta$ distribution is accurate and the GEANT4 simulation correctly models the atmospheric smearing this should only have detector and segmentation effects smearing the distribution. 
+Another possible alternative to using the Liverpool data set as control is to use simulated data as a control data set. However, this has major limitations even when using a $\theta$ distribution which is derived from measured data. The overall $\theta$ distribution for simulated data can be seen in figure \ref{fig:thetaGenRecoCryAndNorm} which is a good approximation to the measured data in figure \ref{fig:measuredThetaWylfaLiverpool}. The overall $\phi$ and $\theta$ distribution for the simulated data can be seen in figure \ref{fig:mc_PvsT}. Providing the $\theta$ distribution is accurate and the GEANT4 simulation correctly models the atmospheric smearing this should only have detector and segmentation effects smearing the distribution. 
+
+% \begin{figure}[!h]
+%  \centering
+%  \includegraphics[width=0.7\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/mc_theatOnly.png}
+%  \captionof{figure}{$\theta$ distribution from simulation using measured data and redistributing to account for potential reconstruction issues and using an exponential tail fit. \hl{This plot needs to be reversed and use the CRY distribution}}
+%  \label{fig:mc_thetaOnly}
+% \end{figure}
 
 \begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/mc_theatOnly.png}
- \captionof{figure}{$\theta$ distribution from simulation using measured data and redistributing to account for potential reconstruction issues and using an exponential tail fit. \hl{This plot needs to be reversed and use the CRY distribution}}
- \label{fig:mc_thetaOnly}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter6/Figs/thetaGenRecoCry.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:thetaGenRecoCry}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+\includegraphics[width=\linewidth]{Chapter6/Figs/thetaGenRecoCryNorm.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:thetaGenRecoCryNorm}
+\end{subfigure}
+\caption{The generated CRY $\theta$ distribution for an altitude of 0\,m (sea-level) and latitude of 53.4$^\circ$. This should make it an ideal control data set for both Liverpool and Wylfa. In (a) the generated and reconstructed are compared and in (b) the generated and reconstructed are normalised. The overall shape is very well preserved by the detector and tracker.}
+\label{fig:thetaGenRecoCryAndNorm}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/measuredThetaWylfa.png}
+  \includegraphics[width=\linewidth]{Chapter6/Figs/thetaWylfaLiverpoolNew.png}
   \captionsetup{width=.9\linewidth}
   \caption{}
-  \label{subFig:measuredThetaWylfa}
+  \label{subFig:measuredThetaWylfaLiv}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-\includegraphics[width=\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/measuredThetaLiverpool.png}
+\includegraphics[width=\linewidth]{Chapter6/Figs/thetaWylfaLiverpoolNewNorm.png}
   \captionsetup{width=.9\linewidth}
   \caption{}
-  \label{subFig:measuredThetaLiverpool}
+  \label{subFig:measuredThetaWylfaLivNorm}
 \end{subfigure}
-\caption{The measured $\theta$ distributions for Wylfa (shown in a) and Liverpool (shown in b) there's a peek at 60$^\circ$ in both and the overall reconstructed distributions look similar.}
+\caption{The measured $\theta$ distributions at Wylfa and Liverpool there are more statistics at Liverpool (visible in (a)) but when normalised it is clear how similar the two distributions are in (b).}
 \label{fig:measuredThetaWylfaLiverpool}
 \end{figure}
 
 \begin{figure}[!h]
  \centering
- \includegraphics[width=0.7\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/mc_PvsT.png}
- \captionof{figure}{$\phi$ and $\theta$ distribution for simulated data using the distribution for theta seen in figure \ref{fig:mc_thetaOnly}.\hl{plot needs to be reversed and needs to be redone with CRY distribution + reformatting}.}
+ \includegraphics[width=0.7\linewidth]{Chapter6/Figs/phiVsThetaCryReco.png}
+ \captionof{figure}{$\phi$ and $\theta$ distribution for simulated data using the distribution for theta seen in figure \ref{fig:thetaGenRecoCryAndNorm}.}
  \label{fig:mc_PvsT}
 \end{figure}
 
-However, the simulation can't quite account for all of the different effects shown by figure \ref{fig:WylfaToMCRatio} where the ratio between the simulated and the measured Wylfa data is taken. In figure \ref{fig:WylfaToMCRatio}, the bin migration is still obscuring the shadows quite significantly. It is possible to force the ratio plot to be between 0 and 2 which is done in figure \ref{fig:WylfaToMCRatio0-2}. When this is done it is possible to see the Wylfa shadows but the bin migration still makes it difficult to determine where the shadows for the turbine hall and reactor buildings separate. The same effect can be seen when taking the ratio between the simulated and measured Liverpool data in figures \ref{fig:LiverpoolToMCRatio} and \ref{fig:LiverpoolToMCRatio0-2} which clearly shows that the simulated distribution is struggling to act as a control data set. The amount of cosmic $\mu$ sky blockage is very minimal in the Liverpool data set but there is still a large discrepancy between that data set and the generated cosmic $\mu$ data set. As a result, the Liverpool data set is the preferred control data set to the generated GEANT4 data. 
+However, the simulation can't quite account for all of the different effects shown by figure \ref{fig:WylfaToMCRatio} where the ratio between the simulated and the measured Wylfa data is taken. In figure \ref{fig:WylfaToMCRatio}, the bin migration is still obscuring the shadows quite significantly. When this is done it is possible to see the Wylfa shadows but the bin migration still makes it difficult to determine where the shadows for the turbine hall and reactor buildings separate. The same effect can be seen when taking the ratio between the simulated and measured Liverpool data in figures \ref{fig:LiverpoolToMCRatio}. The amount of cosmic $\mu$ sky blockage is very minimal in the Liverpool data set but there is still a large discrepancy between that data set and the generated cosmic $\mu$ data set. As a result, the Liverpool data set is the preferred control data set to the generated GEANT4 data. 
+\\\\ In figure \ref{fig:WylfaToMCRatio} some of the Wylfa shadows are visible. The service tower between $\phi$ values of 90$^\circ$ -- 150$^\circ$is slightly visible but it is faint. The reactor core / reactor core shielding is still visible however between $\phi$ values of 50$^\circ$ -- 90$^\circ$. This is useful as the reactor core shadow is the only shadow completely hidden by other shadows as the reactor core is in the main reactor building. This is highly encouraging as it shows the method using the Liverpool data set as a control is most likely accurate as the shadow for the reactor core can be independently verified. The distribution difference between the Liverpool and the generated GEANT4 data set seen in figure \ref{fig:LiverpoolToMCRatio} is difficult to resolve. The difference in scattering and showering would require potentially a full atmospheric simulation. Considering the amount of atmosphere that would need to be simulated this is largely infeasible. Whilst CRY has made good approximations from measured data and is very close to measured data (as shown by comparing \ref{subFig:thetaGenRecoCryNorm} and \ref{subFig:measuredThetaWylfaLivNorm}) more detailed simulations and potentially differing physics lists may be required to produce simulated distributions which serve as effective control data sets. The extent of which cannot be achieved within a reasonable time scale for this project. Never the less this remains an interesting avenue for future work. 
 
 \begin{figure}[!h]
-\centering
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/WylfaToMCRatio.png}
-  \captionof{figure}{Ratio of Wylfa to GEANT4 simulated data the bin migration hides the shadows \hl{Needs to be redone with Cry Distribution + reformatting}} 
-  \label{fig:WylfaToMCRatio}
-\end{minipage}%
-\qquad
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/WylfaToMCRatio0-2.png}
-  \captionof{figure}{Ratio of Wylfa to GEANT4 simulated data restricted to a maximum of 2 the bin migration still causes the tops of the shadows to be difficult to determine. \hl{Needs to be redone with Cry Distribution + reformatting}}
-  \label{fig:WylfaToMCRatio0-2}
-\end{minipage}
+ \centering
+ \includegraphics[width=0.8\linewidth]{Chapter6/Figs/cryWylfaRatioPvsT_adjusted.png}
+ \captionof{figure}{The ratio of $\phi$ and $\theta$ of the Wylfa data set against the generated normalised GEANT4 data set (see figure \ref{fig:mc_PvsT}). The turbine hall is no longer visible, the service tower is still partially visible between $\phi$ values 90$^\circ$ -- 150$^\circ$. But the reactor core area between $\phi$ values of 50$^\circ$ -- 90$^\circ$ is still clearly visible. }
+ \label{fig:WylfaToMCRatio}
 \end{figure}
 
 \begin{figure}[!h]
-\centering
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/LiverpoolToMCRatio.png}
-  \captionof{figure}{Ratio of Liverpool to GEANT4 simulated data the bin migration dominates \hl{Needs to be redone with Cry Distribution + reformatting}.} 
-  \label{fig:LiverpoolToMCRatio}
-\end{minipage}%
-\qquad
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/LiverpoolToMCRatio0-2.png}
-  \captionof{figure}{Ratio of the Liverpool to GEANT4 simulated data restricted to a maximum of 2. Unexpected areas below blocked incidence of 1 are visible even though there is nothing at the Liverpool site that could cause such shadows to occur. \hl{Needs to be redone with Cry Distribution + reformatting}.}
-  \label{fig:LiverpoolToMCRatio0-2}
-\end{minipage}
+ \centering
+ \includegraphics[width=0.8\linewidth]{Chapter6/Figs/cryLiverpoolRatioPvsT_adjusted.png}
+ \captionof{figure}{The ratio of $\phi$ and $\theta$ of the Liverpool data set against the generated normalised GEANT4 data set (see figure \ref{fig:mc_PvsT}). There are no clear shadows. There is a large difference between the generated data set and measured data set. This is likely due to the difference in scattering between GEANT4 and the actual scattering.}
+ \label{fig:LiverpoolToMCRatio}
 \end{figure}
+
+
+% \begin{figure}[!h]
+% \centering
+% \begin{minipage}{.45\textwidth}
+%   \centering
+%   \includegraphics[width=\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/WylfaToMCRatio.png}
+%   \captionof{figure}{Ratio of Wylfa to GEANT4 simulated data the bin migration hides the shadows \hl{Needs to be redone with Cry Distribution + reformatting}} 
+%   \label{fig:WylfaToMCRatio}
+% \end{minipage}%
+% \qquad
+% \begin{minipage}{.45\textwidth}
+%   \centering
+%   \includegraphics[width=\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/WylfaToMCRatio0-2.png}
+%   \captionof{figure}{Ratio of Wylfa to GEANT4 simulated data restricted to a maximum of 2 the bin migration still causes the tops of the shadows to be difficult to determine. \hl{Needs to be redone with Cry Distribution + reformatting}}
+%   \label{fig:WylfaToMCRatio0-2}
+% \end{minipage}
+% \end{figure}
+
+% \begin{figure}[!h]
+% \centering
+% \begin{minipage}{.45\textwidth}
+%   \centering
+%   \includegraphics[width=\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/LiverpoolToMCRatio.png}
+%   \captionof{figure}{Ratio of Liverpool to GEANT4 simulated data the bin migration dominates \hl{Needs to be redone with Cry Distribution + reformatting}.} 
+%   \label{fig:LiverpoolToMCRatio}
+% \end{minipage}%
+% \qquad
+% \begin{minipage}{.45\textwidth}
+%   \centering
+%   \includegraphics[width=\linewidth]{Chapter5/Figs/UsingSimulatedDataAsControl/LiverpoolToMCRatio0-2.png}
+%   \captionof{figure}{Ratio of the Liverpool to GEANT4 simulated data restricted to a maximum of 2. Unexpected areas below blocked incidence of 1 are visible even though there is nothing at the Liverpool site that could cause such shadows to occur. \hl{Needs to be redone with Cry Distribution + reformatting}.}
+%   \label{fig:LiverpoolToMCRatio0-2}
+% \end{minipage}
+% \end{figure}
 
 % Cosmic $\mu$ tomography is split into two distinct types two sided and one sided. Two sided cosmic $\mu$ is preferred if it is feasible this is because both attenuation and scattering can be measured when using this technique. The effect of the cosmic $\mu$ scattering can be seen in figure \ref{fig:twoSidedCosmicMuonTomographySchults} the cosmic $\mu$ which travel through the dense object will scatter more than the cosmic $\mu$ that don't. By making coincident measurements of the cosmic $\mu$ it is possible to find vertices using this method. This method is extremely powerful but can only be used for smaller objects in most cases. 
 % \\\\ For larger objects one sided cosmic $\mu$ tomography has to be used. An example of what one sided cosmic $\mu$ tomography looks like can be seen in figure \ref{fig:oneSidedCosmicMuonExample} when there is an object that can attenuate cosmic $\mu$ then the number of cosmic $\mu$ will decrease in the direction of the object being imaged. This method cannot measure scattering or vertices however that is still sufficient in many cases such as the imaging done by the DIAPHANE collaboration seen in figure  \ref{fig:diaphaneStructualImaging}. Which uses 4 different locations to image the La Soufriere of Guadeloupe dome and measure the density for volcanic observations \cite{Marteau_2017}.

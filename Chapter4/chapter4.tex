@@ -13,7 +13,7 @@
 \section{GEANT4 Overview}\label{sec:GEANT4Simulation_g4Overview}
 The VIDARR detector is represented in a GEANT4 simulation which is a provident physics simulation package. According to the GEANT4 collaboration GEANT4 ``covers a comprehensive range including electromagnetic, hadronic and optical processes and a large set of long-lived particles materials and elements over a wide energy range starting in some cases from 250\,eV and extending in others to the TeV range'' \cite{Agostinelli:2002hh}. Considering that the energy range for IBD is $\sim$ 1.8\,MeV -- $\sim$ 8.5\,MeV \cite{Mueller_2011} this simulation package meets the needs of the VIDARR collaboration. IBD produces e$^+$ and neutrons (see equation \ref{inverse_beta_decay}) whilst the simulation of e$^+$ is reasonably straight forward the simulation of the neutrons is more complex. This is due to the gadolinium sulphate sheets that capture the neutrons and emit an 8\,MeV $\gamma$ cascade. The Gadolinium cascade is hard to model accurately due to the high energies and number of nucleons involved ($>$ 150).
 \\\\The simulation has several distinct modes: cosmic $\mu$, Dark noise, background, and inverse $\beta$ decay. The cosmic model has a realistic distribution \hl{Should be replaced with CRY distribution} and a cosmic hemisphere distribution. The cosmic hemisphere distribution is used to determine any bais in the comic tracker which reconstructs cosmic $\mu$ events. In all other cases, the realistic cosmic distribution is used when simulating cosmic $\mu$. The background distributions are random uniform distributions from 0 -- 10\,MeV simulating which cover $p$,$\bar{p}$,$\pi^+$,$\pi^-$,$e^-$,$e^+$, $\alpha$,$\bar{\alpha}$,$n$. The IBD simulation is done by simulating a positron between 0 - 10\,MeV and then simulating at $\sim$ 10 $\mu$ later a neutron. The range 0\,MeV -- 10\,MeV is used instead of 1.8\,MeV -- 8.5\,MeV for more robust fitting and identification of edge cases.
-\\\\An example of a simulated IBD event can be seen in figure \ref{fig:simultaedIbdEvent}, the simulation produces a e$^+$ and neutron simultaneously it does not simulate the $\bar{\nu_e}$ interaction with matter. This is not a major constraint as this is the signal that the detector measures but it does mean that the $\bar{\nu_e}$ rate is not modelled by the simulation. The times for the generated neutron to complete its random walk through the detector + the time taken for the Gadolinium sheets in-between the segments to absorb the neutron + the time taken for the cascade to occur is shown in figure \ref{fig:delayedIbdTimes}. Whilst the tail in figure \ref{fig:delayedIbdTimes} extends to 1e5\,ns (100\,$\mu$) but 99.9\,\%+ of the time the neutron walk and capture happens before 100\,ns as shown by figure \ref{fig:delayedIbdTimesZoom}.
+\\\\An example of a simulated IBD event can be seen in figure \ref{fig:simultaedIbdEvent}, the simulation produces a e$^+$ and neutron simultaneously it does not simulate the $\bar{\nu_e}$ interaction with matter. This is not a major constraint as this is the signal that the detector measures but it does mean that the $\bar{\nu_e}$ rate is not modelled by the simulation. The times for the generated neutron to complete its random walk through the detector + the time taken for the Gadolinium sheets in-between the segments to absorb the neutron + the time taken for the cascade to occur is shown in figure \ref{fig:delayedIbdTimes}. It is possible for the neutron absorption to take up to 100 $\mu$s when simulating a kinetic energy of 10\,keV. A kinetic energy of 10\,keV is a reasonable assumption when considering the work of Vogel and Beacom \cite{Vogel_1999}. 
 
 \begin{figure}[!h]
  \centering
@@ -24,19 +24,10 @@ The VIDARR detector is represented in a GEANT4 simulation which is a provident p
 
 \begin{figure}[!h]
 \centering
-\begin{minipage}{.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/delayedIbdTimes.png}
-  \captionof{figure}{The time taken for the neutron from the simulated $\bar{\nu_e}$ inverse $\beta$ decay event to be thermalised and be absorbed by the Gadolinium sheets in the simulated VIDARR detector. The tail is extremely long, lasting 1E5\,ns (100\,$\mu$) after the initial peak.} 
+  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/neutron10KeVAbsoptionTimes.png}
+  \captionof{figure}{The time taken for the neutron from the simulated $\bar{\nu_e}$ inverse $\beta$ decay event to be thermalised and be absorbed by the Gadolinium sheets in the simulated VIDARR detector. Assuming a kinetic energy of 10KeV for the neutonrs leading to a flat distribution from 0 -- 1E5 ns (0-100\,$\mu$s).} 
   \label{fig:delayedIbdTimes}
-\end{minipage}%
-\qquad
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/delayedIbdTimesZoom.png} 
-  \captionof{figure}{Figure \ref{fig:delayedIbdTimes} but with the x-axis restricted to 1000\,ns and the y-axes no longer on a log scale. This is done to show that above 99.9\,\% of the events are captured before 100\,ns.}
-  \label{fig:delayedIbdTimesZoom}
-\end{minipage}
 \end{figure}
 
 \section{Modelling The Mass Increase}
@@ -293,14 +284,14 @@ The plastic scintillating bars of the VIDARR detector are extruded at Fermilab a
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/lengthOnViewBarMuon1530By720.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Length ways view.}
+  \caption{}
   \label{subFig:lengthOnViewBarMuon1530Square}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/sideOnViewBarMuon1530By720.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Side on view.}
+  \caption{}
   \label{subFig:sideOnViewBarMuon8}
 \end{subfigure}
 \caption{How a 20\,MeV $\mu$ particle penetrates through the coating and scintillator it is offset to ensure the effect from the TiO$_2$ coating is being correctly observed. The top down view (x,y) is shown in (a). The side on view (x,z) is shown in (b).}
@@ -353,7 +344,7 @@ The dark noise has two distinct components: the peaks, and the background surrou
 \label{fig:fitting_of_non_peak_dark_noise}
 \end{figure}
 
-The results from figure \ref{fig:fitting_of_non_peak_dark_noise} can then be used to construct a cumulative probability distribution seen in figure \ref{fig:cumulative_prob_dark}. This probability distribution is what the simulation reads to reconstruct the dark noise distribution. During the simulation, a random dice is thrown and that probability is then converted back into a dark noise value which is then assigned to a random bar in the detector. Values past 13.7\,mV use the exponential fit. These events extrapolate directly from the exponential fit instead of reading from the probability distribution for more realistic results. The dark noise produced for 1 bar in simulation for 1E6 events is shown in figure \ref{individualDarkNoiseOld}. 
+The results from figure \ref{fig:fitting_of_non_peak_dark_noise} can then be used to construct a cumulative probability distribution seen in figure \ref{fig:cumulative_prob_dark}. This probability distribution is what the simulation reads to reconstruct the dark noise distribution. During the simulation, a random dice is thrown and that probability is then converted back into a dark noise value which is then assigned to a random bar in the detector. Values past 13.7\,mV use the exponential fit. These events extrapolate directly from the exponential fit instead of reading from the probability distribution for more realistic results. The dark noise produced for a full detector over 1E6 events is shown in figure \ref{fig:individualDarkNoiseOld}. 
 
 \begin{figure}[!h]
 \centering
@@ -629,8 +620,8 @@ P(x) = \frac{1}{\sigma \sqrt[]{2 \pi}} \exp \left(-\frac{1}{2}\left(\frac{x-\ove
 
 \begin{figure}[!h]
  \centering
- \includegraphics[width=0.7\linewidth]{countingStats10.png}
- \captionof{figure}{Counting statistics for Poisson and normal distribution for an expectation value of 10 photons the normal distribution is used when the expectation value is $\geq$ 10 photons to save on computational load. \hl{plot could do with some prettying...}} 
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/poissionGaussian10Graph.png}
+ \captionof{figure}{Counting statistics for Poisson and normal distribution for an expectation value of 10 photons the normal distribution is used when the expectation value is $\geq$ 10 photons to save on computational load.} 
  \label{fig:CoutingStats10}
 \end{figure}
 
@@ -795,7 +786,7 @@ The energies of the $\gamma$ rays produced by the simulation are shown in figure
 
 \section{Machine Learning Neutron Trigger}\label{sec:MachineLearningTrigger}
 Using simulated data it is possible to test whether a machine learning trigger would be advantageous to the analysis. The machine learning technique considered the most appropriate was the Support Vector Machine (SVM) \cite{Boser92atraining} \cite{cortes1995support}. SVMs were compared to several other simple techniques typically used in physics namely a decision tree and k nearest neighbours (see figure \ref{fig:sklearnReleventExamples}). As seen in figure \ref{fig:sklearnReleventExamples} the SVM linearly or with a kernel. The radial basis function (RBF) kernel is one of the most common. In figure \ref{fig:sklearnReleventExamples} the generalised boundaries, high accuracy, and well-defined projection space seen in the RBF SVM make it the clear standout. The SVM utilises the RBF kernel via the kernel trick since at least 1992 \cite{Boser92atraining}. 
-\\\\SVMs work by finding the best separating hyperplane between two opposing data sets. In figure \ref{fig:svmBoser92LinearSVM} the best separating hyperplane is calculated for a simple data set. The SVM works by finding the maximum distance between each data set and creating an n-dimensional line the ``hyperplane'' to separate the data. In order to separate non-linear data the kernel trick is used which figure \ref{fig:svmBoser92KernelSVM} shows. Figure \ref{fig:svmBoser92KernelSVM} also shows how two different kernels achieve the same result. How the decision surface is manipulated to separate data sets is shown in figure \ref{fig:kernelRBF_fromWeB}. As figure \ref{fig:kernelRBF_fromWeB} shows the kernel transforms the data set so it becomes linearly separable for the SVM. A further test of the SVMS's capabilities is done in figure \ref{fig:svmExp_GausseExamples} which tests the separation of multiple Gaussian data sets from 2D exponential noise. This is as complex ass trigger data could reasonably be expected to be. This means that the SVM should be suitable for separating neutron trigger data. 
+\\\\SVMs work by finding the best separating hyperplane between two opposing data sets. In figure \ref{fig:svmBoser92LinearSVM} the best separating hyperplane is calculated for a simple data set. The SVM works by finding the maximum distance between each data set and creating an n-dimensional line the ``hyperplane'' to separate the data. In order to separate non-linear data the kernel trick is used which figure \ref{fig:kernelRBF_fromWeB} shows. Figure \ref{fig:kernelRBF_fromWeB} also shows how two different kernels achieve the same result. How the decision surface is manipulated to separate data sets is shown in figure \ref{fig:kernelRBF_fromWeB}. As figure \ref{fig:kernelRBF_fromWeB} shows the kernel transforms the data set so it becomes linearly separable for the SVM. A further test of the SVMS's capabilities is done in figure \ref{fig:svmExp_GausseExamples} which tests the separation of multiple Gaussian data sets from 2D exponential noise. This is as complex ass trigger data could reasonably be expected to be. This means that the SVM should be suitable for separating neutron trigger data. 
 \\\\An SVM is also convexly optimised which means the solutions are easier to solve as there is only one global minimum \cite{cortes1995support}. This feature allows SVMs to train on sparse data sets with low statistics. SVMs are fast to train on small data sets but as data sets grow larger the squared nature of the SVM solution increases training times dramatically \cite{cortes1995support}. This means that for data with many dimensions and many statistics training times and memory usage can be very high to the point of being unusable \cite{cortes1995support}. Data must also be completely labelled and optimisation for training whilst possible through sequential minimal optimisation is somewhat limited \cite{platt1998sequential}. These drawbacks are not a significant issue for the trigger data but they should be bared in mind for more complex cases such as image recognition.
  
 \begin{figure}[!h]
@@ -812,12 +803,12 @@ Using simulated data it is possible to test whether a machine learning trigger w
 \label{fig:svmBoser92LinearSVM}
 \end{figure}
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/svmBoser92KernelSVM.png}
-\captionof{figure}{How a support vector machine (SVM) operates with a kernel being applied using a squared polynomial kernel on the left and a radial basis function (RBF) on the right. By using the ``kernel trick'' it is possible to separate non-linear data. From \cite{Boser92atraining}.} 
-\label{fig:svmBoser92KernelSVM}
-\end{figure}
+% \begin{figure}[!h]
+% \centering
+% \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/svmBoser92KernelSVM.png}
+% \captionof{figure}{How a support vector machine (SVM) operates with a kernel being applied using a squared polynomial kernel on the left and a radial basis function (RBF) on the right. By using the ``kernel trick'' it is possible to separate non-linear data. From \cite{Boser92atraining}.} 
+% \label{fig:svmBoser92KernelSVM}
+% \end{figure}
 
 \begin{figure}[!h]
 \centering
@@ -832,21 +823,21 @@ Using simulated data it is possible to test whether a machine learning trigger w
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/adjustedSvmPlots/adjusted_exp_2GaussExample.png}
   \captionsetup{width=.9\linewidth}
-  \caption{How LIBSVM draws boundaries around complex signal and noise data sets with an RBF kernel. Support vectors are highlighted in orange.}
+  \caption{}
   \label{subFig:svmExp_2GausseExample}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/adjustedSvmPlots/adjusted_exp_2NysGaussExample.png}
   \captionsetup{width=.9\linewidth}
-  \caption{How LIBLINEAR draws boundaries around complex signal and noise sets with a Nystrom approximation of the RBF kernel with a sampling of 100.}
+  \caption{}
   \label{subFig:exp_2NysGaussExample}
 \end{subfigure}
-\caption{SVM examples showing how to separate data sets with two Gaussian signals (blue) from exponential noise (red). For both an RBF kernel was used with c = 1e4 and $\gamma$ = 1.}
+\caption{SVM examples showing how to separate data sets with two Gaussian signals (blue) from exponential noise (red). For both an RBF kernel was used with c = 1e4 and $\gamma$ = 1. In (a) LIBSVM is used with an RBF kernel and support vectors are highlighted in orange. In (b) LIBLINEAR is used with a Nystrom approximation of the RBF kernel with a sample of 100.}
 \label{fig:svmExp_GausseExamples}
 \end{figure}
 
-Figures \ref{fig:sklearnReleventExamples} \ref{fig:svmBoser92LinearSVM} \ref{fig:svmBoser92KernelSVM} \ref{fig:kernelRBF_fromWeB} \ref{fig:svmExp_GausseExamples} are sufficient reason to believe that an SVM with an RBF kernel should be a suitable classifier for separating trigger data that only has four dimensions. The four dimensions that need to be optimised are: the summed energy above a threshold of 1.5\,PE (0.06\,MeV), summed energy above a threshold of 12.5\,PE (0.5\,MeV), Numbers of bars hit above a threshold of 1.5\,PE (0.06\,MeV), Numbers of bars hit above threshold 12.5\,PE (0.5\,MeV). The libraries used were LIBSVM and LIBLINEAR both of which are highly provident and often cited as the reason for the SVMs gain in popularity \cite{chang2011libsvm} \cite{fan2008liblinear} \cite{murty2016support}. The wrapper in sci-kit learn was the preferred method due to its ease of use and its convenient application of the Nystrom approximation \cite{williams2001using} of the kernel. The Nystroem approximation is useful as the amount of computation required for a complete kernel SVMs scales $\sim$ O (n$^3$) where n is the number of training examples \cite{williams2001using}. By using a sample of size m to compute an approximation of the kernel the amount of computation required scales $\sim$ O (m$^2$n) instead \cite{williams2001using}. This approach will work even when m $\ll$ n \cite{williams2001using}. The example data shown in figure \ref{fig:svmExp_GausseExamples} shows how LIBLINEAR when combined with with an RBF Nystroem approximated kernel performs in comparison to LIBSVM with a complete RBF kernel the boundaries are very similar. From this point, the LIBLINEAR library and the Nystroem approximation will be used to speed up training and to prevent memory overflow which can happen when the SVM isn't converging and when large data sets are used. The simulated data set has 1 million neutron signal events and 4 million background events.
+Figures \ref{fig:sklearnReleventExamples} \ref{fig:svmBoser92LinearSVM} \ref{fig:kernelRBF_fromWeB} \ref{fig:kernelRBF_fromWeB} \ref{fig:svmExp_GausseExamples} are sufficient reason to believe that an SVM with an RBF kernel should be a suitable classifier for separating trigger data that only has four dimensions. The four dimensions that need to be optimised are: the summed energy above a threshold of 1.5\,PE (0.06\,MeV), summed energy above a threshold of 12.5\,PE (0.5\,MeV), Numbers of bars hit above a threshold of 1.5\,PE (0.06\,MeV), Numbers of bars hit above threshold 12.5\,PE (0.5\,MeV). The libraries used were LIBSVM and LIBLINEAR both of which are highly provident and often cited as the reason for the SVMs gain in popularity \cite{chang2011libsvm} \cite{fan2008liblinear} \cite{murty2016support}. The wrapper in sci-kit learn was the preferred method due to its ease of use and its convenient application of the Nystrom approximation \cite{williams2001using} of the kernel. The Nystroem approximation is useful as the amount of computation required for a complete kernel SVMs scales $\sim$ O (n$^3$) where n is the number of training examples \cite{williams2001using}. By using a sample of size m to compute an approximation of the kernel the amount of computation required scales $\sim$ O (m$^2$n) instead \cite{williams2001using}. This approach will work even when m $\ll$ n \cite{williams2001using}. The example data shown in figure \ref{fig:svmExp_GausseExamples} shows how LIBLINEAR when combined with with an RBF Nystroem approximated kernel performs in comparison to LIBSVM with a complete RBF kernel the boundaries are very similar. From this point, the LIBLINEAR library and the Nystroem approximation will be used to speed up training and to prevent memory overflow which can happen when the SVM isn't converging and when large data sets are used. The simulated data set has 1 million neutron signal events and 4 million background events.
 \\\\Kernel SVMs have two factors that can be tweaked to give more accurate results. The soft margin C higher values of C correspond to a lower amount of signal and noise overlap and vice versa \cite{cortes1995support}. Typically C can vary from 10$^{-6}$ to 10$^6$ but can be even higher or even lower. The other factor is $\gamma$ and is part of the RBF kernel shown in equation \ref{equ:RbfKernelFunc} and is taken from \cite{Boser92atraining}. The value for $\gamma$ must be $>$ 0. For an example of what non-linear data looks like when searching for suitable C and $\gamma$ values figure w\ref{fig:GammaCGridSearchExp2Gauss} was produced which shows how the values for figure \ref{subFig:exp_2NysGaussExample} where chosen. A higher value of $\gamma$ corresponds to higher non-linearity. With this information, we can see that there is some overlap in figure \ref{subFig:exp_2NysGaussExample} and is very non-linear so this search for relevant C and $\gamma$ values corroborates what can be seen in the example data. In contrast, the generated neutron and noise data shows clear linearity as a low $\gamma$ value of 1e0 is preferred and has a small overlap as a high C value of 1e6 is preferred (see figure \ref{fig:GammaCGridSearchNeutron}). This shows that the generated neutron data is very easy to separate with a linear classifier and so using anything more complex than an SVM would be unlikely to yield better results.
 
 \begin{equation}
@@ -899,17 +890,17 @@ In figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6} anything to the left of 
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/noiseNeutronSVM_C1e6_g1e-6.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Generated noise data mainly concentrated at a small number of bar hits.}
+  \caption{}
   \label{subFig:noiseNeutronSVM_C1e6_g1e-6}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/signalNeutronSVM_C1e6_g1e-6.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Generated neutron $\gamma$ cascade signal which hits many bars.}
+  \caption{}
   \label{subFig:signalNeutronSVM_C1e6_g1e-6}
 \end{subfigure}
-\caption{A 2d SVM classifier trained on signal and noise data with the number of bars hit above 1.5\,PE (0.06\,MeV) and the number of bars hit above 12.5\,PE (0.5\,MeV) with a Nystrom approximate RBF kernel with a sampling of 100, C value of 1e6 and $\gamma$ value of 1e-6.}
+\caption{A 2d SVM classifier trained on signal and noise data with the number of bars hit above 1.5\,PE (0.06\,MeV) and the number of bars hit above 12.5\,PE (0.5\,MeV) with a Nystrom approximate RBF kernel with a sampling of 100, C value of 1e6 and $\gamma$ value of 1e-6. The generated noise is seen in (a) the generated signal (neutron induced Gd cascade) is shown in (b).}
 \label{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6}
 \end{figure}
 
