@@ -12,22 +12,25 @@
 
 \section{GEANT4 Overview}\label{sec:GEANT4Simulation_g4Overview}
 The VIDARR detector is represented in a GEANT4 simulation which is a provident physics simulation package. According to the GEANT4 collaboration GEANT4 ``covers a comprehensive range including electromagnetic, hadronic and optical processes and a large set of long-lived particles materials and elements over a wide energy range starting in some cases from 250\,eV and extending in others to the TeV range'' \cite{Agostinelli:2002hh}. Considering that the energy range for IBD is $\sim$ 1.8\,MeV -- $\sim$ 8.5\,MeV \cite{Mueller_2011} this simulation package meets the needs of the VIDARR collaboration. IBD produces e$^+$ and neutrons (see equation \ref{inverse_beta_decay}) whilst the simulation of e$^+$ is reasonably straight forward the simulation of the neutrons is more complex. This is due to the gadolinium sulphate sheets that capture the neutrons and emit an 8\,MeV $\gamma$ cascade. The Gadolinium cascade is hard to model accurately due to the high energies and number of nucleons involved ($>$ 150).
-\\\\The simulation has several distinct modes: cosmic $\mu$, Dark noise, background, and inverse $\beta$ decay. The cosmic model has a realistic distribution \hl{Should be replaced with CRY distribution} and a cosmic hemisphere distribution. The cosmic hemisphere distribution is used to determine any bais in the comic tracker which reconstructs cosmic $\mu$ events. In all other cases, the realistic cosmic distribution is used when simulating cosmic $\mu$. The background distributions are random uniform distributions from 0 -- 10\,MeV simulating which cover $p$,$\bar{p}$,$\pi^+$,$\pi^-$,$e^-$,$e^+$, $\alpha$,$\bar{\alpha}$,$n$. The IBD simulation is done by simulating a positron between 0 - 10\,MeV and then simulating at $\sim$ 10 $\mu$ later a neutron. The range 0\,MeV -- 10\,MeV is used instead of 1.8\,MeV -- 8.5\,MeV for more robust fitting and identification of edge cases.
+\\\\The simulation has several distinct modes: cosmic $\mu$, Dark noise, background, and inverse $\beta$ decay. The cosmic model has a realistic distribution based on the Cosmic Ray Shower Library (CRY) \cite{ieee_cry_2007} and a cosmic hemisphere distribution. The cosmic hemisphere distribution is used to determine any bias in the comic tracker which reconstructs cosmic $\mu$ events. In all other cases, the realistic cosmic distribution is used when simulating cosmic $\mu$. The background distributions are random uniform distributions from 0 -- 10\,MeV simulating which cover $p$,$\bar{p}$,$\pi^+$,$\pi^-$,$e^-$,$e^+$, $\alpha$,$\bar{\alpha}$,$n$. IBD is approximated by simulating a positron and a neutron simultaneously the positron energy is a flat distribution between 0\,MeV -- 10\,MeV the neutron takes $\sim$ 50\,$\mu$s to be absorbed (see figure \ref{fig:delayedIbdTimes}) . The range 0\,MeV -- 10\,MeV is used instead of 1.8\,MeV -- 8.5\,MeV for more robust fitting and identification of edge cases.
 \\\\An example of a simulated IBD event can be seen in figure \ref{fig:simultaedIbdEvent}, the simulation produces a e$^+$ and neutron simultaneously it does not simulate the $\bar{\nu_e}$ interaction with matter. This is not a major constraint as this is the signal that the detector measures but it does mean that the $\bar{\nu_e}$ rate is not modelled by the simulation. The times for the generated neutron to complete its random walk through the detector + the time taken for the Gadolinium sheets in-between the segments to absorb the neutron + the time taken for the cascade to occur is shown in figure \ref{fig:delayedIbdTimes}. It is possible for the neutron absorption to take up to 100 $\mu$s when simulating a kinetic energy of 10\,keV. A kinetic energy of 10\,keV is a reasonable assumption when considering the work of Vogel and Beacom \cite{Vogel_1999}. 
 
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/simultaedIbdEvent.png}
- \captionof{figure}{A simulated inverse $\beta$ decay event in GEANT4 in the upgraded detector with 70 layers and shielding around the outside of the detector. The delayed component is shown in blue and the prompt component is shown in red. The delayed component hits more bars than the prompt component.} 
- \label{fig:simultaedIbdEvent}
-\end{figure} 
 
 \begin{figure}[!h]
 \centering
+\begin{minipage}{.45\textwidth}
   \centering
-  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/neutron10KeVAbsoptionTimes.png}
-  \captionof{figure}{The time taken for the neutron from the simulated $\bar{\nu_e}$ inverse $\beta$ decay event to be thermalised and be absorbed by the Gadolinium sheets in the simulated VIDARR detector. Assuming a kinetic energy of 10KeV for the neutonrs leading to a flat distribution from 0 -- 1E5 ns (0-100\,$\mu$s).} 
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/simultaedIbdEvent.png}
+  \captionof{figure}{A simulated inverse $\beta$ decay event in GEANT4 in the upgraded detector with 70 layers and shielding around the outside of the detector. The delayed component is shown in blue and the prompt component is shown in red. The delayed component hits more bars than the prompt component.} 
+  \label{fig:simultaedIbdEvent}
+\end{minipage}%
+\qquad
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/neutron10KeVAbsoptionTimes.png} 
+  \captionof{figure}{The time taken for the neutron from the simulated $\bar{\nu_e}$ inverse $\beta$ decay event to be thermalised and be absorbed by the Gadolinium sheets in the simulated VIDARR detector. Assuming a kinetic energy of 10KeV for the neutonrs leading to a flat distribution from 0 -- 1E5 ns (0-100\,$\mu$s).}
   \label{fig:delayedIbdTimes}
+\end{minipage}
 \end{figure}
 
 \section{Modelling The Mass Increase}
