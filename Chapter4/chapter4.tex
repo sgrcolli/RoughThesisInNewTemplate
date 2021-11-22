@@ -117,7 +117,7 @@ By simulating a single scintillating bar of dimensions 4\,cm $\times$ 152\,cm $\
  \label{fig:mev_per_cm_muons}
 \end{figure}
 
-As mentioned before the CRY library is very useful as it contains a large amount of relevant physics information with the latest version being 1.7 produced in 2012 \cite{hagmann2012cosmicCry}. The CRY library splits up the directions in the x,y and z by using cosine directions u (see equation\ref{equ:cos_u}), v (see equation \ref{equ:cos_v}) and w (see equation \ref{equ:cos_w}) respectively. However, whilst the generated cosine direction for u and v were very fine the binning for cosine w was coarse. As a result, an 8-dimensional polynomial function was fitted to the cosine w distribution in figure \ref{fig:Cry_GeneratedFit} to smooth out the distribution. The improvement to the distribution can be seen in figure \ref{fig:CrySmoothingCosTheta} where the finer binning of the cosine direction w in figure \ref{subFig:CrySmoothingCosine} leads to a smoother more accurate $\theta$ distribution in figure \ref{subFig:CrySmoothingTheta}. 
+As mentioned before the CRY library is very useful as it contains a large amount of relevant physics information with the latest version being 1.7 produced in 2012 \cite{hagmann2012cosmicCry}. The CRY library splits up the directions in the x,y and z by using cosine directions u (see equation\ref{equ:cos_u}), v (see equation \ref{equ:cos_v}) and w (see equation \ref{equ:cos_w}) respectively. However, whilst the generated cosine direction for u and v were very fine the binning for $\cos{w}$ was coarse. As a result, an 8-dimensional polynomial function was fitted to the $\cos{w}$ distribution in figure \ref{fig:Cry_GeneratedFit} to smooth out the distribution. The improvement to the distribution can be seen in figure \ref{fig:CrySmoothingCosTheta} where the finer binning of the cosine direction w in figure \ref{subFig:CrySmoothingCosine} leads to a smoother more accurate $\theta$ distribution in figure \ref{subFig:CrySmoothingTheta}. 
 
 \begin{equation}
 \alpha = \cos{u} = \frac{v_x}{\sqrt{v_x^2+v_y^2+v_z^2}}
@@ -136,7 +136,7 @@ As mentioned before the CRY library is very useful as it contains a large amount
 
 \begin{figure}[!h]
  \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/CryPlots/Cry_GeneratedFit.png}
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/CryFitCosW.png}
  \captionof{figure}{The generated angles for cosine direction W (z-axis) from the CRY library \cite{hagmann2007cosmic} for 1 million particles. Binning in CRY is 0.05 so an 8-dimensional polynomial was fitted to smooth the distribution.}
  \label{fig:Cry_GeneratedFit}
 \end{figure}
@@ -157,11 +157,11 @@ As mentioned before the CRY library is very useful as it contains a large amount
   \caption{}
   \label{subFig:CrySmoothingTheta}
 \end{subfigure}
-\caption{How the smoothing affects the CRY distribution in Cos W (see (a)) and $\theta$ (see (b)). The nonphysical peaks seen in the non-smoothed $\theta$ distribution are a direct result of CRY's coarse binning in $\theta$.}
+\caption{How the smoothing affects the CRY distribution in $\cos{w}$ (see (a)) and $\theta$ (see (b)). The nonphysical peaks seen in the non-smoothed $\theta$ distribution are a direct result of CRY's coarse binning in $\theta$.}
 \label{fig:CrySmoothingCosTheta}
 \end{figure}
 
-Now the $\theta$ distribution has been smoothed out accordingly the cosmic $\mu$ particles need to be back-projected. Back projection is where positions that CRY generates (see figure \ref{fig:cryxm_vs_cryym}) is taken as a ``target'' and then the $\phi$ values (a flat distribution between 0 -- 360$^\circ$) and smoothed $\theta$ values (see figure \ref{subFig:CrySmoothingTheta}) are used to project backwards to a point for a given radius. The larger the back projection radius the more accurate the simulation but the more computationally intensive it becomes. A back-projection of 100\,m is a reasonable approximation to simulate all incoming side on and top-down events. Figure \ref{fig:BackProjectionXY} shows how this looks in the x and y from a top-down perspective. The ``halo'' in figure \ref{fig:BackProjectionXY} is a result of the $\theta$ distribution seen in figure \ref{subFig:CrySmoothingTheta}. The rest of the simulated dome can be seen in figure \ref{fig:BackProjection_XZ_YZ} where the XZ and YZ distributions are very similar to each other. 
+Now the $\theta$ distribution has been smoothed out accordingly the cosmic $\mu$ particles need to be back-projected. Back projection is where positions that CRY generates (see figure \ref{fig:cryxm_vs_cryym}) is taken as a ``target'' and then the $\phi$ values (a flat distribution between 0 -- 360$^\circ$) and smoothed $\theta$ values (see figure \ref{subFig:CrySmoothingTheta}) are used to project backwards to a point as a start vertex for a given radius. The larger the back projection radius the more accurate the simulation but the more computationally intensive it becomes. A back-projection of 100\,m is a reasonable approximation to simulate all incoming side on and top-down events. Figure \ref{fig:BackProjectionXY} shows how this looks in the x and y from a top-down perspective. The ``halo'' in figure \ref{fig:BackProjectionXY} is a result of the $\theta$ distribution seen in figure \ref{subFig:CrySmoothingTheta}. The rest of the simulated dome can be seen in figure \ref{fig:BackProjection_XZ_YZ} where the XZ and YZ distributions are very similar to each other. 
 
 
 \begin{figure}[!h]
@@ -176,7 +176,7 @@ Now the $\theta$ distribution has been smoothed out accordingly the cosmic $\mu$
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/BackProjectionXY.png} 
-  \captionof{figure}{Back projection of 100\,m in the X and Y plane for the CRY library this represents the starting position for each particle generated in X and Y.}
+  \captionof{figure}{Back projection of 100\,m in the (x,y) plane for the CRY library this represents the starting vertex for each particle generated in (x,y).}
   \label{fig:BackProjectionXY}
 \end{minipage}
 \end{figure}
@@ -197,7 +197,7 @@ Now the $\theta$ distribution has been smoothed out accordingly the cosmic $\mu$
   \caption{}
   \label{subFig:BackProjectionYZ}
 \end{subfigure}
-\caption{Starting positions for the generated CRY distribution for XZ (see (a)) and YZ (see (b)) with a back projection of 100\,m.}
+\caption{Starting positions for the generated CRY distribution for (x,z) (see (a)) and (y,z) (see (b)) with a back projection of 100\,m.}
 \label{fig:BackProjection_XZ_YZ}
 \end{figure}
 
@@ -219,11 +219,11 @@ The impact of back-projection is relatively small when looking at where the part
   \caption{}
   \label{subFig:Crossed_atZ_XY}
 \end{subfigure}
-\caption{How the generated CRY distribution crosses the Z-axis with only 1\,cm of back-projection (see (a)) vs 100\,m of back projection (see (b)). When world environment in GEANT4 is G4 Galactic}
+\caption{How the generated CRY distribution crosses the Z-axis with only 1\,cm of back-projection (see (a)) vs 100\,m of back projection (see (b)). When the GEANT4 environment emulates the vacuum of space.}
 \label{fig:Crossed_atZ_XY_AndShort}
 \end{figure}
 
-In addition, atmospheric effects need to be modelled. The atmosphere produces two main effects: it increases particle scattering (see figure \ref{fig:gen-scat_PhiTheta} and it increases the rate of secondaries produced (see figure \ref{fig:CRY_rates}). The CRY simulation takes the atmosphere into account \cite{hagmann2007monteCry} but only produces the particles that cross the Z axis at z = 0. As a result the secondaries produced by GEANT4 are also simulated by CRY thus resulting in some secondary particles being ``double simulated.'' This effect is most visible in figure \ref{fig:CRY_rates} where the rates in simulated air are overall $\sim$ 25\,\% higher than in a low density galactic environment. However the paths of these particles are more accurate in the air and the secondaries produced inside a detector still need to be taken into account. For the most accurate cosmic modelling the air should be used whilst killing all secondaries that occur in the air i.e outside the detector. However, due to time constraints this was unable to be added to the simulation. \hl{I would like to change this if there's sufficient time left...}.
+In addition, atmospheric effects need to be modelled. The atmosphere produces two main effects: it increases particle scattering (see figure \ref{fig:gen-scat_PhiTheta} and it increases the rate of secondaries produced (see figure \ref{fig:CRY_rates}). The CRY simulation takes the atmosphere into account \cite{hagmann2007monteCry} but only produces the particles that cross the Z axis at z = 0. As a result the secondaries produced by GEANT4 are also simulated by CRY thus resulting in some secondary particles being ``double simulated.'' This effect is most visible in figure \ref{fig:CRY_rates} where the rates in simulated air are overall $\sim$ 25\,\% higher than in G4$\textunderscore$Galactic (an environment in GEANT4 designed to emulate the vacuum of space). However, the paths of these particles are more accurate in the air and the secondaries produced inside a detector still need to be taken into account. For the most accurate cosmic modelling the air should be used whilst removing all secondaries that occur in the air i.e outside the detector. However, due to time constraints this was unable to be added to the simulation. 
 
 \begin{figure}[!h]
 \centering
@@ -254,7 +254,7 @@ In addition, atmospheric effects need to be modelled. The atmosphere produces tw
 
 \clearpage
 \section{Modelling TiO$_2$ Coating}
-The plastic scintillating bars of the VIDARR detector are extruded at Fermilab and have been used in other experiments such as the T2K ND280 ECAL \cite{Allan_2013} Miner$\nu$a \cite{aliaga2014design} and in Mu2e as a cosmic ray veto \cite{Pla-Dalmau2014}. This coating needs to be correctly modelled as it can have a significant impact on heavier particles. An example can be seen in figure \ref{fig:lengthAndSideViewBarMuon} which shows how the particles were offset to correctly assess the impact of the TiO$_2$ coating. The effect for less massive particles such as e$^+$ (see figure \ref{fig:positron_TiO2}) is virtually non-existent over the energy range of interest (0 -- 10\,MeV). The effect of the TiO$_2$ coating is more noticeable for $\mu$ however this will only impact stopping $\mu$ with energies < 5\,MeV as seen in figure \ref{fig:muon_TiO2}. A significant effect is seen with protons in figure \ref{fig:proton_TiO2} and this affects all protons between 0 -- 15\,MeV and so for simulation purposes it is important the TiO$_2$ coating is correctly quantified. The TiO$_2$ coating is 15\,\% TiO$_2$ to 85\,\% polythene \cite{aliaga2014design} \cite{Pla-Dalmau2014} with a thickness of 0.25\,mm \cite{Pla-Dalmau2014}. And this is now correctly modelled in the full detector and single bar GEANT4 simulation.
+The plastic scintillating bars of the VIDARR detector are extruded at Fermilab and have been used in other experiments such as the T2K ND280 ECAL \cite{Allan_2013} Miner$\nu$a \cite{aliaga2014design} and in Mu2e as a cosmic ray veto \cite{Pla-Dalmau2014}. This coating needs to be correctly modelled as it can have a significant impact on heavier particles. An example can be seen in figure \ref{fig:lengthAndSideViewBarMuon} which shows how the particles were offset to correctly assess the impact of the TiO$_2$ coating. The effect for less massive particles such as e$^+$ (see figure \ref{fig:positron_TiO2}) is virtually non-existent over the energy range of interest (0 -- 10\,MeV). The effect of the TiO$_2$ coating is more noticeable for $\mu$ however this will only impact stopping $\mu$ with energies < 5\,MeV as seen in figure \ref{fig:muon_TiO2}. A significant effect is seen with protons in figure \ref{fig:proton_TiO2} and this affects all protons between 0 -- 15\,MeV and so for simulation purposes it is important the TiO$_2$ coating is correctly quantified. The TiO$_2$ coating is 15\,\% TiO$_2$ to 85\,\% polythene \cite{aliaga2014design} \cite{Pla-Dalmau2014} with a thickness of 0.25\,mm \cite{Pla-Dalmau2014}. The correct amount of TiO$_2$ is now correctly implemented in the simulation for each of the 2660 bars in VIDARR. 
 
 
 \begin{figure}[!h]
@@ -303,7 +303,7 @@ The plastic scintillating bars of the VIDARR detector are extruded at Fermilab a
 
 \clearpage
 \section{Modelling Attenuation}\label{sec:GEANT4Simulation_ModellingAttenuation}
-In order to characterise the physical effects of the detector, a test stand was set up by fellow collaborator George Holt. This test stand contained a single plastic scintillating bar where a caesium 137 source was placed at 11 intervals across the bar from which attenuation of the 662\,KeV peak could be measured. This is shown in figure \ref{fig:attenuationPlot} the exponential function (equation \ref{equ:attenuationFunction}) is used by the simulation to produce a data-driven model for the light attenuation in the simulation. 
+In order to characterise the physical effects of the detector, a test stand was set up by fellow collaborator George Holt. This test stand contained a single plastic scintillating bar where a $^{137}$Cs source was placed at 11 intervals across the bar from which attenuation of the 662\,keV peak could be measured. This is shown in figure \ref{fig:attenuationPlot} the exponential function (equation \ref{equ:attenuationFunction}) is used by the simulation to produce a data-driven model for the light attenuation in the simulation. 
 
 \begin{equation}
 P(x) = e^{-x/\lambda}
@@ -326,7 +326,8 @@ Another data-driven physical effect modelled in the simulation is the dark noise
  \label{fig:pureDarkNoise}
 \end{figure}
 
-The dark noise has two distinct components: the peaks, and the background surrounding the peaks. The background surrounding the peaks can be modelled using an exponential fit which is done in figure \ref{subFig:expFitOfDark}. The pedestal peak (seen at 3\,mV in figure \ref{fig:pureDarkNoise}) is also removed and an exponential is used past 13.7\,mV (see figure \ref{subFig:fittedDarkNoise}). 
+The dark noise has two distinct components: the peaks, and the background surrounding the peaks. The background surrounding the peaks can be modelled using an exponential fit which is done in figure \ref{subFig:expFitOfDark}. In addition to the PE peaks and exponential noise there is also a pedestal peak (seen at 3\,mV in figure \ref{fig:pureDarkNoise}). This is the zero value for the MPPC and as such is discounted it's not relevant for measuring PE peaks which is what the analysis focuses on. The pedestal is useful for determining the gain and for calibration of channels but this is not the focus of the simulation which explicitly tries to emulate a believable signal post calibration. The removal of the pedestal peak and use of the aforementioned exponential fit is done in figure \ref{subFig:fittedDarkNoise}.
+%The pedestal peak (seen at 3\,mV in figure \ref{fig:pureDarkNoise}) is also removed and an exponential is used past 13.7\,mV (see figure \ref{subFig:fittedDarkNoise}). 
 \begin{figure}[!h]
 \centering
 \begin{subfigure}{.5\textwidth}
@@ -376,27 +377,27 @@ In order to measure light for a given amount of scintillating material, we need 
 \frac{dL}{dx} = \frac{S\frac{dE}{dx}}{1 + kB \frac{dE}{dx}}
 \label{equ:Birks_formula}
 \end{equation}
-\\\\In this model molecules in the ionisation column are labelled ``damaged'' and ``undamaged'' for convenience. ``Damaged'' molecules are those which dissipate ionisation energy non-radiatively (quenching) and so lower the scintillation efficiency\cite{craun_1970} \cite{knoll_2010}. ``Damaged'' molecules occupy highly ionised or excited states, they de-excite quickly ($<$ 1 ns) to the ``undamaged'' condition \cite{craun_1970}. Some permanent damage will occur and does contribute to long term degradation of the scintillator but this is not relevant for quenching\cite{craun_1970}. B, therefore, is the ratio of ``damaged''/``undamaged'' molecules and k is the relative probability of quenching. kB is treated as a single adjustable parameter as there is no way to measure k or B separately \cite{craun_1970} \cite{knoll_2010}. kB is scintillator dependant only and will be referred to as a single entity: Birk's constant. For electrons above $\sim$ 125\,keV the response from the scintillator is linear \cite{craun_1970}. Birk's law (equation \ref{equ:Birks_formula}) also becomes linear for fast electrons \cite{knoll_2010}. As a result, quenching may not be sufficient for modelling fast electrons as will be expanded upon in section \ref{sec:GEANT4Simulation_quenchingLoss}. 
-\section{MINERvA Birk's Constant}\label{sec:GEANT4Simulation_MINERvABirksConstant}
-In equation \ref{equ:Birks_formula} the parameters $kB$ and $S$ are empirically determined. $S$ is a normalisation parameter that is particle dependent and kB is the Birk's constant for the scintillator and is particle independent. The MINERvA collaboration \cite{aliaga_2015} also uses the same scintillator as the VIDARR detector \cite{aliaga_2014}, the collaboration determined the value of the of kB to be 0.0905 $\pm$ 0.015\,mm/MeV at best fit. This Birks parameter was obtained by using GEANT4 MC data, which is the same approach by which VIDARR has obtained its birks parameter (kB = 0.0947 $\pm$ 0.00001).Both the VIDARR and MINERvA approach use the GEANT4 Bertini cascade model when attempting to measure the Birk's constant $kB$ \cite{Heikkinen_2003}. 
-\\\\In addition, both use the QGSP physics list which applies the quark-gluon string model when simulating particles \cite{Patrick_2018}. The steps have to remain course in GEANT4 otherwise the $kB$ parameter changes  \cite{aliaga_2015}. This is why the EMY physics lists were not used, even though they simulate smaller steps and so would potentially simulate stopping better. Then energy range for the MINERvA signal is of order $\sim$ 1\,GeV, whereas the energy range for VIDARR's signal is $\sim$ 0\,MeV -- 10\,MeV. However, a major source of noise for VIDARR is cosmic $\mu$ which have energies $\sim$ 1\,GeV and protons with energies between 0-10\,MeV as a result of fast neutrons. Using the MINERvA data requires going to higher energies (lower $dE/dx$) in order to ensure similar results in the $dL/dx$ fit.  
-\\\\The results of the MINERvA Birk's law investigation concluded that a Birk's constant of 0.0905 $\pm$ 0.015\,mm/MeV was the most accurate value for the scintillator \cite{aliaga_2015}. Whilst the MINERvA experiment measures protons with an energy range of 0\,MeV-500\,MeV and the particles of VIDARR's interest are $\overline{\nu_{e}}$s with energy range between 0\,MeV-10\,MeV the Birk's constant is the same regardless. This is because Birk's law is a representation of the scintillator itself and therefore is not particle or energy-dependent. The amount of saturation in the scintillator that Birk's constant represents is constant in all cases. The kB value used in the simulation is the MINERvA value, but ultimately it makes a minimal difference as the values obtained by VIDARR and MINERvA are so similar. 
+\\\\In this model molecules in the ionisation column are labelled ``damaged'' and ``undamaged'' for convenience, this nomenclature was coined by Birks and has been used since \cite{birks_1964}, \cite{craun_1970}, \cite{knoll_2010}. ``Damaged'' molecules are those which dissipate ionisation energy non-radiatively (quenching) and so lower the scintillation efficiency\cite{craun_1970} \cite{knoll_2010}. ``Damaged'' molecules occupy highly ionised or excited states, they de-excite quickly ($<$ 1 ns) to the ``undamaged'' condition \cite{craun_1970}. Some permanent damage will occur and does contribute to long term degradation of the scintillator but this is not relevant for quenching\cite{craun_1970}. B, therefore, is the ratio of ``damaged''/``undamaged'' molecules and k is the relative probability of quenching. kB is treated as a single adjustable parameter as there is no way to measure k or B separately \cite{craun_1970} \cite{knoll_2010}. kB is scintillator dependant only and will be referred to as a single entity: Birk's constant. For electrons above $\sim$ 125\,keV the response from the scintillator is linear \cite{craun_1970}. Birk's law (equation \ref{equ:Birks_formula}) also becomes linear for fast electrons \cite{knoll_2010}. As a result, quenching may not be sufficient for modelling fast electrons as will be expanded upon in section \ref{sec:GEANT4Simulation_quenchingLoss}. 
+\section{MINER$\nu$A Birk's Constant}\label{sec:GEANT4Simulation_MINERvABirksConstant}
+In equation \ref{equ:Birks_formula} the parameters $kB$ and $S$ are empirically determined. $S$ is a normalisation parameter that is particle dependent and kB is the Birk's constant for the scintillator and is particle independent. The MINER$\nu$A collaboration \cite{aliaga_2015} also uses the same scintillator as the VIDARR detector \cite{aliaga_2014}, the collaboration determined the value of the of kB to be 0.0905 $\pm$ 0.015\,mm/MeV at best fit. This Birks parameter was obtained by using GEANT4 MC data, which is the same approach by which VIDARR has obtained its birks parameter (kB = 0.0947 $\pm$ 0.00001).Both the VIDARR and MINER$\nu$A approach use the GEANT4 Bertini cascade model when attempting to measure the Birk's constant $kB$ \cite{Heikkinen_2003}. 
+\\\\GEANT4 uses approximations of physics called physics lists. Each physics list has ranges and models that make them suitable under different circumstances. For VIDARR/RMon when simulating the full detector the shielding physics list is used for it's more accurate neutron modelling. However, for modelling and approximating GEANT4's light output the standard Quark Gluon String physics list (QGSP) was used. This was done as the MINER$\nu$a collaboration ahd used this list and it ave good results for light output \cite{Patrick_2018}. The steps have to remain course in GEANT4 otherwise the $kB$ parameter changes  \cite{aliaga_2015}. This is why the EMY physics lists were not used, even though they simulate smaller steps and so would potentially simulate stopping better. Then energy range for the MINER$\nu$A signal is of order $\sim$ 1\,GeV, whereas the energy range for VIDARR's signal is $\sim$ 0\,MeV -- 10\,MeV. However, a major source of noise for VIDARR is cosmic $\mu$ which have energies $\sim$ 1\,GeV and protons with energies between 0-10\,MeV as a result of fast neutrons. Using the MINER$\nu$A data requires going to higher energies (lower $dE/dx$) in order to ensure similar results in the $dL/dx$ fit.  
+\\\\The results of the MINER$\nu$A Birk's law investigation concluded that a Birk's constant of 0.0905 $\pm$ 0.015\,mm/MeV was the most accurate value for the scintillator \cite{aliaga_2015}. Whilst the MINER$\nu$A experiment measures protons with an energy range of 0\,MeV-500\,MeV and the particles of VIDARR's interest are $\overline{\nu_{e}}$s with energy range between 0\,MeV-10\,MeV the Birk's constant is the same regardless. This is because Birk's law is a representation of the scintillator itself and therefore is not particle or energy-dependent. The amount of saturation in the scintillator that Birk's constant represents is constant in all cases. The kB value used in the simulation is the MINER$\nu$A value, but ultimately it makes a minimal difference as the values obtained by VIDARR and MINER$\nu$A are so similar. 
 \section{Approximating GEANT4's Light Output}\label{sec:GEANT4Simulation_MonteCarloBirksLaw}
-Modelling photons in GEANT4 is computationally expensive it requires simulating optical photon tracks at every energy deposition for a given amount of energy. A scintillation yield of $10^5$\,ph/MeV is considered a good approximation for a plastic scintillator as it covers the energy range of interest (0\,MeV -- 10\,MeV) and significantly above \cite{craun_1970}. But with such a high scintillation yield the slowdown observed in this simulation especially at higher energies is extreme. This slowdown can be somewhat alleviated by counting the number of photons and then killing the optical photon tracks. As the number of photons determines the quenching, but even the ``count and kill'' method is computationally expensive. So whilst the count and kill method was used for determining Birk's law, once the light was characterised this method was abandoned due to its high computational load.
+Modelling photons in GEANT4 is computationally expensive it requires simulating optical photon tracks at every energy deposition for a given amount of energy. A scintillation yield of $10^5$\,photons/MeV is considered a good approximation for a plastic scintillator as it covers the energy range of interest (0\,MeV -- 10\,MeV) and significantly above \cite{craun_1970}. But with such a high scintillation yield the slowdown observed in this simulation especially at higher energies is extreme. This slowdown can be somewhat alleviated by counting the number of photons and then killing the optical photon tracks. As the number of photons determines the quenching, but even the ``count and kill'' method is computationally expensive. So whilst the count and kill method was used for determining Birk's law, once the light was characterised this method was abandoned due to its high computational load.
 \\\\In order to accurately model the light output two new simulations of the scintillator were required to quantify the effects of the Birk's constant ($kB$ in the equation \ref{equ:Birks_formula}). Both of them required the removal of all wavelength shifting fibres and MPPCs, they are just scintillators. The first model is a ``slice model'' that is 1\,mm thick and had a cross-section of 0.2\,m by 0.2\,m (see figure \ref{fig:lengthAndSideViewSliceElectron780Square}). This model allows for the approximations $dL/dx \approx \Delta L / \Delta x$ and $dE/dx \approx \Delta E / \Delta x$ to be used. The second model was a ``slab'' model (figure \ref{fig:electrons_viewed_in_slab}) that was 2\,m thick and had a cross-section of 0.2\,m by 0.2\,m. This model is used for determining quantifying light production from Birk's approximation and comparing that light output to the simulated GEANT4 values. Both models had particle energy ranges of 0\,MeV-100\,MeV.
 
 \begin{figure}[!h]
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=0.9\linewidth]{Chapter4/Figs/Raster/lengthOnViewSliceElectron780Square.png}
+  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/lengthOnViewSliceElectron780Square.png}
   \captionsetup{width=.9\linewidth}
   \caption{}
   \label{subFig:lengthOnViewSliceElectron780Square}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=0.9\linewidth]{Chapter4/Figs/Raster/sideOnViewSliceElectron780Square.png}
+  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/sideOnViewSliceElectron780Square.png}
   \captionsetup{width=.9\linewidth}
   \caption{}
   \label{subFig:sideOnViewSliceElectron780Square}
@@ -405,20 +406,20 @@ Modelling photons in GEANT4 is computationally expensive it requires simulating 
 \label{fig:lengthAndSideViewSliceElectron780Square}
 \end{figure}
 
-The ``slice'' model was used to determine the $S$ values for every particle in equation \ref{equ:Birks_formula}, once those had been obtained the $kB$ value of 0.0905 $\pm$ 0.015\,mm/MeV obtained from MINERvA was also used \cite{aliaga_2015}. By using the approximations $dL/dx \approx \Delta L / \Delta x$ and $dE/dx \approx \Delta E / \Delta x$ and using $\Delta L = L_{\textrm{end}} - L_{\textrm{start}} $ where in the simulation it is known that the light at the start of the step $L_{\textrm{start}} = 0$ and $L_{\textrm{end}}$ is the light at the end of each GEANT4 equation \ref{equ:light_produced} can be inferred. Using equation \ref{equ:light_produced} the light yield can now be calculated for the following particles were: $e^-$,$e^+$,$p$,$\bar{p}$,$\pi^+$,$\pi^-$,$\mu^-$,$\mu^+$,$\alpha$,$\bar{\alpha}$.
+The ``slice'' model was used to determine the $S$ values for every particle in equation \ref{equ:Birks_formula}, once those had been obtained the $kB$ value of 0.0905 $\pm$ 0.015\,mm/MeV obtained from MINER$\nu$A was also used \cite{aliaga_2015}. By using the approximations $dL/dx \approx \Delta L / \Delta x$ and $dE/dx \approx \Delta E / \Delta x$ and using $\Delta L = L_{\textrm{end}} - L_{\textrm{start}} $ where in the simulation it is known that the light at the start of the step $L_{\textrm{start}} = 0$ and $L_{\textrm{end}}$ is the light at the end of each GEANT4 equation \ref{equ:light_produced} can be inferred. Using equation \ref{equ:light_produced} the light yield can now be calculated for the following particles were: $e^-$,$e^+$,$p$,$\bar{p}$,$\pi^+$,$\pi^-$,$\mu^-$,$\mu^+$,$\alpha$,$\bar{\alpha}$.
 
 \begin{figure}[!h]
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/newSlab3d950By900.png}
+  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/newSlab3d950By900.png}
   \captionsetup{width=.9\linewidth}
   \caption{}
   \label{subFig:electronsSlab3d}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/newSlabSideOnView950By900.png}
+  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/newSlabSideOnView950By900.png}
   \captionsetup{width=.9\linewidth}
   \caption{}
   \label{subFig:electronsSlabSideOn}
@@ -431,27 +432,27 @@ The ``slice'' model was used to determine the $S$ values for every particle in e
 L_{\textrm{end}}\approx \Delta x \left(\frac{S\frac{\Delta E}{\Delta x}}{1 + kB \frac{\Delta E}{\Delta x}}\right) 
 \label{equ:light_produced}
 \end{equation}
-\\The approximations that Birk's law predicts for $p$,$\overline{p}$,$\pi^+$,$\pi^-$,$\mu^-$,$\mu^+$,$\alpha$,$\overline{\alpha}$ are very close to the model of light that GEANT4 predicts. The deviation from GEANT4 is at the worst at 100\,MeV where there is a deviation of $\sim$ $3\%$ in light output between GEANT4 and the Birks approximation of protons and anti-protons seen in figure \ref{fig:proton_aproton_light}, with \ref{subFig:proton_light} representing protons and \ref{subFig:aproton_light} representing anti-protons. In figure \ref{fig:proton_aproton_light} the Brik's approximation is a closer fit to the data than the simulated light fit which is a square function ($L = aE^2 + bE+ c$). A full table of S values can be seen in table \ref{tab:sValueTable}. Note how the positron S value is above the maximum photon limit of 1E5. 
+\\The approximations that Birk's law predicts for $p$,$\overline{p}$,$\pi^+$,$\pi^-$,$\mu^-$,$\mu^+$,$\alpha$,$\overline{\alpha}$ are very close to the model of light that GEANT4 predicts. The deviation from GEANT4 is at the worst at 100\,MeV where there is a deviation of $\sim$ $3\%$ in light output between GEANT4 and the Birks approximation of protons and anti-protons seen in figure \ref{fig:proton_aproton_light} (\ref{subFig:proton_light} represents protons and \ref{subFig:aproton_light} represents anti-protons). In figure \ref{fig:proton_aproton_light} the Brik's approximation is a closer fit to the data than the simulated light fit which is a square function ($L = aE^2 + bE+ c$). A full table of S values can be seen in table \ref{tab:sValueTable}. Note how the positron S value is above the maximum photon limit of 1E5. 
 
 \begin{table*}[!h]
 \centering
 \begin{tabular}{lllll}  
 \toprule
-Particle       & kB [mm/MeV]        & S [photons/MeV]   & $\chi^2$/NDF\\
+Particle       & kB [mm/MeV]        & S [photons/MeV]   & Fitting Range [MeV/mm] & $\chi^2$/NDF\\
 \midrule
-$\alpha$       & 0.0905 $\pm$ 0.015 & 9963.5  $\pm$ 0.3 & 98.3163 \\
-$\bar{\alpha}$ & ....               & 9973.1  $\pm$ 0.2 & 85.7297 \\
-$P$            & ....               & 9967.5  $\pm$ 0.3 & 297.246 \\
-$\bar{P}$      & ....               & 9987.1  $\pm$ 0.3 & 607.475 \\
-$\pi^+$        & ....               & 9978.2  $\pm$ 0.3 & 9762.33 \\
-$\pi^-$        & ....               & 9985.3  $\pm$ 0.3 & 13193.4 \\
-$\mu^-$        & ....               & 10043.1 $\pm$ 0.3 & 42026.8 \\
-$\mu^+$        & ....               & 10027.2 $\pm$ 0.3 & 23874.9 \\
-$e^-$          & ....               & 9418    $\pm$ 2   & 13.4511 \\
-$e^+$          & ....               & 9276    $\pm$ 2   & 26.3355 \\
+$\alpha$       & 0.0905 $\pm$ 0.015 & 9963.5  $\pm$ 0.3 & 0 -- 200               & 98.3163 \\
+$\bar{\alpha}$ & ....               & 9973.1  $\pm$ 0.2 & 0 -- 200               & 85.7297 \\
+$P$            & ....               & 9967.5  $\pm$ 0.3 & 0 -- 200               & 297.246 \\
+$\bar{P}$      & ....               & 9987.1  $\pm$ 0.3 & 0 -- 200               & 607.475 \\
+$\pi^+$        & ....               & 9978.2  $\pm$ 0.3 & 0 -- 200               & 9762.33 \\
+$\pi^-$        & ....               & 9985.3  $\pm$ 0.3 & 0 -- 200               & 13193.4 \\
+$\mu^-$        & ....               & 10043.1 $\pm$ 0.3 & 0 -- 200               & 42026.8 \\
+$\mu^+$        & ....               & 10027.2 $\pm$ 0.3 & 0 -- 200               & 23874.9 \\
+$e^-$          & ....               & 9418    $\pm$ 2   & 2 -- 19                & 13.4511 \\
+$e^+$          & ....               & 9276    $\pm$ 2   & 2 -- 19                & 26.3355 \\
 \bottomrule  
 \end{tabular}
-\caption{The kB and S values for each particle in the simulation were found via Birk's equation. The kB value is from MINERvA and is the same for each particle. The $\chi^2$/NDF values are high due to the high number of statistics and large fluctuation in each distribution (see appendix  \ref{appendixD:dldxVsDedxPlots} for a full list of plots). This isn't concerning so long as the simulated light from GEANT4 roughly matches the Birk's approximation.}
+\caption{The kB and S values for each particle in the simulation were found via Birk's equation. The kB value is from MINER$\nu$A and is the same for each particle. The $\chi^2$/NDF values are high due to the high number of statistics and large fluctuation in each distribution (see appendix  \ref{appendixD:dldxVsDedxPlots} for a full list of plots). This isn't concerning so long as the simulated light from GEANT4 roughly matches the Birk's approximation.}
 \label{tab:sValueTable}
 \end{table*}
 
@@ -459,37 +460,37 @@ $e^+$          & ....               & 9276    $\pm$ 2   & 26.3355 \\
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{light_of_protons0-100mev.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/protonBirksSlab_simAndApproxLight.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Proton light produced by GEANT4 compared to the Birk's approximation of that light, the simulated light fit is the square function $L = aE^2 + bE+ c$ and is fit to the GEANT4 simulated light}
+  \caption{}
   \label{subFig:proton_light}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{light_of_Aprotons0-100mev.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/aProtonBirksSlab_simAndApproxLight.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Anti-proton light produced by GEANT4 compared to the Birk's approximation of that light, the simulated light fit is the square function $L = aE^2 + bE+ c$ and is fit to the GEANT4 simulated light}
+  \caption{}
   \label{subFig:aproton_light}
 \end{subfigure}
 \caption{Proton and anti-proton light output compared to the birks approximation and a square fit to the light output in GEANT4.}
 \label{fig:proton_aproton_light}
 \end{figure}
 
-However, the light yield for electrons and positrons seen in figure \ref{fig:electron_positron_light} varies more significantly. At 100\,MeV a variation of $\sim$ 15\,\% is seen in the electrons (figure \ref{subFig:electron_light}) and a variation and a variation of $\sim$ 20\,\% is seen in positrons (figure \ref{subFig:positron_light}). In figure \ref{fig:electron_positron_light} the simulated light which is a square function more accurately represents the GEANT4 light predictions. Figure \ref{fig:square_electron_positron_light} shows this approximation inputted instead. There is a slight variation between the simulated light fit and the square approximation seen in figures \ref{subFig:square_electron_light} (e$^-$) and \ref{subFig:square_positron_light} (e$^+$). This is because the simulated light fit fits the whole light distribution whereas the light produced by the approximation in simulation is produced per GEANT4 step. Despite this, the square approximation for e$^-$ light ($L = 0.9347E^2 + 10340E - 0.1000$) had a variation of 0.7\,\% at 100\,MeV and the square approximation of the e$^+$ light ($L = 0.9716E^2 + 10350E -0.1000$) had a variation of 0.3\,\% at 100\,MeV. 
+% However, the light yield for electrons and positrons seen in figure \ref{fig:electron_positron_light} varies more significantly. At 100\,MeV a variation of $\sim$ 15\,\% is seen in the electrons (figure \ref{subFig:electron_light}) and a variation and a variation of $\sim$ 20\,\% is seen in positrons (figure \ref{subFig:positron_light}). In figure \ref{fig:electron_positron_light} the simulated light which is a square function more accurately represents the GEANT4 light predictions. Figure \ref{fig:square_electron_positron_light} shows this approximation inputted instead. There is a slight variation between the simulated light fit and the square approximation seen in figures \ref{subFig:square_electron_light} (e$^-$) and \ref{subFig:square_positron_light} (e$^+$). This is because the simulated light fit fits the whole light distribution whereas the light produced by the approximation in simulation is produced per GEANT4 step. Despite this, the square approximation for e$^-$ light ($L = 0.9347E^2 + 10340E - 0.1000$) had a variation of 0.7\,\% at 100\,MeV and the square approximation of the e$^+$ light ($L = 0.9716E^2 + 10350E -0.1000$) had a variation of 0.3\,\% at 100\,MeV. 
 \begin{figure}[!h]
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{light_of_electrons0-100mev.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/e-BirksSlab_simAndApproxLight.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Electron light produced by GEANT4 compared to the Birks approximation of that light, the simulated light fit is the square function $L = aE^2 + bE+ c$ and is fit to the GEANT4 simulated light}
+  \caption{}
   \label{subFig:electron_light}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{light_of_positrons0-100mev.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/e+BirksSlab_simAndApproxLight.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Positron light produced by GEANT4 compared to the Birks approximation of that light, the simulated light fit is the square function $L = aE^2 + bE+ c$ and is fit to the GEANT4 simulated light}
+  \caption{}
   \label{subFig:positron_light}
 \end{subfigure}
 \caption{Electron, Positron light output compared to the birks approximation and a square fit to the light output in GEANT4}
@@ -499,38 +500,38 @@ However, the light yield for electrons and positrons seen in figure \ref{fig:ele
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{light_of_electronsLin0-100mev.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/e-Birks-Poly2Slab_simAndApproxLight.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Electron light simulated by GEANT4 compared to the square approximation $L = aE^2 + bE+ c$ }
+  \caption{}
   \label{subFig:square_electron_light}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{light_of_positronsLin0-100mev.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/e+Birks-Poly2Slab_simAndApproxLight.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Positron light simulated by GEANT4 compared to the square approximation $L = aE^2 + bE+ c$}
+  \caption{}
   \label{subFig:square_positron_light}
 \end{subfigure}
 \caption{Electron and positron light output from simulation compared to a GEANT4 step square approximation}
 \label{fig:square_electron_positron_light}
 \end{figure}
-\\\\The conversion of light into energy for electrons (figure \ref{subFig:square_electron_light}) is defined by equation \ref{equ:MeV_electron_equivalent_square}. The light of an electron is the highest amount of light per MeV that a particle can deposit this MeV electron equivalent (MeVee) is a special nomenclature used to describe the absolute light yield \cite{knoll_2010}. In equation \ref{equ:MeV_electron_equivalent_square} the squared term is $ << $ than the linear term, therefore the squared term is ignored for the purposes of light conversion, producing equation \ref{equ:MeV_electron_equivalent_linear}. By rearranging equation \ref{equ:MeV_electron_equivalent_linear} for energy production equation \ref{equ:MeV_electron_equivalent_light} is produced. The same is done for the e$^+$ producing equation \ref{equ:MeV_postirtron_equivalent_light} . A small value of 0.1 is present in equations \ref{equ:MeV_electron_equivalent_linear}, \ref{equ:MeV_electron_equivalent_square}, \ref{equ:MeV_electron_equivalent_light}, \ref{equ:MeV_postirtron_equivalent_light} this is to prevent negative energy values from being produced in equation \ref{equ:MeV_electron_equivalent_light}.  The reason the light yield is so different for e$^-$ and e$^+$ is due to the quenching effect being combined with the straggling effect. Range straggling is caused when particles have differing track lengths inside the scintillator thus depositing differing amounts of energy. These variable track lengths for e$^-$ and e$^+$ are due mostly to their small mass, for heavy charged particles such as protons or $\alpha$s the straggling amounts to a few percent of the mean range\cite{knoll_2010}. Hence e$^-$ and e$^+$ require a different light model to other charged particles.
-\begin{equation}
-L = 0.9347E^2 + 10340E - 0.1000
-\label{equ:MeV_electron_equivalent_square}
-\end{equation}
-\begin{equation}
-L = 10340E - 0.1000
-\label{equ:MeV_electron_equivalent_linear}
-\end{equation}
-\begin{equation}
-E = \frac{L +0.1000}{10340} 
-\label{equ:MeV_electron_equivalent_light}
-\end{equation}
-\begin{equation}
-E = \frac{L +0.1000}{10347.1}
-\label{equ:MeV_postirtron_equivalent_light}
-\end{equation}
+% \\\\The conversion of light into energy for electrons (figure \ref{subFig:square_electron_light}) is defined by equation \ref{equ:MeV_electron_equivalent_square}. The light of an electron is the highest amount of light per MeV that a particle can deposit this MeV electron equivalent (MeVee) is a special nomenclature used to describe the absolute light yield \cite{knoll_2010}. In equation \ref{equ:MeV_electron_equivalent_square} the squared term is $ << $ than the linear term, therefore the squared term is ignored for the purposes of light conversion, producing equation \ref{equ:MeV_electron_equivalent_linear}. By rearranging equation \ref{equ:MeV_electron_equivalent_linear} for energy production equation \ref{equ:MeV_electron_equivalent_light} is produced. The same is done for the e$^+$ producing equation \ref{equ:MeV_postirtron_equivalent_light} . A small value of 0.1 is present in equations \ref{equ:MeV_electron_equivalent_linear}, \ref{equ:MeV_electron_equivalent_square}, \ref{equ:MeV_electron_equivalent_light}, \ref{equ:MeV_postirtron_equivalent_light} this is to prevent negative energy values from being produced in equation \ref{equ:MeV_electron_equivalent_light}.  The reason the light yield is so different for e$^-$ and e$^+$ is due to the quenching effect being combined with the straggling effect. Range straggling is caused when particles have differing track lengths inside the scintillator thus depositing differing amounts of energy. These variable track lengths for e$^-$ and e$^+$ are due mostly to their small mass, for heavy charged particles such as protons or $\alpha$s the straggling amounts to a few percent of the mean range\cite{knoll_2010}. Hence e$^-$ and e$^+$ require a different light model to other charged particles.
+% \begin{equation}
+% L = 0.9347E^2 + 10340E - 0.1000
+% \label{equ:MeV_electron_equivalent_square}
+% \end{equation}
+% \begin{equation}
+% L = 10340E - 0.1000
+% \label{equ:MeV_electron_equivalent_linear}
+% \end{equation}
+% \begin{equation}
+% E = \frac{L +0.1000}{10340} 
+% \label{equ:MeV_electron_equivalent_light}
+% \end{equation}
+% \begin{equation}
+% E = \frac{L +0.1000}{10347.1}
+% \label{equ:MeV_postirtron_equivalent_light}
+% \end{equation}
 
 \section{Loss of Deposited Energy due to Quenching}\label{sec:GEANT4Simulation_quenchingLoss}
 Now the light has been suitably approximated from GEANT4 a quick investigation into the energy lost via quenching is required. The energy loss due to quenching varies greatly depending on the particle, it is a function of both energy and mass. By considering three example particles and their corresponding anti-particles the scale of the quenching in the VIDARR detector can be observed. The first particles to be considered were electrons. They are a common source of background and have a large charge to mass ratio when compared to other particles. The for electrons and positrons is very minimal which can be seen in figure \ref{fig:electron_positron_quenched_and_not}. This was simulated using a ``slab'' of material (figure \ref{fig:electrons_viewed_in_slab}) instead of using a bar or a full detector simulation. This was done to ensure that all of the energy was kept inside the plastic scintillator so that the full energy loss due to quenching could be measured. But in the case of e$^-$ and e$^+$ this is minimal. 
@@ -850,16 +851,19 @@ K(\mathbf{x,x'}) = \exp{(\gamma \mathbf{x \cdot x'})} - 1
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.8\linewidth]{Chapter4/Figs/Raster/GammaCGridSearchExp2Gauss.png}
-\captionof{figure}{SVMs being trained on varying values of C and $\gamma$ for figure \ref{subFig:exp_2NysGaussExample}. Higher values of $\gamma$ represent non-linear data separation which the SVMs settle on. Higher values of C represent more overlap in the data. C choice is less clear but ultimately a higher value of C was settled due to a high preference for isolating boundaries as much as possible. A $\gamma$ = 1e0 and C of 1e4 was chosen.} 
-\label{fig:GammaCGridSearchExp2Gauss}
-\end{figure}
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.8\linewidth]{Chapter4/Figs/Raster/GammaCGridSearchNeutron.png}
-\captionof{figure}{SVMs being trained on varying values of C and $\gamma$ for figure generated background and neutron data. Lower values of $\gamma$ represent a linear data separation which the SVMs settle on. Higher values of C represent more overlap in the data. This data set is linearly separable with minimal overlap. A $\gamma$ = 1e-6 and C of 1e6 was chosen.} 
-\label{fig:GammaCGridSearchNeutron}
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/GammaCGridSearchExp2Gauss.png}
+  \captionof{figure}{SVMs being trained on varying values of C and $\gamma$ for figure \ref{subFig:exp_2NysGaussExample}. Higher values of $\gamma$ represent non-linear data separation which the SVMs settle on. Higher values of C represent more overlap in the data. C choice is less clear but ultimately a higher value of C was settled due to a high preference for isolating boundaries as much as possible. A $\gamma$ = 1e0 and C of 1e4 was chosen.} 
+  \label{fig:GammaCGridSearchExp2Gauss}
+\end{minipage}%
+\qquad
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/GammaCGridSearchNeutron.png}
+  \captionof{figure}{SVMs being trained on varying values of C and $\gamma$ for figure generated background and neutron data. Lower values of $\gamma$ represent a linear data separation which the SVMs settle on. Higher values of C represent more overlap in the data. This data set is linearly separable with minimal overlap. A $\gamma$ = 1e-6 and C of 1e6 was chosen.}
+  \label{fig:GammaCGridSearchNeutron}
+\end{minipage}
 \end{figure}
 
 Once C and $\gamma$ have been chosen a basic form of dimensional reduction was done to assess the impact each dimension has on the classifier (see figure \ref{fig:accNeutronSVMC1e6_g1e-6}). In figure \ref{fig:accNeutronSVMC1e6_g1e-6} the addition of more dimensions beyond 2 does not seem to increase accuracy suggesting that not all of the information provided by the emulated trigger is useful. This is also true for the efficiency as seen in figure \ref{fig:effNeutronSVMC1e6_g1e-6} and the purity as seen in figure \ref{fig:purNeutronSVMC1e6_g1e-6}. The most accurate would be the summed energy above a threshold of 1.5\,PE + number of bars hit above 1.5\,PE. However, the option: number of bars hit above 1.5\,PE + number of bars hit above 12.5\,PE is easier to implement for the electronics on VIDARR. The drop in accuracy, efficiency, and purity is relatively low for this combination and therefore it is the preferred option. The chosen classifier is seen in figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6}, which as figure \ref{fig:purNeutronSVMC1e6_g1e-6} indicates is a linear classifier with minimal overlap between the signal noise.
