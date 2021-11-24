@@ -476,6 +476,7 @@ $e^+$          & ....               & 9276    $\pm$ 2   & 2 -- 19               
 \label{fig:proton_aproton_light}
 \end{figure}
 
+However, the light yield for e$^-$ and e$^+$ (see figure \ref{fig:electron_positron_light}) varies more significantly. At 100\,MeV a variation of $\sim$ 15\,\% is seen in both the e$^-$ (figure \ref{subFig:electron_light}) and e$^+$ (figure \ref{subFig:positron_light}). The reason for this discrepancy are the low values of $dE/dx$ for e$^-$ and e$^+$. Whilst the Birk's law fits well between 1\,MeV/mm -- 19\,MeV/mm the higher energy values for e- and e+ tend to have lower values of $dE/dx$ which the Birk's law does not fit well. The solution is to fit a 2d Square polynomial for $dE/dx$ vs. $dL/dx$ between 0\,MeV/mm -- 2\,MeV/mm (coefficients and $\chi^2$/NDFs are seen in table \ref{tab:e-e+SquareDlDeTable}). This additional correction is used in figure \ref{fig:square_electron_positron_light} for both e$^-$ (figure \ref{subFig:square_electron_light}) and e$^+$ (figure \ref{subFig:square_positron_light}) and results in a much more accurate approximation of GEANT4's light yield. The reason for large discrepancy is due to range straggling as higher energy e$^-$ and e$^+$ particles travel much further than the other charged particles simulated and as such deposit much lower values of $dE/dx$ as they travel on average \cite{knoll_2010}. This range straggling is insignificant for the other particles simulated for example for protons or alphas the straggling amounts to a few percent of the mean range \cite{knoll_2010}. 
 % However, the light yield for electrons and positrons seen in figure \ref{fig:electron_positron_light} varies more significantly. At 100\,MeV a variation of $\sim$ 15\,\% is seen in the electrons (figure \ref{subFig:electron_light}) and a variation and a variation of $\sim$ 20\,\% is seen in positrons (figure \ref{subFig:positron_light}). In figure \ref{fig:electron_positron_light} the simulated light which is a square function more accurately represents the GEANT4 light predictions. Figure \ref{fig:square_electron_positron_light} shows this approximation inputted instead. There is a slight variation between the simulated light fit and the square approximation seen in figures \ref{subFig:square_electron_light} (e$^-$) and \ref{subFig:square_positron_light} (e$^+$). This is because the simulated light fit fits the whole light distribution whereas the light produced by the approximation in simulation is produced per GEANT4 step. Despite this, the square approximation for e$^-$ light ($L = 0.9347E^2 + 10340E - 0.1000$) had a variation of 0.7\,\% at 100\,MeV and the square approximation of the e$^+$ light ($L = 0.9716E^2 + 10350E -0.1000$) had a variation of 0.3\,\% at 100\,MeV. 
 \begin{figure}[!h]
 \centering
@@ -496,6 +497,21 @@ $e^+$          & ....               & 9276    $\pm$ 2   & 2 -- 19               
 \caption{Electron, Positron light output compared to the birks approximation and a square fit to the light output in GEANT4}
 \label{fig:electron_positron_light}
 \end{figure}
+
+\begin{table*}[!h]
+\centering
+\begin{tabular}{lllll}  
+\toprule
+Particle       & a                 & b                 & c                 & $\chi^2$/NDF\\
+\midrule
+$e^-$          & -553.3 $\pm$ 0.7  & 9220.5 $\pm$ 0.5  & 258.10 $\pm$ 0.07 & 39.9469 \\
+$e^+$          & -651.1 $\pm$ 0.8  & 9266.5 $\pm$ 0.5  & 251.59 $\pm$ 0.08 & 31.0016 \\
+\bottomrule  
+\end{tabular}
+\caption{The e$^-$ and e$^+$ $dE/dx$ vs $dL/dx$ for 0\,MeV/mm -- 2\,MeV/mm. The equation is in the form $dL/dx = a (dE/dx) + b dE/dx + c$. The fit for both have high $\chi^2$/NDF which is not a concern as it improves the light approximation significantly and is partially a result of high statistics. }
+\label{tab:e-e+SquareDlDeTable}
+\end{table*}
+
 \begin{figure}[!h]
 \centering
 \begin{subfigure}{.5\textwidth}
@@ -515,6 +531,25 @@ $e^+$          & ....               & 9276    $\pm$ 2   & 2 -- 19               
 \caption{Electron and positron light output from simulation compared to a GEANT4 step square approximation}
 \label{fig:square_electron_positron_light}
 \end{figure}
+
+In order to convert between light and energy the scintillator's response to e$^-$ needs to be considered. The light of an e$^-$ is the highest amount of light per MeV that a particle can deposit. This MeV electron equivalent (MeVee) is a special nomenclature used to describe the absolute light yield. The square light fit $L = aE^2 + bE +c$ seen in figures \ref{subFig:electron_light} and \ref{subFig:square_electron_light} can then be used to convert between light and energy. Equation \ref{equ:MeV_electron_equivalent_square} shows the values for the $L^2$ fit in \ref{subFig:electron_light} and \ref{subFig:square_electron_light}. The $E^2$ coefficient is << than the coefficient for E and as a result the fit was change to a linear fit, the values for which are shown in equation \ref{equ:MeV_electron_equivalent_linear} this fit as a $\chi^2$/NDF of 9.01531. Equation \ref{equ:MeV_electron_equivalent_linear} is then differentiated to obtain $dL/dE$ in equation \ref{equ:MeV_electron_equivalent_dl/de}. Equation \ref{equ:MeV_electron_equivalent_dl/de} is then rearranged so that light output can be converted into energy in equation \ref{equ:MevLightConversion}. As mentioned earlier the approximation made is that $\Delta E \sim dE$ and $\Delta L \sim dL$. Where the $\sim$ $\Delta L$ is the light produced in the GEANT4 step and $\sim$ $\Delta E$ is the energy produced in the step according to that light output.
+\begin{equation}
+L = 0.0876519E^2 + 10396.7E - 263.7
+\label{equ:MeV_electron_equivalent_square}
+\end{equation}
+\begin{equation}
+L = 10401.2 - 281.307
+\label{equ:MeV_electron_equivalent_linear}
+\end{equation}
+\begin{equation}
+\frac{dL}{dE} = 10401.2
+\label{equ:MeV_electron_equivalent_dl/de}
+\end{equation}
+\begin{equation}
+dE = \frac{dL}{10401.2} \sim \Delta E = \frac{\Delta L}{10401.2}
+\label{equ:MevLightConversion}
+\end{equation}
+
 % \\\\The conversion of light into energy for electrons (figure \ref{subFig:square_electron_light}) is defined by equation \ref{equ:MeV_electron_equivalent_square}. The light of an electron is the highest amount of light per MeV that a particle can deposit this MeV electron equivalent (MeVee) is a special nomenclature used to describe the absolute light yield \cite{knoll_2010}. In equation \ref{equ:MeV_electron_equivalent_square} the squared term is $ << $ than the linear term, therefore the squared term is ignored for the purposes of light conversion, producing equation \ref{equ:MeV_electron_equivalent_linear}. By rearranging equation \ref{equ:MeV_electron_equivalent_linear} for energy production equation \ref{equ:MeV_electron_equivalent_light} is produced. The same is done for the e$^+$ producing equation \ref{equ:MeV_postirtron_equivalent_light} . A small value of 0.1 is present in equations \ref{equ:MeV_electron_equivalent_linear}, \ref{equ:MeV_electron_equivalent_square}, \ref{equ:MeV_electron_equivalent_light}, \ref{equ:MeV_postirtron_equivalent_light} this is to prevent negative energy values from being produced in equation \ref{equ:MeV_electron_equivalent_light}.  The reason the light yield is so different for e$^-$ and e$^+$ is due to the quenching effect being combined with the straggling effect. Range straggling is caused when particles have differing track lengths inside the scintillator thus depositing differing amounts of energy. These variable track lengths for e$^-$ and e$^+$ are due mostly to their small mass, for heavy charged particles such as protons or $\alpha$s the straggling amounts to a few percent of the mean range\cite{knoll_2010}. Hence e$^-$ and e$^+$ require a different light model to other charged particles.
 % \begin{equation}
 % L = 0.9347E^2 + 10340E - 0.1000
@@ -534,72 +569,72 @@ $e^+$          & ....               & 9276    $\pm$ 2   & 2 -- 19               
 % \end{equation}
 
 \section{Loss of Deposited Energy due to Quenching}\label{sec:GEANT4Simulation_quenchingLoss}
-Now the light has been suitably approximated from GEANT4 a quick investigation into the energy lost via quenching is required. The energy loss due to quenching varies greatly depending on the particle, it is a function of both energy and mass. By considering three example particles and their corresponding anti-particles the scale of the quenching in the VIDARR detector can be observed. The first particles to be considered were electrons. They are a common source of background and have a large charge to mass ratio when compared to other particles. The for electrons and positrons is very minimal which can be seen in figure \ref{fig:electron_positron_quenched_and_not}. This was simulated using a ``slab'' of material (figure \ref{fig:electrons_viewed_in_slab}) instead of using a bar or a full detector simulation. This was done to ensure that all of the energy was kept inside the plastic scintillator so that the full energy loss due to quenching could be measured. But in the case of e$^-$ and e$^+$ this is minimal. 
+Now the light has been suitably approximated from GEANT4, an investigation into the energy loss via quenching is required. The energy loss due to quenching varies greatly depending on the particle, it is a function of both energy and mass and is covered in the section \ref{sec:GEANT4Simulation_ModellingLightEmission}. It is the ratio of ``damaged'' to ``undamaged '' particles \cite{craun_1970} described by birks law (equation \ref{equ:Birks_formula}) \cite{knoll_2010}. By considering three example particles and their corresponding anti-particles the scale of the quenching in the VIDARR detector can be observed. The first particles to be considered were electrons. They are a common source of background and have a large charge to mass ratio when compared to other particles. For the e$^-$ and e$^+$ is very minimal which can be seen in figure \ref{fig:electron_positron_quenched_and_not}. This was simulated using a ``slab'' of material (figure \ref{fig:electrons_viewed_in_slab}) instead of using a bar or a full detector simulation. This was done to ensure that all of the energy was kept inside the plastic scintillator so that the full energy loss due to quenching could be measured. In the case of e$^-$ and e$^+$ this is minimal but there is a slight overshoot > 7\,MeV. 
 
 \begin{figure}[!h]
 \centering
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{quench_eng_LinElectrons.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/newQuenchPlots/e-Birks-Poly2Slab_quenchingComparison.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Visible electron energy deposition with and without quenching}
+  \caption{}
   \label{subFig:electron_quenched_and_not}
 \end{subfigure}%
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{quench_eng_LinPositrons.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/newQuenchPlots/e+Birks-Poly2Slab_quenchingComparison.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Visible positron energy deposition with and without quenching}
+  \caption{}
   \label{subFig:positron_quenched_and_not}
 \end{subfigure}
-\caption{Electrons and positrons visible energy with and without quenching in a ``slab'' of material (see figure \ref{fig:electrons_viewed_in_slab}).}
+\caption{Electrons (a) and positrons (b) visible energy with and without quenching in a ``slab'' of material (see figure \ref{fig:electrons_viewed_in_slab}).}
 \label{fig:electron_positron_quenched_and_not}
 \end{figure}
 
-The effect of quenching on protons is much more significant than for electrons, the charge for protons is equal and opposite for electrons but the mass is $\sim$ 2000 times greater. This results in a large amount of energy no longer being deposited in the scintillator which can be seen in figure \ref{fig:proton_Apronton_quenched_and_not}. In figures \ref{subFig:proton_quenched_and_not} (protons) and \ref{subFig:Aproton_quenched_and_not} (anti-protons) the energy deposition is linear without quenching showing that for protons and anti-protons the effect of quenching is significant. For $\alpha$ particles the effect is even more significant $\alpha$ particles which are 4 times more massive than protons but have twice the charge. The loss due to quenching for protons varies from 90\,\% at a generated energy of 1\,MeV to 50\,\% at a generated energy of 10\,MeV (see figure \ref{fig:proton_Apronton_quenched_and_not}). But the effect for $\alpha$ particles is even more significant with almost none of the energy being visible below 1\,MeV and only 10\,\% of energy visible at 10\,MeV. By looking at figures \ref{fig:electron_positron_quenched_and_not}, \ref{fig:proton_Apronton_quenched_and_not}, and \ref{fig:alpha_Aalpha_quenched_and_not} it is easy to see the effect of quenching scaling with mass. This is the primary reason why simulating particles more massive than $\alpha$ particles is not done for VIDARR. Particles more massive than $\alpha$ particles will be quenched to such a point that they are unlikely to deposit a noticeable amount of energy in the detector's scintillator. 
+The effect of quenching on protons is much more significant than for electrons, the charge for protons is equal and opposite to electrons but the mass is $\sim$ 2000 times greater. This results in a large amount of energy no longer being deposited in the scintillator. As the tracks are shorter but the kinetic energy still needs to be deposited resulting in larger larger $dE/dx$ values and thus more quenching as there are more ``damaged'' particles in the track. The energy deposition for both protons (figure \ref{subFig:proton_quenched_and_not}) and anti-protons (figure \ref{subFig:Aproton_quenched_and_not}) is linear without quenching showing that for protons and anti-protons the effect of quenching is significant. For $\alpha$ particles the effect is even more significant $\alpha$ particles which are 4 times more massive than protons but have twice the charge. The loss due to quenching for protons varies from $\sim$ 90\,\% at a generated energy of 1\,MeV to $\sim$ 50\,\% at a generated energy of 10\,MeV (see figure \ref{fig:proton_Apronton_quenched_and_not}). But the effect for $\alpha$ particles is even more significant with almost none of the energy being visible below 1\,MeV and only 10\,\% of energy visible at 10\,MeV \footnote{Visible energy is the maximum amount of energy the scintillator can produce in a given GEANT4 step given the quenching}. By looking at figures \ref{fig:electron_positron_quenched_and_not}, \ref{fig:proton_Apronton_quenched_and_not}, and \ref{fig:alpha_Aalpha_quenched_and_not} it is easy to see the effect of quenching scaling with mass. This is the primary reason why simulating particles more massive than $\alpha$ particles is not done for VIDARR. Particles more massive than $\alpha$ particles will be quenched to such a point that they are unlikely to deposit a noticeable amount of energy in the detector's scintillator. 
 
 \begin{figure}[!h]
 \centering
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{quench_eng_protons.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/newQuenchPlots/protonBirksSlab_quenchingComparison.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Visible proton energy deposition with and without quenching}
+  \caption{}
   \label{subFig:proton_quenched_and_not}
 \end{subfigure}%
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{quench_eng_Aprotons.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/newQuenchPlots/aProtonBirksSlab_quenchingComparison.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Visible anti-proton energy deposition with and without quenching}
+  \caption{}
   \label{subFig:Aproton_quenched_and_not}
 \end{subfigure}
-\caption{protons and anti-protons visible energy with and without quenching in a ``slab'' of material (see figure \ref{fig:electrons_viewed_in_slab})}
+\caption{Protons (a) and anti-protons (b) visible energy with and without quenching in a ``slab'' of material (see figure \ref{fig:electrons_viewed_in_slab})}
 \label{fig:proton_Apronton_quenched_and_not}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{quench_eng_Alpha.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/newQuenchPlots/alphaBirksSlab_quenchingComparison.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Visible $\alpha$ particle energy deposition with and without quenching}
+  \caption{}
   \label{subFig:alpha_quenched_and_not}
 \end{subfigure}%
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{quench_eng_AAlpha.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/newQuenchPlots/aAlphaBirksSlab_quenchingComparison.png}
   \captionsetup{width=.9\linewidth}
-  \caption{Visible $\bar{\alpha}$ particle energy deposition with and without quenching}
+  \caption{}
   \label{subFig:Aalpha_quenched_and_not}
 \end{subfigure}
-\caption{$\alpha$ and $\bar{\alpha}$ particles visible energy with and without quenching in a ``slab'' of material (see figure \ref{fig:electrons_viewed_in_slab}).}
+\caption{$\alpha$ (a) and $\bar{\alpha}$ (b) particles visible energy with and without quenching in a ``slab'' of material (see figure \ref{fig:electrons_viewed_in_slab}).}
 \label{fig:alpha_Aalpha_quenched_and_not}
 \end{figure}
 
 \section{Counting Statistics} \label{sec:GEANT4Simulation_countingStats}
-When a particle passes through the scintillating plastic it produces photons as it interacts. These photons then travel through the bar until they meet the WLS fibres. The photons then travel down the WLS fibres until they encounter the MPPC  this signal is then amplified by the MPPC producing a signal of 4.2\,mV which is equivalent to one photon see figure \ref{fig:pureDarkNoise} which is called a photo-electron equivalent (PE). So for n number of photo-electron equivalents, there will be a Poisson distribution (equation \ref{equ:possionProb}) associated with it due to counting statistics. A Poisson approximation is suitable because there is a small probability of a given outcome in this case. For this distribution $pn = \overline{x}$ where $\overline{x}$ is the expectation value, substituting this into equation \ref{equ:possionProb} we get equation \ref{equ:possionExpectation} \cite{knoll_2010}.
+When a particle passes through the scintillating medium it produces photons as it interacts with the medium. These photons then travel through the bar until they meet the WLS fibres. The photons then travel down the WLS fibres until they encounter the MPPC  this signal is then amplified by the MPPC producing a signal of 4.2\,mV per photon (in most cases) which is equivalent to one photon see figure \ref{fig:pureDarkNoise} which is called a photo-electron equivalent (PE). So for $n$ number of PE, there will be a Poisson distribution (equation \ref{equ:possionProb}) due to counting statistics. A Poisson approximation is suitable because there is a small probability of a given outcome in this case. For this distribution $pn = \overline{x}$ where $\overline{x}$ is the expectation value, substituting this into equation \ref{equ:possionProb} we get equation \ref{equ:possionExpectation} \cite{knoll_2010}.
 \begin{equation}
 P(x) = \frac{(pn)^x e^{-pn}}{x!}  
 \label{equ:possionProb}
@@ -610,7 +645,8 @@ P(x) = \frac{(\overline{x})^x e^{-\overline{x}}}{x!}
 \label{equ:possionExpectation}
 \end{equation}
 
-Further the variance of this model can be explained using equation  \ref{equ:possionVar} which also gives $\sigma^2 = \overline{x}$ giving a standard deviation of $\sigma = \sqrt{\overline{x}}$ \cite{knoll_2010}. This definition of the standard deviation is also true for the Gaussian distribution. The Gaussian distribution using this standard deviation can be seen in equation \ref{equ:guassianExpectation}. When n is high enough the Poisson distribution will approximate to a Gaussian distribution this is useful when simulating light counting statistics because a Gaussian distribution is much less computationally intensive as there is no factorial. The point where Gaussian is used instead of Poisson in the simulation is at a value of 10 photons seen in figure \ref{fig:CoutingStats10}. At an expectation value of 10 photons 99.9\,\% of events produced have $>$ 2 photons in the Poisson distribution (see figure \ref{fig:CoutingStats10}). This is a useful limit to switch distributions as it ensures that the low values of PE correctly modelled by the Poisson distribution are minimal. 
+Further the variance of this model can be explained using equation  \ref{equ:possionVar} which also gives $\sigma^2 = \overline{x}$ giving a standard deviation of $\sigma = \sqrt{\overline{x}}$ \cite{knoll_2010}. This definition of the standard deviation is also true for the Gaussian distribution. The Gaussian distribution using this standard deviation can be seen in equation \ref{equ:guassianExpectation}. When $n$ is high enough, the Poisson distribution will approximate to a Gaussian distribution. This is useful when simulating light counting statistics because a Gaussian distribution is much less computationally intensive as there is no factorial. The tolerance for this was set to 99.9\,\% of the event in the Poisson distribution being above 2 events or more,this occurs at a mean of 10 photons. After a mean of 10 photons the Gaussian distribution is used instead. The distribution of the smearing for 10 photons can be seen in figure \ref{fig:CoutingStats10}, a slight skew in the Poisson is visible but the distributions approximate.
+% The point where Gaussian is used instead of Poisson in the simulation is at a value of 10 photons seen in figure \ref{fig:CoutingStats10}. At an expectation value of 10 photons 99.9\,\% of events produced have $>$ 2 photons in the Poisson distribution (see figure \ref{fig:CoutingStats10}). This is a useful limit to switch distributions as it ensures that the low values of PE correctly modelled by the Poisson distribution are minimal. 
 
 \begin{equation}
 \sigma ^2 \equiv \sum_{x=0}^{n} (x-\overline{x})^2 P(x) = pn = \overline{x} 
@@ -629,9 +665,11 @@ P(x) = \frac{1}{\sigma \sqrt[]{2 \pi}} \exp \left(-\frac{1}{2}\left(\frac{x-\ove
  \label{fig:CoutingStats10}
 \end{figure}
 
-\section{Simulated Results With Physical and Electronic Effects}\label{sec:GEANT4Simulation_resultsPhysicalElectronics}
-The impact of physical and electronic effects on simulated data is quite significant especially for heavier particles such as protons and $\alpha$s. The heaviest particle we expect to see in statistically significant quantities is the $\alpha$. In order to show the maximum difference between generated and a more realistic simulation generated $\alpha$ particles are used for this section. 
-\\\\If these effects are ignored in the simulation then the results look nonphysical. In figure \ref{fig:alpha_summed_vs_truth} the summed energy inside the detector is equal to the truth energy in most cases. This is because the additional effects are being ignored and only the energy deposited in the scintillator is being reconstructed. The only events which do not have all the energy summed in the detector are those which were generated near the edges of the bar, these events are absorbed by the TiO$_2$ coating and so deposit less energy in the detector. The modelling of quenching (see section \ref{sec:GEANT4Simulation_MonteCarloBirksLaw}) and attenuation (see figure \ref{fig:attenuationPlot}) therefore cause a large decrease in the summed energy inside the detector seen in figure \ref{fig:alphaVisVsTruthZoom}. Figure \ref{fig:alphaVisVsTruthZoom} is an idealistic representation of what $\alpha$ particles would look like in a VIDARR detector with perfect electronics. I.e no losses or distortions.
+\section{Simulated Results With Electronic Approximations}\label{sec:GEANT4Simulation_resultsPhysicalElectronics}
+The effects of quenching are mores significant for the heavier charged particles  protons, $\alpha$s and their corresponding anti-particles (see section \ref{sec:GEANT4Simulation_quenchingLoss}). The heaviest particles expected to be seen in statistically significant quantifies is the $\alpha$. Therefore, the $\alpha$ particle represents the biggest deviation from energy deposited in the scintillator and the more realistic signal expected from the detector. For this reasons $\alpha$ particles are used in this section.  
+\\\\If these effects are ignored in the simulation then the results look nonphysical. In figure \ref{fig:alpha_summed_vs_truth} the summed energy inside the detector is equal to the truth energy in most cases. This is because the additional effects are being ignored and only the energy deposited in the scintillator is being reconstructed. The only events which do not have all the energy summed in the detector are those which were generated near the edges of the bar, these events are absorbed by the TiO$_2$ coating and so deposit less energy in the detector. The modelling of quenching (see section \ref{sec:GEANT4Simulation_MonteCarloBirksLaw}) and attenuation (see section \ref{sec:GEANT4Simulation_ModellingAttenuation}) therefore cause a large decrease in the summed energy inside the detector seen in figure \ref{fig:alphaVisVsTruthZoom}. Figure \ref{fig:alphaVisVsTruthZoom} is an idealistic representation of what $\alpha$ particles would look like in a VIDARR detector with perfect electronics. I.e no losses or biasing from the counting statistics (see section \ref{sec:GEANT4Simulation_countingStats}) or biasing from the MPPC PE smearing (see section \ref{sec:GEANT4Simulation_ModellingDarkNoise}).
+\\\\Finally, the effects caused by the electronics (figure \ref{fig:fitting_of_non_peak_dark_noise}) and the counting statistics (figure \ref{fig:CoutingStats10}) give the simulated distribution a more realistic shape. The results for this can be seen in figure \ref{fig:alphaRecoVsTruthZoom}. With the data-driven approximations of the effects taken into account, the simulation should give a more realistic result. Unfortunately, due to the outbreak of Covid-19, the detector construction was delayed and so the accuracy of the simulation cannot be bench-marked against detector data. 
+
 
 \begin{figure}[!h]
 \centering
@@ -650,8 +688,6 @@ The impact of physical and electronic effects on simulated data is quite signifi
 \end{minipage}
 \end{figure}
 
-Finally, the effects caused by the electronics (figure \ref{fig:fitting_of_non_peak_dark_noise}) and the counting statistics (figure \ref{fig:CoutingStats10}) give the simulated distribution a more realistic shape. The results for this can be seen in figure \ref{fig:alphaRecoVsTruthZoom}. With the data-driven effects taken into account, the simulation should give a more realistic result. Unfortunately due to the outbreak of Covid-19, the detector construction was delayed and so the accuracy of the simulation cannot be benchmarked against detector data. 
-
 \begin{figure}[!h]
  \centering
  \includegraphics[width=0.5\linewidth]{Chapter4/Figs/Raster/truth_vs_recoSummed_alpha_zoom.png}
@@ -661,8 +697,8 @@ Finally, the effects caused by the electronics (figure \ref{fig:fitting_of_non_p
 
 \clearpage
 \section{Modelling Gadolinium}\label{sec:GEANT4Simulation_modellingGadolinium}
-The Gadolinium cascade is difficult to measure and accurately simulate for two main reasons. Firstly the Gd isotopes which have a high neutron capture cross-section are isotopes $^155$Gd and $^157$Gd \cite{molnar_2004}. Both of these nuclei are large therefore it is difficult to accurately model the individual interactions between each of the individual nucleons. There is no agreed-upon model at present for the neutron absorption onto Gadolinium and the subsequent 8\,MeV $\gamma$ cascade. The second issue is that the high energy $\gamma$ rays emitted by the cascade are very difficult to contain. Therefore, getting accurate measurements and energy efficiencies for the cascade is also very difficult. These two problems compound one another. It is difficult to measure the cascade so it is difficult to model thus making it difficult to know what energies are expected from the Gd nucleus. Further issues are caused by the highly penetrative nature of high energy $\gamma$ rays thus making efficiency estimates even less accurate \cite{molnar_2004}. Gadolinium is used because of its high efficiency (10$\%$ - 40$\%$) compared to other neutron capturing materials such as $^6$Li which only has about $1\%$ \cite{Abdushukurov_2010}. The 8\,MeV $\gamma$ cascade post neutron absorption is the trigger signal for the VIDARR detector. After the cascade has been triggered the detector looks backwards in time to determine the e$^+$ cluster.
-\\\\Gadolinium has two models in Geant 4 the photon evaporation model seen in figure \ref{subFig:differentGEANT4Models_photonEvaporationGd} and the final state model seen in figure \ref{subFig:differentGEANT4Models_finalStateGd}. These two models have different strengths and weaknesses the photon evaporation model conserves energy by ``boiling off'' the known decay energies of Gadolinium until there is no more energy left to disperse. This approach attempts to match the multiplicity of the gadolinium cascade but in so doing the high energy $\gamma$ rays that are the most indicative of the gadolinium cascade are not present. The other model in Geant 4 is the final state model which tries to match the spectrum of measured energy rays. However, by using this approach the conservation of energy is violated. As the sum of the individual $\gamma$ rays exceeds the initial generated energy. Of the two models, the final state is preferred in the case of IBD. This is because the high energy $\gamma$ rays that distinguish the gadolinium cascade from the background are present in the final state model and not the photon evaporation model.
+Gadolinium is used because of its high efficiency (10$\%$ - 40$\%$) compared to other neutron capturing materials such as $^6$Li which only has about $1\%$ \cite{Abdushukurov_2010}. The 8\,MeV $\gamma$ cascade post neutron absorption is the trigger signal for the VIDARR detector. After the cascade has been triggered the detector looks backwards in time to determine the e$^+$ cluster. The Gadolinium cascade is difficult to measure and accurately simulate for two main reasons. Firstly the Gd isotopes which have a high neutron capture cross-section are isotopes $^{155}$Gd and $^{157}$Gd \cite{molnar_2004}. Both of these nuclei are large therefore it is difficult to accurately model the individual interactions between each of the individual nucleons. There is no agreed-upon model at present for the neutron absorption onto Gadolinium and the subsequent 8\,MeV $\gamma$ cascade. The second issue is that the high energy $\gamma$-rays emitted by the cascade are very difficult to contain as they are highly penetrative. Therefore, getting accurate measurements and energy efficiencies for the cascade is also very difficult. These two problems compound one another. It is difficult to measure the cascade so it is difficult to model thus making it difficult to know what energies are expected from the Gd nucleus \cite{molnar_2004}. 
+\\\\Gadolinium has two models in GEANT4 the photon evaporation model seen in figure \ref{subFig:differentGEANT4Models_photonEvaporationGd} and the final state model seen in figure \ref{subFig:differentGEANT4Models_finalStateGd}. These two models have different strengths and weaknesses the photon evaporation model conserves energy by ``boiling off'' the known decay energies of Gadolinium until there is no more energy left to disperse. This approach attempts to match the multiplicity of the gadolinium cascade but in so doing, the high energy $\gamma$-rays that are the most indicative of the gadolinium cascade are not present. The other model in GEANT4 is the final state model which tries to match the spectrum of measured energy rays. However, by using this approach the conservation of energy is violated. As the sum of the individual $\gamma$-rays exceeds the initial generated energy. Of the two models, the final state is preferred in the case of IBD. This is because the high energy $\gamma$-rays that distinguish the gadolinium cascade from the background are present in the final state model and not the photon evaporation model. Also the $\gamma$s are more likely to have the correct topology. 
 
 \begin{figure}[!h]
 \centering
@@ -680,7 +716,7 @@ The Gadolinium cascade is difficult to measure and accurately simulate for two m
   \caption{}
   \label{subFig:differentGEANT4Models_finalStateGd}
 \end{subfigure}
-\caption{Individual $\gamma$ rays for two different models for gadolinium cascade in GEANT4. The photon evaporation model conserves energy but does not produce high energy $\gamma$ rays see (a). The final state model produces high energy $\gamma$ rays but breaks the conservation of energy to do so (see (b)). Both plots from \cite{YuChen_2015}.}
+\caption{Individual $\gamma$-rays for two different models for gadolinium cascade in GEANT4. The photon evaporation model conserves energy but does not produce high energy $\gamma$-rays see (a). The final state model produces high energy $\gamma$-rays but breaks the conservation of energy to do so (see (b)). Both plots from \cite{YuChen_2015}.}
 \label{fig:differentGEANT4Models}
 \end{figure}
 
@@ -692,8 +728,8 @@ The Gadolinium cascade is difficult to measure and accurately simulate for two m
 %  \label{fig:naturalGd.png}
 % \end{figure}
 
-However, whilst the final state model is preferable to the photon evaporation model there is another alternative from the DANCE collaboration which produced a dicebox model of $^{157}$Gd \cite{Chyzh_2011}. DANCE is a $\gamma$ calorimeter consisting of 160 BaF$_2$ scintillation detectors. The multiplicities of the cascade from the dicebox are counted as the number of clusters that are observed rather than the number of crystals that fire in order to give a more accurate measurement of multiplicity due to the high noise rate observed in the detectors below 3\,MeV \cite{Chyzh_2011}. The shape of the spectrum at low sum energies (below about 3 MeV) is strongly influenced by the background from natural $\beta$ activity in the BaF2 crystals, especially for low multiplicities \cite{Chyzh_2011}. Measuring the number of clusters should reduce the errors for low multiplicity according to DANCE \cite{Chyzh_2011}. The breakdown for the multiplicity cascade can be seen in figure \ref{fig:gadoliniumMultipliciesBreakdownCascade} where both the $\gamma$ and e$^-$ multiplicities are shown. Most of the multiplicities are driven by the $\gamma$ rays but some e$^-$s are produced unlike the models in GEANT4. 
-\\\\The breakdown for all the energies for the DANCE dicebox is shown in figure \ref{fig:gadoliniumEnergiesCascade} where most of the energies produced are $\gamma$ rays. The dominance of the $\gamma$ rays is not surprising when comparing the dicebox to the photon evaporation and final state models in GEANT4 (figure \ref{fig:differentGEANT4Models}). The generated energies for all of the particles can be seen in figure \ref{fig:energyOfCascadeOfCascadeGd} these energies are what is put into the GEANT4 simulation as well as the type of particle. The WATCHMAN collaboration created a method to integrate the DANCE dicebox into GEANT4 by cancelling the 8\,MeV $\gamma$ cascade and forcing new secondary production via the DANCE dicebox. This implementation was copied by the VIDARR collaboration. In figure \ref{fig:energyOfCascadeOfCascadeGd} high energy $\gamma$ rays are visible unlike in the photon evaporation model (figure \ref{subFig:differentGEANT4Models_photonEvaporationGd}). However, the DANCE dicebox model also conserves energy, the total amount of energy can be seen in figure  \ref{fig:conservationOfCascadeGd}. For the DANCE dicebox, the total generated energy matches the summed energy of the particles produced in contrast to the final state model. 
+However, whilst the final state model is preferable to the photon evaporation model there is another alternative from the DANCE collaboration which produced a dicebox model of $^{157}$Gd \cite{Chyzh_2011}. DANCE is a $\gamma$ calorimeter consisting of 160 BaF$_2$ scintillation detectors. The multiplicities of the cascade from the dicebox are counted as the number of clusters that are observed rather than the number of crystals that fire in order to give a more accurate measurement of multiplicity due to the high noise rate observed in the detectors below 3\,MeV \cite{Chyzh_2011}. The shape of the spectrum at low integrated energies (below about 3\,MeV) is strongly influenced by the background from natural $\beta$ activity in the BaF$_2$ crystals, especially for low multiplicities \cite{Chyzh_2011}. Measuring the number of clusters should reduce the errors for low multiplicity according to DANCE \cite{Chyzh_2011}. The breakdown for the multiplicity cascade can be seen in figure \ref{fig:gadoliniumMultipliciesBreakdownCascade} where both the $\gamma$ and e$^-$ multiplicities are shown. Most of the multiplicities are driven by the $\gamma$-rays but some e$^-$s are produced unlike the models in GEANT4. 
+\\\\The breakdown for all the energies for the DANCE dicebox is shown in figure \ref{fig:gadoliniumEnergiesCascade} where most of the energies produced are $\gamma$-rays. The dominance of the $\gamma$-rays is not surprising when comparing the dicebox to the photon evaporation and final state models in GEANT4 (figure \ref{fig:differentGEANT4Models}). The generated energies for all of the particles can be seen in figure \ref{fig:energyOfCascadeOfCascadeGd}, they resembles the photon evaporation model. The energies and particle types from figure \ref{fig:gadoliniumEnergiesCascade} are used to generate each secondary particle from the cascade. The WATCHMAN collaboration created a method to integrate the DANCE dicebox into GEANT4 by intercepting the GEANT4 function call in the ``Stacking Action'' and replace the 8\,MeV $\gamma$ cascade and forcing new secondary production via the DANCE dicebox. This implementation was copied by the VIDARR collaboration. In figure \ref{fig:energyOfCascadeOfCascadeGd} high energy $\gamma$-rays are visible unlike in the photon evaporation model (figure \ref{subFig:differentGEANT4Models_photonEvaporationGd}). However, the DANCE dicebox model also conserves energy, the total amount of energy can be seen in figure  \ref{fig:conservationOfCascadeGd}. For the DANCE dicebox, the total generated energy matches the summed energy of the particles produced in contrast to the final state model. However, the dicebox does produce less accurate $\gamma$-ray toplogy.
 
 \begin{figure}[!h]
 \centering
@@ -736,7 +772,7 @@ However, whilst the final state model is preferable to the photon evaporation mo
 \end{minipage}
 \end{figure}
 
-The photon evaporation model and final state model were overlapped with the measured spectrum from natural gadolinium as well as $^{155}$Gd,$^{157}$Gd in figure \ref{fig:comparisonGd}. The high energy $\gamma$ rays observed in the natural and specific isotopes of Gd are present in the final state model which reads from the database ENDF and tries to replicate the final state of the neutron \cite{koiTatsumi_2006}. With the final state model events in the low energy tail break Q-value (conservation of energy) \cite{YuChen_2015}. When the DANCE/WATCHMAN dicebox is overlaid on top of the photon evaporation model and the final state model as shown in figure  \ref{fig:comparisonAndDiceBoxGd} the dicebox seems very similar to the photon evaporation model but extends further producing more higher energy $\gamma$ rays. The dicebox shown in figure \ref{fig:comparisonAndDiceBoxGd} only represents $^{157}$Gd. The DANCE dicebox was based on data measured from a sample that was  99.7\,\% $^{157}$Gd \cite{Chyzh_2011}. 
+The photon evaporation model and final state model were overlapped with the measured spectrum from natural gadolinium as well as $^{155}$Gd,$^{157}$Gd in figure \ref{fig:comparisonGd}. The high energy $\gamma$-rays observed in the natural and specific isotopes of Gd are present in the final state model which reads from the database ENDF \cite{BROWN20181} and tries to replicate the final state of the neutron \cite{koiTatsumi_2006}. With the final state model events in the low energy tail break Q-value (conservation of energy) \cite{YuChen_2015}. By taking figure \ref{fig:comparisonGd} and overlaying the DANCE/WATCHMAN dicebox (figure \ref{fig:comparisonAndDiceBoxGd}) the similarities between photon evaporation model and dicebox are clear but it extends further producing more higher energy $\gamma$-ray. The dicebox shown in figure \ref{fig:comparisonAndDiceBoxGd} only represents $^{157}$Gd. The DANCE dicebox was based on data measured from a sample that was  99.7\,\% $^{157}$Gd \cite{Chyzh_2011}. 
 
 \begin{figure}[!h]
  \centering
@@ -748,18 +784,18 @@ The photon evaporation model and final state model were overlapped with the meas
 \begin{figure}[!h]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/comparisonAndDiceBoxGd.png}
- \captionof{figure}{Figure \ref{fig:comparisonGd} \cite{YuChen_2015} but with the Dicebox individual $\gamma$ rays for $^{157}$Gd from figure \ref{fig:energyOfCascadeOfCascadeGd} overlaid on top. The Dicebox has similar low energy $\gamma$ rays to the photon evaporation model but has more high energy $\gamma$ rays as would be expected of the Gd cascade. * \cite{kandlakunta_2012} ** \cite{bollinger_1970}.}
+ \captionof{figure}{Figure \ref{fig:comparisonGd} \cite{YuChen_2015} but with the Dicebox individual $\gamma$-rays for $^{157}$Gd from figure \ref{fig:energyOfCascadeOfCascadeGd} overlaid on top. The Dicebox has similar low energy $\gamma$-rays to the photon evaporation model but has more high energy $\gamma$-rays as would be expected of the Gd cascade. * \cite{kandlakunta_2012} ** \cite{bollinger_1970}.}
  \label{fig:comparisonAndDiceBoxGd}
 \end{figure}
 
-The energies of the $\gamma$ rays produced by the simulation are shown in figure \ref{fig:gdCascadeVsAllGammas}. The Gd Cascade is from a simulation of natural Gadolinium which uses the DANCE/WATCHMAN dicebox when $^{157}$Gd captures a neutron and uses the final state model when other isotopes of Gd capture a neutron. In figure \ref{fig:gdCascadeVsAllGammas} the majority of the $\gamma$ rays produced are from the $^{157}$Gd dicebox final state model hybrid. However, there is also a significant peak caused by the hydrogen neutron capture. The effect of adding the dicebox to the final state model can be seen in figure \ref{fig:TotalGeneratedEnergyOfCascadeFinalStateDicebox}. Compared to the final state model the peaks in the dicebox final state hybrid are much more pronounced with more energy being produced overall. The focus on the high energy $\gamma$ rays also means that more energy is deposited in the scintillator as well (figure \ref{fig:finalStateAndDiceBoxBarsDepositedEnergy}). This is very useful for the VIDARR simulation, not only is the dicebox-final state hybrid more realistic than the pure final state model it also shows that the trigger signal for the VIDARR detector is even more unique than expected. Not only depositing more energy in the scintillator than would be expected from the pure final state model (figure \ref{fig:finalStateAndDiceBoxBarsDepositedEnergy}) but also hits more bars as seen in figure \ref{fig:numberOfBarsHitCascadeFinalStateDicebox}. This is especially useful for separating out the trigger signal from the noise as will be shown in section \ref{sec:MachineLearningTrigger}.
+The energies of the $\gamma$-rays produced by the simulation are shown in figure \ref{fig:gdCascadeVsAllGammas}. The gadolinium cascade is from a simulation of natural gadolinium which uses the DANCE/WATCHMAN dicebox when $^{157}$Gd captures a neutron and uses the final state model when other isotopes of Gd capture a neutron. In figure \ref{fig:gdCascadeVsAllGammas} the majority of the $\gamma$-rays produced are from the $^{157}$Gd dicebox final state model hybrid. However, there is also a significant peak caused by the hydrogen neutron capture. The effect of adding the dicebox to the final state model can be seen in figure \ref{fig:TotalGeneratedEnergyOfCascadeFinalStateDicebox}. Compared to the final state model the peaks in the dicebox final state hybrid are much more pronounced with more energy being produced overall. The focus on the high energy $\gamma$-rays also means that more energy is deposited in the scintillator as well (figure \ref{fig:finalStateAndDiceBoxBarsDepositedEnergy}). This is very useful for the VIDARR simulation, not only is the dicebox-final state hybrid more realistic than the pure final state model it also shows that the trigger signal for the VIDARR detector is even more unique than expected. When comparing the dicebox to the final state model the dicebox deposits more energy in the scintillator than would be expected from the pure final state model (figure \ref{fig:finalStateAndDiceBoxBarsDepositedEnergy}) and also hits more bars as seen in figure \ref{fig:numberOfBarsHitCascadeFinalStateDicebox}. This is especially useful for separating out the trigger signal from the noise as will be shown in section \ref{sec:MachineLearningTrigger}.
 
 \begin{figure}[!h]
 \centering
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/gadolinium/gdCascadeVsAllGammas.png}
-  \captionof{figure}{The individual $\gamma$ rays seen in the simulated VIDARR detector from generated neutrons with 0.025\,eV kinetic energy. The majority of the distribution is dominated by gadolinium cascade but a small peak is caused by the hydrogen absorption of the neutron.} 
+  \captionof{figure}{The individual $\gamma$-rays seen in the simulated VIDARR detector from generated neutrons with 0.025\,eV kinetic energy. The majority of the distribution is dominated by gadolinium cascade but a small peak is caused by the hydrogen absorption of the neutron.} 
   \label{fig:gdCascadeVsAllGammas}
 \end{minipage}%
 \qquad
@@ -789,20 +825,18 @@ The energies of the $\gamma$ rays produced by the simulation are shown in figure
 \end{figure}
 
 \section{Machine Learning Neutron Trigger}\label{sec:MachineLearningTrigger}
-Using simulated data it is possible to test whether a machine learning trigger would be advantageous to the analysis. The machine learning technique considered the most appropriate was the Support Vector Machine (SVM) \cite{Boser92atraining} \cite{cortes1995support}. SVMs were compared to several other simple techniques typically used in physics namely a decision tree and k nearest neighbours (see figure \ref{fig:sklearnReleventExamples}). As seen in figure \ref{fig:sklearnReleventExamples} the SVM linearly or with a kernel. The radial basis function (RBF) kernel is one of the most common. In figure \ref{fig:sklearnReleventExamples} the generalised boundaries, high accuracy, and well-defined projection space seen in the RBF SVM make it the clear standout. The SVM utilises the RBF kernel via the kernel trick since at least 1992 \cite{Boser92atraining}. 
-\\\\SVMs work by finding the best separating hyperplane between two opposing data sets. In figure \ref{fig:svmBoser92LinearSVM} the best separating hyperplane is calculated for a simple data set. The SVM works by finding the maximum distance between each data set and creating an n-dimensional line the ``hyperplane'' to separate the data. In order to separate non-linear data the kernel trick is used which figure \ref{fig:kernelRBF_fromWeB} shows. Figure \ref{fig:kernelRBF_fromWeB} also shows how two different kernels achieve the same result. How the decision surface is manipulated to separate data sets is shown in figure \ref{fig:kernelRBF_fromWeB}. As figure \ref{fig:kernelRBF_fromWeB} shows the kernel transforms the data set so it becomes linearly separable for the SVM. A further test of the SVMS's capabilities is done in figure \ref{fig:svmExp_GausseExamples} which tests the separation of multiple Gaussian data sets from 2D exponential noise. This is as complex ass trigger data could reasonably be expected to be. This means that the SVM should be suitable for separating neutron trigger data. 
-\\\\An SVM is also convexly optimised which means the solutions are easier to solve as there is only one global minimum \cite{cortes1995support}. This feature allows SVMs to train on sparse data sets with low statistics. SVMs are fast to train on small data sets but as data sets grow larger the squared nature of the SVM solution increases training times dramatically \cite{cortes1995support}. This means that for data with many dimensions and many statistics training times and memory usage can be very high to the point of being unusable \cite{cortes1995support}. Data must also be completely labelled and optimisation for training whilst possible through sequential minimal optimisation is somewhat limited \cite{platt1998sequential}. These drawbacks are not a significant issue for the trigger data but they should be bared in mind for more complex cases such as image recognition.
- 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/sklearnReleventExamples.png}
-\captionof{figure}{Some example classifiers taken from scikit-learn that show how different techniques draw boundaries and how confident they are in those boundaries. Decision trees and k nearest neighbours are common simplistic classifiers used in physics but the boundaries they produce are often susceptible to over-training. The linear SVM is generalised but is quite limited in its utility. The SVM with the RBF kernel consistently draws the most accurate boundaries and they are well generalised. The accuracy of each technique is shown in the bottom right of each plot. From \cite{scikit-learn}.} 
-\label{fig:sklearnReleventExamples}
-\end{figure}
+There are several machine learning techniques available to analyse different types of data. Typically the physics field uses decision trees (DT), k-nearest neighbours (knn), and deep learning neural networks (DLNN). One technique which is often neglected is the support vector machine (SVM) \cite{Boser92atraining}, \cite{cortes1995support}. An SVM is a linear classifier that uses particular points (support vectors) in two data sets to find the best separating ``hyperplane'' an n-dimensional line that finds the maximum separation between the two data sets (see figure \ref{fig:svmBoser92LinearSVM}). Whilst the SVM is a linear classifier it is possible to use a function to distort non-lienar data such that it becomes linearly separable. Theses functions are called kernels an example of how they are used can be seen in figure \ref{fig:kernelRBF_fromWeB}. The kernel used in figure \ref{fig:kernelRBF_fromWeB} is the radial bas function (RBF) kernel described by equation \ref{equ:RbfKernelFunc}. The method of tranforming data through a kernel via the ``kernel trick'' is well established and has been a common technique since at least 1992 \cite{Boser92atraining}.
+% Using simulated data it is possible to test whether a machine learning trigger would be advantageous to the analysis. The machine learning technique considered the most appropriate was the Support Vector Machine (SVM) \cite{Boser92atraining} \cite{cortes1995support}, as SVMs were compared to several other simple techniques typically used in physics namely a decision tree and k-nearest neighbours (see figure \ref{fig:sklearnReleventExamples}). As seen in figure \ref{fig:sklearnReleventExamples} the SVM linearly or with a kernel. The radial basis function (RBF) kernel is one of the most common. In figure \ref{fig:sklearnReleventExamples} the generalised boundaries, high accuracy, and well-defined projection space seen in the RBF SVM make it the clear standout. The SVM utilises the RBF kernel via the kernel trick since at least 1992 \cite{Boser92atraining}. 
+% \\\\SVMs work by finding the best separating hyperplane between two opposing data sets. In figure \ref{fig:svmBoser92LinearSVM} the best separating hyperplane is calculated for a simple data set. The SVM works by finding the maximum distance between each data set and creating an n-dimensional line the ``hyperplane'' to separate the data. In order to separate non-linear data the kernel trick is used which figure \ref{fig:kernelRBF_fromWeB} shows. Figure \ref{fig:kernelRBF_fromWeB} also shows how two different kernels achieve the same result. How the decision surface is manipulated to separate data sets is shown in figure \ref{fig:kernelRBF_fromWeB}. As figure \ref{fig:kernelRBF_fromWeB} shows the kernel transforms the data set so it becomes linearly separable for the SVM. A further test of the SVMS's capabilities is done in figure \ref{fig:svmExp_GausseExamples} which tests the separation of multiple Gaussian data sets from 2D exponential noise. This is as complex ass trigger data could reasonably be expected to be. This means that the SVM should be suitable for separating neutron trigger data. 
+% \\\\An SVM is also convexly optimised which means the solutions are easier to solve as there is only one global minimum \cite{cortes1995support}. This feature allows SVMs to train on sparse data sets with low statistics. SVMs are fast to train on small data sets but as data sets grow larger the squared nature of the SVM solution increases training times dramatically \cite{cortes1995support}. This means that for data with many dimensions and many statistics training times and memory usage can be very high to the point of being unusable \cite{cortes1995support}. Data must also be completely labelled and optimisation for training whilst possible through sequential minimal optimisation is somewhat limited \cite{platt1998sequential}. These drawbacks are not a significant issue for the trigger data but they should be bared in mind for more complex cases such as image recognition.
+\begin{equation}
+K(\mathbf{x,x'}) = \exp{(\gamma \mathbf{x \cdot x'})} - 1
+\label{equ:RbfKernelFunc}
+\end{equation}
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/svmBoser92LinearSVM.png}
+\includegraphics[width=0.9\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/svmBoser92LinearSVM.png}
 \captionof{figure}{An example of how a support vector machine (SVM) separates two different distributions that are linearly separable. The maths behind the classifier finds the best separating line/hyper-plane between two distributions. From \cite{Boser92atraining}.} 
 \label{fig:svmBoser92LinearSVM}
 \end{figure}
@@ -816,10 +850,40 @@ Using simulated data it is possible to test whether a machine learning trigger w
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/kernelRBF_fromWeB.png}
+\includegraphics[width=0.9\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/kernelRBF_fromWeB.png}
 \captionof{figure}{An online example that shows how the kernel trick is used to make non-linear data linearly separable by transforming it through a kernel. From \cite{kernelTrickWeb}.} 
 \label{fig:kernelRBF_fromWeB}
 \end{figure}
+ 
+A direct comparison between DT, knn, linear (no kernel) SVM and RBF SVM classifiers is done in figure \ref{fig:sklearnReleventExamples}. In figure \ref{fig:sklearnReleventExamples} the generalised boundaries, high accuracy and well defined projection space of the RBF SVM make it the clear standout. However, each machine learning technique has its drawbacks. Whilst SVMs are convexly optimised only having one global minimum \cite{Boser92atraining} (see figures \ref{fig:svmBoser92LinearSVM} and \ref{fig:sklearnReleventExamples}) this comes at the cost of Parallelisation. In order to achieve the well defined projection space with such a simple algorithm the SVM must be able to observe the whole of the data at once. his is somewhat mitigated by sequential minimal optimisation \cite{platt1998sequential} but not completely. This means that for very large data sets with thousands of dimensions an SVM might not always be suitable as training times become too long. However, the trigger data for the VIDARR detector only has a maximum of 4 dimensions shown in table \ref{tab:triggerDims}. Data must also be labelled for SVMs as well but this is not a significant limitation for VIDARR data sets, as labelling of data is likely to be done regardless of machine learning.
+ 
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/sklearnReleventExamples.png}
+\captionof{figure}{Some example classifiers taken from scikit-learn that show how different techniques draw boundaries and how confident they are in those boundaries. Decision trees and k nearest neighbours are common simplistic classifiers used in physics but the boundaries they produce are often susceptible to over-training. The linear SVM is generalised but is quite limited in its utility. The SVM with the RBF kernel consistently draws the most accurate boundaries and they are well generalised. The accuracy of each technique is shown in the bottom right of each plot. From \cite{scikit-learn}.} 
+\label{fig:sklearnReleventExamples}
+\end{figure}
+
+\begin{table*}[!h]
+\centering
+\begin{tabular}{lll}  
+\toprule
+Dimension               & Th 1.5\,PE (0.06\,MeV) & Th 12.5\,PE (0.5\,MeV)\\
+\midrule
+\# of Bars Hit Above Th &  NBATh$_{1.5}$         & NBATh$_{12.5}$\\
+Summed Energy Above Th  &  SEATh$_{1.5}$         & SEATh$_{12.5}$\\
+\bottomrule  
+\end{tabular}
+\caption{A table showing the 4 dimensions that the trigger can have. The word threshold is abbreviated to Th for convenience.}
+\label{tab:triggerDims}
+\end{table*}
+
+%Nyström
+% Figures \ref{fig:sklearnReleventExamples} \ref{fig:svmBoser92LinearSVM} \ref{fig:kernelRBF_fromWeB} \ref{fig:kernelRBF_fromWeB} \ref{fig:svmExp_GausseExamples} are sufficient reason to believe that an SVM with an RBF kernel should be a suitable classifier for separating trigger data that only has four dimensions. The four dimensions that need to be optimised are: the summed energy above a threshold of 1.5\,PE (0.06\,MeV), summed energy above a threshold of 12.5\,PE (0.5\,MeV), Numbers of bars hit above a threshold of 1.5\,PE (0.06\,MeV), Numbers of bars hit above threshold 12.5\,PE (0.5\,MeV). The libraries used were LIBSVM and LIBLINEAR both of which are highly provident and often cited as the reason for the SVMs gain in popularity \cite{chang2011libsvm} \cite{fan2008liblinear} \cite{murty2016support}. The wrapper in sci-kit learn was the preferred method due to its ease of use and its convenient application of the Nystrom approximation \cite{williams2001using} of the kernel. The Nystroem approximation is useful as the amount of computation required for a complete kernel SVMs scales $\sim$ O (n$^3$) where n is the number of training examples \cite{williams2001using}. By using a sample of size m to compute an approximation of the kernel the amount of computation required scales $\sim$ O (m$^2$n) instead \cite{williams2001using}. This approach will work even when m $\ll$ n \cite{williams2001using}. The example data shown in figure \ref{fig:svmExp_GausseExamples} shows how LIBLINEAR when combined with with an RBF Nystroem approximated kernel performs in comparison to LIBSVM with a complete RBF kernel the boundaries are very similar. From this point, the LIBLINEAR library and the Nystroem approximation will be used to speed up training and to prevent memory overflow which can happen when the SVM isn't converging and when large data sets are used. The simulated data set has 1 million neutron signal events and 4 million background events.
+
+\clearpage
+There is also another issue when using a kernel SVM, the kernel itself greatly increase computational requirement. A linear (no kernel) SVM requires computational power that scales O $\sim$ n$^2$ (where n is the number of training samples) \cite{cortes1995support}. But when a kernel is used the computational power required scales with O $\sim$ n$^3$ instead \cite{williams2001using}. In order to mitigate this an approximate kernel is created via the Nyström method. By using a sample size of m to cmopute this approximate kernel the computation requirement scales with O $\sim$ mn$^2$ \cite{williams2001using}. This approach will work effectively even when m << n \cite{williams2001using}. 
+\\\\Due to it's preexisting implementation of the Nyström kernel approximation the wrapper scikit-learn was chosen as it saved development time \cite{scikit-learn}. Scikit-learn uses LIBSVM \cite{chang2011libsvm} and LIBLINEAR \cite{fan2008liblinear} both of which are highly provident and often cited as the reason for the SVM's gain in popularity \cite{murty2016support}. In figure \ref{fig:svmExp_GausseExamples} a non-linear data set with two Gaussian signal distributions and an exponential distribution in (x,y) for noise is separated with LIBSVM using an RBF kernel (figure \ref{subFig:svmExp_2GausseExample}) and LIBLINEAR using an approximated Nyström kernel (figure \ref{subFig:exp_2NysGaussExample}). The example data shown in figure \ref{fig:svmExp_GausseExamples} shows how LIBLINEAR when combined with a Nyström approximated kernel performs to a similar standard to LIBSVM with a full RBF kernel, the boundaries are extremely similar. It also shows that scikit-learn's implementation of the Nyström method is quite accurate and can be trusted. From this point the LIBLINEAR library and the Nyström approximated RBF kernel will be used to speed up training and prevent an excess use of computational resource. Considering the strengths of SVMs, the low dimensionality of the trigger data, and the effective use of available computational resource the approximate RBF SVM should be more than sufficient for separating out the 1 million generated signal events and the 4 million generated background events. 
 
 \begin{figure}[!h]
 \centering
@@ -837,59 +901,59 @@ Using simulated data it is possible to test whether a machine learning trigger w
   \caption{}
   \label{subFig:exp_2NysGaussExample}
 \end{subfigure}
-\caption{SVM examples showing how to separate data sets with two Gaussian signals (blue) from exponential noise (red). For both an RBF kernel was used with c = 1e4 and $\gamma$ = 1. In (a) LIBSVM is used with an RBF kernel and support vectors are highlighted in orange. In (b) LIBLINEAR is used with a Nystrom approximation of the RBF kernel with a sample of 100.}
+\caption{SVM examples showing how to separate data sets with two Gaussian signals (blue) from exponential noise (red). For both an RBF kernel was used with c = 1e4 and $\gamma$ = 1. In (a) LIBSVM is used with an RBF kernel and support vectors are highlighted in orange. In (b) LIBLINEAR is used with a Nyström approximation of the RBF kernel with a sampling (m) of 100.}
 \label{fig:svmExp_GausseExamples}
 \end{figure}
 
-Figures \ref{fig:sklearnReleventExamples} \ref{fig:svmBoser92LinearSVM} \ref{fig:kernelRBF_fromWeB} \ref{fig:kernelRBF_fromWeB} \ref{fig:svmExp_GausseExamples} are sufficient reason to believe that an SVM with an RBF kernel should be a suitable classifier for separating trigger data that only has four dimensions. The four dimensions that need to be optimised are: the summed energy above a threshold of 1.5\,PE (0.06\,MeV), summed energy above a threshold of 12.5\,PE (0.5\,MeV), Numbers of bars hit above a threshold of 1.5\,PE (0.06\,MeV), Numbers of bars hit above threshold 12.5\,PE (0.5\,MeV). The libraries used were LIBSVM and LIBLINEAR both of which are highly provident and often cited as the reason for the SVMs gain in popularity \cite{chang2011libsvm} \cite{fan2008liblinear} \cite{murty2016support}. The wrapper in sci-kit learn was the preferred method due to its ease of use and its convenient application of the Nystrom approximation \cite{williams2001using} of the kernel. The Nystroem approximation is useful as the amount of computation required for a complete kernel SVMs scales $\sim$ O (n$^3$) where n is the number of training examples \cite{williams2001using}. By using a sample of size m to compute an approximation of the kernel the amount of computation required scales $\sim$ O (m$^2$n) instead \cite{williams2001using}. This approach will work even when m $\ll$ n \cite{williams2001using}. The example data shown in figure \ref{fig:svmExp_GausseExamples} shows how LIBLINEAR when combined with with an RBF Nystroem approximated kernel performs in comparison to LIBSVM with a complete RBF kernel the boundaries are very similar. From this point, the LIBLINEAR library and the Nystroem approximation will be used to speed up training and to prevent memory overflow which can happen when the SVM isn't converging and when large data sets are used. The simulated data set has 1 million neutron signal events and 4 million background events.
-\\\\Kernel SVMs have two factors that can be tweaked to give more accurate results. The soft margin C higher values of C correspond to a lower amount of signal and noise overlap and vice versa \cite{cortes1995support}. Typically C can vary from 10$^{-6}$ to 10$^6$ but can be even higher or even lower. The other factor is $\gamma$ and is part of the RBF kernel shown in equation \ref{equ:RbfKernelFunc} and is taken from \cite{Boser92atraining}. The value for $\gamma$ must be $>$ 0. For an example of what non-linear data looks like when searching for suitable C and $\gamma$ values figure w\ref{fig:GammaCGridSearchExp2Gauss} was produced which shows how the values for figure \ref{subFig:exp_2NysGaussExample} where chosen. A higher value of $\gamma$ corresponds to higher non-linearity. With this information, we can see that there is some overlap in figure \ref{subFig:exp_2NysGaussExample} and is very non-linear so this search for relevant C and $\gamma$ values corroborates what can be seen in the example data. In contrast, the generated neutron and noise data shows clear linearity as a low $\gamma$ value of 1e0 is preferred and has a small overlap as a high C value of 1e6 is preferred (see figure \ref{fig:GammaCGridSearchNeutron}). This shows that the generated neutron data is very easy to separate with a linear classifier and so using anything more complex than an SVM would be unlikely to yield better results.
-
-\begin{equation}
-K(\mathbf{x,x'}) = \exp{(\gamma \mathbf{x \cdot x'})} - 1
-\label{equ:RbfKernelFunc}
-\end{equation}
+Kernel SVMs have two factors that can be tuned to give more accurate results. The soft margin C, and $\gamma$ which is part of the RBF kernel described by equation \ref{equ:RbfKernelFunc} \cite{Boser92atraining}. Higher values of C correspond to a lower amount of signal and noise overlap and vice versa \cite{cortes1995support}. Typically C can vary from 10$^{-6}$ to 10$^6$ but can be even higher or even lower providing its $>$ 0. Values for $\gamma$ must also be $>$ 0 and will vary depending on the linearity of the data. For an example of what non-linear data looks like when searching for suitable C and $\gamma$ values figure w\ref{fig:GammaCGridSearchExp2Gauss} was produced which shows how the values for figure \ref{subFig:exp_2NysGaussExample} where chosen. A higher value of $\gamma$ corresponds to higher non-linearity. With this information, we can see that there is some overlap in figure \ref{subFig:exp_2NysGaussExample} and is very non-linear so this search for relevant C and $\gamma$ values corroborates what can be seen in the example data. In contrast, the generated neutron and noise data shows clear linearity as a low $\gamma$ value of 1e0 is preferred and has a small overlap as a high C value of 1e6 is preferred (see figure \ref{fig:GammaCGridSearchNeutron}). This shows that the generated neutron data is very easy to separate with a linear classifier and so using anything more complex than an SVM would be unlikely to yield better results.
 
 \begin{figure}[!h]
 \centering
 \begin{minipage}{.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/GammaCGridSearchExp2Gauss.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/GammaCGridSearchExp2Gauss_adjust.png}
   \captionof{figure}{SVMs being trained on varying values of C and $\gamma$ for figure \ref{subFig:exp_2NysGaussExample}. Higher values of $\gamma$ represent non-linear data separation which the SVMs settle on. Higher values of C represent more overlap in the data. C choice is less clear but ultimately a higher value of C was settled due to a high preference for isolating boundaries as much as possible. A $\gamma$ = 1e0 and C of 1e4 was chosen.} 
   \label{fig:GammaCGridSearchExp2Gauss}
 \end{minipage}%
 \qquad
 \begin{minipage}{.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/GammaCGridSearchNeutron.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/GammaCGridSearchNeutron_adjust.png}
   \captionof{figure}{SVMs being trained on varying values of C and $\gamma$ for figure generated background and neutron data. Lower values of $\gamma$ represent a linear data separation which the SVMs settle on. Higher values of C represent more overlap in the data. This data set is linearly separable with minimal overlap. A $\gamma$ = 1e-6 and C of 1e6 was chosen.}
   \label{fig:GammaCGridSearchNeutron}
 \end{minipage}
 \end{figure}
 
-Once C and $\gamma$ have been chosen a basic form of dimensional reduction was done to assess the impact each dimension has on the classifier (see figure \ref{fig:accNeutronSVMC1e6_g1e-6}). In figure \ref{fig:accNeutronSVMC1e6_g1e-6} the addition of more dimensions beyond 2 does not seem to increase accuracy suggesting that not all of the information provided by the emulated trigger is useful. This is also true for the efficiency as seen in figure \ref{fig:effNeutronSVMC1e6_g1e-6} and the purity as seen in figure \ref{fig:purNeutronSVMC1e6_g1e-6}. The most accurate would be the summed energy above a threshold of 1.5\,PE + number of bars hit above 1.5\,PE. However, the option: number of bars hit above 1.5\,PE + number of bars hit above 12.5\,PE is easier to implement for the electronics on VIDARR. The drop in accuracy, efficiency, and purity is relatively low for this combination and therefore it is the preferred option. The chosen classifier is seen in figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6}, which as figure \ref{fig:purNeutronSVMC1e6_g1e-6} indicates is a linear classifier with minimal overlap between the signal noise.
+%NBATh$_{1.5}$ & NBATh$_{12.5}$ SEATh$_{1.5}$ & SEATh$_{12.5}$\\
+Once C and $\gamma$ have been chosen a basic form of dimensional reduction was done to assess the impact each dimension has on the classifier (see figure \ref{fig:accNeutronSVMC1e6_g1e-6}). In figure \ref{fig:accNeutronSVMC1e6_g1e-6} the addition of more dimensions beyond 2 does not seem to increase accuracy suggesting that not all of the information provided by the emulated trigger is useful. This is also true for the efficiency as seen in figure \ref{fig:effNeutronSVMC1e6_g1e-6} and the purity as seen in figure \ref{fig:purNeutronSVMC1e6_g1e-6}. This shows that not only is the data linearly separable, it is actually 2d linearly separable, meaning it is extremely easy for any machine learning algorithm to separate. Let alone one as powerful as the RBF SVM, this technique is overkill for this particular data set, hence why a DLNN has not been pursued for this data set. The most accurate would be the SEATh$_{1.5}$ + NBATh$_{1.5}$. However, the option: NBATh$_{1.5}$ + NBATh$_{12.5}$ is eassier to implement for the electronics on VIDARR. The drop in accuracy, efficiency, and purity is relatively low for this combination and therefore it is the preferred option. 
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.8\linewidth]{Chapter4/Figs/Raster/accNeutronSVMC1e6_g1e-6.png}
-\captionof{figure}{The accuracy for Nystroem SVM classifiers with approximate RBF kernel with a sample of 100 for generated neutron and noise data. With C = 1e6 and $\gamma$ = 1e-6. Separation doesn't improve above 2 dimensions.} 
+\captionof{figure}{Accuracy for Nyström SVM classifiers with approximate RBF kernel with a sample of 100 for generated neutron and noise data. With C = 1e6 and $\gamma$ = 1e-6. Separation doesn't improve above 2 dimensions.} 
 \label{fig:accNeutronSVMC1e6_g1e-6}
 \end{figure}
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.8\linewidth]{Chapter4/Figs/Raster/effNeutronSVMC1e6_g1e-6.png}
-\captionof{figure}{The efficiency for Nystroem SVM classifiers with approximate RBF kernel with a sample of 100 for generated neutron and noise data. With C = 1e6 and $\gamma$ = 1e-6. Separation doesn't improve above 2 dimensions.} 
-\label{fig:effNeutronSVMC1e6_g1e-6}
-\end{figure}
+\clearpage
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.8\linewidth]{Chapter4/Figs/Raster/purNeutronSVMC1e6_g1e-6.png}
-\captionof{figure}{The purity for Nystroem SVM classifiers with approximate RBF kernel with a sample of 100 for generated neutron and noise data. With C = 1e6 and $\gamma$ = 1e-6. Separation doesn't improve above 2 dimensions.} 
-\label{fig:purNeutronSVMC1e6_g1e-6}
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/effCombSVMAdjust.png}
+  \captionof{figure}{Efficiency for Nyström SVM classifiers with approximate RBF kernel with a sample of 100 for generated neutron and noise data. With C = 1e6 and $\gamma$ = 1e-6. Separation doesn't improve above 2 dimensions.} 
+  \label{fig:effNeutronSVMC1e6_g1e-6}
+\end{minipage}%
+\qquad
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/purCombSVMAdjust.png}
+  \captionof{figure}{Purity for Nyström SVM classifiers with approximate RBF kernel with a sample of 100 for generated neutron and noise data. With C = 1e6 and $\gamma$ = 1e-6. Separation doesn't improve above 2 dimensions.}
+  \label{fig:purNeutronSVMC1e6_g1e-6}
+\end{minipage}
 \end{figure}
 
-In figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6} anything to the left of the line is considered a noise event and anything to the right of the line is considered a neutron event. The effect of this selection criteria can be seen in figure \ref{fig:summedEnergyPastTriggerGdDicebox} which shows the summed energy that makes it past the emulated trigger. The amount of summed energy past the emulated trigger is overwhelmingly dominated by the 8\,MeV $\gamma$ cascade from the neutron absorption. The only events that are able to make it past the emulated trigger are the electrons with high generated kinetic energies (past $\sim$ 4\,MeV) as seen in figure \ref{fig:GeneratedEnergyPastTriggerGdDicebox} but they are unlikely to be present when in sufficient quantities when the detector is deployed. 
+The chosen classifier is seen in figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6}, which as figure \ref{fig:purNeutronSVMC1e6_g1e-6} indicates is a linear classifier with minimal overlap between the signal noise. In figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6} anything to the left of the line is considered a noise event and anything to the right of the line is considered a neutron event. The effect of this selection criteria can be seen in figure \ref{fig:summedEnergyPastTriggerGdDicebox} which shows the summed energy that makes it past the emulated trigger. The amount of summed energy past the emulated trigger is overwhelmingly dominated by the 8\,MeV $\gamma$ cascade from the neutron absorption. The only events that are able to make it past the emulated trigger are the electrons with high generated kinetic energies (past $\sim$ 4\,MeV) as seen in figure \ref{fig:GeneratedEnergyPastTriggerGdDicebox} but they are unlikely to be present when in sufficient quantities when the detector is deployed. 
 
 \begin{figure}[!h]
 \centering
@@ -907,17 +971,16 @@ In figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6} anything to the left of 
   \caption{}
   \label{subFig:signalNeutronSVM_C1e6_g1e-6}
 \end{subfigure}
-\caption{A 2d SVM classifier trained on signal and noise data with the number of bars hit above 1.5\,PE (0.06\,MeV) and the number of bars hit above 12.5\,PE (0.5\,MeV) with a Nystrom approximate RBF kernel with a sampling of 100, C value of 1e6 and $\gamma$ value of 1e-6. The generated noise is seen in (a) the generated signal (neutron induced Gd cascade) is shown in (b).}
+\caption{A 2d SVM classifier trained on signal and noise data with the number of bars hit above 1.5\,PE (0.06\,MeV) and the number of bars hit above 12.5\,PE (0.5\,MeV) with a Nystrom approximate RBF kernel with a sampling of 100, C value of 1e6 and $\gamma$ value of 1e-6. The generated noise is seen in (a) the generated signal (neutron induced Gd cascade) is shown in (b). Support vectors are shown by the dashed lines. The decision boundary is shown by the solid line.}
 \label{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6}
 \end{figure}
-
 
 \begin{figure}[!h]
 \centering
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/gadolinium/summedEnergyPastTriggerGdDicebox.png}
-  \captionof{figure}{The summed energy past the simulated neutron trigger shown in figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6}. 25\,PE = 1\,MeV overall giving an Efficiency = 75.6\,\% and purity = 93.5\,\%. Purity is determined from a background of 4 million noise events and 1 million signal events.} 
+  \captionof{figure}{The summed energy of the neutron events that survive past the trigger. The simulated neutron trigger shown in figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6}. 25\,PE = 1\,MeV overall giving an Efficiency = 75.6\,\% and purity = 93.5\,\%. Purity is determined from a background of 4 million noise events and 1 million signal events.} 
   \label{fig:summedEnergyPastTriggerGdDicebox}
 \end{minipage}%
 \qquad
@@ -928,6 +991,8 @@ In figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6} anything to the left of 
   \label{fig:GeneratedEnergyPastTriggerGdDicebox}
 \end{minipage}
 \end{figure}
+
+These results show two points. The fist is that the RBF SVM is significantly more capable than required for separating the trigger data. The seconds is that the VIDARR trigger should be very effective at distinguishing the $\gamma$ cascade from background expected at reactor sites. This is highly encouraging as it indicates that VIDARR's segmentation and technology are well suited to resolving the trigger signal from noise. It is possible that smaller segmentation will yield better results but considering the high simulated efficiency (75.6\,\%) it is unlikely to improve significantly. As a result, it can be concluded that VIDARRR's segmentation is in a ``sweet spot'' where the signal is easy to separate whilst retaining relevant information. So much so that machine learning cannot improve upon it. This conclusion will also be reinforced by the cosmic $\mu$ tomography results in chapter \ref{chp:cosmicMuonTomography}.
 
 % \begin{figure}[!h]
 %  \centering
