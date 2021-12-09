@@ -281,14 +281,14 @@ The plastic scintillating bars of the VIDARR detector are extruded at Fermilab a
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/year1Plots/muon_TiO2__.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/muon_TiO2_hybrid.png}
   \captionsetup{width=.9\linewidth}
   \caption{}
   \label{subFig:proton_TiO2}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/year1Plots/proton_TiO2__.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/proton_TiO2_hybrid.png}
   \captionsetup{width=.9\linewidth}
   \caption{}
   \label{subFig:muon_TiO2}
@@ -299,7 +299,7 @@ The plastic scintillating bars of the VIDARR detector are extruded at Fermilab a
 
 %The TiO$_2$ coating is 15\,\% TiO$_2$ to 85\,\% polythene \cite{aliaga2014design} \cite{Pla-Dalmau2014} with a thickness of 0.25\,mm \cite{Pla-Dalmau2014}. The correct amount of TiO$_2$ is now correctly implemented in the simulation for each of the 2660 bars in VIDARR. 
 
-Whilst the actual percentage of TiO$_2$ to polythene is 15\,\% TiO$_2$:85\,\% polythene \cite{aliaga2014design} \cite{Pla-Dalmau2014} the simulated TiO$_2$ is varied from 0\,\% -- 100\,\% in figure \ref{fig:muonProton_TiO2} to show the impact TiO$_2$ has on the $\mu$ and proton particles. The impact on $\mu$ dE/dx is only significant < 4\,MeV but the TiO$_2$ coating has a large impact on protons from 0\,MeV -- 15\,MeV. The reason for this is the probability of back scattering into the scintillating bar which increases the travel length significantly thus lowering the simulated dE/dx. This is important as it shows how unlikely it is for low energy $\mu$ and protons are to penetrate the TiO$_2$ coating. In particular protons < 5\,MeV are unlikely to escape a single bar with a Ti0$_2$ of 15\,\%. As single bar events in the RMon and VIDARR detectors are often ignored it appears the TiO$_2$ coating will significantly reduce the number of proton and $\alpha$ events that will be considered as signal thus improving the signal to noise ratio. 
+The percentage of TiO$_2$ to polythene is 15\,\% TiO$_2$:85\,\% polythene \cite{aliaga2014design} \cite{Pla-Dalmau2014} the simulated TiO$_2$ coating reflects this and is varied from 0\,\% -- 60\,\% in figure \ref{fig:muonProton_TiO2} to show the impact TiO$_2$ has on the $\mu$ and proton particles. The impact on $\mu$ dE/dx is only significant < 3\,MeV but the TiO$_2$ coating has a large impact on protons from 0\,MeV -- 12\,MeV. At low energies (0\,MeV -- 5\,MeV) protons don't penetrate very far and are unable to get through the 0.25\,mm coating regardless of composition. The percentage of TiO$_2$ also has an impact but it is less than than having a coating present at all. The dE/dx values are higher when the coating is present as the coating causes back scattering into the scintillating bar thus increasing energy deposition and dE/dx. This is important as it shows how unlikely it is for low energy protons and $\alpha$s are to penetrate the TiO$_2$ coating. In particular protons < 5\,MeV are unlikely to escape a single bar with a Ti0$_2$ of 15\,\%. As single bar events in the RMon and VIDARR detectors are often ignored it appears the TiO$_2$ coating will significantly reduce the number of proton and $\alpha$ events that will be considered as signal thus improving the signal to noise ratio. 
 
 \section{Modelling Attenuation}\label{sec:GEANT4Simulation_ModellingAttenuation}
 In order to characterise the physical effects of the detector, a test stand was set up by fellow collaborator George Holt. This test stand contained a single plastic scintillating bar where a $^{137}$Cs source was placed at 11 intervals across the bar from which attenuation of the 662\,keV peak could be measured. This is shown in figure \ref{fig:attenuationPlot} the exponential function (equation \ref{equ:attenuationFunction}) is used by the simulation to produce a data-driven model for the light attenuation in the simulation. 
