@@ -214,17 +214,17 @@ The cosmic hemisphere distribution was chosen as it covers all possible angles i
 \clearpage
 For positional reconstruction, showers are kept but for online use where calibration is the goal showers are discarded. In this analysis, the reconstruction is optimised for the angle-of-incidence extraction (both $\phi$ and $\theta$) as the key analysis variable. The reconstruction steps for fitting each individual track are as follows: 
 \begin{enumerate}
-  \item \textbf{Remove Small Events:} If < 8 are hit above a threshold of 0.693\,MeV discard that event (see figure \ref{fig:cosmic8BarSignalNoiseCutSVM})
+  \item \textbf{Remove Small Events:} If < 8 are hit above a threshold of 0.693\,MeV discard that event (see figure \ref{fig:cosmic8BarSignalNoiseCutSVM}) (efficiency $\sim$ 99\,\% for simulation, efficiency $\sim$ 99\,\% for measured)
   \item \textbf{Energy Threshold:} Exclude all hits below 0.345\,MeV
   \item \textbf{Track Width:} Exclude hits that are 4 bars away from any other hit 
-  \item \textbf{Hit Threshold:} Exclude events that have $<$ 4 bars per side that are above a 0.69\,MeV threshold
+  \item \textbf{Hit Threshold:} Exclude events that have $<$ 4 bars per side that are above a 0.69\,MeV threshold (efficiency $\sim$ 98\,\% for simulation, efficiency $\sim$ 95\,\% for measured)
   \item \textbf{Basic Fit:} Find a basic gradient and intercept using top and bottom hit of the event
   \item \textbf{First Fit:} First fit of the track 
   \item \textbf{Track Width 2:} Exclude hits that are 4.5 bars away from the track
   \item \textbf{Second Fit:} second fit of the track
   \item \textbf{Track Width 3:} Exclude any hits that are 0.5 bars away from the track
   \item \textbf{Third Fit:} Third and final fit of the track
-  \item \textbf{Exclude Bad Events:} Events that have < 50\,\% of the total energy as signal energy are removed
+  \item \textbf{Exclude Bad Events:} Events that have < 50\,\% of the total energy as signal energy are removed (efficiency $\sim$ 95\,\% for simulation, efficiency $\sim$ 65\,\% for measured)
   \item \textbf{Exclude Empty Events:} Any Events that have no signal energy are removed (used if other cuts are disabled) 
 \end{enumerate}
 The fitter uses the GNU scientific library simplex minimiser \cite{galassi2002gnu} in order to solver for $y = mx + c$ for each side. The minimiser tries to minimise the value of a pseudo $\chi^2$. The $\chi^2$ is approximated by adding (y$_\textrm{{Data}}$ -- y$_\textrm{{Prediction}}$)$^4$ to the pseudo $\chi^2$ when (y$_\textrm{{Data}}$ -- y$_\textrm{{Prediction}}$)$^2$ < 1 and adding (y$_\textrm{{Data}}$ -- y$_\textrm{{Prediction}}$)$^2$ to the pseudo $\chi^2$ otherwise. The quartic function (y$_\textrm{{Data}}$ -- y$_\textrm{{Prediction}}$)$^4$ is used when predictions are accurate to give a flatter function to fit as its more ``bar like.'' Using this pseudo $\chi^2$ to discriminate against poorly fitted events is tempting. But when trailing this in figure \ref{fig:dedxGenVsRecoHem} there is no approachable difference even though $\sim$ 90\,\% the worst fitted events are removed. As a result for calibration purposes the minimum number of bars to be considered would likely be increase from 8 to 40 to speed up fitting. If this is even required at all, as the tomographic tracker is very fast as will be discussed later. 
