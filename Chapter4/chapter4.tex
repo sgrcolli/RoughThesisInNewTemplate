@@ -112,7 +112,7 @@ By simulating a single scintillating bar of dimensions 4\,cm $\times$ 152\,cm $\
 
 \begin{figure}[!h]
  \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/year1Plots/muons_per_mev_cm.png}
+ \includegraphics[width=0.5\linewidth]{Chapter4/Figs/Raster/year1Plots/muons_per_mev_cm.png}
  \captionof{figure}{dE/dx of $\mu$ through single plastic bar assuming a density of plastic of 1\,g\,cm$^{-3}$. Mearuemnts for plastic are similar to carbon. For carbon $\sim$ 2\,MeV\,cm$^{-1}$ is expected for dE/dx {\cite{Olive_2014}. Mean dE/dx for 250\,MeV, 500\,MeV, 750\,MeV, 1000\,MeV are respectively 1.9907 $\pm$  0.0005\,MeV\,cm$^{-1}$, 1.9387 $\pm$  0.0005\,MeV\,cm$^{-1}$, 1.9374 $\pm$  0.0005 MeV\,cm$^{-1}$, 1.9407 $\pm$  0.0005 MeV\,cm$^{-1}$.\\}}
  \label{fig:mev_per_cm_muons}
 \end{figure}
@@ -136,7 +136,7 @@ As mentioned before the CRY library is very useful as it contains a large amount
 
 \begin{figure}[!h]
  \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/CryFitCosW.png}
+ \includegraphics[width=0.5\linewidth]{Chapter4/Figs/CryFitCosW.png}
  \captionof{figure}{The generated angles for cosine direction W (z-axis) from the CRY library \cite{hagmann2007cosmic} for 1 million particles. Binning in CRY is 0.05 so an 8-dimensional polynomial was fitted to smooth the distribution.}
  \label{fig:Cry_GeneratedFit}
 \end{figure}
@@ -223,7 +223,7 @@ The impact of back-projection is relatively small when looking at where the part
 \label{fig:Crossed_atZ_XY_AndShort}
 \end{figure}
 
-In addition, atmospheric effects need to be modelled. The atmosphere produces two main effects: it increases particle scattering (see figure \ref{fig:gen-scat_PhiTheta} and it increases the rate of secondaries produced (see figure \ref{fig:CRY_rates}). The CRY simulation takes the atmosphere into account \cite{hagmann2007monteCry} but only produces the particles that cross the Z axis at z = 0. As a result the secondaries produced by GEANT4 are also simulated by CRY thus resulting in some secondary particles being ``double simulated.'' This effect is most visible in figure \ref{fig:CRY_rates} where the rates in simulated air are overall $\sim$ 25\,\% higher than in G4$\textunderscore$Galactic (an environment in GEANT4 designed to emulate the vacuum of space). However, the paths of these particles are more accurate in the air and the secondaries produced inside a detector still need to be taken into account. For the most accurate cosmic modelling the air should be used whilst removing all secondaries that occur in the air i.e outside the detector. However, due to time constraints this was unable to be added to the simulation. 
+In addition, atmospheric effects need to be modelled. The atmosphere produces two main effects: it increases particle scattering (see figure \ref{fig:gen-scat_PhiTheta} and it increases the rate of secondaries produced (see figure \ref{fig:CRY_rates}). The CRY simulation takes the atmosphere into account \cite{hagmann2007monteCry} but only produces the particles that cross the Z axis at z = 0. As a result the secondaries produced by GEANT4 are also simulated by CRY thus resulting in some secondary particles being ``double simulated.'' This effect is most visible in figure \ref{fig:CRY_rates} where the rates in simulated air are overall $\sim$ 25\,\% higher than in \texttt{G4$\textunderscore$Galactic} (an environment in GEANT4 designed to emulate the vacuum of space). However, the paths of these particles are more accurate in the air and the secondaries produced inside a detector still need to be taken into account. For the most accurate cosmic modelling the air should be used whilst removing all secondaries that occur in the air i.e outside the detector. However, due to time constraints atmospheric scattering without ``double simulated'' secondaries was unable to be added to the simulation. 
 
 \begin{figure}[!h]
 \centering
@@ -251,6 +251,8 @@ In addition, atmospheric effects need to be modelled. The atmosphere produces tw
  \captionof{figure}{How the rates vary depending on the world material in GEANT4. For Galactic world materials, secondary production is minimal. The rates are most accurate for Galactic world material but the paths will be more accurate for Air. Measured from a PVT block of 1\,m $\times$ 1\,m $\times$ 1\,cm to approximate particles s$^{-1}$ m$^{-2}$.} 
  \label{fig:CRY_rates}
 \end{figure}
+
+In conclusion, $\mu$ modelling is important becomes for above ground reactor operation they are a key aspect of noise due to their highly penetrating nature and large number of interactions per second. However, the MIP like nature of these particles makes them ideal for calibration as their response is consistent ($\sim$ 2\,Mev/cm). In addition, modelling the $\mu$ distribution with CRY \cite{ieee_cry_2007} allows for a more accurate $\theta$ distribution. As a result, it should be possible to use this simulated distribution as a control data set which is done in section \ref{sec:usingSimulatedDataAsControlData} when attempting to highlight cosmic $\mu$ deficits caused by buildings. This is done whilst ensuring that \texttt{G4$\textunderscore$Air} is simulated in the world to ensure a more accurate scattering model. 
 
 \clearpage
 \section{Modelling TiO$_2$ Coating}

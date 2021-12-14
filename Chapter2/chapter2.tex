@@ -286,7 +286,7 @@ Note that L is actually $\approx ct$ but in the following $c$ is assumed to be 1
     {\mid{C_\mu}\mid}^2 = 1 - \sin^2(2\theta)\sin^2[(E_2-E_1)t/2] \approx 1 - \sin^2(2\theta)\sin^2\left[\frac{(m_1^2-m_2^2)L}{4E}\right]
     \label{linear_combination_eq_10}
 \end{equation}
-Note that for equation \ref{linear_combination_eq_9} and equation \ref{linear_combination_eq_10} that $E = p$, these equations also have to be averaged over the energy distribution of particles involved. Also, the assumption that the $\mu$ neutrino is created with a definite momentum p is only an approximation \cite{sassaroli1999neutrino}. This explanation follows \cite{sassaroli1999neutrino} which also gives the full quantum mechanical treatment as well. If we take equation \ref{linear_combination_eq_9} we can see that at a distance $L = (4E\pi) / (m_1^2 - m_2^2)$ there will be a maximum conversion to electron neutrinos and at $2L$ there will be a maximum conversion to $\mu$ neutrinos. When converting to MeV/m from natural units the equations \ref{equ:peToPmu} and \ref{equ:pmuToPe} are produced (conversion from natural units to MeV/m taken from \cite{steveBoydLectureNotes}). When modelling energies in figure \ref{fig:probabilityNeutrinoTransition} for reactor monitoring a detector needs to be placed at $\sim$ 1000\,m to measure neutrinos. In \ref{subFig:0.1MevNeutrinoTransitionProb} a neutrino of 0.1\,MeV is modelled to show how even with a neutrino energy $\sim$ 1/18$^{th}$ of the expected minimal energy oscillations would not be a significant concern for near-field reactor monitoring ($\sim$ 50\,m from reactor core). 
+Note that for equation \ref{linear_combination_eq_9} and equation \ref{linear_combination_eq_10} that $E = p$, these equations also have to be averaged over the energy distribution of particles involved. Also, the assumption that the $\mu$ neutrino is created with a definite momentum p is only an approximation \cite{sassaroli1999neutrino}. This explanation follows \cite{sassaroli1999neutrino} which also gives the full quantum mechanical treatment as well. If we take equation \ref{linear_combination_eq_9} we can see that at a distance $L = (4E\pi) / (m_1^2 - m_2^2)$ there will be a maximum conversion to electron neutrinos and at $2L$ there will be a maximum conversion to $\mu$ neutrinos. When converting to MeV/m from natural units the equations \ref{equ:peToPmu} and \ref{equ:pmuToPe} are produced (conversion from natural units to MeV/m taken from \cite{steveBoydLectureNotes}). When modelling energies in figure \ref{fig:probabilityNeutrinoTransition} for reactor monitoring a detector needs to be placed at $\sim$ 1000\,m to measure standard neutrino oscillations. This is unsurprising as this is the distance required for Double Chooz to see neutrino disappearance in the far detector (a distance of 1050\,m) \cite{lasserre2006} \cite{Abe_2012} \cite{abe2014improved}. In figure \ref{fig:probabilityNeutrinoTransition} it is assumed that the minimum detectable neutrino energy from a reactor is 1.8\,MeV and the maximum is 8.5\,MeV and the range for near-field varies between 10\,m -- 100\,m. The highlighted area in figure \ref{fig:probabilityNeutrinoTransition} shows that area for near-field reactor monitoring standard neutrino oscillations should not be a concern. 
 
 \begin{equation}
     P(\nu_e \rightarrow \nu_\mu) = \sin^2(2\theta)\sin^2\left[1.27\frac{({\Delta m_{21}}^2)L}{E}\right]
@@ -298,36 +298,9 @@ Note that for equation \ref{linear_combination_eq_9} and equation \ref{linear_co
 \end{equation}
 
 \begin{figure}[!h]
-\centering
-\begin{subfigure}{.49\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter2/Figs/0.1MevNeutrinoTransitionProb.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:0.1MevNeutrinoTransitionProb}
-\end{subfigure}%
-\begin{subfigure}{.49\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter2/Figs/1MevNeutrinoTransitionProb.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:1MevNeutrinoTransitionProb}
-\end{subfigure}
-\begin{subfigure}{.49\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter2/Figs/1.8MevNeutrinoTransitionProb.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:1.8MevNeutrinoTransitionProb}
-\end{subfigure}
-\begin{subfigure}{.49\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter2/Figs/10MevNeutrinoTransitionProb.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:10MevNeutrinoTransitionProb}
-\end{subfigure}
-\caption{Probability of flavour transition for neutrinos at differing energies and lengths. In (a) a neutrino with 0.1\,MeV is modelled. In (b) neutrino of 1\,MeV is modelled. In (c) a neutrino 1.8\,MeV is modelled. In (d) a neutrino with 10\,MeV is modelled. This shows between 1.8\,MeV (c) -- 10\,MeV (d) a detector needs to be $\sim$ 1000\,m from the reactor before oscillations can be measured. For near-field reactor monitoring ($\sim$ 50\,m) even neutrino energies of 0.1\,MeV would lead to minimal oscillations. But the threshold for possible neutrinos is $\sim$ 1.8\,MeV in a neuclear reactor \cite{Mueller_2011}.}
+  \includegraphics[width=0.8\linewidth]{Chapter2/Figs/neutrinoLOverE_0-2000_ReactorRanges_10-8.5_100-1.8_Log_Adjusted.png}
+  \captionof{figure}{The L/E values for neutrino transition for a two neutrino case. The highlighted area represents reactor neutrinos assuming a minimum detectable neutrino energy of 1.8\,MeV and maximum of 8.5\,MeV for reactors \cite{Mueller_2011}. Near-field reactor monitoring distances are assumed to vary between 10\,m to 100\,m. This leads to a minimum L/E of 10\,m/8.5\,MeV = 1.18\,m/MeV and a maximum L/E of 100\,m/1.8\,MeV = 55.6\,m/MeV. The expected range for neutrino oscillation is significantly above the reactor monitoring range and as such typical neutrino oscillations will not be a significant effect for near-field reactor monitoring between 10\,m -- 100\,m.}
 \label{fig:probabilityNeutrinoTransition}
 \end{figure}
 
@@ -380,9 +353,15 @@ Where $s_{ij}$ and $c_{ij}$ represent $\sin(\theta_{ij})$ and $\cos(\theta_{ij})
 \end{figure}
 Therefore, there has been an increase in the number of experiments measuring $\theta_{13}$ however due to the production of $\nu_e$s from the sun this presents a unique challenge \cite{Olive_2014}. The solution is to use reactor produced $\Bar{\nu_e}$s at a baseline of $\sim$ 1\,km such that oscillations driven by $\Delta m_\odot^2$ are negligible. The first experiment to do this was the Chooz experiment, however, it was unable to find any evidence of $\Bar{\nu_e}$ disappearance \cite{Olive_2014}. But the experiment was revised into the Double Chooz experiment which has been able to measure $\Bar{\nu_e}$ disappearance and thus measure $\theta_{13}$ with $\sin^22\theta_{13} = 0.090^{+0.032}_{-0.029}$ when fitting to spectrum \cite{abe2014improved}. RENO and Daya Bay have also measured $\Bar{\nu_e}$ disappearance and $\theta_{13}$ as well \cite{Olive_2014}.  
 
+\subsection{Sterile Neutrinos}
+%micro boone paper\cite{Karagiorgi_2012}, neutrino 4 paper \cite{neutrino4_2021}, micro boone arxiv for sterile search \cite{denton2021sterile}
+Sterile neutrinos are currently being investigated using near-field reactor monitoring. Results from Neutrino 4 have suggested sterile neutrino oscillations in the 6\,m -- 12\,m range \cite{neutrino4_2021}. However, considering the recent nature of these results and their lack of replication at time of writing the existence of sterile neutrinos is still hotly debated. Even so, these oscillations are proposed < $\sim$ 10\,m \cite{neutrino4_2021} (see figure \ref{fig:neutrino4Plot}) and so would not be a concern for RMon/VIDARR which are deployed $\sim$ 50\,m from the reactor. However, it would be possible to mount the VIDARR detector on rails or lorry and attempt to replicate the Neutrino 4 results. 
 
+\begin{figure}[!h]
+ \centering
+ \includegraphics[width=0.8\linewidth]{Chapter2/Figs/neutrino4Plot.jpg}
+ \captionof{figure}{The possible process of oscillations to a sterile state at small distances from an active zone of the reactor. From \cite{neutrino4_2021}.} 
+ \label{fig:neutrino4Plot}
+\end{figure}
 
-
-
-% \section{Sterile Neutrinos}
-%     Leave this for another time... its its own can of worms... 5MeV bump and monitoring stuff
+In addition, a 100 ton liquid Argon detector called MicroBooNE \cite{Karagiorgi_2012} is currently taking measurements at time of writing. Again preliminary results suggest that sterile neutrinos are plausible but only to within 2.2 $\sigma$ \cite{denton2021sterile}. But these results are from a pre-print and so are currently waiting for the rest of the physics community to per review them. It must be stressed that at present the existence and nature of sterile neutrinos is up for debate. They are included here to show that their proposed nature should not impact reactor monitoring at a distance > $\sim$ 10\,m  where RMon and VIDARR are situated. And that it may be possible to use VIDARR, once it is constructed, to investigate this avenue of new physics.
