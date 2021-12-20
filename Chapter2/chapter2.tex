@@ -11,10 +11,8 @@
     \graphicspath{{Chapter2/Figs/Vector/}{Chapter2/Figs/}}
 \fi
 
-\chapter{A Brief History of Neutrinos}\label{Chp:ABfriefHistoryOfNeutrinos} 
-
-\section{Discovery of neutrinos}
-\subsection{Theoretical Development}
+\chapter{The Neutrino}\label{Chp:ABfriefHistoryOfNeutrinos} 
+\section{Theoretical Development}
 %history of neutrino: \cite{griffiths2008neutrino1.5} \cite{lederman1970resource}
 %\\beta decay of tritium (book cannot find, may have to replicate): \cite{lewis1970neutrinos} especially as Fermi mentions it in \cite{Fermi:1934hr}, \cite{wilson1968fermi} 
 %\\Neutron proposed by Chadwick in 1932 describing a proton like recoil and odd behaviour of neutrons that can only be described by a neutron or the breaking of conservation of momentum and energy!: \cite{chadwick1932possible}. Important for giving full context to the neutrino discovery
@@ -47,7 +45,7 @@ The beta spectrum shown in figure \ref{fig:beta_spectrum} was the first indirect
     \label{semi_modern_beta_decay}
 \end{equation}
 
-\subsection{Direct Measurements}\label{Direct_Measurements_section}
+\section{Direct Measurements}\label{Direct_Measurements_section}
 %propossal of cowan and riens using a large liquid scintillator detector: \cite{reines1953proposed}
 %\\First detection: \cite{reines1953detection}
 %\\distingiusing the neutrino and anti-neutrino \cite{davis1959attempt}
@@ -70,16 +68,12 @@ Experimental evidence for a neutrino had been observed as early as 1949, in figu
 \\
 \begin{figure}[!h]
  \centering
- \includegraphics[width=\linewidth]{Chapter1/Figs/Raster/neutrinoInChamberRotated90.png}
+ \includegraphics[width=0.8\linewidth]{Chapter1/Figs/Raster/neutrinoInChamberRotated90.png}
  \captionof{figure}{Path of $\pi$ decaying to a $\mu$ emitting one anti-neutrino (equation \ref{pion_nolepNo_decay}) and then that $\mu$ decaying into an electron-emitting a neutrino and an anti-neutrino (equation \ref{muon_nolepNo_decay}). The paths at 90$^o$ show particle decay, collisions cannot account for this. From \cite{griffiths2008book} \cite{griffiths2008neutrino1.5} originally. From \cite{michel1949energy}.} %~can be used as a kind of place holder in latex
  \label{pion_path}
 \end{figure}
 \\The first direct detection of a neutrino would be 22 years after it was proposed in 1931. In 1953, Cowan and Reines proposed a neutrino detector that used a large amount of liquid scintillator to detect neutrinos \cite{reines1953proposed}. Later that same year they constructed a cadmium loaded scintillation detector that used a delayed coincidence measurement allowing for the reduction of background \cite{reines1953proposed} \cite{reines1953detection}. The detector worked by looking for inverse $\beta$ decay shown in equation \ref{inverse_beta_decay}. The source of the neutrinos was a reactor at Hanford \cite{reines1953detection}. This resulted in a difference in counting rates in the delayed time channels of 0.41 $\pm$ 0.20 counts/min due to the pile \cite{reines1953detection}. This result was later confirmed in 1956 at the Savannah River Plant \cite{Cowan1956Confirmation}. This new detector used a combination of liquid scintillator in three layers and cadmium chloride doped water in another two layers in a ``club-sandwich'' arrangement \cite{Cowan1956Confirmation}. This resulted in an unambiguous measurement of 0.56 $\pm$ 0.06 counts per hour with a signal 20 times higher than the accidental background associated with the reactor \cite{Cowan1956Confirmation}. This was achieved by utilising a unique ``delayed-coincidence technique'' \cite{reines1953detection}. This technique assumed $\sim$ 5$\mu$s between the prompt positron signal and the delayed neutron signal \cite{reines1953detection}. It is this approach that results in the unambiguous signal and allows for significant background reduction. It is so successful that its used to this day in other detector experiments (including the RMon and VIDARR detectors).
-\begin{equation}
-    \Bar{\nu_e} + p^+ \rightarrow n + e^+
-    \label{inverse_beta_decay}
-\end{equation}
-The difference between neutrinos and anti-neutrinos or their flavours was not yet known. There were two possible hypotheses: Majorana neutrinos where the neutrino and the anti-neutrino are the same particle and Dirac neutrinos where they are distinct particles \cite{griffiths2008book} \cite{griffiths2008neutrino1.5} \cite{cowan1957test}. The possibility of Majorana neutrinos was questioned as measurements of double $\beta$ decay were found to conflict with the hypothesis \cite{cowan1957test}. The lifetime of such a particle would be too short compared to measurements made of $\beta$ decay \cite{cowan1957test}. A direct attempt at measuring the difference between neutrinos and anti-neutrinos was made in 1959 \cite{davis1959attempt}. The experiment relied on using $^{37}$Cl and then measuring the amount of $^{37}$Ar produced (equation \ref{neutrino_chlorine_decay}). From previous experiments the interaction between a neutron and a neutrino (equation \ref{no_lepNo_dirac_nu_capture}) was known to occur \cite{Cowan1956Confirmation}. But whether the anti-neutrino would also act in the same manner (equation \ref{no_lepNo_maj_nu_capture}) was not known. If anti-neutrinos did not act as neutrinos then the Majorana hypothesis was unlikely as $\nu$ and $\Bar{\nu}$ were probably distinct particles \cite{griffiths2008book} \cite{griffiths2008neutrino1.5} \cite{davis1959attempt}. Candidates for anti-neutrinos acting as neutrinos (equation \ref{no_lepNo_maj_nu_capture}) were observed 20 times below what would be expected for the Majorana hypothesis \cite{davis1959attempt}. Therefore, Dirac neutrinos were considered to be more consistent with the experiment. 
+\\\\The difference between neutrinos and anti-neutrinos or their flavours was not yet known. There were two possible hypotheses: Majorana neutrinos where the neutrino and the anti-neutrino are the same particle and Dirac neutrinos where they are distinct particles \cite{griffiths2008book} \cite{griffiths2008neutrino1.5} \cite{cowan1957test}. The possibility of Majorana neutrinos was questioned as measurements of double $\beta$ decay were found to conflict with the hypothesis \cite{cowan1957test}. The lifetime of such a particle would be too short compared to measurements made of $\beta$ decay \cite{cowan1957test}. A direct attempt at measuring the difference between neutrinos and anti-neutrinos was made in 1959 \cite{davis1959attempt}. The experiment relied on using $^{37}$Cl and then measuring the amount of $^{37}$Ar produced (equation \ref{neutrino_chlorine_decay}). From previous experiments the interaction between a neutron and a neutrino (equation \ref{no_lepNo_dirac_nu_capture}) was known to occur \cite{Cowan1956Confirmation}. But whether the anti-neutrino would also act in the same manner (equation \ref{no_lepNo_maj_nu_capture}) was not known. If anti-neutrinos did not act as neutrinos then the Majorana hypothesis was unlikely as $\nu$ and $\Bar{\nu}$ were probably distinct particles \cite{griffiths2008book} \cite{griffiths2008neutrino1.5} \cite{davis1959attempt}. Candidates for anti-neutrinos acting as neutrinos (equation \ref{no_lepNo_maj_nu_capture}) were observed 20 times below what would be expected for the Majorana hypothesis \cite{davis1959attempt}. Therefore, Dirac neutrinos were considered to be more consistent with the experiment. 
 \begin{equation}
     \nu_e + ^{37}Cl \rightarrow  e^- + ^{37}Ar
     \label{neutrino_chlorine_decay}
@@ -127,8 +121,7 @@ The difference between neutrinos and anti-neutrinos or their flavours was not ye
     \label{modern_beta_decay}
 \end{equation}
 
-\section{Neutrino Flavours}
-\subsection{Solar Neutrinos}
+\section{Solar Neutrinos}\label{sec:neutrinoFlavours}
 %This section will mainly be on the solar neutrino problem and how it was solved. The main players here are the homestake %experiment for detecting a certain number of neutrinos  \cite{davis1968homestake}. Bahcall for predicting three times more %solar neutrinos than were detected from that experiment \cite{bahcall1968present}. As well as the Kamiokande-II experiment %which made measurements in 1989 \cite{Kamiokande-II1989} which predicted $\sim$ 0.46 times the predicted $\nu$ flux from %the sun. And then finally the SNO and superK experiments in 2001 which are considered the final confirmation. SuperK %reference being \cite{superK2001}. And \cite{sno2001} for SNO.
 %\\This section may also be well served by explaining the proton-proton chain briefly as well as mentioning the CNO cycle %that isn't the power mechanism for our sun, if only because the 1968 papers mention it. Also figure out how to do sub %references for \cite{griffiths2008book} \cite{griffiths2008neutrinoOscillations}. 
 %\\ \cite{Bellerive:2003rj} presents some good plots and a nice overview of the neutrino experiments that lead up to the %discovery of the neutrino oscillations. A nice overview.
@@ -171,7 +164,7 @@ Whilst the neutrino flavous were being confirmed \cite{DanbyG1962PhysRevLett.9.3
 % \label{sk_angular_neutrinos}
 %\end{figure}
 
-\subsection{Neutrino oscillations} \label{section_neutrino_oscillations}
+\section{Neutrino oscillations} \label{section_neutrino_oscillations}
 % Neutrino oscillations were proposed in 1968 after the Davis experiment \cite{davis1968homestake}. A man called Pontecorvo discussed the possibility of oscillations in 1957 and revived the idea in 1968 as a solution to the solar neutrino problem \cite{griffiths2008book}\cite{griffiths2008neutrinoOscillations}. With the original 1958 paper being \cite{pontecorvo1958_OscillationProposal}, suggesting the transformation of Kiaons. And the suggestion for the solution to the solar neutrino problem being here \cite{pontecorvo_gibov_1969_solar_oscillation}. Note these are a little hard to get hold of but some old russian servers still have them, Googling not too hard. 
 % \\Most of this section will follow \cite{griffiths2008book} \cite{griffiths2008neutrinoOscillations}. There is a more in depth explanation using \cite{sassaroli1999neutrino} in which \cite{griffiths2008book} \cite{griffiths2008neutrinoOscillations} follows the standard treatment for neutrino oscillations. \cite{sassaroli1999neutrino} also goes through a relativistic treatment but that's probably too much for this overview and not really necessary for explaining the phenomena of oscillations, it should still be mentioned though. Wavelength of neutrino and kaon oscillations mentioned before are outlined by \cite{burkhardt2003wavelength}, it goes through the kinematics and shows that the oscillations do account for the mass difference, again quite in depth maybe overkill... should talk to one of my supervisors about this... 
 % \\Also there is the MSW (named after the people who found it) effect however the exact papers appear to be a bit difficult to find but I was able to get something very detailed from Mikheev 1987 which goes into interactions with matter \cite{Mikheev_1987}.
@@ -304,7 +297,7 @@ Note that for equation \ref{linear_combination_eq_9} and equation \ref{linear_co
 \label{fig:probabilityNeutrinoTransition}
 \end{figure}
 
-\subsection{Mixing Angles}
+\section{Mixing Angles}
 % Firstly it would be a good idea to pull from \cite{griffiths2008book}\cite{griffiths2008neutrinoOscillations} which does mention that according to equations \ref{linear_combination_eq_9} and \ref{linear_combination_eq_9} the masses must be unequal and cannot be zero. i.e. $m_i \neq m_j$ and $\Delta m_\theta \neq 0$. \\
 % The review of particle physics 2014 is probably quite useful here\cite{Olive_2014}, this may also start to bleed into the other sections, results from T2K, dayabay, double CHOOZ and KamLand may need to be added here. As this is quite a difficult section, lot of potential pit falls and I need to make sure the info I give is up to date because the information is changing frequently. 
 % \\I need to show the neutrino mixing matrix and how the dirac and Majorana components work with the mixing angles as shown below (the PMNS matrix) 
@@ -353,7 +346,7 @@ Where $s_{ij}$ and $c_{ij}$ represent $\sin(\theta_{ij})$ and $\cos(\theta_{ij})
 \end{figure}
 Therefore, there has been an increase in the number of experiments measuring $\theta_{13}$ however due to the production of $\nu_e$s from the sun this presents a unique challenge \cite{Olive_2014}. The solution is to use reactor produced $\Bar{\nu_e}$s at a baseline of $\sim$ 1\,km such that oscillations driven by $\Delta m_\odot^2$ are negligible. The first experiment to do this was the Chooz experiment, however, it was unable to find any evidence of $\Bar{\nu_e}$ disappearance \cite{Olive_2014}. But the experiment was revised into the Double Chooz experiment which has been able to measure $\Bar{\nu_e}$ disappearance and thus measure $\theta_{13}$ with $\sin^22\theta_{13} = 0.090^{+0.032}_{-0.029}$ when fitting to spectrum \cite{abe2014improved}. RENO and Daya Bay have also measured $\Bar{\nu_e}$ disappearance and $\theta_{13}$ as well \cite{Olive_2014}.  
 
-\subsection{Sterile Neutrinos}
+\section{Sterile Neutrinos}
 %micro boone paper\cite{Karagiorgi_2012}, neutrino 4 paper \cite{neutrino4_2021}, micro boone arxiv for sterile search \cite{denton2021sterile}
 Sterile neutrinos are currently being investigated using near-field reactor monitoring. Results from Neutrino 4 have suggested sterile neutrino oscillations in the 6\,m -- 12\,m range \cite{neutrino4_2021}. However, considering the recent nature of these results and their lack of replication at time of writing the existence of sterile neutrinos is still hotly debated. Even so, these oscillations are proposed < $\sim$ 10\,m \cite{neutrino4_2021} (see figure \ref{fig:neutrino4Plot}) and so would not be a concern for RMon/VIDARR which are deployed $\sim$ 50\,m from the reactor. However, it would be possible to mount the VIDARR detector on rails or lorry and attempt to replicate the Neutrino 4 results. 
 
