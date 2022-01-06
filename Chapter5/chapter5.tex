@@ -14,7 +14,25 @@
 
 This chapter is an overview of cosmic $\mu$ tomography and an overview of the MU-RAY and DIAPHANE detectors. It will cover the techniques that both collaborations use and why the ``transmission'' technique from the MU-RAY collaboration is especially valuable. 
 
+\section{Production Of Cosmic $\mu$ In The Atmosphere} 
+Atmospheric $\mu$ are produced when high energy protons interact with nuclei in the atmosphere \cite{griffiths2008neutrinoOscillations}. An example of a cosmic shower can be seen in figure \ref{fig:muonShower}, which shows how the production of $\pi^+$ and $\pi^-$ from the initial proton interaction leads to the production of $\mu^-$ and $\mu^+$ particles (equation \ref{equ:pi+-atmos}) \cite{griffiths2008neutrinoOscillations}. There are three main sources of cosmic protons: solar, Galactic, and extra-Galactic \cite{Drury2012OCosmicRays} \cite{muscheler2013_10be} \cite{Pierre2017Aniostropy}. Extra-Galactic particles are rare and typically have high energies of $\sim$ 10$^{18}$\,eV \cite{Pierre2017Aniostropy}. Whilst during specific short term events the number of solar cosmic rays penetrating the atmosphere can be several orders of magnitude higher than the flux of Galactic cosmic rays the energy of solar events is much lower than the Galactic events \cite{muscheler2013_10be}. In general cosmic rays observed at mildly relativistic energies, around 1\,GeV per nucleon are of exclusively Galactic origin \cite{Drury2012OCosmicRays}. Supernovae are considered to be the main source of Galactic cosmic rays as they are the most viable candidates to produce particles with such energy \cite{Drury2012OCosmicRays}. Typically the kinetic energy for $\mu^-$ and $\mu^+$ is $\sim$ 4\,GeV in the atmosphere \cite{MuonPhysics} \cite{ieee_cry_2007}. Therefore, for most cosmic rays it is reasonable to assume Galactic origin, and as such the onset of night at any given site may have little effect on cosmic $\mu$ production. 
+
+\begin{figure}[!h]
+ \centering
+ \includegraphics[width=0.3333\linewidth]{Chapter5/Figs/Raster/muonShower.png}
+ \captionof{figure}{An illustration of the shower of particles produced by cosmic ray collisions. Atmospheric $\mu$ are produced from the secondary $\pi^+$ and $\pi^-$ in the atmosphere which are in turn produced from hadronic collisions with protons and atmospheric nuclei. From \cite{MuonPhysics}.}
+ \label{fig:muonShower}
+\end{figure}
+
+\begin{equation}
+  \pi^+ \rightarrow \mu^+ + \nu_\mu  \qquad \qquad \pi^- \rightarrow \mu^- + \Bar{\nu_\mu} 
+  \label{equ:pi+-atmos}
+\end{equation}
+
 \section{Overview Of Cosmic $\mu$ Tomography}\label{sec:cosMuOverview}
+%What is the motivation?
+%What is cosmic muon tomography? What does the process include? 
+%Whats the difference between muon tomography and muon radiography? 
 Cosmic $\mu$ tomography can be split into two distinct types: Two-sided cosmic $\mu$ tomography measures the incoming $\mu$ angles and outgoing $\mu$ angles over a given area with an object of interest to be imaged as shown by figure \ref{fig:twoSidedCosmicMuonTomographySchults}. This approach allows for vertex reconstruction and measures cosmic $\mu$ scattering thus giving a detailed interior image of the object being imaged \cite{schultz_2007}. This approach has been used to analyse nuclear waste \cite{jonkmans2013nuclear} and even imaging the Fukushima Daiichi reactors \cite{miyadera2013imaging}. However, as figure \ref{fig:twoSidedCosmicMuonTomographySchults} shows the  detectors are typically much larger or of similar size to the object that they are attempting to image. So whilst this technique would yield a very accurate breakdown of the internal structure of any given object it would not be suitable in all cases. For example, for objects of interest significantly larger than the detectors, only a small portion of it can be analysed. Further, this technique isn't suitable if there's only one detector. For the detector deployed at Wylfa, it was both significantly smaller than the reactor buildings and only one detector was deployed. As a result, one-sided cosmic $\mu$ tomography will be used from this point onward described by spherical polar coordinates. In spherical polar coordinates, there is also a polar angle commonly denoted as $\theta$. 
 
 \begin{figure}[!h]
@@ -92,6 +110,24 @@ The MU-RAY collaboration also uses cosmic $\mu$ radiography to analyse Mt.Vesuvi
  \captionof{figure}{The MU-RAY detector frame with the three X–Y planes mounted. The frame can be oriented using the rotating platform visible at the bottom. From \cite{ANASTASIO2013423}} 
  \label{fig:muRayDetectors}
 \end{figure}
+
+% \begin{figure}[!h]
+% \centering
+% \begin{minipage}{.45\textwidth}
+%   \centering
+%   \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/muRayDetectors.png}
+%   \captionof{figure}{The MU-RAY detector frame with the three X–Y planes mounted. The frame can be oriented using the rotating platform visible at the bottom. From \cite{ANASTASIO2013423}.} 
+%   \label{fig:muRayDetectors}
+% \end{minipage}%
+% \qquad
+% \begin{minipage}{.45\textwidth}
+%   \centering
+%   \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/mtVesuviusMuRayImaging.png}
+%   \captionof{figure}{MU-RAY telescope analysing Vesuvius rock thickness, expressed in m, as seen from the observation point at $\sim$ 800\,m altitude. With data taken over a month period of $\sim$ 1 month. From \cite{Ambrosino_2014}.}
+%   %\vspace{0.6327cm}%1line = 0.6327cm exactly %%% 2lines = 1.2654cm %%% 3lines = 1.8981cm exactly %%% 4 lines is 2.5308cm exactly  %%% 5lines is 3.1635cm exactly
+%   \label{fig:mtVesuviusMuRayImaging}
+% \end{minipage}
+% \end{figure}
 
 The limits of $\mu$ radiography is clearly demonstrated by figure \ref{fig:mtVesuviusMuRayImaging}. Whilst the MU-RAY detector was deployed with no obstructions and had a deployment time of $\sim$ 1 month and was elevated by 800\,m reducing atmospheric scattering the outline of Mt.Vesuvius is still faint. Whilst the increase in rock thickness is clearly visible in figure \ref{fig:mtVesuviusMuRayImaging} there are no clear defining features. These results are in stark contrast to the DIAPHANE results at Guadeloupe (figure \ref{fig:diaphaneStructualImaging}) which show clear interior structural imaging of a volcano. Whilst the technology of DIAPHANE and MU-RAY is not identical they are very similar. DIAPHANE has better energy reconstruction due to the multianode PMT’s as opposed to the SiPms used in MU-RAY \cite{Marteau_2017}, \cite{ANASTASIO2013423}. However, the spatial reconstruction should be superior in MU-RAY as the segments in DIAPHANE have a cross section of 5\,cm $\times$ 1\,cm (5\,cm$^2$) \cite{MARTEAU201223}, whereas the MU-RAY triangular cross section has a base width of 3.3\,cm and height 1.7\,cm (2.805\,cm$^2$). As a result the blurry resolution in figure \ref{fig:mtVesuviusMuRayImaging} is surprising and leads to the conclusion that the 5 year deployment time for DIAPHANE is the main reason for the sharper resolution in figure \ref{fig:diaphaneStructualImaging}.
 
