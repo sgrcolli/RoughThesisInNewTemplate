@@ -2,7 +2,7 @@
 %******************************* Final Chapter *********************************
 %*******************************************************************************
 
-\chapter{Cosmic $\mu$ Tomography at Wylfa Using RMon}\label{chp:cosmicMuonTomography}
+\chapter{Cosmic $\mu$ Tomography at Wylfa}\label{chp:cosmicMuonTomography}
 
 \ifpdf
     \graphicspath{{Chapter5/Figs/Raster/}{Chapter5/Figs/PDF/}{Chapter5/Figs/}}
@@ -10,31 +10,17 @@
     \graphicspath{{Chapter5/Figs/Vector/}{Chapter5/Figs/}}
 \fi
 
-This chapter will focus on cosmic $\mu$ tomography during the RMon deployment at Wylfa. This will include the analysis chains used to extract the data from RMon and the fitting of the cosmic $\mu$ tracks. Furthermore, the simulation of a cosmic $\mu$ hemisphere is done to test any biasing in the cosmic $\mu$ tracker. Then the deployment at Wylfa will be covered including the distributions of $\phi$ and $\theta$ and any deficits in the cosmic $\mu$ incidence that would indicate buildings (referred to as ``shadows''). The uncertainties relating to the cosmic $\mu$ tracker's reconstruction of $\phi$ and $\theta$ is then used. Finally, simulated data using a realistic distribution from the CRY library is used to assess the validity of the cosmic $\mu$ data taken at Wylfa and control data from Liverpool. 
+This chapter will focus on cosmic $\mu$ tomography during the deployment at Wylfa. This will include the analysis techniques used to extract the data from the detector and the fitting of the cosmic $\mu$ tracks. Furthermore, the simulation of a cosmic $\mu$ hemisphere is done to test any biasing in the cosmic $\mu$ tracker. Then the deployment at Wylfa will be covered including the distributions of $\phi$ and $\theta$ and any deficits in the cosmic $\mu$ incidence that would indicate buildings (referred to as ``shadows''). The uncertainties relating to the cosmic $\mu$ tracker's reconstruction of $\phi$ and $\theta$ is then used. Finally, simulated data using a realistic distribution from the CRY library is used to assess the validity of the cosmic $\mu$ data taken at Wylfa and control data from Liverpool. 
 
 \section{$\mu$ Analysis Chain}\label{sec:muonAnalysisChain}
-In order to analyse the $\mu$ data from the Wylfa deployment a series of programs called an analysis chain is required. There are two of them for this analysis. The first is based on the T2K analysis chain which converts the data stored in \texttt{.mid.gz} files to \texttt{.root} files and calibrates the data (see figure \ref{fig:mattMurdocksChain}). The second analysis chain (figure \ref{fig:analysisChain}) is designed to analyse simulated data and the data from the upgraded detector once it is complete. However, because the new analysis chain is multi-threaded and much faster in general than the old T2K chain (and isn't dependent on a specific operating system kernel, specific ROOT version and specific GEANT4 version) it is preferable to use the new analysis chain for the RMon detector data as well. This also has the advantage of ensuring the cosmic $\mu$ tracker will be functional for both versions of the detector (RMon and VIDARR), allowing for an interesting comparison once the upgraded detector is complete. 
-\\\\The RMon detector deployed at Wylfa analysed data in cycles of 1.5\,$\mu$. There are 23 cycles in the RMon data from 0 -- 22 with cycle 18 as the trigger cycle and cycles 17 and 19 considered to be underflow and overflow for the trigger signal respectively. The cycles are then interpreted depending on whether the user wants to analyse cosmic $\mu$ data or IBD data. For cosmic $\mu$ data each cycle will be considered as its own event with trigger cycles 17 -- 19 being ignored. Whereas for IBD analysis the data is split between prompt (cycles 0 -- 16) and delayed (cycles 17 -- 19) with the excess data (cycles 20 -- 22) being ignored (see figure \ref{fig:CycleExplaination}). Which mode is decided by the program \texttt{convertOldDetectorData} (see figure \ref{fig:analysisChain}) to ensure the other programs can interpret the RMon's data correctly. Simulated data requires minimal changes as it puts data into delayed, prompt and ambiguous categories automatically using truth information. Unfortunately, due to the COVID-19 pandemic, the upgraded detector remains incomplete and so the calibration program for the new detector data has not been constructed at present. 
+In order to analyse the $\mu$ data from the Wylfa deployment a series of programs called an analysis chain is required. There are two of them for this analysis. The first is based on the T2K analysis chain which converts the data stored in \texttt{.mid.gz} files to \texttt{.root} files and calibrates the data. The second analysis chain is designed to analyse simulated data and the data from the upgraded detector once it is complete. However, because the new analysis chain is multi-threaded and much faster in general than the old T2K chain (and isn't dependent on a specific operating system kernel, specific ROOT version and specific GEANT4 version) it is preferable to use the new analysis chain for the RMon detector data as well. This also has the advantage of ensuring the cosmic $\mu$ tracker will be functional for both versions of the detector (RMon and VIDARR), allowing for an interesting comparison once the upgraded detector is complete. 
+\\\\The RMon detector deployed at Wylfa analysed data in cycles of 1.5\,$\mu$. There are 23 cycles in the RMon data from 0 -- 22 with cycle 18 as the trigger cycle and cycles 17 and 19 considered to be underflow and overflow for the trigger signal respectively. The cycles are then interpreted depending on whether the user wants to analyse cosmic $\mu$ data or IBD data. For cosmic $\mu$ data each cycle will be considered as its own event with trigger cycles 17 -- 19 being ignored. Whereas for IBD analysis the data is split between prompt (cycles 0 -- 16) and delayed (cycles 17 -- 19) with the excess data (cycles 20 -- 22) being ignored (see figure \ref{fig:CycleExplaination}). Which mode is decided by the program \texttt{convertOldDetectorData} to ensure the other programs can interpret the RMon's data correctly. Simulated data requires minimal changes as it puts data into delayed, prompt and ambiguous categories automatically using truth information. Unfortunately, due to the COVID-19 pandemic, the upgraded detector remains incomplete and so the calibration program for the new detector data has not been constructed at present. 
 
 \begin{figure}[!h]
  \centering
  \includegraphics[width=\linewidth]{Chapter6/Figs/CycleExplaination.png}
  \captionof{figure}{The RMon cycles, the trigger signal is the neutron induced gadolinium cascade in cycle 18 cycles 17 and 19 are overflow. Cycles 0-16 are observed for any signs of a positron cluster as a lookback buffer. Cycles 20-22 contain control information.} 
  \label{fig:CycleExplaination}
-\end{figure}
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/mattMurdocksChain.png}
- \captionof{figure}{The analysis chain for the original detector's \texttt{.mid.gz} files. The python programs are wrappers that control the setup of the software, which programs C++ to run, and the number of instances to run. The C++ programs generate the information needed for calibration and then extract the information to .root files. This is only a small fraction of the analysis chain.} 
- \label{fig:mattMurdocksChain}
-\end{figure}
- 
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.8\linewidth]{Chapter5/Figs/Raster/analysisChainRevisedAgain.png}
- \captionof{figure}{The analysis chain for the detector. It is able to process both simulated and measured data. It uses a combination of python programs to handle visualisation and machine learning and C++ programs to process the data. The python program \texttt{instructionInterpreter} that functions as a wrapper allows for the creation of macro files so results are highly replicable. The C++ programs are multi-threaded. The python programs are in the \texttt{repository} the C++ programs are in \texttt{repository/prg}.} 
- \label{fig:analysisChain}
 \end{figure}
 
 The cosmic $\mu$ events at Wylfa were taken in accidental coincidence and as a result, much noise made it into the cosmic $\mu$ data sets. In the raw unprocessed data sets for every 3 cosmic $\mu$ events, there are $\sim$ 10000 noise events. As such the SVM machine learning technique previously described in section \ref{sec:MachineLearningTrigger} was used to filter out the noise. It found the best separating hyper-plane at 8 bars for a threshold of 17.325\,PE (0.693\,MeV) shown in figure \ref{fig:cosmic8BarSignalNoiseCutSVM}.In figure \ref{fig:cosmic8BarSignalNoiseCutSVM}  most of the noise is highly concentrated at a low number of bar hits. As a result, this is a very effective method of removing the noise. This removes 99.9\,\% of noise and keeps 99\,\% of the cosmic $\mu$ signal so now every 3 cosmic events there are $\sim$ 10. The S/N ratio has therefore improved from $\sim$ 3:10000 to $\sim$ 3:10 whilst keeping almost all the signal these numbers are surmised in table \ref{tab:snRatioSvm}. Finding simple effective selection criteria is a task SVMs are well suited to. 
@@ -212,9 +198,7 @@ However, bin migration is significantly less pronounced in $\theta$. As shown by
 \end{figure}
 
 The cosmic hemisphere distribution was chosen as it covers all possible angles in the ($\phi$,$\theta$) space that the detector will encounter. When reconstructing the ($\phi$,$\theta$) distribution of the cosmic hemisphere (figure \ref{fig:simulatedHemisphereDist}) a clear bin migration is visible. The reconstruction artefacts are shown in figures \ref{subFig:phiGenVsRecoHem} and \ref{fig:thetaGenVsRecoHem} can be seen to have a dependence on one another in figure \ref{fig:simulatedHemisphereDist}. Apart from the uncertainties introduced from the segmentation and shape of the detector no other uncertainties are significantly visible in figure \ref{fig:simulatedHemisphereDist}. However, this does not mean that other uncertainties are not present just that the most noticeable uncertainty is due to the segmentation and shape of the detector. 
-
-\clearpage
-For positional reconstruction, showers are kept but for online use where calibration is the goal showers are discarded. In this analysis, the reconstruction is optimised for the angle-of-incidence extraction (both $\phi$ and $\theta$) as the key analysis variable. The reconstruction steps for fitting each individual track are as follows: 
+\\\\For positional reconstruction, showers are kept but for online use where calibration is the goal showers are discarded. In this analysis, the reconstruction is optimised for the angle-of-incidence extraction (both $\phi$ and $\theta$) as the key analysis variable. The reconstruction steps for fitting each individual track are as follows: 
 \begin{enumerate}
   \item \textbf{Remove Small Events:} If < 8 are hit above a threshold of 0.693\,MeV discard that event (see figure \ref{fig:cosmic8BarSignalNoiseCutSVM}) (efficiency $\sim$ 99\,\% for simulation, efficiency $\sim$ 99\,\% for measured)
   \item \textbf{Energy Threshold:} Exclude all hits below 0.345\,MeV
@@ -239,7 +223,7 @@ The fitter uses the GNU scientific library simplex minimiser\cite{galassi2002gnu
   \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/pvsTFiduicalHemisphere.png}
   \captionof{figure}{Simulated cosmic hemisphere which has a flat distribution in $\theta$ from 0$^\circ$ to 90$^\circ$ and a flat distribution in $\phi$ from 0$^\circ$ to 360$^\circ$ which is then reconstructed using the track fitter logic described in section \ref{sec:SimulationOfCosmics}}
   \label{fig:simulatedHemisphereDist}
-  \vspace{0.6327cm}%1line = 0.6327cm exactly %%% 2lines = 1.2654cm %%% 3lines = 1.8981cm exactly %%% 4 lines is 2.5308cm exactly  %%% 5lines is 3.1635cm exactly
+  \vspace{0.478cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
 \end{minipage}%
 \qquad
 \begin{minipage}{.45\textwidth}
@@ -415,7 +399,7 @@ The reconstructed $\phi$ and $\theta$ distribution from the Wylfa data set can b
   \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/pVsTWylfaReversed.png}
   \captionof{figure}{The cosmic $\mu$ distribution from RMon deployment at Wylfa the shadows extend from $\theta$ = 0$^\circ$ -- $\theta$ = 60$^\circ$. Bin migration causes significant warping.}
   \label{fig:pVsTWylfaReversed}
-  \vspace{2.5308cm}%1line = 0.6327cm exactly %%% 2lines = 1.2654cm %%% 3lines = 1.8981cm exactly %%% 4 lines is 2.5308cm exactly  %%% 5lines is 3.1635cm exactly
+  \vspace{1.434cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
 \end{minipage}%
 \qquad
 \begin{minipage}{.45\textwidth}
@@ -458,6 +442,7 @@ A way to solve the issue of bin migration was highlighted in section \ref{sec:mu
   \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/liverpoolShadows.png}
   \captionof{figure}{The shadows in the Liverpool data below $\theta$ 17.5$^\circ$. The accelerator Hall causes significant cosmic $\mu$ occlusion.}
   \label{fig:liverpoolShadows}
+  \vspace{0.77cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
 \end{minipage}
 \end{figure}
 
