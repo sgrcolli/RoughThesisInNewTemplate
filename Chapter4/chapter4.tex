@@ -3,7 +3,7 @@
 %*******************************************************************************
 
 
-\chapter{GEANT4 Simulation}\label{chp:GEANT4Simulation}
+\chapter{Detector Component Simulation}\label{chp:GEANT4Simulation}
 \ifpdf
     \graphicspath{{Chapter4/Figs/Raster/}{Chapter4/Figs/PDF/}{Chapter4/Figs/}}
 \else
@@ -30,345 +30,8 @@ The VIDARR detector is represented in a GEANT4 simulation which is a provident p
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/neutron10KeVAbsoptionTimesMedText.png} 
-  \captionof{figure}{The time taken for the neutron from the simulated $\bar{\nu_e}$ inverse $\beta$ decay event to be thermalised and be absorbed by the Gadolinium sheets in the simulated VIDARR detector. Assuming a kinetic energy of 10\,keV for the neutrons leading to a flat distribution from 0-100\,$\mu$s.}
+  \captionof{figure}{The time taken for the neutron from the simulated $\bar{\nu_e}$ inverse $\beta$ decay event to be thermalised and be absorbed by the Gadolinium sheets in the simulated VIDARR detector. Assuming a kinetic energy of 10\,keV. Over 99\,\%, of neutrons are absorbed in 50 $\mu$s, but a tail extends up to $\sim$ 1000 $\mu$s.}
   \label{fig:delayedIbdTimes}
-\end{minipage}
-\end{figure}
-
-\section{Modelling The Mass Increase}
-The number of layers in the RMon detector was 49 out of a possible 70 the upgrade will therefore add $\sim$ 43\,\% additional mass into the detector compared to the RMon detector. In reality, out of a possible 1862 channels in RMon, only 1793 were instrumented due to limitations in securing enough parts. Never the less the simulation will focus on the theoretical maximum number of bars in both cases for the sake of simplicity. As can be seen from figure \ref{fig:prototypeMeasumentFlux} there is an expectation of $\sim$ 200 $\Bar{\nu_e}$ a day and so from the upgraded detector, it is reasonable to assume a rate of $\sim$ 300 $\Bar{\nu_e}$ a day with the additional mass. But in addition, the quality of each event will also improve as more of the energy from the 8\,MeV $\gamma$ cascade is kept within the bounds of the detector. The amount of energy deposited in the detector will be considered the ``containment'' of the cascade where containment of 100\,\% would mean 100\,\% of the energy is deposited in the detector. And as figure \ref{fig:containment_comparison} shows the quality of the containment improves with more mass. %In figure \ref{fig:containment_comparison} it can be seen that the quality of the containment increases when the additional mass has been added. 
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/cascadeContainmentCompare.png}
- \captionof{figure}{Percentage of neutron induced Gd $\gamma$ cascade deposited energy to $\gamma$ cascade generated energy for 1862 bar (49 layers) and 2660 bars (70 layers). The quality of the events improves with the taller detector as expected. Cascade containment $\leq$ 0.1\,\% is treated as 0\,\%. }
- \label{fig:containment_comparison}
-\end{figure} 
-
-When simulating e$^-$s and e$^+$s with 0\,MeV -- 10\,MeV kinetic energy the amount of energy contained inside is $\sim$ 100\,\% but slowly decreases as the energy increases. The amount of energy generated (E$_\textrm{{Gen}}$) versus the energy deposited  (E$_\textrm{{Dep}}$) for these two particles is shown in figure \ref{fig:recon_gen_ele_pos} contains the energy of charged particles, even small mass particles such as e$^-$ and e$^+$. Then e$^+$ particles are simulated from 1\,MeV -- 10\,MeV to determine efficiencies in figure \ref{fig:2000_3000_p_secs} for both 1862 bars (figure \ref{subFig:2000_p_sec}) and 2660 bars (figure \ref{subFig:3000_p_sec}) above a 0.1\,MeV threshold. In both cases the efficiency doesn't fall below 99\,\% for positrons this is due to the fact that positrons typically don't escape the detector without depositing $>$ 0.1\,MeV in at least a single bar. As such e$^+$ efficiencies don't significantly improve with the mass increase but are extremely high regardless.  
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/summedVsTruth_1862_2660_e-e+_eBars_Adjusted.png}
- \captionof{figure}{Energy response of the simulated detector for both electrons and positrons in the full detector in comparison to E$_\textrm{{Dep}}$ = E$_\textrm{{gen}}$. The positron's annihilation $\gamma$s causes E$_\textrm{{Dep}}$ $>$ E$_\textrm{{Dep}}$ at low generated energies. Generated energy has no error. The number of Generated events per point is 10$^5$ Errors for E$_\textrm{{Dep}}$ are determined by standard error on the mean and are small but are shown on this plot.}
- \label{fig:recon_gen_ele_pos}
-\end{figure} 
-
-\begin{figure}[!h]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/year1Plots/2000_1-10MeV_sec_p_spread_run_medText.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:2000_p_sec}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/year1Plots/3000_1-10MeV_sec_p_spread_run_medText.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:3000_p_sec}
-\end{subfigure}
-\caption{Positron hit efficiencies for the original 1862 barred detector (see (a)) and the upgraded 2660 barred detector (see (b)) above a 0.1\,MeV threshold both have $\sim$ 99\,\% efficiencies are similar in both errors are too small to be shown Generated energy O $\sim$ $10^{-8}$ efficiency error O $\sim$ $10^{-3}$. }
-\label{fig:2000_3000_p_secs}
-\end{figure}
-
-\section{Modelling $\mu$}
-$\mu$ are high energy particles with high penetration. As a result atmospheric $\mu$ act as minimally ionising particles (MIPs), which means that the amount of energy deposited per cm ($dE/dx$) is largely independent of the generated energy in-between 100[MeV/$c$] -- 100[GeV/$c$] (see figure \ref{fig:pdg_MuonMomentumStopping}). Whilst figure \ref{fig:pdg_MuonMomentumStopping} shows many different effects and when they take effect for $\mu$ this figure only shows the effect incident on a copper surface. The detector is not comprised of Cu it is comprised of hydrocarbons, specifically polythene. By mass polythene is more C than H so by looking at the momentum ranges 0.1\,GeV/$c$ to 100\,GeV/$c$ in figure \ref{fig:pdg_dedx_gcm2} it is reasonable to assume a dE/dx of $\sim$ 2 g$^{-1}$ cm$^2$ for $\mu$ on C. 
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/pdg_MuonMomentumStopping.png}
- \captionof{figure}{Mass stopping power for positive $\mu$ in copper as a function of $\beta$ $\gamma$ = $\rho/Mc$ over nine orders of magnitude in momentum (12 orders of magnitude in kinetic energy). From \cite{Olive_2014}.} 
- \label{fig:pdg_MuonMomentumStopping}
-\end{figure}
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/pdg_dedx_gcm2.png}
- \captionof{figure}{Mean energy loss rate in liquid (bubble chamber) hydrogen, gaseous
-helium, carbon, aluminium, iron, tin, and lead. Radiative effects, relevant for
-$\mu$ and $\pi$, are not included. From \cite{Olive_2014}.} 
- \label{fig:pdg_dedx_gcm2}
-\end{figure}
-
-By simulating a single scintillating bar of dimensions 4\,cm $\times$ 152\,cm $\times$ 1\,cm (X,Y,Z) and firing a $\mu$ directly down in the Z plane it is possible to measure the $dE/dx$ in simulation. The energy deposition approximates $dE/dx$ in units of MeV/cm. By simulating the generated kinetic $\mu$ energy from 0.1\,MeV -- 250\,MeV in figure \ref{fig:muon_0_250} the mean energy deposition settles to MIP levels of $\sim$ 2 MeV/cm between 100\,MeV -- 200\,MeV. The CRY library \cite{ieee_cry_2007} can then be used to approximate the expected energies from cosmic $\mu$ which is shown in figure \ref{fig:keMevCryMuons}. In figure \ref{fig:keMevCryMuons} > 99\,\% of the $\mu$ particles produced by the CRY library are between 0.1\,GeV -- 40\,GeV. This coupled with figures \ref{fig:pdg_MuonMomentumStopping} and \ref{fig:pdg_dedx_gcm2} make it reasonable to assume that > 99\,\% of the expected $\mu$ distribution will be MIP like in its behaviour. The distribution for the energy loss of fast particles by ionisation was quantified by Landau in 1944 \cite{landau1944energy}. The Landau distribution represents the energy deposited and is characterised by a sharp peak with a long tail. When simulating high energy $\mu$ this Landau distribution is visible in the events that deposit in the bar which is shown by figure \ref{fig:mev_per_cm_muons}. The offset for measuring the value of dE/dx is shown in figure \ref{fig:lengthAndSideViewBarMuon}. Using the points previously discussed it is reasonable to assume that $>$ 99\,\% of events will have a Landau distribution. %and can be seen in the simulated bar results in figure \ref{fig:mev_per_cm_muons}. More than 99\,\% of the $\mu$ distribution will have the Landau distribution shown in figure \ref{fig:mev_per_cm_muons}. 
-
-\begin{figure}[!h]
-\centering
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/Muon_TiO2_med_engMedText.png}
-  \captionof{figure}{$\mu$ mean energy deposition inactive component of the single bar, the sharp decrease in the energy deposited and varying deposition below 20\,MeV was due to the TiO$_2$ coating absorbing $\mu$ at lower energies.} 
-  \label{fig:muon_0_250}
-  \vspace{0.478cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
-\end{minipage}%
-\qquad
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/keMevCryMuonsMedText.png} 
-  \captionof{figure}{Generated kinetic energy $\mu$ particles using the CRY library \cite{ieee_cry_2007} at sea level with latitude 53$^\circ$ (Liverpool's latitude) and date: 01 -- March -- 2021. 99\,\% + of generated $\mu$ particles are between 0.1\,GeV (100\,MeV) and 40\,GeV (40000\,MeV) kinetic energy.}
-  \label{fig:keMevCryMuons}
-\end{minipage}
-\end{figure}
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.5\linewidth]{Chapter4/Figs/Raster/year1Plots/muons_per_mev_cmMedText.png}
- \captionof{figure}{dE/dx of $\mu$ through single plastic bar assuming a density of plastic of 1\,g\,cm$^{-3}$. Measurements for plastic are similar to carbon. For carbon $\sim$ 2\,MeV\,cm$^{-1}$ is expected for dE/dx {\cite{Olive_2014}. Mean dE/dx for 250\,MeV, 500\,MeV, 750\,MeV, 1000\,MeV are respectively 1.9907 $\pm$  0.0005\,MeV\,cm$^{-1}$, 1.9387 $\pm$  0.0005\,MeV\,cm$^{-1}$, 1.9374 $\pm$  0.0005 MeV\,cm$^{-1}$, 1.9407 $\pm$  0.0005 MeV\,cm$^{-1}$.\\}}
- \label{fig:mev_per_cm_muons}
-\end{figure}
-
-As mentioned before the CRY library is very useful as it contains a large amount of relevant physics information with the latest version being 1.7 produced in 2012 \cite{hagmann2012cosmicCry}. The CRY library splits up the directions in the x,y and z by using cosine directions u (see equation\ref{equ:cos_u}), v (see equation \ref{equ:cos_v}) and w (see equation \ref{equ:cos_w}) respectively. However, whilst the generated cosine direction for u and v were very fine the binning for $\cos{w}$ was coarse. As a result, an 8-dimensional polynomial function was fitted to the $\cos{w}$ distribution in figure \ref{fig:Cry_GeneratedFit} to smooth out the distribution. The improvement to the distribution can be seen in figure \ref{fig:CrySmoothingCosTheta} where the finer binning of the cosine direction w in figure \ref{subFig:CrySmoothingCosine} leads to a smoother more accurate $\theta$ distribution in figure \ref{subFig:CrySmoothingTheta}. 
-
-\begin{equation}
-\alpha = \cos{u} = \frac{v_x}{\sqrt{v_x^2+v_y^2+v_z^2}}
-\label{equ:cos_u}
-\end{equation}
-
-\begin{equation}
-\beta = \cos{v} = \frac{v_y}{\sqrt{v_x^2+v_y^2+v_z^2}}
-\label{equ:cos_v}
-\end{equation}
-
-\begin{equation}
-\gamma = \cos{w} = \frac{v_z}{\sqrt{v_x^2+v_y^2+v_z^2}}
-\label{equ:cos_w}
-\end{equation}
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.5\linewidth]{Chapter4/Figs/CryFitCosWMedText.png}
- \captionof{figure}{The generated angles for cosine direction W (z-axis) from the CRY library \cite{hagmann2007cosmic} for 1 million particles. Binning in CRY is 0.05 so an 8-dimensional polynomial was fitted to smooth the distribution.}
- \label{fig:Cry_GeneratedFit}
-\end{figure}
-
-\begin{figure}[!h]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/CrySmoothingCosineMedText.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:CrySmoothingCosine}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/CrySmoothingThetaMedText.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:CrySmoothingTheta}
-\end{subfigure}
-\caption{How the smoothing affects the CRY distribution in $\cos{w}$ (see (a)) and $\theta$ (see (b)). The nonphysical peaks seen in the non-smoothed $\theta$ distribution are a direct result of CRY's coarse binning in $\theta$.}
-\label{fig:CrySmoothingCosTheta}
-\end{figure}
-
-Now the $\theta$ distribution has been smoothed out accordingly the cosmic $\mu$ particles need to be back-projected. Back projection is where positions that CRY generates (see figure \ref{fig:cryxm_vs_cryym}) is taken as a ``target'' and then the $\phi$ values (a flat distribution between 0 -- 360$^\circ$) and smoothed $\theta$ values (see figure \ref{subFig:CrySmoothingTheta}) are used to project backwards to a point as a start vertex for a given radius. The larger the back projection radius the more accurate the simulation but the more computationally intensive it becomes. A back-projection of 100\,m is a reasonable approximation to simulate all incoming side on and top-down events. Figure \ref{fig:BackProjectionXY} shows how this looks in the x and y from a top-down perspective. The ``halo'' in figure \ref{fig:BackProjectionXY} is a result of the $\theta$ distribution seen in figure \ref{subFig:CrySmoothingTheta}. The rest of the simulated dome can be seen in figure \ref{fig:BackProjection_XZ_YZ} where the XZ and YZ distributions are very similar to each other. 
-
-
-\begin{figure}[!h]
-\centering
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/cryxm_vs_cryymMedText.png}
-  \captionof{figure}{Generated CRY X and Y positions in the simulation. A circle has been cut out of the generated square to give a flat $\phi$ distribution. All particles in CRY are generated at Z = 0.} 
-  \label{fig:cryxm_vs_cryym}
-\end{minipage}%
-\qquad
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/BackProjectionXYMedText.png} 
-  \captionof{figure}{Back projection of 100\,m in the (x,y) plane for the CRY library this represents the starting vertex for each particle generated in (x,y).}
-  \label{fig:BackProjectionXY}
-\end{minipage}
-\end{figure}
-
-\begin{figure}[!h]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/BackProjectionXZMedText.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:BackProjectionXZ}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/BackProjectionYZMedText.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:BackProjectionYZ}
-\end{subfigure}
-\caption{Starting positions for the generated CRY distribution for (x,z) (see (a)) and (y,z) (see (b)) with a back projection of 100\,m.}
-\label{fig:BackProjection_XZ_YZ}
-\end{figure}
-
-The impact of back-projection is relatively small when looking at where the particles cross the z Axis. As shown in figure \ref{fig:Crossed_atZ_XY_AndShort} when comparing a back projection of 1\,cm (figure \ref{subFig:CrossedZAxisShort}) to 100\,m (figure \ref{subFig:Crossed_atZ_XY}) both reproduce the circular distribution seen in figure \ref{fig:cryxm_vs_cryym} there is more scattering with more back-projection but this is a suitable trade-off for vastly more accurate tracks. 
-
-\begin{figure}[!h]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/CrossedZAxisShortMedText.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:CrossedZAxisShort}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/Crossed_atZ_XYMedText.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:Crossed_atZ_XY}
-\end{subfigure}
-\caption{How the generated CRY distribution crosses the Z-axis with only 1\,cm of back-projection (see (a)) vs 100\,m of back projection (see (b)). When the GEANT4 environment emulates the vacuum of space.}
-\label{fig:Crossed_atZ_XY_AndShort}
-\end{figure}
-
-In addition, atmospheric effects need to be modelled. The atmosphere produces two main effects: it increases particle scattering (see figure \ref{fig:gen-scat_PhiTheta} and it increases the rate of secondaries produced (see figure \ref{fig:CRY_rates}). The CRY simulation takes the atmosphere into account \cite{hagmann2007monteCry} but only produces the particles that cross the Z axis at z = 0. As a result the secondaries produced by GEANT4 are also simulated by CRY thus resulting in some secondary particles being ``double simulated.'' This effect is most visible in figure \ref{fig:CRY_rates} where the rates in simulated air are overall $\sim$ 25\,\% higher than in \texttt{G4$\textunderscore$Galactic} (an environment in GEANT4 designed to emulate the vacuum of space). However, the paths of these particles are more accurate in the air and the secondaries produced inside a detector still need to be taken into account. For the most accurate cosmic modelling the air should be used whilst removing all secondaries that occur in the air i.e outside the detector. However, due to time constraints atmospheric scattering without ``double simulated'' secondaries was unable to be added to the simulation. 
-
-\begin{figure}[!h]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/genPhi-scatPhiMedText.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:genPhi-scatPhi}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/CryPlots/genTheta-scatThetaMedText.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:genTheta-scatPhi}
-\end{subfigure}
-\caption{How the Generated $\theta$ - scattered $\theta$ varies for air and galactic world material in GEANT4 (see (a)). And how the Generated $\phi$ - scattered $\phi$ varies for air and galactic world material in GEANT4 (see (b)).}
-\label{fig:gen-scat_PhiTheta}
-\end{figure}
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/CryPlots/CRY_ratesMedText.png}
- \captionof{figure}{How the rates vary depending on the world material in GEANT4. For Galactic world materials, secondary production is minimal. The rates are most accurate for Galactic world material but the paths will be more accurate for Air. Measured from a PVT block of 1\,m $\times$ 1\,m $\times$ 1\,cm to approximate particles s$^{-1}$ m$^{-2}$.} 
- \label{fig:CRY_rates}
-\end{figure}
-
-In conclusion, $\mu$ modelling is important becomes for above ground reactor operation they are a key aspect of noise due to their highly penetrating nature and large number of interactions per second. However, the MIP like nature of these particles makes them ideal for calibration as their response is consistent ($\sim$ 2\,MeV/cm). In addition, modelling the $\mu$ distribution with CRY \cite{ieee_cry_2007} allows for a more accurate $\theta$ distribution. As a result, it should be possible to use this simulated distribution as a control data set which is done in section \ref{sec:usingSimulatedDataAsControlData} when attempting to highlight cosmic $\mu$ deficits caused by buildings. This is done whilst ensuring that \texttt{G4$\textunderscore$Air} is simulated in the world to ensure a more accurate scattering model. 
-
-\clearpage
-\section{Modelling TiO$_2$ Coating}
-The plastic scintillating bars of the VIDARR detector are extruded at Fermilab and have been used in other experiments such as the T2K ND280 ECal \cite{Allan_2013} Miner$\nu$a \cite{aliaga2014design} and in Mu2e as a cosmic ray veto \cite{Pla-Dalmau2014}. By simulating particles at the edge of a single bar as shown in figure \ref{fig:lengthAndSideViewBarMuon} the simulated dE/dx for a single bar can be measured by using the energy deposited in the bar and the length of each track in the bar for each particle. The impact that the TiO$_2$ coating has on the dE/dx depends on two variables, mass of particle and energy of the particle. When generating $\mu$ and protons between 0\,MeV -- 20\,MeV (figure \ref{fig:muonProton_TiO2}) the impact of both of these variables becomes clear. In figure \ref{fig:muonProton_TiO2} the TiO$_2$ coating is set to a thickness of 0.25\,mm which is the thickness Fermilab extrudes the coating \cite{Pla-Dalmau2014}.
-
-\begin{figure}[!h]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/year1Plots/lengthOnViewBarMuon1530By720.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:lengthOnViewBarMuon1530Square}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/sideOnViewBarMuon1530By720.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:sideOnViewBarMuon8}
-\end{subfigure}
-\caption{How a 20\,MeV $\mu$ particle penetrates through the coating and scintillator it is offset to ensure the effect from the TiO$_2$ coating is being correctly observed. The top down view (x,y) is shown in (a). The side on view (x,z) is shown in (b).}
-\label{fig:lengthAndSideViewBarMuon}
-\end{figure}
-
-
-\begin{figure}[!h]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/muon_TiO2_hybridMedText.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:proton_TiO2}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/proton_TiO2_hybridMedText.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:muon_TiO2}
-\end{subfigure}
-\caption{The average dE/dx for generated protons deposited in a single bar of scintillator the \%  of TiO$_2$ coating has significant impact except towards higher energies. The average dE/dx for generated cosmic $\mu$ deposited in a single bar of scintillator the \% of TiO$_2$ has some impact on the dE/dx at low energies.}
-\label{fig:muonProton_TiO2}
-\end{figure}
-
-%The TiO$_2$ coating is 15\,\% TiO$_2$ to 85\,\% polythene \cite{aliaga2014design} \cite{Pla-Dalmau2014} with a thickness of 0.25\,mm \cite{Pla-Dalmau2014}. The correct amount of TiO$_2$ is now correctly implemented in the simulation for each of the 2660 bars in VIDARR. 
-
-The percentage of TiO$_2$ to polythene is 15\,\% TiO$_2$:85\,\% polythene \cite{aliaga2014design} \cite{Pla-Dalmau2014} the simulated TiO$_2$ coating reflects this and is varied from 0\,\% -- 60\,\% in figure \ref{fig:muonProton_TiO2} to show the impact TiO$_2$ has on the $\mu$ and proton particles. The impact on $\mu$ dE/dx is only significant < 3\,MeV but the TiO$_2$ coating has a large impact on protons from 0\,MeV -- 12\,MeV. At low energies (0\,MeV -- 5\,MeV) protons don't penetrate very far and are unable to get through the 0.25\,mm coating regardless of composition. The percentage of TiO$_2$ also has an impact but it is less than than having a coating present at all. The dE/dx values are higher when the coating is present as the coating causes back scattering into the scintillating bar thus increasing energy deposition and dE/dx. This is important as it shows how unlikely it is for low energy protons and $\alpha$s are to penetrate the TiO$_2$ coating. In particular protons < 5\,MeV are unlikely to escape a single bar with a Ti0$_2$ of 15\,\%. As single bar events in the RMon and VIDARR detectors are often ignored it appears the TiO$_2$ coating will significantly reduce the number of proton and $\alpha$ events that will be considered as signal thus improving the signal to noise ratio. 
-
-\section{Modelling Attenuation}\label{sec:GEANT4Simulation_ModellingAttenuation}
-In order to characterise the physical effects of the detector, a test stand was set up by fellow collaborator George Holt. This test stand contained a single plastic scintillating bar where a $^{137}$Cs source was placed at 11 intervals across the bar from which attenuation of the 662\,keV peak could be measured. This is shown in figure \ref{fig:attenuationPlot} the exponential function (equation \ref{equ:attenuationFunction}) is used by the simulation to produce a data-driven model for the light attenuation in the simulation. The initial intensity is defined to be 13.1 $\pm$ 0.2\,PE by the Minuit2 fit with an attenuation length of 580 $\pm$ 60\,PE/cm and a $\chi^2$/NDF = 1.22. This should provide an accurate model for the attenuation within the bars of the VIDARR detector as it uses the same scintillator MPPC combination found in the VIDARR detector. At present no other experiments have this specific combination of scintillator shape, size and MPPC version so using these values should be more accurate than using values from the literature. 
-
-\begin{equation}
-P(x) = e^{-x/\lambda}
-\label{equ:attenuationFunction}
-\end{equation}
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/attenuation_plot_no_box.png} 
- \captionof{figure}{The attenuation plot from the single bar test stand produced by George Holt. The attenuation length (amount of bar traversed to lose $\sim$ 63\,\%  of light, $\lambda$ in equation \ref{equ:attenuationFunction}) is 580 $\pm$ 60\,PE/cm. The initial intensity is 13.1 $\pm$ 0.2\,PE. $\chi^2$/NDF = 1.22.} 
- \label{fig:attenuationPlot}
-\end{figure}
-
-\section{Modelling Dark Noise}\label{sec:GEANT4Simulation_ModellingDarkNoise}
-Another data-driven physical effect modelled in the simulation is the dark noise. Depending on temperature MPPCs will emit signals that are due to electronic effects rather than particle measurements. The dark noise was measured at room temperature over a 12 hour period by George Holt. The results in figure \ref{fig:pureDarkNoise} show Photo-electron (PE) peaks in units of mV with peaks for 1\,PE, 2\,PE and 3\,PE being clearly visible at 4.1\,mV, 8.2\,mV, and 12.3\,mV respectively. In order to measure the dark noise, an MPPC was put inside a container where no light would reach the sensor. 
-\begin{figure}[!h]
- \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/pureDarkNoise_outputMedText.png}
- \captionof{figure}{Dark Noise from the MPPC taken over a period of $\sim$ 12\,hrs, taken by George Holt. The PE peaks for 1\,PE 2\,PE and 3\,PE can be seen at 4.1\,mV, 8.2\,mV and 12.3\,mV respectively. } 
- \label{fig:pureDarkNoise}
-\end{figure}
-
-The dark noise has two distinct components: the peaks, and the background surrounding the peaks. The background surrounding the peaks can be modelled using an exponential fit which is done in figure \ref{subFig:expFitOfDark}. In addition to the PE peaks and exponential noise there is also a pedestal peak (seen at 3\,mV in figure \ref{fig:pureDarkNoise}). This is the zero value for the MPPC and as such is discounted it's not relevant for measuring PE peaks which is what the analysis focuses on. The pedestal is useful for determining the gain and for calibration of channels but this is not the focus of the simulation which explicitly tries to emulate a believable signal post calibration. The removal of the pedestal peak and use of the aforementioned exponential fit is done in figure \ref{subFig:fittedDarkNoise}.
-%The pedestal peak (seen at 3\,mV in figure \ref{fig:pureDarkNoise}) is also removed and an exponential is used past 13.7\,mV (see figure \ref{subFig:fittedDarkNoise}). 
-\begin{figure}[!h]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/fit_of_dark_noiseMedText.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:expFitOfDark}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/fittedDarkNoise_outputMedText.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:fittedDarkNoise}
-\end{subfigure}
-\caption{Dark Noise from an MPPC taken over a period of $\sim$ 12\,hrs with an exponential fitted, with a $\chi ^2$ /DOF = 159.748 (see (a)). In (a) the fit of exponential function uses TFit to fit the after-pulsing of the MPPCs. The exponential fit is used past 13.7\,mV when the count rate drops below 10 and the conjoined distribution can be seen in (b).}
-\label{fig:fitting_of_non_peak_dark_noise}
-\end{figure}
-
-The results from figure \ref{fig:fitting_of_non_peak_dark_noise} can then be used to construct a cumulative probability distribution seen in figure \ref{fig:cumulative_prob_dark}. This probability distribution is what the simulation reads to reconstruct the dark noise distribution. During the simulation, a random dice is thrown and that probability is then converted back into a dark noise value which is then assigned to a random bar in the detector. Values past 13.7\,mV use the exponential fit. These events extrapolate directly from the exponential fit instead of reading from the probability distribution for more realistic results. The dark noise produced for a full detector over 10$^6$ events is shown in figure \ref{fig:individualDarkNoiseOld}. 
-
-\begin{figure}[!h]
-\centering
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/cumulative_prob_dark_noiseMedText.png}
-  \captionof{figure}{Cumulative probability of the dark noise, which is converted to a table and then searched using the golden section search} 
-  \label{fig:cumulative_prob_dark}
-  \vspace{0.956cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
-\end{minipage}%
-\qquad
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/darkNoiseLogMedText.png} 
-  \captionof{figure}{The dark noise produced for the 2660 VIDARR detector with 10$^6$ events resulting in 3E6 dark noise hits. The exponential tail fit shown in \ref{fig:fitting_of_non_peak_dark_noise} has seamlessly connected to the rest of the distribution.}
-  \label{fig:individualDarkNoiseOld}
 \end{minipage}
 \end{figure}
 
@@ -383,6 +46,7 @@ In order to measure light for a given amount of scintillating material, we need 
 \label{equ:Birks_formula}
 \end{equation}
 \\\\In this model molecules in the ionisation column are labelled ``damaged'' and ``undamaged'' for convenience, this nomenclature was coined by Birks and has been used since \cite{birks_1964}, \cite{craun_1970}, \cite{knoll_2010}. ``Damaged'' molecules are those which dissipate ionisation energy non-radiatively (quenching) and so lower the scintillation efficiency\cite{craun_1970} \cite{knoll_2010}. ``Damaged'' molecules occupy highly ionised or excited states, they de-excite quickly ($<$ 1 ns) to the ``undamaged'' condition \cite{craun_1970}. Some permanent damage will occur and does contribute to long term degradation of the scintillator but this is not relevant for quenching\cite{craun_1970}. B, therefore, is the ratio of ``damaged''/``undamaged'' molecules and k is the relative probability of quenching. kB is treated as a single adjustable parameter as there is no way to measure k or B separately \cite{craun_1970} \cite{knoll_2010}. kB is scintillator dependant only and will be referred to as a single entity: Birks' constant. For electrons above $\sim$ 125\,keV the response from the scintillator is linear \cite{craun_1970}. Birks' law (equation \ref{equ:Birks_formula}) also becomes linear for fast electrons \cite{knoll_2010}. As a result, quenching may not be sufficient for modelling fast electrons as will be expanded upon in section \ref{sec:GEANT4Simulation_quenchingLoss}. 
+
 \section{MINER$\nu$A Birks' Constant}\label{sec:GEANT4Simulation_MINERvABirksConstant}
 In equation \ref{equ:Birks_formula} the parameters $kB$ and $S$ are empirically determined. $S$ is a normalisation parameter that is particle dependent and kB is the Birks' constant for the scintillator and is particle independent. The MINER$\nu$A collaboration \cite{aliaga_2015} also uses the same scintillator as the VIDARR detector \cite{aliaga_2014}, the collaboration determined the value of the of kB to be 0.0905 $\pm$ 0.015\,mm/MeV at best fit. This Birks parameter was obtained by using GEANT4 MC data, which is the same approach by which VIDARR has obtained its Birks parameter (kB = 0.0947 $\pm$ 0.00001).Both the VIDARR and MINER$\nu$A approach use the GEANT4 Bertini cascade model when attempting to measure the Birks' constant $kB$ \cite{Heikkinen_2003}. 
 \\\\GEANT4 uses approximations of physics called physics lists. Each physics list has ranges and models that make them suitable under different circumstances. For VIDARR/RMon when simulating the full detector the shielding physics list is used for it's more accurate neutron modelling. However, for modelling and approximating GEANT4's light output the standard Quark Gluon String physics list (QGSP) was used. This was done as the MINER$\nu$a collaboration had used this list and it ave good results for light output \cite{Patrick_2018}. The steps have to remain course in GEANT4 otherwise the $kB$ parameter changes  \cite{aliaga_2015}. This is why the EMY physics lists were not used, even though they simulate smaller steps and so would potentially simulate stopping better. Then energy range for the MINER$\nu$A signal is of order $\sim$ 1\,GeV, whereas the energy range for VIDARR's signal is $\sim$ 0\,MeV -- 10\,MeV. However, a major source of noise for VIDARR is cosmic $\mu$ which have energies $\sim$ 1\,GeV and protons with energies between 0-10\,MeV as a result of fast neutrons. Using the MINER$\nu$A data requires going to higher energies (lower $dE/dx$) in order to ensure similar results in the $dL/dx$ fit.  
@@ -572,6 +236,121 @@ dE = \frac{dL}{10401.2} \sim \Delta E = \frac{\Delta L}{10401.2}
 % E = \frac{L +0.1000}{10347.1}
 % \label{equ:MeV_postirtron_equivalent_light}
 % \end{equation}
+
+\section{Modelling The Bar}
+\subsection{Modelling Attenuation}\label{sec:GEANT4Simulation_ModellingAttenuation}
+In order to characterise the physical effects of the detector, a test stand was set up by fellow collaborator George Holt. This test stand contained a single plastic scintillating bar where a $^{137}$Cs source was placed at 11 intervals across the bar from which attenuation of the 662\,keV peak could be measured. This is shown in figure \ref{fig:attenuationPlot} the exponential function (equation \ref{equ:attenuationFunction}) is used by the simulation to produce a data-driven model for the light attenuation in the simulation. The initial intensity is defined to be 13.1 $\pm$ 0.2\,PE by the Minuit2 fit with an attenuation length of 580 $\pm$ 60\,PE/cm and a $\chi^2$/NDF = 1.22. This should provide an accurate model for the attenuation within the bars of the VIDARR detector as it uses the same scintillator MPPC combination found in the VIDARR detector. At present no other experiments have this specific combination of scintillator shape, size and MPPC version so using these values should be more accurate than using values from the literature. 
+
+\begin{equation}
+P(x) = e^{-x/\lambda}
+\label{equ:attenuationFunction}
+\end{equation}
+
+\begin{figure}[!h]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/attenuation_plot_no_box.png} 
+ \captionof{figure}{The attenuation plot from the single bar test stand produced by George Holt. The attenuation length (amount of bar traversed to lose $\sim$ 63\,\%  of light, $\lambda$ in equation \ref{equ:attenuationFunction}) is 580 $\pm$ 60\,PE/cm. The initial intensity is 13.1 $\pm$ 0.2\,PE. $\chi^2$/NDF = 1.22.} 
+ \label{fig:attenuationPlot}
+\end{figure}
+
+\subsection{Modelling Dark Noise}\label{sec:GEANT4Simulation_ModellingDarkNoise}
+Another data-driven physical effect modelled in the simulation is the dark noise. Depending on temperature MPPCs will emit signals that are due to electronic effects rather than particle measurements. The dark noise was measured at room temperature over a 12 hour period by George Holt. The results in figure \ref{fig:pureDarkNoise} show Photo-electron (PE) peaks in units of mV with peaks for 1\,PE, 2\,PE and 3\,PE being clearly visible at 4.1\,mV, 8.2\,mV, and 12.3\,mV respectively. In order to measure the dark noise, an MPPC was put inside a container where no light would reach the sensor. 
+\begin{figure}[!h]
+ \centering
+ \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/pureDarkNoise_outputMedText.png}
+ \captionof{figure}{Dark Noise from the MPPC taken over a period of $\sim$ 12\,hrs, taken by George Holt. The PE peaks for 1\,PE 2\,PE and 3\,PE can be seen at 4.1\,mV, 8.2\,mV and 12.3\,mV respectively. } 
+ \label{fig:pureDarkNoise}
+\end{figure}
+
+The dark noise has two distinct components: the peaks, and the background surrounding the peaks. The background surrounding the peaks can be modelled using an exponential fit which is done in figure \ref{subFig:expFitOfDark}. In addition to the PE peaks and exponential noise there is also a pedestal peak (seen at 3\,mV in figure \ref{fig:pureDarkNoise}). This is the zero value for the MPPC and as such is discounted it's not relevant for measuring PE peaks which is what the analysis focuses on. The pedestal is useful for determining the gain and for calibration of channels but this is not the focus of the simulation which explicitly tries to emulate a believable signal post calibration. The removal of the pedestal peak and use of the aforementioned exponential fit is done in figure \ref{subFig:fittedDarkNoise}.
+%The pedestal peak (seen at 3\,mV in figure \ref{fig:pureDarkNoise}) is also removed and an exponential is used past 13.7\,mV (see figure \ref{subFig:fittedDarkNoise}). 
+\begin{figure}[!h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/fit_of_dark_noiseMedText.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:expFitOfDark}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/fittedDarkNoise_outputMedText.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:fittedDarkNoise}
+\end{subfigure}
+\caption{Dark Noise from an MPPC taken over a period of $\sim$ 12\,hrs with an exponential fitted, with a $\chi ^2$ /DOF = 159.748 (see (a)). In (a) the fit of exponential function uses TFit to fit the after-pulsing of the MPPCs. The exponential fit is used past 13.7\,mV when the count rate drops below 10 and the conjoined distribution can be seen in (b).}
+\label{fig:fitting_of_non_peak_dark_noise}
+\end{figure}
+
+The results from figure \ref{fig:fitting_of_non_peak_dark_noise} can then be used to construct a cumulative probability distribution seen in figure \ref{fig:cumulative_prob_dark}. This probability distribution is what the simulation reads to reconstruct the dark noise distribution. During the simulation, a random dice is thrown and that probability is then converted back into a dark noise value which is then assigned to a random bar in the detector. Values past 13.7\,mV use the exponential fit. These events extrapolate directly from the exponential fit instead of reading from the probability distribution for more realistic results. The dark noise produced for a full detector over 10$^6$ events is shown in figure \ref{fig:individualDarkNoiseOld}. 
+
+\begin{figure}[!h]
+\centering
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/cumulative_prob_dark_noiseMedText.png}
+  \captionof{figure}{Cumulative probability of the dark noise, which is converted to a table and then searched using the golden section search} 
+  \label{fig:cumulative_prob_dark}
+  \vspace{0.956cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
+\end{minipage}%
+\qquad
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/darkNoiseLogMedText.png} 
+  \captionof{figure}{The dark noise produced for the 2660 VIDARR detector with 10$^6$ events resulting in 3E6 dark noise hits. The exponential tail fit shown in \ref{fig:fitting_of_non_peak_dark_noise} has seamlessly connected to the rest of the distribution.}
+  \label{fig:individualDarkNoiseOld}
+\end{minipage}
+\end{figure}
+
+\subsection{Modelling TiO$_2$ Coating}
+The plastic scintillating bars of the VIDARR detector are extruded at Fermilab and have been used in other experiments such as the T2K ND280 ECal \cite{Allan_2013} Miner$\nu$a \cite{aliaga2014design} and in Mu2e as a cosmic ray veto \cite{Pla-Dalmau2014}. By simulating particles at the edge of a single bar as shown in figure \ref{fig:lengthAndSideViewBarMuon} the simulated dE/dx for a single bar can be measured by using the energy deposited in the bar and the length of each track in the bar for each particle. The impact that the TiO$_2$ coating has on the dE/dx depends on two variables, mass of particle and energy of the particle. When generating $\mu$ and protons between 0\,MeV -- 20\,MeV (figure \ref{fig:muonProton_TiO2}) the impact of both of these variables becomes clear. In figure \ref{fig:muonProton_TiO2} the TiO$_2$ coating is set to a thickness of 0.25\,mm which is the thickness Fermilab extrudes the coating \cite{Pla-Dalmau2014}.
+
+\begin{figure}[!h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/year1Plots/lengthOnViewBarMuon1530By720.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:lengthOnViewBarMuon1530Square}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/sideOnViewBarMuon1530By720.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:sideOnViewBarMuon8}
+\end{subfigure}
+\caption{How a 20\,MeV $\mu$ particle penetrates through the coating and scintillator it is offset to ensure the effect from the TiO$_2$ coating is being correctly observed. The top down view (x,y) is shown in (a). The side on view (x,z) is shown in (b).}
+\label{fig:lengthAndSideViewBarMuon}
+\end{figure}
+
+
+\begin{figure}[!h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/muon_TiO2_hybridMedText.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:proton_TiO2}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/proton_TiO2_hybridMedText.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:muon_TiO2}
+\end{subfigure}
+\caption{The average dE/dx for generated protons deposited in a single bar of scintillator the \%  of TiO$_2$ coating has significant impact except towards higher energies. The average dE/dx for generated cosmic $\mu$ deposited in a single bar of scintillator the \% of TiO$_2$ has some impact on the dE/dx at low energies.}
+\label{fig:muonProton_TiO2}
+\end{figure}
+
+%The TiO$_2$ coating is 15\,\% TiO$_2$ to 85\,\% polythene \cite{aliaga2014design} \cite{Pla-Dalmau2014} with a thickness of 0.25\,mm \cite{Pla-Dalmau2014}. The correct amount of TiO$_2$ is now correctly implemented in the simulation for each of the 2660 bars in VIDARR. 
+
+The percentage of TiO$_2$ to polythene is 15\,\% TiO$_2$:85\,\% polythene \cite{aliaga2014design} \cite{Pla-Dalmau2014} the simulated TiO$_2$ coating reflects this and is varied from 0\,\% -- 60\,\% in figure \ref{fig:muonProton_TiO2} to show the impact TiO$_2$ has on the $\mu$ and proton particles. The impact on $\mu$ dE/dx is only significant < 3\,MeV but the TiO$_2$ coating has a large impact on protons from 0\,MeV -- 12\,MeV. At low energies (0\,MeV -- 5\,MeV) protons don't penetrate very far and are unable to get through the 0.25\,mm coating regardless of composition. The percentage of TiO$_2$ also has an impact but it is less than than having a coating present at all. The dE/dx values are higher when the coating is present as the coating causes back scattering into the scintillating bar thus increasing energy deposition and dE/dx. This is important as it shows how unlikely it is for low energy protons and $\alpha$s are to penetrate the TiO$_2$ coating. In particular protons < 5\,MeV are unlikely to escape a single bar with a Ti0$_2$ of 15\,\%. As single bar events in the RMon and VIDARR detectors are often ignored it appears the TiO$_2$ coating will significantly reduce the number of proton and $\alpha$ events that will be considered as signal thus improving the signal to noise ratio. 
 
 \section{Loss of Deposited Energy due to Quenching}\label{sec:GEANT4Simulation_quenchingLoss}
 Now the light has been suitably approximated from GEANT4, an investigation into the energy loss via quenching is required. The energy loss due to quenching varies greatly depending on the particle, it is a function of both energy and mass and is covered in the section \ref{sec:GEANT4Simulation_ModellingLightEmission}. It is the ratio of ``damaged'' to ``undamaged '' particles \cite{craun_1970} described by Birks law (equation \ref{equ:Birks_formula}) \cite{knoll_2010}. By considering three example particles and their corresponding anti-particles the scale of the quenching in the VIDARR detector can be observed. The first particles to be considered were electrons. They are a common source of background and have a large charge to mass ratio when compared to other particles. For the e$^-$ and e$^+$ is very minimal which can be seen in figure \ref{fig:electron_positron_quenched_and_not}. This was simulated using a ``slab'' of material (figure \ref{fig:electrons_viewed_in_slab}) instead of using a bar or a full detector simulation. This was done to ensure that all of the energy was kept inside the plastic scintillator so that the full energy loss due to quenching could be measured. In the case of e$^-$ and e$^+$ this is minimal but there is a slight overshoot > 7\,MeV. 
@@ -831,175 +610,6 @@ The energies of the $\gamma$-rays produced by the simulation are shown in figure
   \label{fig:numberOfBarsHitCascadeFinalStateDicebox}
 \end{minipage}
 \end{figure}
-
-\section{Machine Learning Neutron Trigger}\label{sec:MachineLearningTrigger}
-There are several machine learning techniques available to analyse different types of data. Typically the physics field uses decision trees (DT), k-nearest neighbours (knn), and deep learning neural networks (DLNN). One technique which is often neglected is the support vector machine (SVM) \cite{Boser92atraining}, \cite{cortes1995support}. An SVM is a linear classifier that uses particular points (support vectors) in two data sets to find the best separating ``hyperplane'' an n-dimensional line that finds the maximum separation between the two data sets (see figure \ref{fig:svmBoser92LinearSVM}). Whilst the SVM is a linear classifier it is possible to use a function to distort non-linear data such that it becomes linearly separable. Theses functions are called kernels an example of how they are used can be seen in figure \ref{fig:kernelRBF_fromWeB}. The kernel used in figure \ref{fig:kernelRBF_fromWeB} is the radial base function (RBF) kernel described by equation \ref{equ:RbfKernelFunc}. The method of transforming data through a kernel via the ``kernel trick'' is well established and has been a common technique since at least 1992 \cite{Boser92atraining}.
-% Using simulated data it is possible to test whether a machine learning trigger would be advantageous to the analysis. The machine learning technique considered the most appropriate was the Support Vector Machine (SVM) \cite{Boser92atraining} \cite{cortes1995support}, as SVMs were compared to several other simple techniques typically used in physics namely a decision tree and k-nearest neighbours (see figure \ref{fig:sklearnReleventExamples}). As seen in figure \ref{fig:sklearnReleventExamples} the SVM linearly or with a kernel. The radial basis function (RBF) kernel is one of the most common. In figure \ref{fig:sklearnReleventExamples} the generalised boundaries, high accuracy, and well-defined projection space seen in the RBF SVM make it the clear standout. The SVM utilises the RBF kernel via the kernel trick since at least 1992 \cite{Boser92atraining}. 
-% \\\\SVMs work by finding the best separating hyperplane between two opposing data sets. In figure \ref{fig:svmBoser92LinearSVM} the best separating hyperplane is calculated for a simple data set. The SVM works by finding the maximum distance between each data set and creating an n-dimensional line the ``hyperplane'' to separate the data. In order to separate non-linear data the kernel trick is used which figure \ref{fig:kernelRBF_fromWeB} shows. Figure \ref{fig:kernelRBF_fromWeB} also shows how two different kernels achieve the same result. How the decision surface is manipulated to separate data sets is shown in figure \ref{fig:kernelRBF_fromWeB}. As figure \ref{fig:kernelRBF_fromWeB} shows the kernel transforms the data set so it becomes linearly separable for the SVM. A further test of the SVMS's capabilities is done in figure \ref{fig:svmExp_GausseExamples} which tests the separation of multiple Gaussian data sets from 2D exponential noise. This is as complex ass trigger data could reasonably be expected to be. This means that the SVM should be suitable for separating neutron trigger data. 
-% \\\\An SVM is also convexly optimised which means the solutions are easier to solve as there is only one global minimum \cite{cortes1995support}. This feature allows SVMs to train on sparse data sets with low statistics. SVMs are fast to train on small data sets but as data sets grow larger the squared nature of the SVM solution increases training times dramatically \cite{cortes1995support}. This means that for data with many dimensions and many statistics training times and memory usage can be very high to the point of being unusable \cite{cortes1995support}. Data must also be completely labelled and optimisation for training whilst possible through sequential minimal optimisation is somewhat limited \cite{platt1998sequential}. These drawbacks are not a significant issue for the trigger data but they should be bared in mind for more complex cases such as image recognition.
-\begin{equation}
-K(\mathbf{x,x'}) = \exp{(\gamma \mathbf{x \cdot x'})} - 1
-\label{equ:RbfKernelFunc}
-\end{equation}
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.9\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/svmBoser92LinearSVM.png}
-\captionof{figure}{An example of how a support vector machine (SVM) separates two different distributions that are linearly separable. The maths behind the classifier finds the best separating line/hyper-plane between two distributions. From \cite{Boser92atraining}.} 
-\label{fig:svmBoser92LinearSVM}
-\end{figure}
-
-% \begin{figure}[!h]
-% \centering
-% \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/svmBoser92KernelSVM.png}
-% \captionof{figure}{How a support vector machine (SVM) operates with a kernel being applied using a squared polynomial kernel on the left and a radial basis function (RBF) on the right. By using the ``kernel trick'' it is possible to separate non-linear data. From \cite{Boser92atraining}.} 
-% \label{fig:svmBoser92KernelSVM}
-% \end{figure}
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.9\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/kernelRBF_fromWeB.png}
-\captionof{figure}{An online example that shows how the kernel trick is used to make non-linear data linearly separable by transforming it through a kernel. From \cite{kernelTrickWeb}.} 
-\label{fig:kernelRBF_fromWeB}
-\end{figure}
- 
-A direct comparison between DT, knn, linear (no kernel) SVM and RBF SVM classifiers is done in figure \ref{fig:sklearnReleventExamples}. In figure \ref{fig:sklearnReleventExamples} the generalised boundaries, high accuracy and well defined projection space of the RBF SVM make it the clear standout. However, each machine learning technique has its drawbacks. Whilst SVMs are convexly optimised only having one global minimum \cite{Boser92atraining} (see figures \ref{fig:svmBoser92LinearSVM} and \ref{fig:sklearnReleventExamples}) this comes at the cost of parallelisation. In order to achieve the well defined projection space with such a simple algorithm the SVM must be able to observe the whole of the data at once. his is somewhat mitigated by sequential minimal optimisation \cite{platt1998sequential} but not completely. This means that for very large data sets with thousands of dimensions an SVM might not always be suitable as training times become too long. However, the trigger data for the VIDARR detector only has a maximum of 4 dimensions shown in table \ref{tab:triggerDims}. Data must also be labelled for SVMs as well but this is not a significant limitation for VIDARR data sets, as labelling of data is likely to be done regardless of machine learning.
- 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.9\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/sklearnReleventExamplesMedText.png}
-\captionof{figure}{Some example classifiers taken from scikit-learn that show how different techniques draw boundaries and how confident they are in those boundaries. Decision trees and k nearest neighbours are common simplistic classifiers used in physics but the boundaries they produce are often susceptible to over-training. The linear SVM is generalised but is quite limited in its utility. The SVM with the RBF kernel consistently draws the most accurate boundaries and they are well generalised. The accuracy of each technique is shown in the bottom right of each plot. From \cite{scikit-learn}.} 
-\label{fig:sklearnReleventExamples}
-\end{figure}
-
-\begin{table*}[!h]
-\centering
-\begin{tabular}{lll}  
-\toprule
-Dimension               & Th 1.5\,PE (0.06\,MeV) & Th 12.5\,PE (0.5\,MeV)\\
-\midrule
-\# of Bars Hit Above Th &  NBATh$_{1.5}$         & NBATh$_{12.5}$\\
-Summed Energy Above Th  &  SEATh$_{1.5}$         & SEATh$_{12.5}$\\
-\bottomrule  
-\end{tabular}
-\caption{A table showing the 4 dimensions that the trigger can have. The word threshold is abbreviated to Th for convenience.}
-\label{tab:triggerDims}
-\end{table*}
-
-%Nyström
-% Figures \ref{fig:sklearnReleventExamples} \ref{fig:svmBoser92LinearSVM} \ref{fig:kernelRBF_fromWeB} \ref{fig:kernelRBF_fromWeB} \ref{fig:svmExp_GausseExamples} are sufficient reason to believe that an SVM with an RBF kernel should be a suitable classifier for separating trigger data that only has four dimensions. The four dimensions that need to be optimised are: the summed energy above a threshold of 1.5\,PE (0.06\,MeV), summed energy above a threshold of 12.5\,PE (0.5\,MeV), Numbers of bars hit above a threshold of 1.5\,PE (0.06\,MeV), Numbers of bars hit above threshold 12.5\,PE (0.5\,MeV). The libraries used were LIBSVM and LIBLINEAR both of which are highly provident and often cited as the reason for the SVMs gain in popularity \cite{chang2011libsvm} \cite{fan2008liblinear} \cite{murty2016support}. The wrapper in sci-kit learn was the preferred method due to its ease of use and its convenient application of the Nystrom approximation \cite{williams2001using} of the kernel. The Nystroem approximation is useful as the amount of computation required for a complete kernel SVMs scales $\sim$ O (n$^3$) where n is the number of training examples \cite{williams2001using}. By using a sample of size m to compute an approximation of the kernel the amount of computation required scales $\sim$ O (m$^2$n) instead \cite{williams2001using}. This approach will work even when m $\ll$ n \cite{williams2001using}. The example data shown in figure \ref{fig:svmExp_GausseExamples} shows how LIBLINEAR when combined with with an RBF Nystroem approximated kernel performs in comparison to LIBSVM with a complete RBF kernel the boundaries are very similar. From this point, the LIBLINEAR library and the Nystroem approximation will be used to speed up training and to prevent memory overflow which can happen when the SVM isn't converging and when large data sets are used. The simulated data set has 1 million neutron signal events and 4 million background events.
-
-There is also another issue when using a kernel SVM, the kernel itself greatly increase computational requirement. A linear (no kernel) SVM requires computational power that scales O $\sim$ n$^2$ (where n is the number of training samples) \cite{cortes1995support}. But when a kernel is used the computational power required scales with O $\sim$ n$^3$ instead \cite{williams2001using}. In order to mitigate this an approximate kernel is created via the Nyström method. By using a sample size of m to compute this approximate kernel the computation requirement scales with O $\sim$ mn$^2$ \cite{williams2001using}. This approach will work effectively even when m << n \cite{williams2001using}. 
-\\\\Due to it's preexisting implementation of the Nyström kernel approximation the wrapper scikit-learn was chosen as it saved development time \cite{scikit-learn}. Scikit-learn uses LIBSVM \cite{chang2011libsvm} and LIBLINEAR \cite{fan2008liblinear} both of which are highly provident and often cited as the reason for the SVM's gain in popularity \cite{murty2016support}. In figure \ref{fig:svmExp_GausseExamples} a non-linear data set with two Gaussian signal distributions and an exponential distribution in (x,y) for noise is separated with LIBSVM using an RBF kernel (figure \ref{subFig:svmExp_2GausseExample}) and LIBLINEAR using an approximated Nyström kernel (figure \ref{subFig:exp_2NysGaussExample}). The example data shown in figure \ref{fig:svmExp_GausseExamples} shows how LIBLINEAR when combined with a Nyström approximated kernel performs to a similar standard to LIBSVM with a full RBF kernel, the boundaries are extremely similar. It also shows that scikit-learn's implementation of the Nyström method is quite accurate and can be trusted. From this point the LIBLINEAR library and the Nyström approximated RBF kernel will be used to speed up training and prevent an excess use of computational resource. Considering the strengths of SVMs, the low dimensionality of the trigger data, and the effective use of available computational resource the approximate RBF SVM should be more than sufficient for separating out the 1 million generated signal events and the 4 million generated background events. 
-
-\begin{figure}[!h]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/adjustedSvmPlots/adjusted_exp_2GaussExample.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:svmExp_2GausseExample}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/adjustedSvmPlots/adjusted_exp_2NysGaussExample.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:exp_2NysGaussExample}
-\end{subfigure}
-\caption{SVM examples showing how to separate data sets with two Gaussian signals (blue) from exponential noise (red). For both an RBF kernel was used with c = 10$^3$ and $\gamma$ = 1. In (a) LIBSVM is used with an RBF kernel and support vectors are highlighted in orange. In (b) LIBLINEAR is used with a Nyström approximation of the RBF kernel with a sampling (m) of 100.}
-\label{fig:svmExp_GausseExamples}
-\end{figure}
-
-Kernel SVMs have two factors that can be tuned to give more accurate results. The soft margin C, and $\gamma$ which is part of the RBF kernel described by equation \ref{equ:RbfKernelFunc} \cite{Boser92atraining}. Higher values of C correspond to a lower amount of signal and noise overlap and vice versa \cite{cortes1995support}. Typically C can vary from 10$^{-6}$ to 10$^6$ but can be even higher or even lower providing its $>$ 0. Values for $\gamma$ must also be $>$ 0 and will vary depending on the linearity of the data. For an example of what non-linear data looks like when searching for suitable C and $\gamma$ values figure w\ref{fig:GammaCGridSearchExp2Gauss} was produced which shows how the values for figure \ref{subFig:exp_2NysGaussExample} where chosen. A higher value of $\gamma$ corresponds to higher non-linearity. With this information, we can see that there is some overlap in figure \ref{subFig:exp_2NysGaussExample} and is very non-linear so this search for relevant C and $\gamma$ values corroborates what can be seen in the example data. In contrast, the generated neutron and noise data shows clear linearity as a low $\gamma$ value of 1 is preferred and has a small overlap as a high C value of 10$^6$ is preferred (see figure \ref{fig:GammaCGridSearchNeutron}). This shows that the generated neutron data is very easy to separate with a linear classifier and so using anything more complex than an SVM would be unlikely to yield better results.
-
-\begin{figure}[!h]
-\centering
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/GammaCGridSearchExp2Gauss_adjustMedText.png}
-  \captionof{figure}{SVMs being trained on varying values of C and $\gamma$ for figure \ref{subFig:exp_2NysGaussExample}. Higher values of $\gamma$ represent non-linear data separation which the SVMs settle on. Higher values of C represent more overlap in the data. C choice is less clear but ultimately a higher value of C was settled due to a high preference for isolating boundaries as much as possible. A $\gamma$ = 1 and C of 10$^3$ was chosen.} 
-  \label{fig:GammaCGridSearchExp2Gauss}
-\end{minipage}%
-\qquad
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/GammaCGridSearchNeutron_adjustMedText.png}
-  \captionof{figure}{SVMs being trained on varying values of C and $\gamma$ for figure generated background and neutron data. Lower values of $\gamma$ represent a linear data separation which the SVMs settle on. Higher values of C represent more overlap in the data. This data set is linearly separable with minimal overlap. A $\gamma$ = 10$^{-6}$ and C of 10$^6$ was chosen.}
-  \vspace{0.478cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
-  \label{fig:GammaCGridSearchNeutron}
-\end{minipage}
-\end{figure}
-
-%NBATh$_{1.5}$ & NBATh$_{12.5}$ SEATh$_{1.5}$ & SEATh$_{12.5}$\\
-Once C and $\gamma$ have been chosen a basic form of dimensional reduction was done to assess the impact each dimension has on the classifier (see figure \ref{fig:accNeutronSVMC1e6_g1e-6}). In figure \ref{fig:accNeutronSVMC1e6_g1e-6} the addition of more dimensions beyond 2 does not seem to increase accuracy suggesting that not all of the information provided by the emulated trigger is useful. This is also true for the efficiency as seen in figure \ref{fig:effNeutronSVMC1e6_g1e-6} and the purity as seen in figure \ref{fig:purNeutronSVMC1e6_g1e-6}. This shows that not only is the data linearly separable, it is actually 2d linearly separable, meaning it is extremely easy for any machine learning algorithm to separate. Let alone one as powerful as the RBF SVM, this technique is overkill for this particular data set, hence why a DLNN has not been pursued for this data set. The most accurate would be the SEATh$_{1.5}$ + NBATh$_{1.5}$. However, the option: NBATh$_{1.5}$ + NBATh$_{12.5}$ is easier to implement for the electronics on VIDARR. The drop in accuracy, efficiency, and purity is relatively low for this combination and therefore it is the preferred option. 
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.8\linewidth]{Chapter4/Figs/Raster/accNeutronSVMC1e6_g1e-6MedText.png}
-\captionof{figure}{Accuracy for Nyström SVM classifiers with approximate RBF kernel with a sample of 100 for generated neutron and noise data. With C = 10$^6$ and $\gamma$ = 10$^{-6}$. Separation doesn't improve above 2 dimensions.} 
-\label{fig:accNeutronSVMC1e6_g1e-6}
-\end{figure}
-
-\begin{figure}[!h]
-\centering
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/effCombSVMAdjustMedText.png}
-  \captionof{figure}{Efficiency for Nyström SVM classifiers with approximate RBF kernel with a sample of 100 for generated neutron and noise data. With C = 10$^6$ and $\gamma$ = 10$^{-6}$. Separation doesn't improve above 2 dimensions.} 
-  \label{fig:effNeutronSVMC1e6_g1e-6}
-\end{minipage}%
-\qquad
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/purCombSVMAdjustMedText.png}
-  \captionof{figure}{Purity for Nyström SVM classifiers with approximate RBF kernel with a sample of 100 for generated neutron and noise data. With C = 10$^6$ and $\gamma$ = 10$^{-6}$. Separation doesn't improve above 2 dimensions.}
-  \label{fig:purNeutronSVMC1e6_g1e-6}
-\end{minipage}
-\end{figure}
-
-The chosen classifier is seen in figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6}, which as figure \ref{fig:purNeutronSVMC1e6_g1e-6} indicates is a linear classifier with minimal overlap between the signal noise. In figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6} anything to the left of the line is considered a noise event and anything to the right of the line is considered a neutron event. The effect of this selection criteria can be seen in figure \ref{fig:summedEnergyPastTriggerGdDicebox} which shows the summed energy that makes it past the emulated trigger. The amount of summed energy past the emulated trigger is overwhelmingly dominated by the 8\,MeV $\gamma$ cascade from the neutron absorption. The only events that are able to make it past the emulated trigger are the electrons with high generated kinetic energies (past $\sim$ 4\,MeV) as seen in figure \ref{fig:GeneratedEnergyPastTriggerGdDicebox} but they are unlikely to be present when in sufficient quantities when the detector is deployed. 
-
-\begin{figure}[!h]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/noiseNeutronSVM_C1e6_g1e-6MedText.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:noiseNeutronSVM_C1e6_g1e-6}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/signalNeutronSVM_C1e6_g1e-6MedText.png}
-  \captionsetup{width=.9\linewidth}
-  \caption{}
-  \label{subFig:signalNeutronSVM_C1e6_g1e-6}
-\end{subfigure}
-\caption{A 2d SVM classifier trained on signal and noise data with the number of bars hit above 1.5\,PE (0.06\,MeV) and the number of bars hit above 12.5\,PE (0.5\,MeV) with a Nystrom approximate RBF kernel with a sampling of 100, C value of 10$^6$ and $\gamma$ value of 10$^{-6}$. The generated noise is seen in (a) the generated signal (neutron induced Gd cascade) is shown in (b). Support vectors are shown by the dashed lines. The decision boundary is shown by the solid line.}
-\label{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6}
-\end{figure}
-
-\begin{figure}[!h]
-\centering
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/summedEnergyPastTriggerGdDiceboxMedText.png}
-  \captionof{figure}{The summed energy of the neutron events that survive past the trigger. The simulated neutron trigger shown in figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6}. 25\,PE = 1\,MeV overall giving an Efficiency = 75.6\,\% and purity = 93.5\,\%. Purity is determined from a background of 4 million noise events and 1 million signal events.} 
-  \label{fig:summedEnergyPastTriggerGdDicebox}
-\end{minipage}%
-\qquad
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/GeneratedEnergyPastTriggerGdDiceboxMedText.png}
-  \captionof{figure}{The generated kinetic energy for particles which make it past the simulated neutron trigger. The only particles of concern are electrons that produce high enough energy to hit many bars and produce showers. Background electrons with energies > $\sim$4\,MeV are unlikely to be prevalent during deployment.}
-  \label{fig:GeneratedEnergyPastTriggerGdDicebox}
-\end{minipage}
-\end{figure}
-
-%\clearpage
-These results show two points. The fist is that the RBF SVM is significantly more capable than required for separating the trigger data. The seconds is that the VIDARR trigger should be very effective at distinguishing the $\gamma$ cascade from background expected at reactor sites. This is highly encouraging as it indicates that VIDARR's segmentation and technology are well suited to resolving the trigger signal from noise. It is possible that smaller segmentation will yield better results but considering the high simulated efficiency (75.6\,\%) it is unlikely to improve significantly. As a result, it can be concluded that VIDARR's segmentation is in a ``sweet spot'' where the signal is easy to separate whilst retaining relevant information. So much so that machine learning cannot improve upon it. This conclusion will also be reinforced by the cosmic $\mu$ tomography results in chapter \ref{chp:cosmicMuonTomography}.
 
 % \begin{figure}[!h]
 %  \centering
