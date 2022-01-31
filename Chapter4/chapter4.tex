@@ -10,7 +10,7 @@
     \graphicspath{{Chapter4/Figs/Vector/}{Chapter4/Figs/}}
 \fi
 
-This chapter will focus on the GEANT4 simulation of the RMon and VIDARR detectors including the mass increase and upgraded electronics of VIDARR. In addition, the modelling of the GEANT4 light output will be covered. This is done to decrease the computational load whilst having a realistic light model based on the MINER$\nu$A Birks' constant and test stand data. Also attenuation and counting statistics are modelled for increased real world accuracy. Finally, a brief machine learning study is conducted using a hybrid Gadolinium model based on GEANT4's final state model and the DANCE $^{157}$Gd Dicebox.
+This chapter will focus on simulating each individual component of the upgraded detector in GEANT4 \cite{Agostinelli:2002hh}. This will start by modelling the via Birks' law and the logic behind this approximation of light output. Then the MINER$\nu$A Birks' constant will be touched upon which is as that experiment uses the same scintillator as the VIDARR detector. Then the Birks' approximation is compared to the light output in GEANT4 for each particle using a ``slice''  model to approximate a small travel in the detector and a ``slab'' model to test that approximation. Then a single bar is modelled through test stand data to create data-driven representations of the attenuation and dark noise. The effect of the TiO$_2$ coatings is also observed as it is relevant for especially heavy particles such as protons. This is all pulled together by analysing the effects of quenching on the particles and the effects of counting statistics on the simulation by looking at $\alpha$ particles. Once the noise particles have been modelled the trigger signal (the Gadolinium cascade) is modelled via a hybrid Gadolinium model based on GEANT4's final state model and the DANCE $^{157}$Gd Dicebox. 
 
 \section{GEANT4 Overview}\label{sec:GEANT4Simulation_g4Overview}
 The VIDARR detector is represented in a GEANT4 simulation which is a provident physics simulation package. According to the GEANT4 collaboration GEANT4 ``covers a comprehensive range including electromagnetic, hadronic and optical processes and a large set of long-lived particles materials and elements over a wide energy range starting in some cases from 250\,eV and extending in others to the TeV range'' \cite{Agostinelli:2002hh}. Considering that the energy range for IBD is $\sim$ 1.8\,MeV -- $\sim$ 8.5\,MeV \cite{Mueller_2011} this simulation package meets the needs of the VIDARR collaboration. IBD produces e$^+$ and neutrons (see equation \ref{inverse_beta_decay}) whilst the simulation of e$^+$ is reasonably straight forward the simulation of the neutrons is more complex. This is due to the gadolinium sulphate sheets that capture the neutrons and emit an 8\,MeV $\gamma$ cascade. The Gadolinium cascade is hard to model accurately due to the high energies and number of nucleons involved ($>$ 150).
@@ -332,19 +332,19 @@ The plastic scintillating bars of the VIDARR detector are extruded at Fermilab a
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/muon_TiO2_hybridMedText.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/electronEdepTiO2Coating.png}
   \captionsetup{width=.9\linewidth}
   \caption{}
   \label{subFig:proton_TiO2}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/proton_TiO2_hybridMedText.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/protonsEdepTiO2Coating.png}
   \captionsetup{width=.9\linewidth}
   \caption{}
   \label{subFig:muon_TiO2}
 \end{subfigure}
-\caption{The average dE/dx for generated protons deposited in a single bar of scintillator the \%  of TiO$_2$ coating has significant impact except towards higher energies. The average dE/dx for generated cosmic $\mu$ deposited in a single bar of scintillator the \% of TiO$_2$ has some impact on the dE/dx at low energies.}
+\caption{(a) The average energy deposited for generated protons deposited in a single bar of scintillator the \%  of TiO$_2$ coating has significant impact at lower energies. (b) The average energy deposited for generated electrons deposited in a single bar of scintillator the \% of TiO$_2$ has no significant impact.}
 \label{fig:muonProton_TiO2}
 \end{figure}
 
@@ -459,7 +459,7 @@ The effects of quenching are mores significant for the heavier charged particles
 \centering
 \begin{minipage}{.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/truth_vs_summed_alphaMedText.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/truth_vs_summed_alphaMedTextNew.png}
   \captionof{figure}{The energy deposited in a simulated detector by $\alpha$ particles without physical and electronic effects taken into account, this is the maximum possible energy that can be deposited.} 
   \label{fig:alpha_summed_vs_truth}
   \vspace{0.478cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
@@ -467,7 +467,7 @@ The effects of quenching are mores significant for the heavier charged particles
 \qquad
 \begin{minipage}{.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/truth_vs_visSummed_alpha_zoomMedText.png} 
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/truth_vs_visSummed_alpha_zoomMedTextNew.png} 
   \captionof{figure}{The energy deposited in a simulated detector by $\alpha$ particles when the physical effects of quenching and attenuation are taken into account. The detector effects of dark noise and counting statistics are not taken into account}
   \label{fig:alphaVisVsTruthZoom}
 \end{minipage}
@@ -475,7 +475,7 @@ The effects of quenching are mores significant for the heavier charged particles
 
 \begin{figure}[!h]
  \centering
- \includegraphics[width=0.5\linewidth]{Chapter4/Figs/Raster/truth_vs_recoSummed_alpha_zoomMedText.png}
+ \includegraphics[width=0.5\linewidth]{Chapter4/Figs/Raster/truth_vs_recoSummed_alpha_zoomMedTextNew.png}
  \captionof{figure}{The energy deposited in a simulated detector by $\alpha$ particles when the physical effects of quenching and attenuation are taken into account as well as the detector effects of dark noise and counting statistics.} 
  \label{fig:alphaRecoVsTruthZoom}
 \end{figure}
@@ -561,14 +561,14 @@ The photon evaporation model and final state model were overlapped with the meas
 
 \begin{figure}[!h]
  \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/comparisonGd.png}
+ \includegraphics[width=0.6\linewidth]{Chapter4/Figs/Raster/gadolinium/comparisonGd.png}
  \captionof{figure}{How the photon evaporation and final state models in GEANT 4 compare to the measured spectra for natural gadolinium and Gd 155,157. High energy $\gamma$s are only present in the final state model.  * \cite{kandlakunta_2012} ** \cite{bollinger_1970} from \cite{YuChen_2015}.} 
  \label{fig:comparisonGd}
 \end{figure}
 
 \begin{figure}[!h]
  \centering
- \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/gadolinium/comparisonAndDiceBoxGd.png}
+ \includegraphics[width=0.6\linewidth]{Chapter4/Figs/Raster/gadolinium/comparisonAndDiceBoxGd.png}
  \captionof{figure}{Figure \ref{fig:comparisonGd} \cite{YuChen_2015} but with the Dicebox individual $\gamma$-rays for $^{157}$Gd from figure \ref{fig:energyOfCascadeOfCascadeGd} overlaid on top. The Dicebox has similar low energy $\gamma$-rays to the photon evaporation model but has more high energy $\gamma$-rays as would be expected of the Gd cascade. * \cite{kandlakunta_2012} ** \cite{bollinger_1970}.}
  \label{fig:comparisonAndDiceBoxGd}
 \end{figure}
