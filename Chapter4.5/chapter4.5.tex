@@ -42,7 +42,43 @@ When simulating e$^-$s and e$^+$s with 0\,MeV -- 10\,MeV kinetic energy the amou
 \label{fig:2000_3000_p_secs}
 \end{figure}
 
+\clearpage
 \section{Machine Learning Neutron Trigger}\label{sec:MachineLearningTrigger}
+
+\begin{figure}[!h]
+\centering
+\begin{subfigure}{.49\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4.5/Figs/preTrigNba2.5.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:preTrigNba2.5}
+\end{subfigure}%
+\begin{subfigure}{.49\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4.5/Figs/preTrigSea2.5.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:preTrigSea2.5}
+\end{subfigure}
+\begin{subfigure}{.49\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4.5/Figs/preTrigNba12.5.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:preTrigNba12.5}
+\end{subfigure}
+\begin{subfigure}{.49\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4.5/Figs/preTrigSea12.5.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:preTrigSea12.5}
+\end{subfigure}
+\caption{Generated pre-trigger data for neutrons, $\alpha$s, e$^-$s and protons. Two thresholds were chosen to help separate the data 2.5\,PE (0.1\,MeV) and 12.5\,PE (0.5\,MeV). The trigger should have access to the summed energy and number of bars past each of these thresholds. (a) number of bars hit past 2.5\,PE (b) summed energy 2.5\,PE (c) number of bars hit past 12.5\,PE (d) summed energy past 12.5\,PE.}
+\label{fig:preTriggerData}
+\end{figure}
+
 There are several machine learning techniques available to analyse different types of data. Typically the physics field uses decision trees (DT), k-nearest neighbours (knn), and deep learning neural networks (DLNN). One technique which is often neglected is the support vector machine (SVM) \cite{Boser92atraining}, \cite{cortes1995support}. An SVM is a linear classifier that uses particular points (support vectors) in two data sets to find the best separating ``hyperplane'' an n-dimensional line that finds the maximum separation between the two data sets (see figure \ref{fig:svmBoser92LinearSVM}). Whilst the SVM is a linear classifier it is possible to use a function to distort non-linear data such that it becomes linearly separable. Theses functions are called kernels an example of how they are used can be seen in figure \ref{fig:kernelRBF_fromWeB}. The kernel used in figure \ref{fig:kernelRBF_fromWeB} is the radial base function (RBF) kernel described by equation \ref{equ:RbfKernelFunc}. The method of transforming data through a kernel via the ``kernel trick'' is well established and has been a common technique since at least 1992 \cite{Boser92atraining}.
 % Using simulated data it is possible to test whether a machine learning trigger would be advantageous to the analysis. The machine learning technique considered the most appropriate was the Support Vector Machine (SVM) \cite{Boser92atraining} \cite{cortes1995support}, as SVMs were compared to several other simple techniques typically used in physics namely a decision tree and k-nearest neighbours (see figure \ref{fig:sklearnReleventExamples}). As seen in figure \ref{fig:sklearnReleventExamples} the SVM linearly or with a kernel. The radial basis function (RBF) kernel is one of the most common. In figure \ref{fig:sklearnReleventExamples} the generalised boundaries, high accuracy, and well-defined projection space seen in the RBF SVM make it the clear standout. The SVM utilises the RBF kernel via the kernel trick since at least 1992 \cite{Boser92atraining}. 
 % \\\\SVMs work by finding the best separating hyperplane between two opposing data sets. In figure \ref{fig:svmBoser92LinearSVM} the best separating hyperplane is calculated for a simple data set. The SVM works by finding the maximum distance between each data set and creating an n-dimensional line the ``hyperplane'' to separate the data. In order to separate non-linear data the kernel trick is used which figure \ref{fig:kernelRBF_fromWeB} shows. Figure \ref{fig:kernelRBF_fromWeB} also shows how two different kernels achieve the same result. How the decision surface is manipulated to separate data sets is shown in figure \ref{fig:kernelRBF_fromWeB}. As figure \ref{fig:kernelRBF_fromWeB} shows the kernel transforms the data set so it becomes linearly separable for the SVM. A further test of the SVMS's capabilities is done in figure \ref{fig:svmExp_GausseExamples} which tests the separation of multiple Gaussian data sets from 2D exponential noise. This is as complex ass trigger data could reasonably be expected to be. This means that the SVM should be suitable for separating neutron trigger data. 
