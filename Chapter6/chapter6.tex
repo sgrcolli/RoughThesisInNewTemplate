@@ -2,7 +2,7 @@
 %******************************* Final Chapter *********************************
 %*******************************************************************************
 
-\chapter{Cosmic $\mu$ Tomography at Wylfa}\label{chp:cosmicMuonTomography}
+\chapter{Cosmic Muon Tomography at Wylfa}\label{chp:cosmicMuonTomography}
 
 \ifpdf
     \graphicspath{{Chapter5/Figs/Raster/}{Chapter5/Figs/PDF/}{Chapter5/Figs/}}
@@ -31,7 +31,7 @@ The detector was deployed at the Wylfa Nuclear power station from June 2014 to F
   \caption{}
   \label{subFig:wylfaArielView}
 \end{subfigure}
-\caption{(a) Google Maps aerial photography image, displaying the Wylfa reactor site as well as the approximate detector position. The detector is in the middle of many site buildings occluding the incident cosmic rays. Key buildings shown are the reactor building, the turbine hall and the steam pipe connections between the two \cite{GoogleMapsWylfaLink}. (b) An aerial view of the Wylfa power station the main reactor building is the shape of a "dog bone" the detector was placed in-between the turbine hall and reactor building. Edited from \cite{wylfaDronePictureLink}.}
+\caption{The Wylfa reactor site. (a) shows a Google Maps aerial photography image, displaying the approximate detector position. The detector is in the middle of many site buildings occluding the incident cosmic rays \cite{GoogleMapsWylfaLink}. (b) An aerial view of the Wylfa power station the main reactor building is the shape of a "dog bone" the detector was placed in-between the turbine hall and reactor building. Edited from \cite{wylfaDronePictureLink}.}
 \label{fig:DetectorPosition_TopDownAndAriel}
 \end{figure}
 
@@ -66,7 +66,7 @@ In order to analyse the $\mu$ data from the Wylfa deployment analysis chains are
 \begin{figure}[!h]
  \centering
  \includegraphics[width=\linewidth]{Chapter6/Figs/CycleExplaination.png}
- \captionof{figure}{The RMon cycles, the trigger signal is the neutron induced gadolinium cascade in cycle 18 cycles 17 and 19 are overflow. Cycles 0-16 are observed for any signs of a positron cluster as a lookback buffer. Cycles 20-22 contain control information.} 
+ \captionof{figure}{The RMon cycles, the trigger signal is the neutron induced gadolinium cascade in cycle 18 cycles 17 and 19 are trigger overflow. Cycles 0-16 are observed for any signs of a positron cluster as a lookback buffer. Cycles 20-22 contain control information.} 
  \label{fig:CycleExplaination}
 \end{figure}
 
@@ -154,7 +154,7 @@ The correlation between the $\mu$ data and trigger cycle 18 can be seen in figur
   \caption{}
   \label{subFig:sideBHitsWithBadCycles}
 \end{subfigure}
-\caption{RMon bar hits for cosmic $\mu$ at Wylfa when reconstructed with the tracker when bad cycles are included. Side A is shown in (a). Side B is shown in (b). Large streaks are visible on the left-hand sides of both side A and side B.}
+\caption{RMon bar hits for cosmic $\mu$ at Wylfa when reconstructed with the tracker when biased cycles are included. Side A is shown in (a). Side B is shown in (b). Large streaks are visible on the left-hand sides of both side A and side B.}
 \label{fig:sideABHitsWithBadCycles}
 \end{figure}
 
@@ -174,7 +174,7 @@ The correlation between the $\mu$ data and trigger cycle 18 can be seen in figur
   \caption{}
   \label{subFig:wylfaSideBHits}
 \end{subfigure}
-\caption{RMon bar hits for sides A and B cosmic $\mu$ reconstructed tracks for the Wylfa data set. The results are mostly even except for a few dead or almost dead channels and one noisy channel on side B. Suggesting the tracker has minimal biasing. Side A is shown in (a). Side B is Shown in (b)}
+\caption{RMon bar hits for sides A and B cosmic $\mu$ reconstructed tracks for the Wylfa data set. The results are mostly even except for a few dead or almost dead channels, and one noisy channel on side B. Suggesting the tracker has minimal biasing. Side A is shown in (a). Side B is Shown in (b)}
 \label{fig:wylfaSideABHits}
 \end{figure}
 
@@ -208,7 +208,7 @@ In order to determine any shadows present at the reactor site the detector posit
   \caption{}
   \label{subFig:wylfaTraceStep4}
 \end{subfigure}
-\caption{(a) a basic trace on top of figure \ref{subFig:DetectorPositionTopDown}. Basic shapes are overlaid on top of the buildings at Wylfa. In (b) the trace is adjusted to take the overhead camera's position into account by taking the base of the buildings and moving the trace towards the base of the buildings. The magenta $\times$s show the reference points used to account for the camera's position. In (c) the overlapping lines and aerial photography from Google Earth removed to produce the final trace with a corresponding key.}
+\caption{Detector position with buildings of interest. (a) is a basic trace on top of figure \ref{subFig:DetectorPositionTopDown}. Basic shapes are overlaid on top of the buildings at Wylfa. In (b) the trace is adjusted to take the overhead camera's position into account by taking the base of the buildings and moving the trace towards the base of the buildings. The magenta $\times$s show the reference points used to account for the camera's position. In (c) the overlapping lines and aerial photography from Google Earth removed to produce the final trace with a corresponding key.}
 \label{fig:wylfaTraceSteps1-4}
 \end{figure}
 
@@ -224,7 +224,7 @@ Now that figure \ref{subFig:wylfaTraceStep4} has been produced and the features 
 \begin{figure}[!h]
  \centering
  \includegraphics[width=\linewidth]{Chapter6/Figs/Raster/newExampleEventWylfaMedText.png}
- \captionof{figure}{An example event from the Wylfa data set with a corresponding key showing how the colour coding relates to the channels. The dashed line represents the fit.} 
+ \captionof{figure}{An example event from the RMon Wylfa data set with a corresponding key showing how the colour coding relates to the channels. The dashed line represents the fit.} 
  \label{fig:3000ExampleEventWithKey}
 \end{figure}
 
@@ -246,7 +246,7 @@ Once the fitter's potential bias has been addressed the $\phi$ and $\theta$ valu
   \caption{}
   \label{subFig:wylfaTrackerTimeLog}
 \end{subfigure}
-\caption{(a) The time taken for each fit for the Wylfa data set. Assuming a rate of $\sim$ 275 cosmic $\mu$ s$^{-1}$ then the maximum time allowed would be 3.6\,ms. Almost all cosmic candidate events fit within this time. (b) Figure \ref{subFig:wylfaTrackerTime} but with the y axis taken as a log some events exceed 3.6\,ms to fit so a maximum time selection criterion is needed for those events.}
+\caption{(a) The time taken for each fit for the Wylfa data set. Assuming a rate of $\sim$ 275 cosmic $\mu$ s$^{-1}$ then the maximum time allowed would be 3.6\,ms. Almost all cosmic candidate events fit within this time. In (b) the y axis taken as a log, some events exceed 3.6\,ms to fit so a maximum time selection criterion is needed for those events.}
 \label{fig:wylfaTrackerTimeAndLog}
 \end{figure}
 
@@ -257,7 +257,7 @@ The reconstructed $\phi$ and $\theta$ distribution from the Wylfa data set can b
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter6/Figs/Raster/pVsTWylfaReversedMedText.png}
-  \captionof{figure}{The cosmic $\mu$ distribution from RMon deployment at Wylfa the shadows extend from $\theta$ = 0$^\circ$ -- $\theta$ = 60$^\circ$. Bin migration causes significant warping.}
+  \captionof{figure}{The cosmic $\mu$ distribution from RMon deployment at the Wylfa reactor site, the shadows extend from $\theta$ = 0$^\circ$ -- $\theta$ = 60$^\circ$. But bin migration causes significant warping.}
   \label{fig:pVsTWylfaReversed}
   \vspace{1.434cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
 \end{minipage}%
@@ -273,7 +273,7 @@ The reconstructed $\phi$ and $\theta$ distribution from the Wylfa data set can b
  \begin{figure}[!h]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaCircular0-37.5Deg_Overlay.png}
- \captionof{figure}{Figure \ref{subFig:wylfaTraceStep4} overlaid with the circular histogram from figure \ref{fig:LinearHist_theta_0-37.5_Deg} to show how the borders line up with the Wylfa trace.} 
+ \captionof{figure}{Top down track of the Wylfa reactor site (Figure \ref{subFig:wylfaTraceStep4}) overlaid with the circular histogram from figure \ref{fig:LinearHist_theta_0-37.5_Deg} to show how the borders line up with the trace.} 
  \label{fig:wylfaCircular0-37.5Deg_Overlay}
 \end{figure}
 
@@ -293,14 +293,14 @@ A way to solve the issue of bin migration was highlighted in section \ref{sec:ge
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter6/Figs/Raster/pVsTLiverpoolReversedMedText.png}
-  \captionof{figure}{The cosmic $\mu$ distribution from the RMon deployment at Liverpool. There are some faint shadows below 17.5$^\circ$ but otherwise, the data has no major cosmic $\mu$ sky occlusion.} 
+  \captionof{figure}{The cosmic $\mu$ distribution from the RMon deployment at Liverpool. There are some faint shadows below 17.5$^\circ$ but otherwise the data has no major cosmic $\mu$ sky occlusion.} 
   \label{fig:pVsTLiverpoolReversed}
 \end{minipage}%
 \qquad
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter5/Figs/Raster/liverpoolShadows.png}
-  \captionof{figure}{The shadows in the Liverpool data below $\theta$ 17.5$^\circ$. The accelerator Hall causes significant cosmic $\mu$ occlusion.}
+  \captionof{figure}{The shadows in the Liverpool data below $\theta$ =  17.5$^\circ$. The accelerator Hall causes significant cosmic $\mu$ occlusion.}
   \label{fig:liverpoolShadows}
   \vspace{0.77cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
 \end{minipage}
@@ -331,7 +331,7 @@ When taking the Wylfa data (figure \ref{fig:pVsTWylfaReversed}) and dividing it 
 \begin{figure}[!h]
  \centering
  \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/measuredTrackerReconNoLines.png}
- \captionof{figure}{The measured building shadows taking the ratio of the Wylfa data set (figure \ref{fig:pVsTWylfaReversed}) and the Liverpool data set (figure \ref{fig:pVsTLiverpoolReversed}). The Liverpool data acts as a control data set, assuming minimal shadows are present in the Liverpool data above 17.5$^\circ$ in $\theta$ as there are no dense buildings above 17.5$^\circ$ in $\theta$ at Liverpool.} 
+ \captionof{figure}{The measured building shadows taking the ratio of the Wylfa data set (figure \ref{fig:pVsTWylfaReversed}) and the Liverpool data set (figure \ref{fig:pVsTLiverpoolReversed}). The Liverpool data acts as a control data set, assuming minimal shadows are present in the Liverpool data above 17.5$^\circ$ in $\theta$.} 
  \label{fig:measuredTrackerReconNoLines}
 \end{figure}
 
@@ -407,7 +407,7 @@ Figure \ref{fig:WylfaSimGeom_SideOn_TopDown} shows how the simulated geometry lo
   \caption{}
   \label{subFig:WylfaSimGeomTopDown}
 \end{subfigure}
-\caption{The simulated geometry in GEANT4. (a) shows the side on view (y,z) with heights annotated. (b) shows the top-down perspective. Relative to the detector which is the origin.}
+\caption{The simulated geometry in GEANT4. (a) shows the side on view (y,z) with heights annotated. (b) shows the top-down perspective (x,y). Relative to the detector which is the origin.}
 \label{fig:WylfaSimGeom_SideOn_TopDown}
 \end{figure}
 
@@ -434,7 +434,7 @@ Figure \ref{fig:WylfaSimGeom_SideOn_TopDown} shows how the simulated geometry lo
 \begin{figure}[!h]
  \centering
  \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/simulatedTrackerReconNoLines.png}
- \captionof{figure}{The simulated building shadows taking the ratio with reactor buildings and without reactor buildings highlight the composite shadow shapes. The area < 17.5$\circ$ in $\theta$ is ignored so that it is consistent with the Wylfa shadow data set (figure \ref{fig:measuredTrackerReconNoLines}).} 
+ \captionof{figure}{The simulated building shadows taking the ratio with reactor buildings and without reactor buildings highlight the composite shadow shapes. The area < 17.5$^\circ$ in $\theta$ is ignored so that it is consistent with the Wylfa shadow data set (figure \ref{fig:measuredTrackerReconNoLines}).} 
  \label{fig:simulatedTrackerReconNoLines}
 \end{figure}
 
@@ -443,10 +443,10 @@ In the GEANT4 each building is individually simulated and outlined. Once all the
 \begin{sidewaysfigure}[!h]
   \centering
     \includegraphics[width=1\linewidth]{Chapter6/Figs/Raster/wylfaSimulatedShadowsWithKey.png}
-    \caption{Figure \ref{fig:simulatedTrackerReconNoLines} with each simulated reactor building highlighted.}
+    \caption{Ratio of simulated buildings (100\,\% concrete) and no simulated buildings each component that leads to the composite shadow has been outlined with a key.}
   \label{fig:simulatedTrackerRecon}
     \includegraphics[width=1\linewidth]{Chapter6/Figs/Raster/wylfaMeasuredShadowsWithKey.png}
-    \caption{Figure \ref{fig:measuredTrackerReconNoLines} with each simulated reactor building highlighted.}
+    \caption{Ratio of Wylfa data and normalised Liverpool data with the outlines from simulation superimposed. The shadows match expectations well.}
   \label{fig:measuredTrackerRecon}
 \end{sidewaysfigure}
 
@@ -469,7 +469,7 @@ In the GEANT4 each building is individually simulated and outlined. Once all the
 \begin{figure}[!h]
  \centering
  \includegraphics[width=\linewidth]{Chapter5/Figs/wylfaRasterNew/wylfaCircular0-37.5Deg_Overlay_Updated.png}
- \captionof{figure}{An updated version of figure \ref{fig:wylfaCircular0-37.5Deg_Overlay} using the boundaries from the Wylfa trace (figure \ref{subFig:wylfaTraceStep4}) and figure \ref{fig:measuredTrackerRecon} to highlight the key features of the turbine hall, main reactor building, and reactor core.}  
+ \captionof{figure}{Top down Wylfa trace with an updated circular $\phi$ histogram to show how much more accurate the boundaries are now that the building occlusions in $\phi$ and $\theta$ are better understood.}  
  \label{fig:wylfaCircular0-37.5Deg_Overlay_Updated}
 \end{figure}
 
@@ -515,7 +515,7 @@ The cosmic $\mu$ results from figures \ref{fig:simulatedTrackerRecon}, \ref{fig:
   \caption{}
   \label{subFig:trackedBWithDead}
 \end{subfigure}
-\caption{Tracker reconstructed hits for the $\phi$ 135$^\circ$ and $\theta$ = 45$^\circ$ the tracker is not thrown off by the dead channels or the fiducial channels. It reconstructs the simulated distribution well. Side A is shown in (a). Side B is shown in (b).}
+\caption{Tracker reconstructed hits for the $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$, the tracker is not thrown off by the dead channels or the fiducial channels. It reconstructs the simulated distribution well. Side A is shown in (a). Side B is shown in (b).}
 \label{fig:trackedABWithDead}
 \end{figure}
 
@@ -538,7 +538,7 @@ The reconstructed $\phi$ and $\theta$ distributions that the tracker produces is
 \begin{figure}[!h]
  \centering
  \includegraphics[width=\linewidth]{Chapter6/Figs/Raster/135,45_85,60__withDead_updatedAxis_cosmicCandidate195939MedText.png}
- \captionof{figure}{figure \ref{fig:badFitNoFiducial} with fiducial dead and uninstrumented channels taken into account. The tracker tries to fit the signal but due to corner clipping nature of the event the fitting on side A has failed and fits to $\phi$ = 85$^\circ$ and $\theta$ = 60$^\circ$ instead of $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$. } 
+ \captionof{figure}{Example candidate cosmic event from figure \ref{fig:badFitNoFiducial} with fiducial dead and uninstrumented channels taken into account. The tracker tries to fit the signal but due to corner clipping nature of the event the fitting on side A has failed and fits to $\phi$ = 85$^\circ$ and $\theta$ = 60$^\circ$ instead of $\phi$ = 135$^\circ$ and $\theta$ = 45$^\circ$. } 
  \label{fig:badFitWithFiducial}
 \end{figure}
 
@@ -582,7 +582,7 @@ It is possible to mitigate the effect of these corner clipping events by requiri
 \begin{figure}[!h]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter5/Figs/cosmicTrackerUncertainties/pVsT135FidFix_20barCutPerSide.png}
- \captionof{figure}{Figure \ref{fig:pVsTWithDeadLog} but with all events that have $<$ 20 hits for side A, and $<$ 20 hits for side B removed. This greatly improves the distribution and reduces smearing. However, efficiency is only 68.9\,\% $\sim$ 30\,\% lower than with a 4 bar cut on either side.} 
+ \captionof{figure}{Tracker reconstructed $\phi$ and $\theta$ but with all events that have $<$ 20 hits for side A, and $<$ 20 hits for side B removed. This greatly improves the distribution and reduces smearing. However, efficiency is only 68.9\,\% $\sim$ 30\,\% lower than with a 4 bar cut on either side.} 
  \label{fig:pVsT135FidFix_20barCutPerSide}
 \end{figure}
 
@@ -620,7 +620,7 @@ Another possible alternative to using the Liverpool data set as control is to us
   \caption{}
   \label{subFig:thetaGenRecoCryNorm}
 \end{subfigure}
-\caption{The generated CRY $\theta$ distribution for an altitude of 0\,m (sea-level) and latitude of 53.4$^\circ$. This should make it an ideal control data set for both Liverpool and Wylfa. In (a) the generated and reconstructed are compared and in (b) the generated and reconstructed are normalised. The overall shape is very well preserved by the detector and tracker.}
+\caption{The generated CRY $\theta$ distribution for an altitude of 0\,m (sea-level) and latitude of 53.4$^\circ$ (The latitude of Wylfa and Liverpool). In (a) the generated and reconstructed are compared and in (b) the generated and reconstructed are normalised. The overall shape is very well preserved by the detector and tracker.}
 \label{fig:thetaGenRecoCryAndNorm}
 \end{figure}
 
@@ -640,14 +640,14 @@ Another possible alternative to using the Liverpool data set as control is to us
   \caption{}
   \label{subFig:measuredThetaWylfaLivNorm}
 \end{subfigure}
-\caption{The measured $\theta$ distributions at Wylfa and Liverpool there are more statistics at Liverpool (visible in (a)) but when normalised it is clear how similar the two distributions are in (b).}
+\caption{The measured $\theta$ distributions at Wylfa and Liverpool, there are more statistics at Liverpool (visible in (a)) but when normalised it is clear how similar the two distributions are in (b).}
 \label{fig:measuredThetaWylfaLiverpool}
 \end{figure}
 
 \begin{figure}[!h]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter6/Figs/phiVsThetaCryReco.png}
- \captionof{figure}{$\phi$ and $\theta$ distribution the CRY $\theta$ distribution \cite{ieee_cry_2007}.}
+ \captionof{figure}{Tracker reconstructed ($\phi$,$\theta$) distribution using a flat $\phi$ distribution (0$^\circ$ -- 360$^\circ$) and the CRY $\theta$ distribution \cite{ieee_cry_2007}.}
  \label{fig:mc_PvsT}
 \end{figure}
 
@@ -664,7 +664,7 @@ However, the simulation can't quite account for all of the different effects and
 \begin{figure}[!h]
  \centering
  \includegraphics[width=\linewidth]{Chapter6/Figs/LiverpoolCryRatioPartialOutlines.png}
- \captionof{figure}{The ratio of $\phi$ and $\theta$ of the Liverpool data set against the generated normalised GEANT4 data set (see figure \ref{fig:mc_PvsT}). There are no clear shadows. There is a large difference between the generated data set and measured data set. This is likely due to the difference in scattering between GEANT4 and the actual scattering.}
+ \captionof{figure}{The ratio of $\phi$ and $\theta$ of the Liverpool data set against the generated normalised GEANT4 data set (see figure \ref{fig:mc_PvsT}). There are no clear shadows. There is a large difference between the generated data set and measured data set. This is likely due to the difference in scattering between GEANT4 and the real-world scattering.}
  \label{fig:LiverpoolToMCRatio}
 \end{figure}
 

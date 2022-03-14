@@ -9,7 +9,7 @@ The number of layers in the RMon detector was 49 out of a possible 70 the upgrad
 \begin{figure}[!h]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/cascadeContainmentCompare.png}
- \captionof{figure}{Percentage of neutron induced Gd $\gamma$ cascade deposited energy to $\gamma$ cascade generated energy for 1862 bar (49 layers) and 2660 bars (70 layers). The quality of the events improves with the taller detector as expected. Cascade containment $\leq$ 0.1\,\% is treated as 0\,\%. }
+ \captionof{figure}{Gd $\gamma$-ray containment for 1862 bars (49 layers) and 2660 bars (70 layers) expressed as a percentage. The quality of the events improves with the taller detector as expected. Cascade containment $\leq$ 0.1\,\% is treated as 0\,\%. }
  \label{fig:containment_comparison}
 \end{figure} 
 
@@ -18,7 +18,7 @@ When simulating e$^-$s and e$^+$s with 0\,MeV -- 10\,MeV kinetic energy the amou
 \begin{figure}[!h]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/summedVsTruth_1862_2660_e-e+_eBars_Adjusted.png}
- \captionof{figure}{Energy response of the simulated detector for both electrons and positrons in the full detector in comparison to E$_\textrm{{Dep}}$ = E$_\textrm{{gen}}$. The positron's annihilation $\gamma$s causes E$_\textrm{{Dep}}$ $>$ E$_\textrm{{Dep}}$ at low generated energies. Generated energy has no error. The number of Generated events per point is 10$^5$ Errors for E$_\textrm{{Dep}}$ are determined by standard error on the mean and are small but are shown on this plot.}
+ \captionof{figure}{Energy response of the simulated detector for both e$^-$ and e$^+$ in the full detector in comparison to E$_\textrm{{Dep}}$ = E$_\textrm{{gen}}$. The e$^+$'s annihilation $\gamma$s causes E$_\textrm{{Dep}}$ $>$ E$_\textrm{{Dep}}$ at low generated energies. Generated energy has no error. The number of Generated events per point is 10$^5$ Errors for E$_\textrm{{Dep}}$ are determined by standard error on the mean and are small but are shown on this plot.}
  \label{fig:recon_gen_ele_pos}
 \end{figure} 
 
@@ -38,7 +38,7 @@ When simulating e$^-$s and e$^+$s with 0\,MeV -- 10\,MeV kinetic energy the amou
   \caption{}
   \label{subFig:3000_p_sec}
 \end{subfigure}
-\caption{Positron hit efficiencies for the original 1862 barred detector (see (a)) and the upgraded 2660 barred detector (see (b)) above a 0.1\,MeV threshold both have $\sim$ 99\,\% efficiencies are similar in both errors are too small to be shown Generated energy O $\sim$ $10^{-8}$ efficiency error O $\sim$ $10^{-3}$. }
+\caption{e$^+$ hit efficiencies for the original 1862 barred detector (see (a)) and the upgraded 2660 barred detector (see (b)) above a 0.1\,MeV threshold both have $\sim$ 99\,\% efficiencies are similar in both errors are too small to be shown Generated energy O $\sim$ $10^{-8}$ efficiency error O $\sim$ $10^{-3}$. }
 \label{fig:2000_3000_p_secs}
 \end{figure}
 
@@ -75,7 +75,7 @@ The trigger for the upgraded detector is in a state of flux. However, for the fo
   \caption{}
   \label{subFig:preTrigSea12.5}
 \end{subfigure}
-\caption{Generated pre-trigger data for neutrons, $\alpha$s, e$^-$s and protons. Two thresholds were chosen to help separate the data 2.5\,PE (0.1\,MeV) and 12.5\,PE (0.5\,MeV). The trigger should have access to the summed energy and number of bars past each of these thresholds. (a) number of bars hit past 2.5\,PE (b) summed energy 2.5\,PE (c) number of bars hit past 12.5\,PE (d) summed energy past 12.5\,PE.}
+\caption{Generated pre-trigger data for neutrons, $\alpha$s, e$^-$s and protons. Two thresholds were chosen to help separate the data 2.5\,PE (0.1\,MeV) and 12.5\,PE (0.5\,MeV). The trigger should have access to the summed energy and number of bars past each of these thresholds. (a) number of bars hit past 2.5\,PE, (b) summed energy past 2.5\,PE, (c) number of bars hit past 12.5\,PE, (d) summed energy past 12.5\,PE.}
 \label{fig:preTriggerData}
 \end{figure}
 
@@ -116,7 +116,7 @@ A direct comparison between DT, knn, linear (no kernel) SVM and RBF SVM classifi
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.9\linewidth]{Chapter4/Figs/Raster/svmLinAndRbf/sklearnReleventExamplesMedText.png}
-\captionof{figure}{Some example classifiers taken from scikit-learn that show how different techniques draw boundaries and how confident they are in those boundaries. Decision trees and k nearest neighbours are common simplistic classifiers used in physics but the boundaries they produce are often susceptible to over-training. The linear SVM is generalised but is quite limited in its utility. The SVM with the RBF kernel consistently draws the most accurate boundaries and they are well generalised. The accuracy of each technique is shown in the bottom right of each plot. From \cite{scikit-learn}.} 
+\captionof{figure}{Some example classifiers taken from scikit-learn that show how different techniques draw boundaries and their projection spaces. Decision trees and k nearest neighbours are common simplistic classifiers used in physics but the boundaries they produce are often susceptible to over-training. The linear SVM is generalised but is quite limited in its utility. The SVM with the RBF kernel consistently draws the most accurate boundaries and they are well generalised. The accuracy of each technique is shown in the bottom right of each plot. From \cite{scikit-learn}.} 
 \label{fig:sklearnReleventExamples}
 \end{figure}
 
@@ -175,7 +175,7 @@ RBF kernel SVMs have two factors that can be tuned to give more accurate results
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/GammaCGridSearchNeutron_adjustMedText.png}
-  \captionof{figure}{SVMs being trained on varying values of C and $\gamma$ for figure generated background and neutron data. Lower values of $\gamma$ represent a linear data separation which the SVMs settle on. Higher values of C represent more overlap in the data. This data set is linearly separable with minimal overlap. A $\gamma$ = 10$^{-6}$ and C of 10$^6$ was chosen.}
+  \captionof{figure}{SVMs being trained on varying values of C and $\gamma$ for figure generated background and neutron data. Lower values of $\gamma$ represent a linear data separation which the SVMs settle on. Higher values of C represent more overlap in the data. This data set is mostly linearly separable with minimal overlap. A $\gamma$ = 10$^{-6}$ and C of 10$^6$ was chosen.}
   \vspace{0.478cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
   \label{fig:GammaCGridSearchNeutron}
 \end{minipage}
@@ -187,7 +187,7 @@ Once C and $\gamma$ have been chosen, a basic form of dimensional reduction was 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.8\linewidth]{Chapter4/Figs/Raster/accNeutronSVMC1e6_g1e-6MedText.png}
-\captionof{figure}{Accuracy for Nyström SVM classifiers with approximate RBF kernel with a sample of 100 for generated neutron and noise data. With C = 10$^6$ and $\gamma$ = 10$^{-6}$. Separation doesn't improve above 2 dimensions.} 
+\captionof{figure}{Accuracy for Nyström SVM classifiers with approximate RBF kernels using a sampling of 100 for generated neutron and noise data. With C = 10$^6$ and $\gamma$ = 10$^{-6}$. Separation doesn't improve above 2 dimensions.} 
 \label{fig:accNeutronSVMC1e6_g1e-6}
 \end{figure}
 
@@ -196,14 +196,14 @@ Once C and $\gamma$ have been chosen, a basic form of dimensional reduction was 
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/effCombSVMAdjustMedText.png}
-  \captionof{figure}{Efficiency for Nyström SVM classifiers with approximate RBF kernel with a sample of 100 for generated neutron and noise data. With C = 10$^6$ and $\gamma$ = 10$^{-6}$. Separation doesn't improve above 2 dimensions.} 
+  \captionof{figure}{Efficiency for Nyström SVM classifiers with approximate RBF kernels using a sampling of 100 for generated neutron and noise data. With C = 10$^6$ and $\gamma$ = 10$^{-6}$. Separation doesn't improve above 2 dimensions.} 
   \label{fig:effNeutronSVMC1e6_g1e-6}
 \end{minipage}%
 \qquad
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/purCombSVMAdjustMedText.png}
-  \captionof{figure}{Purity for Nyström SVM classifiers with approximate RBF kernel with a sample of 100 for generated neutron and noise data. With C = 10$^6$ and $\gamma$ = 10$^{-6}$. Separation doesn't improve above 2 dimensions.}
+  \captionof{figure}{Purity for Nyström SVM classifiers with approximate RBF kernels using a sampling of 100 for generated neutron and noise data. With C = 10$^6$ and $\gamma$ = 10$^{-6}$. Separation doesn't improve above 2 dimensions.}
   \label{fig:purNeutronSVMC1e6_g1e-6}
 \end{minipage}
 \end{figure}
@@ -227,7 +227,7 @@ The chosen classifier is seen in figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g
   \caption{}
   \label{subFig:signalNeutronSVM_C1e6_g1e-6}
 \end{subfigure}
-\caption{A 2d SVM classifier trained on signal and noise data with the number of bars hit above 2.5\,PE (0.1\,MeV) and the number of bars hit above 12.5\,PE (0.5\,MeV) with a Nyström approximate RBF kernel with a sampling of 100, C value of 10$^6$ and $\gamma$ value of 10$^{-6}$. The generated noise is seen in (a) the generated signal (neutron induced Gd cascade) is shown in (b). Support vectors are shown by the dashed lines. The decision boundary is shown by the solid line.}
+\caption{A 2d SVM classifier trained on generated neutron and noise data using number of bars hit above 2.5\,PE (0.1\,MeV) and the number of bars hit above 12.5\,PE (0.5\,MeV) with a Nyström approximate RBF kernel with a sampling of 100, C value of 10$^6$ and $\gamma$ value of 10$^{-6}$. The generated noise is seen in (a) the generated signal (neutron induced Gd cascade) is shown in (b). Support vectors are shown by the dashed lines. The decision boundary is shown by the solid line.}
 \label{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6}
 \end{figure}
 
@@ -236,7 +236,7 @@ The chosen classifier is seen in figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/summedEnergyPastTriggerGdDiceboxMedText.png}
-  \captionof{figure}{The summed energy of the neutron events that survive past the trigger. The simulated neutron trigger shown in figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6}. 25\,PE = 1\,MeV overall giving an Efficiency = 75.3\,\% and purity = 91.7\,\%. Purity is determined from a background of 4 million noise events and 1 million signal events.} 
+  \captionof{figure}{The summed energy of the neutron events that survive past the emulated trigger. The simulated neutron trigger shown in figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6}. Efficiency = 75.3\,\% and purity = 91.7\,\%. Both are determined from a background of 4 million noise events and 1 million signal (neutron) events.} 
   \label{fig:summedEnergyPastTriggerGdDicebox}
     \vspace{0.956cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
 \end{minipage}%
@@ -244,7 +244,7 @@ The chosen classifier is seen in figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/GeneratedEnergyPastTriggerGdDiceboxMedText.png}
-  \captionof{figure}{The generated kinetic energy for particles which make it past the simulated neutron trigger. The only particles of concern are electrons that produce high enough energy to hit many bars and produce showers. Background electrons with energies > $\sim$4\,MeV are unlikely to be prevalent during deployment. Simulated neutron kinetic energies were  1/40$^\textrm{th}$ of an eV 0$^\textrm{th}$ neutron bin goes up to $\sim 7.5 \times 10^5$.  }
+  \captionof{figure}{The generated kinetic energy for particles which make it past the simulated neutron trigger. The only particles of concern are electrons that produce high enough energy to hit many bars and produce showers. Background electrons with energies > $\sim$4\,MeV are unlikely to be prevalent during deployment. Simulated neutron kinetic energies were 0.025\,eV. The 0$^\textrm{th}$ neutron bin goes up to $\sim 7.5 \times 10^5$.}
   \label{fig:GeneratedEnergyPastTriggerGdDicebox}
 \end{minipage}
 \end{figure}
@@ -273,7 +273,7 @@ $\mu$ are highly penetrating high energy particles. As a result atmospheric $\mu
 \begin{figure}[!h]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter4/Figs/Raster/pdg_MuonMomentumStopping.png}
- \captionof{figure}{Mass stopping power for positive $\mu$ in copper as a function of $\beta$ $\gamma$ = $\rho/Mc$ over nine orders of magnitude in momentum (12 orders of magnitude in kinetic energy). From \cite{Olive_2014}.} 
+ \captionof{figure}{Mass stopping power for positive $\mu$ in copper as a function of $\beta \gamma$ = $\rho/Mc$ over nine orders of magnitude in momentum (12 orders of magnitude in kinetic energy). From \cite{Olive_2014}.} 
  \label{fig:pdg_MuonMomentumStopping}
 \end{figure}
 
@@ -301,7 +301,7 @@ By simulating a single scintillating bar of dimensions $4\,\textrm{cm} \times 15
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/keMevCryMuonsMedText.png} 
-  \captionof{figure}{Generated kinetic energy $\mu$ particles using the CRY library \cite{ieee_cry_2007} at sea level with latitude 53$^\circ$ (Liverpool's latitude) and date: 01 -- March -- 2021. 99\,\% + of generated $\mu$ particles are between 0.1\,GeV (100\,MeV) and 40\,GeV (40000\,MeV) kinetic energy.}
+  \captionof{figure}{Generated kinetic energy $\mu$ particles using the CRY library \cite{ieee_cry_2007} at sea level with latitude 53$^\circ$ (Liverpool and Wylfa's latitude) and date: 01 -- March -- 2021. 99\,\% + of generated $\mu$ particles are between 0.1\,GeV (100\,MeV) and 40\,GeV (40000\,MeV) kinetic energy.}
   \label{fig:keMevCryMuons}
 \end{minipage}
 \end{figure}
@@ -312,9 +312,6 @@ By simulating a single scintillating bar of dimensions $4\,\textrm{cm} \times 15
  \captionof{figure}{dE/dx of $\mu$ through single plastic bar assuming a density of plastic of 1\,g\,cm$^{-3}$. Measurements for plastic are similar to carbon. For carbon $\sim$ 2\,MeV\,cm$^{-1}$ is expected for dE/dx {\cite{Olive_2014}. Mean dE/dx for 250\,MeV, 500\,MeV, 750\,MeV, 1000\,MeV are respectively 1.9907 $\pm$  0.0005\,MeV\,cm$^{-1}$, 1.9387 $\pm$  0.0005\,MeV\,cm$^{-1}$, 1.9374 $\pm$  0.0005 MeV\,cm$^{-1}$, 1.9407 $\pm$  0.0005 MeV\,cm$^{-1}$.\\}}
  \label{fig:mev_per_cm_muons}
 \end{figure}
-
-%white space
-\vspace{4cm}
 
 As mentioned before the CRY library is very useful as it contains a large amount of relevant physics information with the latest version being 1.7 produced in 2012 \cite{hagmann2012cosmicCry}. The CRY library splits up the directions in the x,y and z by using cosine directions u (see equation\ref{equ:cos_u}), v (see equation \ref{equ:cos_v}) and w (see equation \ref{equ:cos_w}) respectively, with $\cos(w) = \cos(\theta)$ (where $\theta$ is the polar angle). However, whilst the generated cosine direction for u and v were very fine the binning for $\cos(\theta)$ was coarse. As a result, an 8-dimensional polynomial function was fitted to the $\cos(\theta)$ distribution in figure \ref{fig:Cry_GeneratedFit} to smooth out the distribution. The improvement to the distribution can be seen in figure \ref{fig:CrySmoothingCosTheta} where the finer binning of the $\cos(\theta)$ in figure \ref{subFig:CrySmoothingCosine} leads to a smoother more accurate $\theta$ distribution in figure \ref{subFig:CrySmoothingTheta}. 
 
@@ -336,7 +333,7 @@ As mentioned before the CRY library is very useful as it contains a large amount
 \begin{figure}[!h]
  \centering
  \includegraphics[width=0.5\linewidth]{Chapter4/Figs/CryFitCosWMedText.png}
- \captionof{figure}{The generated angles for cosine direction W (z-axis) from the CRY library \cite{hagmann2007cosmic} for 1 million particles. Binning in CRY is 0.05 so an 8-dimensional polynomial was fitted to smooth the distribution.}
+ \captionof{figure}{The generated angles for cosine direction W ($\cos(\theta)$) (z-axis) from the CRY library \cite{hagmann2007cosmic} for 1 million particles. Binning in CRY is 0.05 so an 8-dimensional polynomial was fitted to smooth the distribution.}
  \label{fig:Cry_GeneratedFit}
 \end{figure}
 
@@ -356,7 +353,7 @@ As mentioned before the CRY library is very useful as it contains a large amount
   \caption{}
   \label{subFig:CrySmoothingTheta}
 \end{subfigure}
-\caption{How the smoothing affects the CRY distribution in $\cos{w}$ ($\cos{\theta}$) (see (a)) and $\theta$ (see (b)). The nonphysical peaks seen in the non-smoothed $\theta$ distribution are a direct result of CRY's coarse binning in $\cos{\theta}$.}
+\caption{How the 8-D polynomial smoothing affects the CRY distribution in $\cos{w}$ ($\cos{\theta}$) (see (a)) and $\theta$ (see (b)). The nonphysical peaks seen in the non-smoothed $\theta$ distribution are a direct result of CRY's coarse binning in $\cos{\theta}$.}
 \label{fig:CrySmoothingCosTheta}
 \end{figure}
 
@@ -440,7 +437,7 @@ In addition, atmospheric effects need to be modelled. The atmosphere impacts the
   \caption{}
   \label{subFig:genTheta-scatPhi}
 \end{subfigure}
-\caption{How the Generated $\theta$ - scattered $\theta$ varies for air and galactic world material in GEANT4 (see (a)). And how the Generated $\phi$ - scattered $\phi$ varies for air and galactic world material in GEANT4 (see (b)).}
+\caption{How Generated $\theta$ - scattered $\theta$ varies for air and galactic world material in GEANT4 (see (a)). And how Generated $\phi$ - scattered $\phi$ varies for air and galactic world material in GEANT4 (see (b)).}
 \label{fig:gen-scat_PhiTheta}
 \end{figure}
 
@@ -497,7 +494,7 @@ Any segmented cuboid detector will not cleanly represent a hemispherical distrib
   \caption{}
   \label{subFig:cirPhiGenVsRecoHem}
 \end{subfigure}
-\caption{(a) Generated $\phi$ vs reconstructed $\phi$ with the online track fitter for a cosmic hemisphere distribution.(b) Circular plot of the reconstructed $\phi$ for a simulated cosmic hemisphere.}
+\caption{Generated $\phi$ vs reconstructed $\phi$ with the online track fitter for a cosmic hemisphere distribution. (a) shows the linear histogram for both (b) shows the circular histogram for reconstructed.}
 \label{fig:linCirPhiGenVsRecoHem}
 \end{figure}
 
@@ -506,14 +503,14 @@ Segmentation causes pooling at specific angles. If an event is vertical in one s
 \begin{figure}[!h]
  \centering
  \includegraphics[width=\linewidth]{Chapter6/Figs/Raster/phiSideABinMigrationMedText.png}
- \captionof{figure}{Side A bin migration due to the segmentation size of the detector. In this example side B has no $\phi$ component and so any value on side A determines $\phi$ exclusively warping the distribution.} 
+ \captionof{figure}{Side A bin migration due to the segmentation size of the detector. In this example side B has no $\phi$ component and so any value on side A determines $\phi$ exclusively thus warping the distribution.} 
  \label{fig:cosmicBinMigrationSideA}
 \end{figure}
 
 \begin{figure}[!h]
  \centering
  \includegraphics[width=\linewidth]{Chapter6/Figs/Raster/phiSideBBinMigrationMedText.png}
- \captionof{figure}{Side B Bin migration due to the segmentation size of the detector. In this example side A has no $\phi$ component and so any value on side B determines $\phi$ exclusively warping the distribution.} 
+ \captionof{figure}{Side B Bin migration due to the segmentation size of the detector. In this example side A has no $\phi$ component and so any value on side B determines $\phi$ exclusively thus warping the distribution.} 
  \label{fig:cosmicBinMigrationSideB}
 \end{figure}
 
@@ -566,9 +563,9 @@ As the bias added by tracker appears to be minimal the reconstructed ($\phi$,$\t
 \begin{figure}[!h]
   \centering
   \includegraphics[width=0.7\linewidth]{Chapter6/Figs/Raster/pvsTFiduicalHemisphereMedText.png}
-  \captionof{figure}{Simulated cosmic hemisphere which has a flat distribution in $\theta$ from 0$^\circ$ to 90$^\circ$ and a flat distribution in $\phi$ from 0$^\circ$ to 360$^\circ$ which is then reconstructed using the track fitter logic described in section \ref{sec:SimulationOfCosmics}}
+  \captionof{figure}{Tracker reconstructed ($\phi$,$\theta$) when simulating a cosmic hemisphere which has a flat distribution in $\theta$ from 0$^\circ$ to 90$^\circ$ and a flat distribution in $\phi$ from 0$^\circ$ to 360$^\circ$.}
   \label{fig:simulatedHemisphereDist}
-  \vspace{0.478cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
+  %\vspace{0.478cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
 \end{figure}
 
 % \begin{figure}[!h]

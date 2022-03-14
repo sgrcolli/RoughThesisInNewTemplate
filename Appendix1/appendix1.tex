@@ -192,6 +192,49 @@
 \label{fig:Bars1Sum1SN}
 \end{figure}
 
+\begin{figure}[!h]
+\centering
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Appendix1/Figs/exp2GaussLinearGridSearch.png}
+  \captionof{figure}{An SVM grid search for a linear SVM when training on the 2 Gaussian signal distributions and exp noise in the x and y this is not very linearly separable and the SVM struggles without a kernel it is 22.5\,\% less accurate than with the RBF kernel.} 
+  \label{fig:exp2GaussLinearGridSearch}
+  %\vspace{0.478cm} %0.478cm per line
+\end{minipage}%
+\qquad
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Appendix1/Figs/NeutronNoiseLinearGridSearch.png}
+  \captionof{figure}{An SVM grid search for a linear SVM when using the generated neutron data and noise data with 2.5\,PE and 12.5\,PE thresholds. It is very linearly separable and it is only 0.5\,\% less accurate than with the RBF kernel (94.38\,\% vs 94.87\,\%).}
+  \label{fig:NeutronNoiseLinearGridSearch}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\linewidth]{Appendix1/Figs/accLinNeutronSVMC1e6_g1e-6MedText.png}
+\captionof{figure}{Linear SVM accuracy (no kernel) separating 1 million generated neutron signal events and generated 4 million noise events. It is mostly the same as the RBF kernel SVM but the optimum combination is 0.5\,\% lower.} 
+\label{fig:accLinNeutronSVMC1e6_g1e-6MedText}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Appendix1/Figs/effLinCombSVMAdjustMedText.png}
+  \captionof{figure}{Linear SVM efficiency (no kernel) separating 1 million generated neutron signal events and generated 4 million noise events. It is mostly the same as the RBF kernel SVM but the optimum combination does not improve past 1D.} 
+  \label{fig:effLinCombSVMAdjustMedText}
+\end{minipage}%
+\qquad
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Appendix1/Figs/purLinCombSVMAdjustMedText.png}
+  \captionof{figure}{(no kernel) separating 1 million generated neutron signal events and generated 4 million noise events. It is mostly the same as the RBF kernel SVM.}
+  \label{fig:purLinCombSVMAdjustMedText}
+  \vspace{0.956cm} %0.478cm per line
+\end{minipage}
+\end{figure}
+
 % \section*{Windows OS}
 
 % \subsection*{TeXLive package - full version}
