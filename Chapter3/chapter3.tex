@@ -15,46 +15,46 @@
 %*******************************************************************************
 
 \chapter{The VIDARR Detector}\label{Chp:ThePrototypeDetector}
-This chapter will discuss the Liverpool prototype and its upgrade to the VIDARR detector system. The initial basis for the detector, the T2K ND 280 (near detector at 280\,m) Electromagnetic Calorimeter (ECal) will also be covered. As well as a brief mention of the background at reactor sites. The upgrade progressed steadily until December 2019. Despite the ongoing uncertainty the detector has had a $\sim$ 50\,\% increase in mass and new cooling system and mobile container laboratory. At time of writing the electronics are currently being upgraded. 
+This chapter will discuss the Liverpool prototype and its upgrade to the VIDARR detector system. The initial basis for the detector, the T2K ND 280 (near detector at 280\,m) Electromagnetic Calorimeter (ECal) will also be covered. As well as a brief mention of the background at reactor sites \hl{currently this is disingenuous}. The upgrade progressed steadily until December 2019. Despite the ongoing uncertainty and disruption due to the COVID-19 pandemic the detector has had a $\sim$ 50\,\% increase in mass and new cooling system and new mobile container laboratory. At time of writing the electronics are currently being upgraded. 
 
 \section{Technology And Results}
 %This thesis will cover consider RMon and the upgraded detector VIDARR. RMon the original prototype detector was re-purposed technology from the T2K ND280 (Near Detector (at) 280\,m) Electromagnetic Calorimeter (ECal) \cite{Allan_2013}. The VIDARR detector uses the same detection media but upgraded electronics and containment which will be referred to as the VIDARR detector. This section will focus on the RMon detector.
-This section will focus on the initial detector and so a look at the underlying technology of the prototype, the ND280 ECal, is required. The ND280 detector located at JPARC is part of the T2K experiment and was used to study the $\nu_\mu$ beam used for neutrino oscillation measurements. The detector consists of central sub-detectors comprised of time guarded scintillator bus fine-grained detectors (FGDs) and time projection chambers (TPCs). These sub-detector use lead as the interaction medium surrounded by ECals to stop and measure particles leaving the central detector (see figure \ref{fig:nd280Fig}). The ECals used lead sheets as a conversion material as well as a secondary target. 
+This section will focus on the initial detector and so a look at the underlying technology of the prototype, the ND280 ECal, is required. The ND280 detector located at JPARC is part of the T2K experiment and is used to study the muon neutrino beam used for neutrino oscillation measurements. The detector consists of central sub-detectors comprised of time guarded scintillator bus fine-grained detectors (FGDs) and time projection chambers (TPCs) \hl{explain this a bit}. These sub-detector use lead as the interaction medium surrounded by ECals to stop and measure particles leaving the central detector (see figure \ref{fig:nd280Fig}). The ECals used lead sheets as a conversion material as well as a secondary target. 
 %\\\\As it is the basis for the other detectors a quick overview of the T2K ND280 ECal will be required. The ND280 is a series of detectors from the neutrino oscillation experiment T2K which relies on a $\nu_\mu$ beam entering the detector shown in figure \ref{fig:nd280Fig}. This detector was comprised of several different detectors including time projection chambers (TPCs) and fine-grained detectors (FGDs) and electromagnetic calorimeters (ECals) \cite{Allan_2013}. The ECals are of particular interest as they are the basis for the RMon and VIDARR detector due to their robust design inert nature and high precision.  
 
 \begin{figure}[!h]
  \centering
  \includegraphics[width=\linewidth/2]{Chapter2/Figs/Raster/ND280Fig.png} 
- \captionof{figure}{Diagram of the ND280 detector, the detector is based on the Barrel ECal. From \cite{Allan_2013}} %~can be used as a kind of place holder in latex
+ \captionof{figure}[Diagram of the ND280 detector.]{Diagram of the ND280 detector, the detector is based on the Barrel ECal. From \cite{Allan_2013}} %~can be used as a kind of place holder in latex
  \label{fig:nd280Fig}
 \end{figure}
 
-The T2K ECals were made from plastic scintillating bars measuring $4\,\textrm{cm}\times1\,\textrm{cm}$ with varying lengths arranged in alternating layers at 90 degrees to each other (see figure \ref{fig:vidarrDiagram}) forming a hodoscope \cite{Allan_2013}. Wavelength shifting (WLS) fibres were placed in the centre of the scintillating bars to measure light collection which shift the wavelength from blue to green to more effectively utilise the quantum efficiency of the sensors \cite{Allan_2013}. These wavelength shifting fibres are then connected to multi-pixel photon counters (MPPCs) which produce pulses of charge roughly proportional to the number of photons detected. This in turn is related to the energy deposited in the bar. This signal is then read in by Trip-T front-end electronic boards (TFBs) which integrates the charge received into an array of 23 time buckets of programmable width (480\,ns for ND280, 1.5\,$\mathrm{\mu}$s for the prototype). 
-\\\\However, a crucial difference between the ECals of the ND280 and the detector is that the lead sheets have been replaced with a layer of Gadolinium sulphate deposited on a Mylar carrier sheet so that neutrons produced in IBD (equation \ref{inverse_beta_decay}) are captured. The detector was also designed to fit inside of a shipping container with each bar having a length of 152\,cm and the active/instrumented volume measuring $152\,\textrm{cm}\times152\,\textrm{cm}$ with 49 layers of plastic scintillating bars giving a height of 49\,cm and a total of 1862 bars. The electronic systems were also adapted from the T2K ECal. They were reconfigured such that they were triggered by a neutron-induced gadolinium cascade from IBD by looking for a large number of hits in the trigger cycle. The ND 280 trigger (bream trigger) was changed into a ``look back'' trigger where of the 23 cycles 0 -- 17 are considered "prompt" and cycle 18 is the trigger cycle. Cycles 19 -- 22 were left as control so that they could be compared in case time-dependent issues arose from the altered system. As will be discussed later in chapter \ref{chp:cosmicMuonTomography}, cycles 19 -- 22 were used to diagnose a time dependant issue with the cosmic $\mu$ data set.
-\\\\$\Bar{\nu_e}$s are detected by their absorption by a proton and decay into a $e^+$ and a neutron (see section \ref{subSec:IBD}). The $e^+$ and subsequent annihilation $\gamma$ rays leave short tracks in the detector. The annihilation particles may be used to distinguish the $e^+$ from the $\beta$ decay $e^-$ backgrounds. In an IBD event the neutron is absorbed by the Gadolinium sheets in the detector which then causes an 8\,MeV $\gamma$ cascade which will be expanded upon in section \ref{sec:GEANT4Simulation_modellingGadolinium}. Gadolinium is one of the most preferred neutron capture agents due to the higher energy $\gamma$-rays and its extremely high capture cross-section of 48,890\,b \cite{Abdushukurov_2010}. 
+The T2K ECals are made from plastic scintillating bars measuring $4\,\textrm{cm}\times1\,\textrm{cm}$ with varying lengths arranged in alternating layers at 90 degrees to each other (see figure \ref{fig:vidarrDiagram}) forming a hodoscope \cite{Allan_2013}. Wavelength shifting (WLS) fibres were placed in the centre of the scintillating bars to measure light collection which shift the wavelength from blue to green to more effectively utilise the quantum efficiency of the sensors \cite{Allan_2013}. These wavelength shifting fibres are then connected to multi-pixel photon counters (MPPCs) which produce pulses of charge roughly proportional to the number of photons detected. This in turn is related to the energy deposited in the bar. This signal is then read in by Trip-T front-end electronic boards (TFBs) which integrates the charge received into an array of 23 time buckets of programmable width (480\,ns for ND280, 1.5\,$\mathrm{\mu}$s for the prototype). 
+\\\\However, a crucial difference between the ECals of the ND280 and the detector is that the lead sheets have been replaced with a layer of Gadolinium sulphate deposited on a Mylar carrier sheet so that neutrons produced in IBD (equation \ref{inverse_beta_decay}) are captured. The detector was also designed to fit inside a shipping container with each bar having a length of 152\,cm and the active/instrumented volume measuring $152\,\textrm{cm}\times152\,\textrm{cm}$ with 49 layers of plastic scintillating bars giving a height of 49\,cm and a total of 1862 bars. The electronic systems were also adapted from the T2K ECal. They were reconfigured such that they were triggered by a neutron-induced gadolinium cascade from IBD by looking for a large number of hits in the trigger cycle. The ND 280 trigger (beam trigger) was changed into a ``look back'' trigger where of the 23 cycles 0 -- 17 are considered "prompt" and cycle 18 is the trigger cycle. Cycles 19 -- 22 were left as control so that they could be compared in case time-dependent issues arose from the altered system. As will be discussed later in chapter \ref{chp:cosmicMuonTomography}, cycles 19 -- 22 were used to diagnose a time dependant issue with the cosmic muon data set.
+\\\\Electron anti-neutrinos  are detected by their absorption by a proton and decay into a positron and a neutron (see section \ref{subSec:IBD}). The positron and subsequent annihilation gamma-rays leave short tracks in the detector. The annihilation particles may be used to distinguish the positron from the beta decay electron backgrounds. In an IBD event the neutron is absorbed by the Gadolinium sheets in the detector which then causes an 8\,MeV gamma-ray cascade which will be expanded upon in section \ref{sec:GEANT4Simulation_modellingGadolinium}. Gadolinium is one of the most preferred neutron capture agents due to the higher energy gamma-rays and its extremely high capture cross-section of 48,890\,b \cite{Abdushukurov_2010}. 
 
 \begin{figure}[!h]
 \centering
   \centering
   \includegraphics[width=0.6\linewidth]{Chapter2/Figs/Raster/VIDARR_diagram.jpeg}
-  \captionof{figure}{A cutaway diagram showing the scintillator bar arrangement of the ND280 ECal and VIDARR detectors. The segments are 4\,cm wide $\times$ 152\,cm long $\times$ 1\,cm tall. The Gadolinium sheets in-between the VIDARR segments are not shown. From \cite{GeorgeHoltDiagram}.}
+  \captionof{figure}[A cutaway diagram showing the scintillator bar arrangement of the ND280 ECal and VIDARR]{A cutaway diagram showing the scintillator bar arrangement of the ND280 ECal and VIDARR detectors. The segments are 4\,cm wide $\times$ 152\,cm long $\times$ 1\,cm tall. The Gadolinium sheets in-between the VIDARR segments are not shown. From \cite{GeorgeHoltDiagram}.}
   \label{fig:vidarrDiagram}
 \end{figure}
 
-The detector was deployed at the Wylfa Magnox Power Station in Anglesey, Wales for an 18-month period. This run proved successful in measuring an increase in IBD candidate events which correlated with an increase in reactor power output. Figure \ref{fig:prototypeMeasumentFlux} compares the measured $\bar{\nu_e}$ flux with the reported power output and shows how good the agreement is. A measured anti-neutrino candidate rate of 172.1 $\pm$ 4.6 candidates per day is observed when the reactor is off and 203.7 $\pm$ 19.6 when the reactor is on \cite{Carroll_2018}. These results line up with the expectation from the SONGS1 deployment (figure \ref{subFig:reactorPowerSongsS1}) where a increase in $\bar{\nu_e}$ candidates correlates with an increase in reactor power. %Unfortunately due to cooling issues with the RMon detector the reactor shutdown was not observed. This is one of the main motivating factors behind the upgrade of the detector as the first generation MPPCs and repurposed electronics were susceptible to high levels of noise if the temperature was not carefully controlled. 
+The detector was deployed at the Wylfa Magnox Power Station in Anglesey, Wales for an 18-month period. This run proved successful in measuring an increase in IBD candidate events which correlated with an increase in reactor power output. Figure \ref{fig:prototypeMeasumentFlux} compares the measured electron anti-neutrino flux with the reported power output and shows how good the agreement is. A measured anti-neutrino candidate rate of 172.1 $\pm$ 4.6 candidates per day is observed when the reactor is off and 203.7 $\pm$ 19.6 when the reactor is on \cite{Carroll_2018}. These results line up with the expectation from the SONGS1 deployment (figure \ref{subFig:reactorPowerSongsS1}) where a increase in electron anti-neutrino candidates correlates with an increase in reactor power. %Unfortunately due to cooling issues with the RMon detector the reactor shutdown was not observed. This is one of the main motivating factors behind the upgrade of the detector as the first generation MPPCs and repurposed electronics were susceptible to high levels of noise if the temperature was not carefully controlled. 
 \begin{figure}[!h]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter2/Figs/Raster/prototypeMeasureOnFig.png} 
- \captionof{figure}{Measured anti-neutrino flux compared to the power generation from the Wylfa power station. The increase in $\bar{\nu_e}$ candidates correlates with an increase in power generation. These results demonstrate the success of the prototype's deployment and technology. From \cite{Carroll_2018}} %~can be used as a kind of place holder in latex
+ \captionof{figure}[Measured anti-neutrino flux compared to the power generation from the Wylfa power station.]{Measured anti-neutrino flux compared to the power generation from the Wylfa power station for the prototype detector (49 layers). The increase in electron anti-neutrino candidates correlates with an increase in power generation. These results demonstrate the success of the prototype's deployment and technology. From \cite{Carroll_2018}} %~can be used as a kind of place holder in latex
  \label{fig:prototypeMeasumentFlux}
 \end{figure}
 
 Considering the re-purposed nature and rapid development cycle of the deployment at Wylfa and subsequent neutrino measurement (see figure \ref{fig:prototypeMeasumentFlux}) is a good demonstration of the detection media and experimental setup. However, whilst these results are highly encouraging, the response measurement can still be improved, for example the SONGS1 measurement is more accurate (see figure \ref{fig:reactorPowerAndRefuelingSongsS1}). In addition, the PANDA collaboration has been able to measure a neutrino energy spectrum the from Ohi power plant at a distance of $\sim$ 50\,m \cite{IIRIE_Panda_2021} (see figure \ref{subFig:Panda_spectrumOfIbdCandidates}). With an upgraded version of the detector it should be possible to achieve similar results to SONGS1 and PANDA and current modelling is ongoing to assess the nuclear waste measuring potential of VIDARR. 
 
 \section{Background Measurements At Reactor Sites}
-Backgrounds at reactor sites are important to quantify as it helps to guide shielding and understand irreducible backgrounds. The results from SONGS1, PANDA, and Wylfa all show low count rates per day of the order of a hundred events per ton of active detector mass. These low count rates necessitate a good understanding of background. The PROSPECT experiment has done a  study looking into the background at two research reactor locations, the National Bureau of Standards Reactor (NBSR) at NIST and the High Flux Isotope Reactor (HFIR) at ORNL \cite{Ashenfelter_2016}. Another site was considered by the PROSPECT collaboration, the ATR at INL but the increased altitude of that site leads to a significantly higher cosmogenic neutron flux \cite{Ashenfelter_2016}. An example of how reactors affect the background can be seen in figure \ref{fig:Prospect_NSBR_gammaSpec} which shows how the $\gamma$ spectrum varies when the NBSR is on and off, it shows how the spectrum between 3\,MeV -- 9\,MeV is mostly dominated by reactor noise. 
-\\\\Another major background component is the neutron flux of the reactor which is shown by figure \ref{fig:prospectNeutronMap} for thermal neutrons which are an issue for $\bar{\nu_e}$ detectors but should be somewhat negated through robust $e^+$ identification and accurate double coincident measurements. Another more important background is fast neutrons because they cause a false double coincident signal by potentially interacting with protons and then thermalising and being absorbed. The measurement of the cosmogenic neutron background has been done by JEDEC in 2006 \cite{JEDEC_2006} as well as PROSPECT in figure \ref{fig:Prospect_HFIR_NBSR_nearFarPlots} which shows similar rates at different locations this is unsurprising as this is largely a function of altitude more than any other factor \cite{Ashenfelter_2016}. 
-\\\\Another type of background that is easy to mitigate (for VIDARR) but also extremely useful are cosmic muons. Cosmic $\mu$ have a large number of events of $\sim$ 119\,s$^{-1}$m$^{-2}$ according to the CRY library \cite{ieee_cry_2007}. Cosmic $\mu$ form the later half of this thesis (chapters \ref{chp:DataAnalysisTechniques}, \ref{chp:cosmicMuTelescopes}, \ref{chp:cosmicMuonTomography}) and they will be expanded upon then. They are background for $\bar{\nu}$ events as they hit a large number of channels thus setting off the neutron triggers these experiments rely on. Conversely, their high energy and highly penetrating nature means only a simple detector is required to quantify their rate, PROSPECT for example used the cosmic $\mu$ telescope seen in figure \ref{fig:Prospect_MuonPaddels}. The segmentation of VIDARR allows them to reject cosmic $\mu$ background very effectively. This is because cosmic $\mu$ can be reasonably approximated as straight line tracks which are more easily identified with finer segmentation. % (also see figure \ref{fig:CRY_rates}). These particles can be detected by very simple detector requiring only a series of paddles as seen in figure \ref{fig:Prospect_MuonPaddels}. This cosmic $\mu$ background is useful as they are highly penetrating particles tracks that can be approximated to be straight lines (later discussed in chapter \ref{chp:cosmicMuonTomography}). The range of angles incident cosmic $\mu$ posses make them useful for tomographic purposes as will be discussed in chapter \ref{chp:cosmicMuTelescopes}. %% The angles of incidence of cosmic $\mu$ can have many useful applications and as such these cosmic $\mu$ should not be excluded as mere noise as will be shown in section \ref{sec:cosmicMuTelescopes}.
+Backgrounds at reactor sites are important to quantify as it helps to guide shielding and understand irreducible backgrounds. The results from SONGS1, PANDA, and Wylfa all show low count rates per day of the order of a hundred events per ton of active detector mass. These low count rates necessitate a good understanding of background. The PROSPECT experiment has done a  study looking into the background at two research reactor locations, the National Bureau of Standards Reactor (NBSR) at NIST and the High Flux Isotope Reactor (HFIR) at ORNL \cite{Ashenfelter_2016}. Another site was considered by the PROSPECT collaboration, the ATR at INL but the increased altitude of that site leads to a significantly higher cosmogenic neutron flux \cite{Ashenfelter_2016}. An example of how reactors affect the background can be seen in figure \ref{fig:Prospect_NSBR_gammaSpec} which shows how the gamma-ray spectrum varies when the NBSR is on and off, it shows how the spectrum between 3\,MeV -- 9\,MeV is mostly dominated by reactor noise. 
+\\\\Another major background component is the neutron flux of the reactor which is shown by figure \ref{fig:prospectNeutronMap} for thermal neutrons which are an issue for electron anti-neutrino detectors but should be somewhat negated through robust positron identification and accurate double coincident measurements. Another more important background is fast neutrons because they cause a false double coincident signal by potentially interacting with protons and then thermalising and being absorbed. The measurement of the cosmogenic neutron background has been done by JEDEC in 2006 \cite{JEDEC_2006} as well as PROSPECT in figure \ref{fig:Prospect_HFIR_NBSR_nearFarPlots} which shows similar rates at different locations this is unsurprising as this is largely a function of altitude more than any other factor \cite{Ashenfelter_2016}. 
+\\\\Another type of background that is easy to mitigate (for VIDARR) but also extremely useful are cosmic muons. Cosmic muons have a large number of events of $\sim$ 119\,s$^{-1}$m$^{-2}$ according to the CRY library \cite{ieee_cry_2007}. Cosmic muons form the latter half of this thesis (chapters \ref{chp:DataAnalysisTechniques}, \ref{chp:cosmicMuTelescopes}, \ref{chp:cosmicMuonTomography}) and they will be expanded upon then. They are background for anti-neutrino events as they hit a large number of channels thus setting off the neutron triggers these experiments rely on. Conversely, their high energy and highly penetrating nature means only a simple detector is required to quantify their rate, PROSPECT for example used the cosmic muon telescope seen in figure \ref{fig:Prospect_MuonPaddels}. The segmentation of VIDARR allows them to reject cosmic muon background very effectively which results in a 95\,\% reduction of cosmic muons when simulating them in GEANT4. This is because cosmic muons can be reasonably approximated as straight line tracks which are more easily identified with finer segmentation. % (also see figure \ref{fig:CRY_rates}). These particles can be detected by very simple detector requiring only a series of paddles as seen in figure \ref{fig:Prospect_MuonPaddels}. This cosmic $\mu$ background is useful as they are highly penetrating particles tracks that can be approximated to be straight lines (later discussed in chapter \ref{chp:cosmicMuonTomography}). The range of angles incident cosmic $\mu$ posses make them useful for tomographic purposes as will be discussed in chapter \ref{chp:cosmicMuTelescopes}. %% The angles of incidence of cosmic $\mu$ can have many useful applications and as such these cosmic $\mu$ should not be excluded as mere noise as will be shown in section \ref{sec:cosmicMuTelescopes}.
 
 
 \begin{figure}[!h]
@@ -62,7 +62,7 @@ Backgrounds at reactor sites are important to quantify as it helps to guide shie
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter2/Figs/Raster/Prospect_NSBR_gammaSpec.png}
-  \captionof{figure}{Example HPGe $\gamma$-ray spectra taken with the NBSR on and off. Prominent lines, and associated escape peaks and Compton continua, are evident. From \cite{Ashenfelter_2016} (table 2 in \cite{Ashenfelter_2016} shows line sources).} 
+  \captionof{figure}[Example HPGe gamma-ray spectra taken with the NBSR on and off.]{Example HPGe gamma-ray spectra taken with the NBSR on and off. Prominent lines, and associated escape peaks and Compton continua, are evident. From \cite{Ashenfelter_2016} (table 2 in \cite{Ashenfelter_2016} shows line sources).} 
   \label{fig:Prospect_NSBR_gammaSpec}
   \vspace{1.912cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
 \end{minipage}%
@@ -70,7 +70,7 @@ Backgrounds at reactor sites are important to quantify as it helps to guide shie
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter2/Figs/Raster/prospectNeutronMap.png} 
-  \captionof{figure}{A pictorial representation of neutron dose rates (measured in nSv/h) and thermal neutron rates in italics (cm$^{-2}$ s${^-1}$) at the HFIR near location roughly 15\,cm (z = 0.15) above the floor. Measurements are plotted on a one meter square grid referenced to the reactor wall (x = 0) and the smallest baseline (y = 0). The reactor core is centred at (x,y,z) = (-4.06,0,-3.85). From \cite{Ashenfelter_2016}.}
+  \captionof{figure}[A pictorial representation of neutron dose rates at the HFIR near location.]{A pictorial representation of neutron dose rates (measured in nSv/h) and thermal neutron rates in italics (cm$^{-2}$ s${^-1}$) at the HFIR near location roughly 15\,cm (z = 0.15) above the floor. Measurements are plotted on a one meter square grid referenced to the reactor wall (x = 0) and the smallest baseline (y = 0). The reactor core is centred at (x,y,z) = (-4.06,0,-3.85). From \cite{Ashenfelter_2016}.}
   \label{fig:prospectNeutronMap}
 \end{minipage}
 \end{figure}
@@ -99,16 +99,14 @@ Backgrounds at reactor sites are important to quantify as it helps to guide shie
   \caption{}
   \label{subFig:Prospect_NBSR_farPlot}
 \end{subfigure}
-\caption{The cosmogenic neutron-induced energy spectrum was recorded at the (a) HFIR near and far locations and (b) NBSR far location. From \cite{Ashenfelter_2016}.}
+\caption[The cosmogenic neutron-induced energy spectrum at HFIR and NBSR.]{The cosmogenic neutron-induced energy spectrum was recorded at the (a) HFIR near and far locations and (b) NBSR far location. From \cite{Ashenfelter_2016}.}
 \label{fig:Prospect_HFIR_NBSR_nearFarPlots}
 \end{figure}
 
 \begin{figure}[!h]
  \centering
  \includegraphics[width=0.7\linewidth]{Chapter2/Figs/Raster/Prospect_MuonPaddels.png}
- \captionof{figure}{The angular acceptances for the $\mu$ telescope instrument
-used at all sites is determined by the coincidence requirement enforced
-between the 4 plastic scintillator paddles. These detectors were deployed by the PROSPECT experiment at both the NBSR and HFIR sites. From \cite{Ashenfelter_2016}.} 
+ \captionof{figure}[Angular acceptances for a basic muon telescope.]{The angular acceptances for the muon telescope instrument used at all sites is determined by the coincidence requirement enforced between the 4 plastic scintillator paddles. These detectors were deployed by the PROSPECT experiment at both the NBSR and HFIR sites. From \cite{Ashenfelter_2016}.} 
  \label{fig:Prospect_MuonPaddels}
 \end{figure}
 
@@ -117,16 +115,16 @@ between the 4 plastic scintillator paddles. These detectors were deployed by the
 \vspace{3cm}
 
 \section{The VIDARR Detector Upgrade}\label{sec:theUpgradedDetector}
-The deployment of at Wylfa demonstrated that the choice of detector technology (scintillating bars, Gd doped sheets and light captured by WLS fibres) worked well. However, the detector would benefit from more active mass, higher efficiency sensors and dedicated electronics. The upgraded detector will have 21 more layers than the initial detector going from 49 to 70 layers and the and additional 3 columns on side A are also now instrumented (see figure \ref{fig:detectorUpgradedmassOutlined}). This means the number of channels has increased from 1793 to 2660 which results in a mass increase of $\sim$ 50\,\%, thus improving the fiducial volume of the detector. The increase in layers will increase the average containment of the 8\,MeV Gd cascade in the detector allowing for more effective background reduction when triggering. The MPPCs are also a new generation with twice the efficiency going from ECal to VIDARR. %The increase in layers will not yield a significant increase in $e^+$ efficiency as $e^+$s are effectively contained to a $\sim$ 99\,\% level with both 1793 channels and 2660 channels as they are contained within 1-2 bars.
+The deployment at Wylfa demonstrated that the choice of detector technology (scintillating bars, Gd doped sheets and light captured by WLS fibres) worked well. However, the detector would benefit from more active mass, higher efficiency sensors and dedicated electronics. The upgraded detector will have 21 more layers than the initial detector going from 49 to 70 layers and the additional 3 columns on side A are also now instrumented (see figure \ref{fig:detectorUpgradedmassOutlined}). This means the number of channels has increased from 1793 to 2660 which results in a mass increase of $\sim$ 50\,\%, thus improving the fiducial volume of the detector. The increase in layers will increase the average containment of the 8\,MeV Gd cascade in the detector allowing for more effective background reduction when triggering. The MPPCs are also a new generation with twice the efficiency going from ECal to VIDARR. %The increase in layers will not yield a significant increase in $e^+$ efficiency as $e^+$s are effectively contained to a $\sim$ 99\,\% level with both 1793 channels and 2660 channels as they are contained within 1-2 bars.
 
 \begin{figure}[!h]
  \centering
  \includegraphics[width=0.5\linewidth]{Chapter3/Figs/detectorUpgradedmassOutlinedLabelled.png}
- \captionof{figure}{3D representation of the detector upgrade. The upgraded detector mass (light blue) is on top of the original mass (dark blue). The greyed out channels on the left hand side of side A were those left un-instrumented in the original deployment but are now instrumented in the upgrade.} 
+ \captionof{figure}[3d representation of the VIDARR detector upgrade.]{3D representation of the detector upgrade. The upgraded detector mass (light blue) is on top of the original mass (dark blue). The greyed out channels on the left hand side of side A were those left un-instrumented in the original deployment but are now instrumented in the upgrade.\hl{change colours}} 
  \label{fig:detectorUpgradedmassOutlined}
 \end{figure}
 
-The electronics have been improved significantly when compared to the original detector. The original electronics and sensors were taken from the T2K ECal. The MPPCs were the first generation of this technology with relatively low efficiency and high noise rates compared to the current generation used in the VIDARR detector. The energy resolution of the detector has been greatly improved by using more modern, higher efficiency MPPCs. In addition, the upgraded detector will have channel by channel trigger output to Field-Programmable Gate Array (FPGA) boards that connect with analogue boards in turn connecting to the MPPCs. The use of FPGA boards will allow for more complex trigger functions to be used and trigger on the detector as a whole (as opposed to the initial prototype's trigger which considered specific regions of the detector). This will be achieved by looking at the summed energy and the number of bars hit past each threshold. As will be expanded upon later in section \ref{sec:MachineLearningTrigger}, the improvement to energy resolution has a significant effect on the S/N ratio as well. During the analysis the lowest available threshold of $\sim$ 0.1\,MeV was the most effective in distinguishing signal from noise. This improvement is only possible due to the upgraded sensors and electronics. Both generations of MPPCs are highly temperature sensitive, and this did cause stability issues for the detector. %The use of two thresholds as opposed to one on the RMon also proved useful for improving generated neutron efficiency. 
+The electronics have been improved significantly when compared to the original detector. The original electronics and sensors were taken from the T2K ECal. The MPPCs were the first generation of this technology with relatively low efficiency and high noise rates compared to the current generation used in the VIDARR detector. The energy resolution of the detector has been greatly improved by using more modern, higher efficiency MPPCs. In addition, the upgraded detector will have channel by channel trigger output to Field-Programmable Gate Array (FPGA) boards that connect with analogue boards in turn connecting to the MPPCs. The use of FPGA boards will allow for more complex trigger functions to be used and trigger on the detector as a whole (as opposed to the initial prototype's trigger which considered specific regions of the detector). This will be achieved by looking at the summed energy and the number of bars hit above each threshold. As will be expanded upon later in section \ref{sec:MachineLearningTrigger}, the improvement to energy resolution has a significant effect on the S/N ratio as well. During the analysis the lowest available threshold of $\sim$ 0.1\,MeV was the most effective in distinguishing signal from noise. This improvement is only possible due to the upgraded sensors and electronics. Both generations of MPPCs are highly temperature sensitive, and this did cause stability issues for the detector. %The use of two thresholds as opposed to one on the RMon also proved useful for improving generated neutron efficiency. 
 %\\\\A basic cut investigation used a form of machine learning called a support vector machine (SVM) to determine the best cut and which dimensions gave the best separation. The cut was dominated by the number of bars hit at the lower threshold of 0.1\,MeV, the most accurate cut would have been utilising the number of bars hit above 0.1\,MeV and the summed energy above the 0.1\,MeV threshold. However due to the structure of the FPGA boards and their programming it was more prudent to use the number of bars hit above both the 0.1\,MeV thresholds and 0.5\,MeV threshold. The cost in classifier accuracy was minimal and it allowed for faster development of the FPGA firmware. 
 \\\\To lessen temperature fluctuations in the upgraded VIDARR detector the cooling in and around the detector module has been greatly improved from the prototype. The prototype had six radiator fins on 2 sides of the detector which were primarily aimed at cooling the TFBs on each fin (see figure \ref{fig:detCon002_OldTearAway}). The upgraded VIDARR detector will also have cooling fins which will take heat away from the new boards but on the same 2 sides as the fins, there will also be two new radiators behind the fins which run the width and height of a side. The new active cooling the radiators will provide cooling to the cavity housing to the MPPCs and insulate them from heat generated by the active electronics. Further, the detector is now isolated from the readout computers and power supply units in a separate compartment in order to increase temperature stability. All of these improvements will allow for a more consistent temperature and reduce dark noise from the MPPCs below the original detector's levels. In addition temperature monitoring has also been added to ensure the MPPCs are maintained at the correct temperature.
 
@@ -138,14 +136,14 @@ In December of 2018, the original detector was moved out of the shipping contain
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter3/Figs/Raster/detCon002_OldTearAway.png}
-  \captionof{figure}{A view of the electronics in the initial detector. There is much available space between the boards and the detector itself. The cables are 100\,mm long.} 
+  \captionof{figure}[A view of the electronics in the initial detector.]{A view of the electronics in the initial detector. There is much available space between the boards and the detector itself. The cables are 100\,mm long.} 
   \label{fig:detCon002_OldTearAway}
 \end{minipage}%
 \qquad
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter3/Figs/Raster/detCon000_TakeOut1.png} 
-  \captionof{figure}{The detector being taken out of the original shipping container which was a standard cooled shipping container.}
+  \captionof{figure}[The detector being taken out of the original shipping container.]{The detector being taken out of the original shipping container which was a cooled standard shipping container.}
   \label{fig:detCon000_TakeOut1}
   \vspace{0.478cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
 \end{minipage}
@@ -167,14 +165,14 @@ In December of 2018, the original detector was moved out of the shipping contain
   \caption{}
   \label{subFig:detCon005b_PaintingEnds}
 \end{subfigure}
-\caption{Scintillator preparation for being placed inside the detector casing. The scintillator is being cut in (a) with arranged for painting the ends in (b).}
+\caption[Scintillator preparation cut in (a) painted ends in (b)]{Scintillator preparation for being placed inside the detector casing. The scintillator is being cut in (a) with arranged for painting the ends in (b).}
 \label{fig:detCon_CuttingScint_PaintingEnds}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.7\linewidth]{Chapter3/Figs/Raster/detCon006_RonInCleanRoom.png}
-\captionof{figure}{The author (Ronald Collins) assembling the final layer of the VIDARR detector. The white sheet of Gadolinium Oxide in-between the layers is also visible.} 
+\captionof{figure}[The author assembling the final layer of the VIDARR detector.]{The author (Ronald Collins) assembling the final layer of the VIDARR detector. The white sheet of Gadolinium Oxide in-between the layers is also visible.} 
 \label{fig:detCon006_RonInCleanRoom}
 \end{figure}
 
@@ -194,7 +192,7 @@ In December of 2018, the original detector was moved out of the shipping contain
   \caption{}
   \label{subFig:detCon012b_RadiatorPiping}
 \end{subfigure}
-\caption{The construction of the new radiator which has more active cooling and a larger surface area than the original radiator. The radiator is being cut in (a) and the piping is inserted in (b).}
+\caption[Construction of the new more massive radiator.]{The construction of the new radiator which has more active cooling and a larger surface area than the original radiator. The radiator is being cut in (a) and the piping is inserted in (b).}
 \label{fig:detCon_RadiatorConstruction_RadiatorPiping}
 \end{figure}
 
@@ -220,7 +218,7 @@ Before insertion into the scintillator bars, the wavelength shifting fibres need
   \caption{}
   \label{subFig:detCon014b_WlsWithEnds}
 \end{subfigure}
-\caption{The WLS fibres. In (a) they are laid down on cardboard guides in (b) their ferrules are attached. The green light emitted at the ends of the fibre is ambient light wavelength shifted and channelled towards the end by the fibres.} %The WLS fibres will funnel light from the scintillator to the MPPCs. They are assembled on cardboard and have 3d printed ends glued onto them. In (a) the WLS fibres are prepared for their ends by lying on cardboard. In (b) the ends have been glued on.
+\caption[WLS fibres having their ferrules attached.]{The WLS fibres. In (a) they are laid down on cardboard guides in (b) their ferrules are attached. The green light emitted at the ends of the fibre is ambient light wavelength shifted and channelled towards the end by the fibres.} %The WLS fibres will funnel light from the scintillator to the MPPCs. They are assembled on cardboard and have 3d printed ends glued onto them. In (a) the WLS fibres are prepared for their ends by lying on cardboard. In (b) the ends have been glued on.
 \label{fig:detCon_WlsFibres_WlsWithEnds}
 \end{figure}
 
@@ -240,7 +238,7 @@ Before insertion into the scintillator bars, the wavelength shifting fibres need
   \caption{}
   \label{subFig:detCon016b_3dPrintedFreed}
 \end{subfigure}
-\caption{The holders for the MPPCs and the PCBs. Holders for the additional channels needed to be 3D printed as more from the original supply chain could not be procured. In (a) the holders have the support struts attached and in (b) they have been removed.}
+\caption[The holders for the MPPCs and the PCBs]{The holders for the MPPCs and the PCBs. Holders for the additional channels needed to be 3D printed as more from the original supply chain could not be procured. In (a) the holders have the support struts attached and in (b) they have been removed.}
 \label{fig:detCon_3dPrintedHolders_3dPrintedFreed}
 \end{figure}
 
@@ -260,7 +258,7 @@ Before insertion into the scintillator bars, the wavelength shifting fibres need
   \caption{}
   \label{subFig:detCon009b_SoloPcb}
 \end{subfigure}
-\caption{The assembly of the PCBs which attach to the MPPCs through pins. (a) shows a sheet of manufactured incomplete PCBs and (b) shows a completed component. The connector at the top of the PCBs is where the cables are attached. }
+\caption[Assembly of the MPPC PCBs.]{The assembly of the PCBs which attach to the MPPCs through pins. (a) shows a sheet of manufactured incomplete PCBs and (b) shows a completed component. The connector at the top of the PCBs is where the cables are attached. }
 \label{fig:detCon_PlacingPcbs_SoloPcb}
 \end{figure}
 
@@ -271,14 +269,14 @@ Each of the micro-coaxial cables that connect the MPPCs to the analogue boards w
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter3/Figs/Raster/detCon017b_HoldersWithParts.png}
-  \captionof{figure}{Plastic holder next to MPPC and PCB (Top) and holder with assembled components (Bottom). Note the MPPC in the top right is actually reversed from its correct orientation, the prongs of the MPPC go through the PCB board pins.} 
+  \captionof{figure}[Plastic holder for the MPPC next to the MPPC.]{Plastic holder next to MPPC and PCB (Top) and holder with assembled components (Bottom). Note the MPPC in the top right is actually reversed from its correct orientation, the prongs of the MPPC go through the PCB board pins.} 
   \label{fig:detCon017b_HoldersWithParts}
 \end{minipage}%
 \qquad
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter3/Figs/Raster/detCon023b_HoldersConnectedZoom.png} 
-  \captionof{figure}{The plastic holder is connected to a cable and put inside a sheath.}
+  \captionof{figure}[Plastic holder connected to a cable and put inside a sheath.]{The plastic holder is connected to a cable and put inside a sheath.}
   \label{fig:detCon023b_HoldersConnectedZoom}
   \vspace{1.912cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
 \end{minipage}
@@ -342,7 +340,7 @@ All of the MPPC holders in their sheaths with connected cables are then attached
   \caption{}
   \label{subFig:detCon028b_RadiatorTopDown}
 \end{subfigure}
-\caption{As part of the upgrade, the radiators are significantly larger ensuring the MPPCs are closer to the radiator. In (a) the side A radiator is positioned as the cables are threaded through the insulation on the radiator. In (b) the side A radiator is now in position with all the cables threaded through the insulation.}
+\caption[The new more massive radiators being put into position.]{As part of the upgrade, the radiators are significantly larger ensuring the MPPCs are closer to the radiator. In (a) the side A radiator is positioned as the cables are threaded through the insulation on the radiator. In (b) the side A radiator is now in position with all the cables threaded through the insulation.}
 \label{fig:detCon_HaningOffRadiator_RadiatorTopDown}
 \end{figure}
 
@@ -371,14 +369,14 @@ All of the MPPC holders in their sheaths with connected cables are then attached
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter3/Figs/Raster/detCon030b_RadiatorWithFins.png}
-  \captionof{figure}{The radiator on side A with the cooling fins and analogue board holders attached with cables pushed through the insulation and bunched.} 
+  \captionof{figure}[The radiator attached to side A.]{The radiator on side A with the cooling fins and analogue board holders attached with cables pushed through the insulation and bunched.} 
   \label{fig:detCon030b_RadiatorWithFins}
 \end{minipage}%
 \qquad
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter3/Figs/Raster/detCon032_ConnectedBoard.png} 
-  \captionof{figure}{An analogue board with some of the cables connected to it. A 3D printed cable ``comb'' is used to align the cables.}
+  \captionof{figure}[VIDARR analogue board with some cables connected.]{An analogue board with some of the cables connected to it. A 3D printed cable ``comb'' is used to align the cables.}
   \label{fig:detCon032_ConnectedBoard}
   \vspace{0.478cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
 \end{minipage}
@@ -404,7 +402,7 @@ The upgraded container, which can be seen in figure \ref{subFig:detCon037c_Conta
   \caption{}
   \label{subFig:detCon039b_PutIn2}
 \end{subfigure}
-\caption{The new container arrives in (a) and the partially upgraded detector is deposited inside of it in (b).}
+\caption[The detector is deposited inside the new container.]{The new container arrives in (a) and the partially upgraded detector is deposited inside of it in (b).}
 \label{fig:detCon_ContainerArrives_PutIn}
 \end{figure}
 
