@@ -44,7 +44,7 @@ When simulating electrons and positrons with 0\,MeV -- 10\,MeV kinetic energy, t
 
 \clearpage
 \section{Machine Learning Neutron Trigger}\label{sec:MachineLearningTrigger}
-\hl{Add some more stuff talking about classification ROC curves and correlation matrices} The exact trigger configuration for the upgraded detector is in a state of flux as it will be fully implemented as calibration data becomes available. However, for the following work it is assumed that two distinct thresholds will be used for reactor monitoring operations. In addition, the FPGA boards allow for determining the summed energy above each of these thresholds and the number of bars hit above each of these thresholds. The lower threshold chosen was 2.5\,PE (0.1\,MeV) as this is the lowest threshold willing to be entertained to mitigate dark noise. The upper threshold chosen was 12.5\,PE (0.5\,MeV) as going higher than this risks excluding too many hits from the Gd cascade. The four potential variables are shown in figure \ref{fig:preTriggerData}. Of the four variables shown in figure \ref{fig:preTriggerData} only the number of bars hit above 2.5\,PE (figure \ref{subFig:preTrigNba2.5}) clearly separates between neutrons and potential background.  
+The exact trigger configuration for the upgraded detector is in a state of flux as it will be fully implemented as calibration data becomes available. However, for the following work it is assumed that two distinct thresholds will be used for reactor monitoring operations. In addition, the FPGA boards allow for determining the summed energy above each of these thresholds and the number of bars hit above each of these thresholds. The lower threshold chosen was 2.5\,PE (0.1\,MeV) as this is the lowest threshold willing to be entertained to mitigate dark noise. The upper threshold chosen was 12.5\,PE (0.5\,MeV) as going higher than this risks excluding too many hits from the Gd cascade. The four potential variables are shown in figure \ref{fig:preTriggerData}. Of the four variables shown in figure \ref{fig:preTriggerData} only the number of bars hit above 2.5\,PE (figure \ref{subFig:preTrigNba2.5}) clearly separates between neutrons and potential background. This particular problem is best solved by machine learning classification. This is where an algorithm is given a data set and corresponding set of keys as to which is signal and which is noise, then based on the previous data is able to predict whether a future data point is signal or noise.
 \begin{figure}[!h]
 \centering
 \begin{subfigure}{.49\textwidth}
@@ -80,7 +80,7 @@ When simulating electrons and positrons with 0\,MeV -- 10\,MeV kinetic energy, t
 \end{figure}
 
 %As a result a manual attempt using all hits above 4 bars or summed energies below the line $E^{12.5\,\textrm{PE}}_\textrm{Summed} \leq E^{2.5\,\textrm{PE}}_\textrm{Summed} - 12.5\,PE$ The selection went as required either >= 4 bars must be hit \textbf{or} $E^{12.5\,\textrm{PE}}_\textrm{Summed} \leq E^{2.5\,\textrm{PE}}_\textrm{Summed} - 12.5\,PE$. 
-A manual attempt to separate the data using two selection criteria (``cuts'') was attempted described by equation \ref{equ:manualCuts}. 
+But first a manual attempt to separate the data using two selection criteria (``cuts'') was attempted as described by equation \ref{equ:manualCuts}. This was to gauge where the minimum expected performance of a machine learning classifier should be.  
 \begin{equation}
     \textrm{Bars}^{2.5\,\textrm{PE}}_\textrm{Number Hit} \geq 4 ~~\textbf{or}~~ \textrm{Energy}^{12.5\,\textrm{PE}}_\textrm{Summed} \leq \textrm{Energy}^{2.5\,\textrm{PE}}_\textrm{Summed} - 12.5\,\textrm{PE}. 
     \label{equ:manualCuts}
@@ -214,7 +214,7 @@ Once C and $\gamma$ have been chosen, a basic form of dimensional reduction was 
 \end{figure}
 
 The chosen classifier is seen in figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6}, which as figure \ref{fig:GammaCGridSearchNeutron} indicates is a linear classifier with minimal overlap between the signal and noise. In figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6} anything to the left of the line is considered a noise event and anything to the right of the line is considered a neutron event. The effect of these selection criteria can be seen in figure \ref{fig:summedEnergyPastTriggerGdDicebox} which shows the summed energy that passing the emulated trigger. The amount of summed energy passing the emulated trigger is overwhelmingly dominated by the 8\,MeV gamma-ray cascade from the neutron absorption. The only background events passing the emulated trigger are the electrons with high generated kinetic energies (above 4\,MeV) as seen in figure \ref{fig:GeneratedEnergyPastTriggerGdDicebox} but they are unlikely to be present when in sufficient quantities when the detector is deployed. 
-\\\\These results show two points. The first is that the RBF SVM is significantly more capable than required for separating the trigger data. The second is that the VIDARR trigger should be very effective at distinguishing the gamma-ray cascade from background expected at reactor sites. This is highly encouraging as it indicates that VIDARR's segmentation and technology are well suited to resolving the trigger signal from noise. It is possible that smaller segmentation would yield better results but considering the high simulated efficiency (75.3\,\%) it is unlikely to improve significantly. As a result, it can be concluded that VIDARR's segmentation and sensors are in a ``sweet spot'' where the signal is easy to separate whilst retaining relevant information. This conclusion will also be reinforced by the cosmic muon tomography results in chapter \ref{chp:cosmicMuonTomography}. A comparison of the manual selection and the SVM selection can be seen in table \ref{tab:svmSelection}, where the improvements the SVM makes to the efficiency are large ($> 15\,\%$) and the hit to purity is low ($< 4\,\%$) whilst using one fewer dimension. This justifies the use of the SVM machine learning technique as it has highlighted the optimal separation very efficiently. It is also possible to retrain the SVM within a short period of time ($<$ 3 hours) when the upgrade to the detector is finished and calibration data is taken.  
+\\\\These results show two points. The first is that the RBF SVM is significantly more capable than required for separating the trigger data. Thus indicating that other less advanced classifiers may also be suitable for separating the trigger data (such as the non-kernel SVM, KNN, and DT). The second is that the VIDARR trigger should be very effective at distinguishing the gamma-ray cascade from background expected at reactor sites. This is highly encouraging as it indicates that VIDARR's segmentation and technology are well suited to resolving the trigger signal from noise. It is possible that smaller segmentation would yield better results but considering the high simulated efficiency (75.3\,\%) it is unlikely to improve significantly. As a result, it can be concluded that VIDARR's segmentation and sensors are in a ``sweet spot'' where the signal is easy to separate whilst retaining relevant information. This conclusion will also be reinforced by the cosmic muon tomography results in chapter \ref{chp:cosmicMuonTomography}. A comparison of the manual selection and the SVM selection can be seen in table \ref{tab:svmSelection}, where the improvements the SVM makes to the efficiency are large ($> 15\,\%$) and the hit to purity is low ($< 4\,\%$) whilst using one fewer dimension. This justifies the use of the SVM machine learning technique as it has highlighted the optimal separation very efficiently. It is also possible to retrain the SVM within a short period of time ($<$ 3 hours) when the upgrade to the detector is finished and calibration data is taken.  
 
 \begin{figure}[!h]
 \centering
@@ -240,16 +240,16 @@ The chosen classifier is seen in figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g
 \centering
 \begin{minipage}{.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/summedEnergyPastTriggerGdDiceboxMedText.png}
-  \captionof{figure}[Summed energy of neutron events that survive above the emulated trigger.]{The summed energy of the neutron events that survive above the emulated trigger. The simulated neutron trigger shown in figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6}. Efficiency = 75.3\,\% and purity = 91.7\,\%. Both are determined from a background of 4 million noise events and 1 million signal (neutron) events. \hl{log version}} 
+  \includegraphics[width=\linewidth]{Chapter4.5/Figs/summedEnergyPastTrigLogAdjust.png}
+  \captionof{figure}[Summed energy of neutron events that survive above the emulated trigger.]{The summed energy of the neutron events that survive above the emulated trigger. The simulated neutron trigger shown in figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6}. Efficiency = 75.3\,\% and purity = 91.7\,\%. Both are determined from a background of 4 million noise events and 1 million signal (neutron) events.} 
   \label{fig:summedEnergyPastTriggerGdDicebox}
-    \vspace{0.956cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
+    \vspace{1.434cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
 \end{minipage}%
 \qquad
 \begin{minipage}{.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/GeneratedEnergyPastTriggerGdDiceboxMedText.png}
-  \captionof{figure}[Generated kinetic energy for particles which make it above the emulated neutron trigger.]{The generated kinetic energy for particles which make it above the simulated neutron trigger. The only particles of concern are electrons that produce high enough energy to hit many bars and produce showers. Background electrons with energies > $\sim$4\,MeV are unlikely to be prevalent during deployment. Simulated neutron kinetic energies were 0.025\,eV. The 0$^\textrm{th}$ neutron bin goes up to $\sim 7.5 \times 10^5$. \hl{log version}}
+  \includegraphics[width=\linewidth]{Chapter4.5/Figs/kineticEnergyPastTrigLogAdjust.png}
+  \captionof{figure}[Generated kinetic energy for particles which make it above the emulated neutron trigger.]{The generated kinetic energy for particles which make it above the simulated neutron trigger. The only particles of concern are electrons that produce high enough energy to hit many bars and produce showers. Background electrons with energies > $\sim$4\,MeV are unlikely to be prevalent during deployment. Simulated neutron kinetic energies were 0.025\,eV. The 0$^\textrm{th}$ neutron bin goes up to $\sim 7.5 \times 10^5$.}
   \label{fig:GeneratedEnergyPastTriggerGdDicebox}
 \end{minipage}
 \end{figure}
@@ -269,7 +269,73 @@ SVM (Optimal)      & 2                & 78.6             & 94.8         \\
 \label{tab:svmSelection}
 \end{table*}
 
-Finally, we can double check that the SVM boundary is sensible. In figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6} the SVM determines the events which are noise by excluding the events which have NBATh$_{12.5}\leq 6$ (low energy hits) and NBATh$_{2.5} \leq 5$ bar hits (small events). This is as expected as the DANCE-final state hybrid model has a greater chance of producing a cascade with high multiplicity (a large event) or low multiplicity with higher energy gamma-ray, (high energy hits). The loss in efficiency is therefore not concerning as low energy small events are atypical of the Gd cascade and will always be difficult to distinguish from noise. Fortunately the highly penetrating nature of the cascade gamma-rays means that even if the neutron is absorbed at the edge of the detector a large number of bars will be hit as the cascade will often extend to the edge of the detector. \hl{use different algorithms}
+Finally, we can double check that the SVM boundary is sensible. In figure \ref{fig:signalAndNoiseNeutronSVM_C1e6_g1e-6} the SVM determines the events which are noise by excluding the events which have NBATh$_{12.5}\leq 6$ (low energy hits) and NBATh$_{2.5} \leq 5$ bar hits (small events). This is as expected as the DANCE-final state hybrid model has a greater chance of producing a cascade with high multiplicity (a large event) or low multiplicity with higher energy gamma-ray, (high energy hits). The loss in efficiency is therefore not concerning as low energy small events are atypical of the Gd cascade and will always be difficult to distinguish from noise. Fortunately the highly penetrating nature of the cascade gamma-rays means that even if the neutron is absorbed at the edge of the detector a large number of bars will be hit as the cascade will often extend to the edge of the detector. 
+\\\\However, whilst the RBF SVM has proven to be effective at separating the Gd cascade from noise it's prudent to test other algorithms and compare their responses. A good way to do this is to compare their receiver operating characteristic (ROC) curves. This is specifically designed to compare the false positive rate to the true positive rate as the conditions change. In figure \ref{fig:rocCurvesKnnBdtSvm} the ROC curves for KNN (a,b), AdaBoosted DT (BDT) (c,d), linear SVM (e,f), RBF SVM (g,h) are all listed with a, c, e, g showing the optimum combination (NBATh$_{2.5}$, SEATh$_{2.5}$) and b, d, f, h showing bars only (NBATh$_{2.5}$, NBATh$_{12.5}$). All of these algorithm perform very well and have high accuracies, although the bars only KNN (figure \ref{subFig:knnBarsOnlyRoc}) seems to struggle its accuracy is still within 0.6\,\% of the other classifiers. The strong performance of each classifier can be seen in the incredible steepness of each ROC curve. This indicates that each classifier is able to separate the majority of true positives from false positives very well. However, the sudden shallowness of each ROC curve indicates that there is a small portion of the data with significant overlap between signal and noise. These results corroborate the C and $\gamma$ grid search (figure \ref{fig:GammaCGridSearchNeutron}). It can be concluded that any of the four machine learning classifiers would have been sufficient at separating the trigger data. Despite this training the RBF SVM classifier was still useful as much information was gained through observing its C and $\gamma$ grid search (i.e a small overlap in trigger data \& large degree of linearity in the trigger data). Also, as the SVM is convexly optimised (only 1 minimum) it is certain that the classifier has not optimised for a local minimum and has found an accurate, generalised solution. 
+\begin{figure}[!h]
+\centering
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4.5/Figs/knnOptimumRoc.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:knnOptimumRoc}
+\end{subfigure}%
+\qquad
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4.5/Figs/knnBarsOnlyRoc.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:knnBarsOnlyRoc}
+\end{subfigure}
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4.5/Figs/bdtOptimumRoc.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:bdtOptimumRoc}
+\end{subfigure}
+\qquad
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4.5/Figs/bdtBarsOnlyRoc.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:bdtBarsOnlyRoc}
+\end{subfigure}
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4.5/Figs/linSvmOptimumRoc.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:linSvmOptimumRoc}
+\end{subfigure}
+\qquad
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4.5/Figs/linSvmBarsOnlyRoc.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:}
+\end{subfigure}
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4.5/Figs/rbfSvmOptimumRoc.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:linSvmBarsOnlyRoc}
+\end{subfigure}
+\qquad
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4.5/Figs/rbfSvmBarsOnlyRoc.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:rbfSvmBarsOnlyRoc}
+\end{subfigure}
+\caption[ROC curves for KNN, AdaBoosted DT (BDT), linear SVM, and RBF SVM on optimum and bars only trigger data.]{ROC curves for KNN, AdaBoosted DT (BDT), linear SVM, and RBF SVM on optimum and bars only trigger data, labelled accordingly. The KNN appears to be the weakest classifier whilst the BDT, Linear SVM and RBF SVM agree strongly with each other. The classifier with the highest accuracy is the RBF SVM optimum, but each classifier separates the data well as its 2d largely linearly separable data.}
+\label{fig:rocCurvesKnnBdtSvm}
+\end{figure}
 
 \clearpage
 \section{Modelling Muons}
