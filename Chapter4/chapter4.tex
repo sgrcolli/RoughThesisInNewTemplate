@@ -26,24 +26,53 @@ The VIDARR detector is simulated using the GEANT4 toolkit, which is a prominent 
   \includegraphics[width=\linewidth]{Chapter4/Figs/simulatedIbdG4.png}
   \captionof{figure}[Simulated inverse beta decay event of VIDARR in GEANT4.]{A simulated inverse beta decay event in GEANT4 in the upgraded VIDARR detector with 70 layers and shielding around the outside of the detector. The delayed components are shown in blue and the prompt components are shown in red. The delayed component hits more bars than the prompt component.} 
   \label{fig:simultaedIbdEvent}
+  \vspace{0.478cm} %1 line = 0.478cm % 2 lines = 0.956cm % 3 lines= 1.434cm % 4 lines = 1.912cm % 5 lines = 2.39cm
 \end{minipage}%
 \qquad
 \begin{minipage}{.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Chapter4/Figs/neutron10KeVAbsoptionTimesMedText.png} 
-  \captionof{figure}[Time taken for neutron IBD to thermalise.]{The time taken for the neutron from the simulated electron anti-neutrino inverse beta decay event to be thermalised and be absorbed by the Gadolinium sheets in the simulated VIDARR detector. Assuming a kinetic energy of 10\,keV. Over 99\,\%, of neutrons are absorbed in 50 $\mu$s, but a tail extends up to $\sim$ 1000 $\mu$s.}
+  \captionof{figure}[Time taken for neutron IBD to thermalise.]{The time taken for the neutron from the simulated electron anti-neutrino inverse beta decay event to be thermalised and be absorbed by the Gadolinium sheets in the simulated VIDARR detector. Assuming a kinetic energy of 10\,keV. Over 99\,\%, of neutrons are absorbed in 50 $\mu$s, but a tail extends up to $\sim$~1000\,$\mu$s.}
   \label{fig:delayedIbdTimes}
 \end{minipage}
 \end{figure}
 
 \section{Modelling Light Emission}\label{sec:GEANT4Simulation_ModellingLightEmission}
 % In order to measure light for a given amount of scintillating material, we need to consider several factors. For organic scintillators, the type of particle has a significant effect on the absolute light yield. 
-The light output of organic scintillators such as the PPO/POPOP \hl{plot reference ppo/popop how they overlap} combination used in the VIDARR scintillating bars rely on the light emission of the scintillator molecules following excitation by ionising particles and the absorption and emission of the light by a fluor. The fluor wavelength shifts the scintillation light so that the light is not reabsorbed by the scintillator and may be guided to an external photo-sensor. The concentration of scintillator and fluors in the medium limit the amount of scintillation light produced and wavelength shifted (though with diminishing returns), with high density ionisation regions producing proportionally less detectable light than low ionisation density regions leading to changing responses for ionising radiations with different ionisation densities. The response of organic scintillators to charged particles can best be described by a relation between $dL/dx$ the fluorescent energy emitted per unit path length and $dE/dx$ the specific energy loss for the charged particle. A widely used relation was first suggested by John Birks \cite{birks_1964} and is based on the assumption that a high ionisation density along the track of the particle creates ``damaged'' particles which dissipate ionisation energy non-radiatively, quenching the light output. These “damaged” molecules occupy highly ionised or excited states, they de-excite quickly $\mathcal{O}$(ns) to the “undamaged” condition \cite{knoll_2010}. Some permanent damage will occur and does contribute to long term degradation of the scintillator but this is not relevant for quenching \cite{knoll_2010}. Assuming that the density of damaged molecules along the wake of the particle is directly proportional to the ionisation density, their density may be represented by $B(dE/dx)$ where $B$ is a proportionality constant. Birks assumes that some fraction $k$ of these will lead to quenching \cite{craun_1970}. A further assumption is that in absence of quenching the light yield is proportional to energy loss shown in equation \ref{equ:light_yield_proportional}.
+% The light output of organic scintillators such as the PPO/POPOP \hl{plot reference ppo/popop how they overlap} combination used in the VIDARR scintillating bars rely on the light emission of the scintillator molecules following excitation by ionising particles and the absorption and emission of the light by a fluor. 
+VIDARR relies on the FNAL/NICADD\footnote{FNAL is the Fermilab National Accelerator Laboratory and NICADD is the Northern Illinois Centre for Accelerator and Detector Development.} extruded organic scintillator which is predominantly a polystyrene base mixed with 1\,\%\,wt/wt PPO + 0.03\,\%\,wt/wt POPOP which are the fluors \cite{pla2003extruding}. The base scintillator is excited by an ionising particle which leave behind it a wake of excited molecules. These excited molecules transfer their energy to the primary fluor via the ``Forster energy transfter'' which is a dipole-dipole non-radioactive transfer of energy at $\sim$~100\,{\AA} \cite{Zyla_pdg_2020}. The primary flour (PPO in VIDARR) is typically doped at $\sim$~1\,\%\,wt/wt and emits radiation at $\sim$~340\,nm (PPO's emission is $\sim$~350\,nm see figure \ref{subFig:ppoPopopEmiss}). This radiation is then absorbed by the secondary fluor, (POPOP in VIDARR). Finally the secondary fluor emits a photon at the desired blue wavelength $\sim$~400\,nm (POPOP's emission is at $\sim$~410\,nm see figure \ref{subFig:ppoPopopEmiss}). A secondary fluor is used as it allows for further wavelength shifting thus giving an emission wavelength closer to the desired value and a longer attenuation length \cite{Zyla_pdg_2020}. In addition, the absorption spectrum of the secondary flour should have significant overlap with the emission spectrum of the primary flour. In figure \ref{subFig:ppoPopopAbsorb} the absorption spectrum of POPOP can be seen to range between 300\,nm~--~400\,nm which overlaps very well with the emission spectrum of PPO seen in figure \ref{subFig:ppoPopopEmiss}. There is some reabsorption by the PPO as seen in figure \ref{subFig:ppoPopopAbsorb} the PPO also absorbs photons between 300\,nm~--~400\,nm as a result both the PPO and POPOP emission spectra are produced by the scintillator (see figure \ref{subFig:ppoPopopEmiss}). This scintillation ``ladder'' is depicted in figure \ref{fig:scintillationLadder} and shows the order of the events and rough wavelengths for a generic scintillator. The fluors wavelength shift the scintillation light so that the light is not reabsorbed by the scintillator and may be guided to an external photo-sensor (reabsorption is undesirable as it shortens the attenuation length). The concentration of scintillator and fluors in the medium limit the amount of scintillation light produced and wavelength shifted (though with diminishing returns), with high density ionisation regions producing proportionally less detectable light than low ionisation density regions leading to changing responses for ionising radiations with different ionisation densities. The response of organic scintillators to charged particles can best be described by a relation between $dL/dx$ the fluorescent energy emitted per unit path length and $dE/dx$ the specific energy loss for the charged particle. A widely used relation was first suggested by John Birks \cite{birks_1964} and is based on the assumption that a high ionisation density along the track of the particle creates ``damaged'' particles which dissipate ionisation energy non-radiatively, quenching the light output. These “damaged” molecules occupy highly ionised or excited states, they de-excite quickly $\mathcal{O}$(ns) to the “undamaged” condition \cite{knoll_2010}. Some permanent damage will occur and does contribute to long term degradation of the scintillator but this is not relevant for quenching \cite{knoll_2010}. Assuming that the density of damaged molecules along the wake of the particle is directly proportional to the ionisation density, their density may be represented by $B(dE/dx)$ where $B$ is a proportionality constant. Birks assumes that some fraction $k$ of these will lead to quenching \cite{craun_1970}. A further assumption is that in absence of quenching the light yield is proportional to energy loss shown in equation \ref{equ:light_yield_proportional}.
 \begin{equation}
 \frac{dL}{dx} = S\frac{dE}{dx}
 \label{equ:light_yield_proportional}
 \end{equation}
 In equation \ref{equ:light_yield_proportional} $S$ is the scintillation efficiency \cite{birks_1964}. The light yield of a scintillator including the quenching from damaged molecules is expressed by Birks' law (equation \ref{equ:Birks_formula}), giving the light output as a function of the energy deposition per unit length, the quenching factor $kB$ and the efficiency of the scintillator $S$. $B$ is the ratio of damaged/undamaged molecules along the particle path, and $k$ is the relative probability of quenching, although these constants are not separably measurable. The value of $kB$ is constant for a given scintillator material as is known as Birks' constant. For low ionising particles, Birks' law becomes linear at low energies. For electrons the response is linear above $\sim$ 125\,keV, \cite{craun_1970}. As Birks' law (equation \ref{equ:Birks_formula}) is linear for fast electrons \cite{knoll_2010} quenching may not be sufficient for modelling fast electrons, other effects such as scattering and straggling may have more effect on the light curve as will be expanded upon in section \ref{sec:GEANT4Simulation_quenchingLoss}. 
+\begin{figure}[!h]
+\centering
+\begin{subfigure}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/ppo_popop_absorption_graph_adjust.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:ppoPopopAbsorb}
+\end{subfigure}%
+\qquad
+\begin{subfigure}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter4/Figs/ppo_popop_emission_graph_adjust.png}
+  \captionsetup{width=.9\linewidth}
+  \caption{}
+  \label{subFig:ppoPopopEmiss}
+\end{subfigure}
+\caption[Absorption and emission spectra for PPO and POPOP.]{Absorption spectra (a) and emission spectra (b) for PPO and POPOP. These are the two fluors in the scintillator used in VIDARR. The fluors absorb wavelengths between 200\,nm to 400\,nm  (see a) and emit wavelengths between 300\,nm to 500\,nm (see b). The spectra were taken from \cite{omlcPPO} \cite{omlcPOPOP} which used the photochemCAD packages \cite{du98photochemcad} \cite{dixon2005photochemcad}. }
+\label{fig:ppoPopopAbsorbEmiss}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.5\linewidth]{Chapter4/Figs/SmartSelect_20220902-153757_Noteshelf.jpg}
+  \caption[Cartoon of scintillation ``ladder'' depicting the operating mechanism of organic scintillator.]{Cartoon of scintillation ``ladder'' depicting the operating mechanism of organic scintillator. Approximate flour concentrations and energy transfer distance from the separate subprocesses are shown from \cite{Zyla_pdg_2020}. Note for VIDARR the primary fluor concentration is 1\,\%\,wt/wt and 0.03\,\%\,wt/wt for the secondary fluor.}
+  \label{fig:scintillationLadder}
+\end{figure}
 
 %the track of the particle leads to quenching from damaged molecules and a lowering of  scintillation efficiency. If we assume that the density of damaged molecules along the wake of the particle is directly proportional to the ionisation density we can represent their density by $B(dE/dx)$ where $B$ is a proportionality constant. Birks assumes that some fraction $k$ of these will lead to quenching\cite{knoll_2010}. A further assumption is that in absence of quenching the light yield is proportional to energy loss shown in equation \ref{equ:light_yield_proportional}. In equation \ref{equ:light_yield_proportional} $S$ is the normal scintillation efficiency \cite{birks_1964}. To account for the probability of quenching Birks then writes equation \ref{equ:Birks_formula}. Equation \ref{equ:Birks_formula} is commonly referred to as the Birks formula. The product $kB$ in equation \ref{equ:Birks_formula} is treated as an adjustable parameter to fit experimental data for a specific scintillator. Whereas $S$ in equation \ref{equ:Birks_formula} is particle specific and provides absolute normalisation \cite{knoll_2010}.  
 \begin{equation}
@@ -288,19 +317,19 @@ Due to the high charge to mass ratio of electrons and positrons ($\sim 2000$ tim
 \centering
 \begin{subfigure}{.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/quenchingNormalComparison.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/particleQuenchingComparisonRedo.png}
   \captionsetup{width=.9\linewidth}
   \caption{}
   \label{subFig:proton_quenched_and_not}
 \end{subfigure}%
 \begin{subfigure}{.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/quenchingAntiComparison.png}
+  \includegraphics[width=\linewidth]{Chapter4/Figs/Raster/aParticleQuenchingComparisonRedo.png}
   \captionsetup{width=.9\linewidth}
   \caption{}
   \label{subFig:Aproton_quenched_and_not}
 \end{subfigure}
-\caption[Particle and anti-particle visible energy in a slab of scintillator.]{Particles (a) and anti-particles (b) visible energy with and without quenching in a ``slab'' of material (see figure \ref{fig:electrons_viewed_in_slab}). The effect of quenching scales with the mass of the simulated particles \hl{pink to different colour}}
+\caption[Particle and anti-particle visible energy in a slab of scintillator.]{Particles (a) and anti-particles (b) visible energy with and without quenching in a ``slab'' of material (see figure \ref{fig:electrons_viewed_in_slab}). The effect of quenching scales with the mass of the simulated particles.}
 \label{fig:proton_Apronton_quenched_and_not}
 \end{figure}
 
@@ -355,6 +384,8 @@ where $C$ and $\lambda$ may be determined empirically.
  \captionof{figure}[Attenuation plot from a single bar test stand.]{The attenuation plot from the single bar test stand produced by George Holt. The attenuation length (amount of bar traversed to lose $\sim$ 63\,\%  of light, $\lambda$ in equations \ref{equ:nPeScint} and \ref{equ:nPeScint2}) is 580 $\pm$ 60\,PE/cm. The initial intensity is 13.1 $\pm$ 0.2\,PE. $\chi^2$/NDF = 1.22.} 
  \label{fig:attenuationPlot}
 \end{figure}
+
+The data from the test stand was gathered by George Holt in January of 2019 from an old T2K bar. These bars comprise the bottom 49 layers of the VIDARR detector and were the entirety of the prototype. As such, the ageing of the scintillator bars up to January 2019 is already considered by the simulation. The T2K collaboration has performed a study on scintillator ageing which has the same characteristics a the VIDARR scintillator (1\%~PPO + 0.3\,\%~POPOP polystyrene scintillator). The light yield was found to degrade by 1.2--2.2\,\% \cite{t2k_scintillatorAging2022}, which was consistent with the MINOS collaboration's result of $\sim$~2\,\% \cite{t2k_scintillatorAging2022} \cite{minosAging2008}\footnote{It is noted that the MINER$\nu$A found a 7.5\,\% drop in light yield per annum, but this result is currently considered inconsistent with the MINOS and T2K results\cite{t2k_scintillatorAging2022} }. This means that the PE values stated further on in this thesis maybe 4.2\,\%--7.7\,\% lower than when the detector is first commissioned. However, the top 21 layers of the VIDARR detector will produce $\sim$~7.8--14.3\,\% more light than simulated (assuming the T2K bars were produced in 2009). A light yield decrease of 4.2\,\%--7.7\,\% will not majorly effect the threshold for the work later presented here. Although, once the VIDARR detector is commissioned cosmic muon data will be used to calibrate each channel individually. 
 
 \subsection{Modelling MPPC Response}\label{sec:GEANT4Simulation_ModellingDarkNoise}
 Upon generation of a photo-electron in a pixel of a MPPC, a fast pulse of $\sim 3 \times 10^6$ Geiger avalanche electrons are produced. Additionally, each pixel may after-pulse, triggering another avalanche  whilst recovering
